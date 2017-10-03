@@ -64,9 +64,10 @@ GetVar<-function(Toy1000){
 #################################################### Main ##################################################
 
 set.seed(2017)
-data<-MergeToyFile(1000,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
+data<-MergeToyFile(2000,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
 
 RawToy<-data$x
+RawToy<-RawToy[complete.cases(RawToy),]
 RawToy<-RawToy[RawToy$Gene_Symbol!="",]
 RawToy<-RawToy[!duplicated(RawToy[,2]),]
 
@@ -88,11 +89,11 @@ ToyVar10<-tail(Toy1000[ordered(Toy1000$VAR),],n=as.integer(total*0.1))
 ToyVar20<-tail(Toy1000[ordered(Toy1000$VAR),],n=as.integer(total*0.2))
 ToyVar30<-tail(Toy1000[ordered(Toy1000$VAR),],n=as.integer(total*0.3))
 
-write.csv(Toy1000,"Toy1000.csv",row.names = FALSE)
-write.csv(ToyVar1,"ToyVar1.csv",row.names = FALSE)
-write.csv(ToyVar2,"ToyVar2.csv",row.names = FALSE)
-write.csv(ToyVar5,"ToyVar5.csv",row.names = FALSE)
-write.csv(ToyVar10,"ToyVar10.csv",row.names = FALSE)
-write.csv(ToyVar20,"ToyVar20.csv",row.names = FALSE)
-write.csv(ToyVar30,"ToyVar30.csv",row.names = FALSE)
+write.csv(Toy1000,"DNNToy2000.csv",row.names = FALSE)
+write.csv(ToyVar1,"DNNToyVar1.csv",row.names = FALSE)
+write.csv(ToyVar2,"DNNToyVar2.csv",row.names = FALSE)
+write.csv(ToyVar5,"DNNToyVar5.csv",row.names = FALSE)
+write.csv(ToyVar10,"DNNToyVar10.csv",row.names = FALSE)
+write.csv(ToyVar20,"DNNToyVar20.csv",row.names = FALSE)
+write.csv(ToyVar30,"DNNToyVar30.csv",row.names = FALSE)
 write.csv(CancerResult,"CancerResult.csv",row.names = FALSE)

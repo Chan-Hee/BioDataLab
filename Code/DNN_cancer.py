@@ -3,22 +3,15 @@ import numpy as np
 
 tf.set_random_seed(777)  # reproducibility
 
-train_x = np.genfromtxt("/Users/chanhee/Google Drive/RA/DATA/DNNData/ToyVar10.csv", delimiter=",")
-train_y = np.genfromtxt("/Users/chanhee/Google Drive/RA/DATA/DNNData/CancerResult.csv", delimiter=",")
+train_x = np.genfromtxt("/Users/chanhee/Google Drive/RA/DATA/DNNData/DNNToyVar1.csv", delimiter="," , usecols=range(0, 2007))
+
+train_y = np.genfromtxt("/Users/chanhee/Google Drive/RA/DATA/DNNData/CancerResult.csv", delimiter=",", )
 
 
 train_x = train_x[1:, 3:-1]  # eliminate heading, string data, variance
 train_y = train_y[1:, 1:]    # eliminate heading, string data
 train_x = train_x.transpose()
 
-test_x = np.genfromtxt('/Users/chanhee/Google Drive/RA/DATA/TestData/Test1Var10.csv', delimiter=",",usecols=range(0,1010))
-
-test_y = np.genfromtxt('/Users/chanhee/Google Drive/RA/DATA/TestData/Test1CancerResult.csv', delimiter=",")
-
-
-test_x = test_x[1:, 3:-1]  # eliminate heading, string data, variance
-test_y = test_y[1:, 1:]    # eliminate heading, string data
-test_x = test_x.transpose()
 
 cnt_train = len(train_x[1, :])
 
@@ -67,9 +60,9 @@ with tf.Session() as sess:
     # Initialize TensorFlow variables
     sess.run(tf.global_variables_initializer())
 
-    for step in range(5000):
+    for step in range(1000):
         sess.run(train, feed_dict={X: train_x, Y: train_y})
-        if step % 1000 == 0:
+        if step % 100 == 0:
             print(step, sess.run(cost, feed_dict={
                   X: train_x, Y: train_y}))
 
@@ -77,6 +70,6 @@ with tf.Session() as sess:
     h, c, a = sess.run([hypothesis, predicted, accuracy],
                        feed_dict={X: train_x, Y: train_y})
     print("\nHypothesis: ", h, "\nCorrect: ", c, "\nAccuracy: ", a)
-    print("TestAccuracy: ", sess.run(accuracy, feed_dict={X: test_x, Y: test_y}))
+
     
 

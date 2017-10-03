@@ -73,9 +73,10 @@ ConvertToCNN<-function(df){
 #################################################### Main ##################################################
 
 set.seed(2017)
-data<-MergeToyFile(1000,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
+data<-MergeToyFile(2000,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
 
 RawToy<-data$x
+RawToy<-RawToy[complete.cases(RawToy),]
 RawToy<-RawToy[RawToy$Gene_Symbol!="",]
 RawToy<-RawToy[!duplicated(RawToy[,2]),]
 
@@ -103,7 +104,7 @@ ToyVar20<-tail(Toy1000[ordered(Toy1000$VAR),],n=as.integer(total*0.2))
 CNNToyVar20<-ConvertToCNN(ToyVar20)
 ToyVar30<-tail(Toy1000[ordered(Toy1000$VAR),],n=as.integer(total*0.3))
 CNNToyVar30<-ConvertToCNN(ToyVar30)
-write.csv(CNNToy1000,"CNNToy1000.csv",row.names = FALSE)
+write.csv(CNNToy1000,"CNNToy2000.csv",row.names = FALSE)
 write.csv(CNNToyVar1,"CNNToyVar1.csv",row.names = FALSE)
 write.csv(CNNToyVar2,"CNNToyVar2.csv",row.names = FALSE)
 write.csv(CNNToyVar5,"CNNToyVar5.csv",row.names = FALSE)
