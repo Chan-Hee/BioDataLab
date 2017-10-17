@@ -76,9 +76,9 @@ GetVar<-function(Toy1000){
 }
 
 #################################################### Main ##################################################
-
+setwd("/home/tjahn/Data/")
 set.seed(2017)
-data<-MergeToyFile(100,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
+data<-MergeToyFile(10000,"/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
 
 RawToy<-data$x
 RawToy<-RawToy[RawToy$Gene_Symbol!="",]
