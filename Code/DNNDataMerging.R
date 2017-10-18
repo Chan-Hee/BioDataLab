@@ -7,6 +7,7 @@ SelectFile<-function(filenames){
   
 }
 
+
 MergeUntil<-function(filenames,n){
   
   
@@ -16,7 +17,7 @@ MergeUntil<-function(filenames,n){
   cancer<-data.frame(GSM_NUMBER=GSM,CANCER=diagnose)
   i=2
   
-  while(ncol(data)<=n+3){
+  while(ncol(data)<=n+3 | filenames[i]=="NA"){
     
     Ndata<-read.table(filenames[i],header=TRUE)
     
@@ -36,6 +37,11 @@ MergeUntil<-function(filenames,n){
     #drop sample which contains at least one NA
     data = data[ , colSums(is.na(data)) == 0]
     
+    #drop samples in CancerResult also
+    index = colSums(is.na(data))==0
+    index = index[c(-1,-2,-3)]
+    cancer=cancer[index,]
+    
     
   }
   
@@ -43,7 +49,6 @@ MergeUntil<-function(filenames,n){
   
   return(list(x=data,y=cancer))
 }
-
 
 MergeToyFile<-function(n,mypath){
   
