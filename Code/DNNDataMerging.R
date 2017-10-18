@@ -34,7 +34,7 @@ MergeUntil<-function(filenames,n){
     
     i=i+1
     #drop sample which contains at least one NA
-    data[ , colSums(is.na(data)) == 0]
+    data = data[ , colSums(is.na(data)) == 0]
     
     
   }
@@ -43,7 +43,6 @@ MergeUntil<-function(filenames,n){
   
   return(list(x=data,y=cancer))
 }
-
 
 
 MergeToyFile<-function(n,mypath){
