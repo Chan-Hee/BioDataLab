@@ -35,12 +35,12 @@ MergeUntil<-function(filenames,n){
     
     i=i+1
     #drop sample which contains at least one NA
+  
     data = data[ , colSums(is.na(data)) == 0]
     
     #drop samples in CancerResult also
-    index = colSums(is.na(data))==0
-    index = index[c(-1,-2,-3)]
-    cancer=cancer[index,]
+    patients<-colnames(data)[4:length(data)]
+    cancer=cancer[patients,]
     
     
   }
@@ -48,7 +48,7 @@ MergeUntil<-function(filenames,n){
   print( c(n, " : " , sum(is.na(data)) ) )
   
   return(list(x=data,y=cancer))
-}
+}d
 
 MergeToyFile<-function(n,mypath){
   
