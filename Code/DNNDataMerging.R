@@ -52,7 +52,7 @@ MergeUntil<-function(filenames,n){
   print( c(n, " : " , sum(is.na(data)) ) )
   
   return(list(x=data,y=cancer))
-}d
+}
 
 MergeToyFile<-function(n,mypath){
   
