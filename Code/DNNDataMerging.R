@@ -36,11 +36,15 @@ MergeUntil<-function(filenames,n){
     i=i+1
     #drop sample which contains at least one NA
   
-    data = data[ , colSums(is.na(data)) == 0]
+    index = colSums(is.na(data)) == 0
+    end = length(data)
+    Rindex = index[4:end]
+    
+    data = data[ , index]
     
     #drop samples in CancerResult also
-    patients<-colnames(data)[4:length(data)]
-    cancer=cancer[patients,]
+    
+    cancer=cancer[Rindex,]
     
     
   }
