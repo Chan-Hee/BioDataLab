@@ -36,15 +36,15 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
 
     W1 = tf.Variable(tf.random_normal([cnt_train, nodes[0]]), name='weight1')
     b1 = tf.Variable(tf.random_normal([nodes[0]]), name='bias1')
-    layer1 = tf.nn.relu(tf.matmul(X, W1) + b1)
+    layer1 = tf.sigmoid(tf.matmul(X, W1) + b1)
 
     W2 = tf.Variable(tf.random_normal([nodes[0], nodes[1]]), name='weight2')
     b2 = tf.Variable(tf.random_normal([nodes[1]]), name='bias2')
-    layer2 = tf.nn.relu(tf.matmul(layer1, W2) + b2)
+    layer2 = tf.sigmoid(tf.matmul(layer1, W2) + b2)
 
     W3 = tf.Variable(tf.random_normal([nodes[1], nodes[2]]), name='weight3')
     b3 = tf.Variable(tf.random_normal([nodes[2]]), name='bias3')
-    layer3 = tf.nn.relu(tf.matmul(layer2, W3) + b3)
+    layer3 = tf.sigmoid(tf.matmul(layer2, W3) + b3)
 
     W4 = tf.Variable(tf.random_normal([nodes[2], 1]), name='weight4')
     b4 = tf.Variable(tf.random_normal([1]), name='bias4')
@@ -52,7 +52,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
 
     # cost/loss function
     cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
-    train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
+    train = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minimize(cost)
 
     # Accuracy computation
     # True if hypothesis>0.5 else False
@@ -85,19 +85,19 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
     W1 = tf.Variable(tf.random_normal([cnt_train, nodes[0]]), name='weight1')
     b1 = tf.Variable(tf.random_normal([nodes[0]]), name='bias1')
-    layer1 = tf.nn.relu(tf.matmul(X, W1) + b1)
+    layer1 = tf.sigmoid(tf.matmul(X, W1) + b1)
 
     W2 = tf.Variable(tf.random_normal([nodes[0], nodes[1]]), name='weight2')
     b2 = tf.Variable(tf.random_normal([nodes[1]]), name='bias2')
-    layer2 = tf.nn.relu(tf.matmul(layer1, W2) + b2)
+    layer2 = tf.sigmoid(tf.matmul(layer1, W2) + b2)
 
     W3 = tf.Variable(tf.random_normal([nodes[1], nodes[2]]), name='weight3')
     b3 = tf.Variable(tf.random_normal([nodes[2]]), name='bias3')
-    layer3 = tf.nn.relu(tf.matmul(layer2, W3) + b3)
+    layer3 = tf.sigmoid(tf.matmul(layer2, W3) + b3)
 
     W4 = tf.Variable(tf.random_normal([nodes[2], nodes[3]]), name='weight4')
     b4 = tf.Variable(tf.random_normal([nodes[3]]), name='bias4')
-    layer4 = tf.nn.relu(tf.matmul(layer3, W4) + b4)
+    layer4 = tf.sigmoid(tf.matmul(layer3, W4) + b4)
 
     W5 = tf.Variable(tf.random_normal([nodes[3], 1]), name='weight5')
     b5 = tf.Variable(tf.random_normal([1]), name='bias5')
@@ -105,7 +105,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
     # cost/loss function
     cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
-    train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
+    train = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minimize(cost)
 
     # Accuracy computation
     # True if hypothesis>0.5 else False
