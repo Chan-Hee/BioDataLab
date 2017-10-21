@@ -71,7 +71,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
                 print("\nTrain Accuracy: ", train_a)
             if step % 2000 == 0 : 
                 h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
-                print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
+                print("\nCurrent Accuracy : ", train_a , "hypothesis : ",tf.log(1-h) , "Current Step : ", step)
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
         print("\nTest Accuracy: ", test_a)
@@ -124,7 +124,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
                 print("\nTrain Accuracy: ", train_a)
             if step % 2000 == 0 : 
                 h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
-                print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
+                print("\nCurrent Accuracy : ", train_a , "hypothesis : ",tf.log(1-h) , "Current Step : ", step)
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
         print("\nTest Accuracy: ", test_a)
