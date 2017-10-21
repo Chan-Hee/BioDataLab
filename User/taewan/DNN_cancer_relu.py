@@ -34,15 +34,15 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     X = tf.placeholder(tf.float32, [None, cnt_train])
     Y = tf.placeholder(tf.float32, [None, 1])
 
-    W1 = tf.Variable(tf.random_normal([cnt_train, nodes[0]]), name='weight1')
+    W1 = tf.Variable( shape = [cnt_train, nodes[0]], name='weight1', initializer=tf.contrib.layers.xavier_initializer())
     b1 = tf.Variable(tf.random_normal([nodes[0]]), name='bias1')
     layer1 = tf.nn.relu(tf.matmul(X, W1) + b1)
 
-    W2 = tf.Variable(tf.random_normal([nodes[0], nodes[1]]), name='weight2')
+    W2 = tf.Variable([nodes[0], nodes[1]], name='weight2' ,initializer=tf.contrib.layers.xavier_initializer())
     b2 = tf.Variable(tf.random_normal([nodes[1]]), name='bias2')
     layer2 = tf.nn.relu(tf.matmul(layer1, W2) + b2)
 
-    W3 = tf.Variable(tf.random_normal([nodes[1], nodes[2]]), name='weight3')
+    W3 = tf.Variable( [nodes[1], nodes[2]], name='weight3',initializer=tf.contrib.layers.xavier_initializer())
     b3 = tf.Variable(tf.random_normal([nodes[2]]), name='bias3')
     layer3 = tf.nn.relu(tf.matmul(layer2, W3) + b3)
 
@@ -71,7 +71,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
                 print("\nTrain Accuracy: ", train_a)
             if step % 2000 == 0 : 
                 h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
-                print("\nCurrent Accuracy : ", train_a , "hypothesis : ",tf.log(1-h) , "Current Step : ", step)
+                print("\nCurrent Accuracy : ", train_a , "hypothesis : ",h , "Current Step : ", step)
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
         print("\nTest Accuracy: ", test_a)
@@ -124,7 +124,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
                 print("\nTrain Accuracy: ", train_a)
             if step % 2000 == 0 : 
                 h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
-                print("\nCurrent Accuracy : ", train_a , "hypothesis : ",tf.log(1-h) , "Current Step : ", step)
+                print("\nCurrent Accuracy : ", train_a , "hypothesis : ",h , "Current Step : ", step)
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
         print("\nTest Accuracy: ", test_a)
