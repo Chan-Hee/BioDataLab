@@ -51,7 +51,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     hypothesis = tf.sigmoid(tf.matmul(layer3, W4) + b4)
 
     # cost/loss function
-    cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(hypothesis, Y))
+    cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
     
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
@@ -71,7 +71,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
                 print("\nTrain Accuracy: ", train_a)
             if step % 2000 == 0 : 
                 h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
-                print("\nCurrent Accuracy : ", train_a , "Cost : ",cost , "Current Step : ", step)
+                print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
         print("\nTest Accuracy: ", test_a)
@@ -105,7 +105,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     hypothesis = tf.sigmoid(tf.matmul(layer3, W4) + b4)
     
     # cost/loss function
-    cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(hypothesis, Y))
+    cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
     # Accuracy computation
@@ -124,7 +124,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
                 print("\nTrain Accuracy: ", train_a)
             if step % 2000 == 0 : 
                 h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
-                print("\nCurrent Accuracy : ", train_a , "Cost : ",cost , "Current Step : ", step)
+                print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
         print("\nTest Accuracy: ", test_a)
