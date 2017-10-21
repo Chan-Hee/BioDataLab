@@ -49,6 +49,8 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     W4 = tf.Variable(tf.random_normal([nodes[2], 1]), name='weight4',initializer=tf.contrib.layers.xavier_initializer())
     b4 = tf.Variable(tf.random_normal([1]), name='bias4')
     hypothesis = (tf.matmul(layer3, W4) + b4)
+    
+    hypothesis_sig = tf.sigmoid(tf.matmul(layer3, W4) + b4)
 
     # cost/loss function
     cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
@@ -69,8 +71,8 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y})
                 print("\nTrain Accuracy: ", train_a)
             if step % 2000 == 0 : 
-                h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
-                print("\nCurrent Accuracy : ", train_a , "hypothesis : ", h  , "sigmoidal hypothesis : ", tf.sigmoid(h) , "Current Step : ", step)
+                h, hs,c, p,train_a = sess.run([hypothesis, hypothesis_sig, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
+                print("\nCurrent Accuracy : ", train_a , "hypothesis : ", h  , "sigmoidal hypothesis : ", hs , "Current Step : ", step)
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
         print("\nTest Accuracy: ", test_a)
