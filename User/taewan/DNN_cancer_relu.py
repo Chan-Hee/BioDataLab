@@ -48,10 +48,11 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
 
     W4 = tf.Variable(tf.random_normal([nodes[2], 1]), name='weight4')
     b4 = tf.Variable(tf.random_normal([1]), name='bias4')
-    hypothesis = (tf.matmul(layer3, W4) + b4)
+    hypothesis = tf.sigmoid(tf.matmul(layer3, W4) + b4)
 
     # cost/loss function
-    cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
+    cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(hypothesis, Y))
+    
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
     # Accuracy computation
@@ -101,10 +102,10 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
     W5 = tf.Variable(tf.random_normal([nodes[3], 1]), name='weight5')
     b5 = tf.Variable(tf.random_normal([1]), name='bias5')
-    hypothesis = (tf.matmul(layer4, W5) + b5)
-
+    hypothesis = tf.sigmoid(tf.matmul(layer3, W4) + b4)
+    
     # cost/loss function
-    cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
+    cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(hypothesis, Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
     # Accuracy computation
