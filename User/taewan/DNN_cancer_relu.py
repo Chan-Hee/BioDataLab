@@ -150,13 +150,15 @@ for i in range(len(conf)):
 
     j = 0
     ###############################Edit############################
-    indexes = np.arange(len(xdata[1,3:-1]))
-    np.random.shuffle(indexes)
-    test_idx = indexes[:2000]
-    train_idx = indexes[2000:]
+#    indexes = np.arange(len(xdata[1,3:-1]))
+#    np.random.shuffle(indexes)
+#    test_idx = indexes[:2000]
+#    train_idx = indexes[2000:]
     #variance_set = pd.concat([xdata.iloc[:2000*j], xdata.iloc[2000*(j+1):]])
-    variance_set = xdata.iloc[:,train_idx]
+#    variance_set = xdata.iloc[:,train_idx]
     #print(variance_set.iloc[:,-1])
+    variance_set = pd.concat([xdata.iloc[:2000*j], xdata.iloc[2000*(j+1):]])
+
     variances = variance_set.iloc[:,-1]
     #print(variances)
     variances = variances.as_matrix()
@@ -175,8 +177,8 @@ for i in range(len(conf)):
     
     
     ###############################Edit############################
-    #train_x, test_x = five_fold(data_x,j)
-    #train_y, test_y = five_fold(data_y,j)
+    train_x, test_x = five_fold(data_x,j)
+    train_y, test_y = five_fold(data_y,j)
     ###############################Edit############################
     
 
