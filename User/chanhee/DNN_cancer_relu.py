@@ -32,7 +32,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     train_a = 0
     test_a = 0
     X = tf.placeholder(tf.float32, [None, cnt_train])
-    Y = tf.placeholder(tf.float32, [None, 1])
+    Y = tf.placeholder(tf.float32, [None, 2])
 
     W1 = tf.get_variable( shape= [cnt_train, nodes[0]], name='weight1' , initializer=tf.contrib.layers.xavier_initializer())
     b1 = tf.Variable(tf.random_normal([nodes[0]]), name='bias1')
@@ -46,19 +46,24 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     b3 = tf.Variable(tf.random_normal([nodes[2]]), name='bias3')
     layer3 = tf.nn.relu(tf.matmul(layer2, W3) + b3)
 
-    W4 = tf.get_variable(shape=[nodes[2], 1], name='weight4',initializer=tf.contrib.layers.xavier_initializer())
-    b4 = tf.Variable(tf.random_normal([1]), name='bias4')
+    W4 = tf.get_variable(shape=[nodes[2], 2], name='weight4',initializer=tf.contrib.layers.xavier_initializer())
+    b4 = tf.Variable(tf.random_normal([2]), name='bias4')
     hypothesis = tf.sigmoid(tf.matmul(layer3, W4) + b4)
     
 
+
     # cost/loss function
-    cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
-    train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
+    cost = tf.reduce_mean(tf.nn.softmax_cross_entrophy_with_logits(logits=hypothesis, labels=Y))
+    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
+
+
 
     # Accuracy computation
     # True if hypothesis>0.5 else False
-    predicted = tf.cast(hypothesis > 0.5, dtype=tf.float32)
-    accuracy = tf.reduce_mean(tf.cast(tf.equal(predicted, Y), dtype=tf.float32))
+
+    predicted = tf.argmax(hypothesis,1)
+    correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
+
     with tf.Session() as sess:
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
@@ -111,7 +116,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
 
     # Accuracy computation
-    # True if hypothesis>0.5 else False
+
 
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
