@@ -55,7 +55,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     b4 = tf.Variable(tf.random_normal([2]), name='bias4')
     hypothesis = tf.matmul(layer3, W4) + b4
 
-    l2reg = 0.001*tf.reduce_sum(tf.square([W1,W2,W3,W4]))
+    l2reg = 0.001*tf.reduce_sum([tf.square(W1),tf.square(W2),tf.square(W3),tf.square(W4)])
 
 
     # cost/loss function
@@ -118,7 +118,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     W5 = tf.get_variable(shape = [nodes[3], 2],name='Weight5',initializer=tf.contrib.layers.xavier_initializer())
     b5 = tf.Variable(tf.random_normal([2]), name='Bias5')
     hypothesis = tf.matmul(layer4, W5) + b5
-    l2reg = 0.001 * tf.reduce_sum(tf.square([W1, W2, W3, W4,W5]))
+    l2reg = 0.001 * tf.reduce_sum([tf.square(W1),tf.square(W2),tf.square(W3),tf.square(W4),tf.square(w5)])
 
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))+l2reg
