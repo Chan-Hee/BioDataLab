@@ -75,13 +75,13 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
         sess.run(tf.global_variables_initializer())
 
         for step in range(repeat):
-            sess.run(train, feed_dict={X: train_x, Y: train_y, keep_prob:0.7})
+            sess.run(train, feed_dict={X: train_x, Y: train_y, keep_prob:0.5})
             if step == repeat-1:
                 ####Train Accuracy report####
-                h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.7})
+                h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.5})
                 print("\nTrain Accuracy: ", train_a)
             if step % 2000 == 0 : 
-                h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.7})
+                h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.5})
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y,keep_prob:1})
@@ -139,13 +139,13 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
         sess.run(tf.global_variables_initializer())
 
         for step in range(repeat):
-            sess.run(train, feed_dict={X: train_x, Y: train_y,keep_prob:0.7})
+            sess.run(train, feed_dict={X: train_x, Y: train_y,keep_prob:0.5})
             if step == repeat-1:
                 ####Train Accuracy report####
-                h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.7})
+                h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.5})
                 print("\nTrain Accuracy: ", train_a)
             if step % 2000 == 0 : 
-                h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.7})
+                h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.5})
                 print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y,keep_prob:1})
@@ -160,7 +160,7 @@ x_filename = '/home/tjahn/Data/DNN10000/DNN10000.csv'
 xdata = pd.read_csv(x_filename)
 ydata = np.genfromtxt('/home/tjahn/Data/DNN10000/CancerResult.csv', delimiter=",")
 #conf_filename = input("Insert configure file directory and name : ")
-conf_filename = '/home/tjahn/Git/Data/input/relu_learn_ps.csv'
+conf_filename = '/home/tjahn/Git/Data/input/overfitting_learn_ps.csv'
 conf = pd.read_csv(conf_filename)
 print(conf)
 train_accs = []
