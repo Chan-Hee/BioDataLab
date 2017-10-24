@@ -54,11 +54,12 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     W4 = tf.get_variable(shape=[nodes[2], 2], name='weight4',initializer=tf.contrib.layers.xavier_initializer())
     b4 = tf.Variable(tf.random_normal([2]), name='bias4')
     hypothesis = tf.matmul(layer3, W4) + b4
-    
+
+    l2reg = 0.001*tf.reduce_sum(tf.square([W1,W2,W3,W4]))
 
 
     # cost/loss function
-    cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
+    cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))+l2reg
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
 
@@ -74,13 +75,13 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
         sess.run(tf.global_variables_initializer())
 
         for step in range(repeat):
-            sess.run(train, feed_dict={X: train_x, Y: train_y,keep_prob:0.7})
+            sess.run(train, feed_dict={X: train_x, Y: train_y, keep_prob:0.7})
             if step == repeat-1:
                 ####Train Accuracy report####
-                h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y})
+                h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.7})
                 print("\nTrain Accuracy: ", train_a)
             if step % 2000 == 0 : 
-                h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
+                h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.7})
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y,keep_prob:1})
@@ -117,9 +118,10 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     W5 = tf.get_variable(shape = [nodes[3], 2],name='Weight5',initializer=tf.contrib.layers.xavier_initializer())
     b5 = tf.Variable(tf.random_normal([2]), name='Bias5')
     hypothesis = tf.matmul(layer4, W5) + b5
+    l2reg = 0.001 * tf.reduce_sum(tf.square([W1, W2, W3, W4,W5]))
 
     # cost/loss function
-    cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
+    cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))+l2reg
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
 
@@ -137,13 +139,13 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
         sess.run(tf.global_variables_initializer())
 
         for step in range(repeat):
-            sess.run(train, feed_dict={X: train_x, Y: train_y})
+            sess.run(train, feed_dict={X: train_x, Y: train_y,keep_prob:0.7})
             if step == repeat-1:
                 ####Train Accuracy report####
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.7})
                 print("\nTrain Accuracy: ", train_a)
             if step % 2000 == 0 : 
-                h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
+                h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.7})
                 print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y,keep_prob:1})
