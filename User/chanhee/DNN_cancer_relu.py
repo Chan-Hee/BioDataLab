@@ -63,7 +63,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
 
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
-
+    accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
     with tf.Session() as sess:
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
