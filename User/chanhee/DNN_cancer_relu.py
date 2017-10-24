@@ -89,24 +89,24 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     X = tf.placeholder(tf.float32, [None, cnt_train])
     Y = tf.placeholder(tf.float32, [None, 2])
     
-    W1 = tf.get_variable( shape= [cnt_train, nodes[0]], name='weight1' , initializer=tf.contrib.layers.xavier_initializer())
-    b1 = tf.Variable(tf.random_normal([nodes[0]]), name='bias1')
+    W1 = tf.get_variable( shape= [cnt_train, nodes[0]], name='Weight1' , initializer=tf.contrib.layers.xavier_initializer())
+    b1 = tf.Variable(tf.random_normal([nodes[0]]), name='Bias1')
     layer1 = tf.nn.relu(tf.matmul(X, W1) + b1)
     
-    W2 = tf.get_variable(shape =[nodes[0], nodes[1]], name='weight2', initializer=tf.contrib.layers.xavier_initializer())
-    b2 = tf.Variable(tf.random_normal([nodes[1]]), name='bias2')
+    W2 = tf.get_variable(shape =[nodes[0], nodes[1]], name='Weight2', initializer=tf.contrib.layers.xavier_initializer())
+    b2 = tf.Variable(tf.random_normal([nodes[1]]), name='Bias2')
     layer2 = tf.nn.relu(tf.matmul(layer1, W2) + b2)
     
-    W3 = tf.get_variable(shape= [nodes[1], nodes[2]], name='weight3',initializer=tf.contrib.layers.xavier_initializer())
-    b3 = tf.Variable(tf.random_normal([nodes[2]]), name='bias3')
+    W3 = tf.get_variable(shape= [nodes[1], nodes[2]], name='Weight3',initializer=tf.contrib.layers.xavier_initializer())
+    b3 = tf.Variable(tf.random_normal([nodes[2]]), name='Bias3')
     layer3 = tf.nn.relu(tf.matmul(layer2, W3) + b3)
 
-    W4 = tf.get_variable(shape = [nodes[2], nodes[3]] , name='weight4' , initializer=tf.contrib.layers.xavier_initializer())
-    b4 = tf.Variable(tf.random_normal([nodes[3]]), name='bias4')
+    W4 = tf.get_variable(shape = [nodes[2], nodes[3]] , name='Weight4' , initializer=tf.contrib.layers.xavier_initializer())
+    b4 = tf.Variable(tf.random_normal([nodes[3]]), name='Bias4')
     layer4 = tf.nn.relu(tf.matmul(layer3, W4) + b4)
 
-    W5 = tf.get_variable(tf.random_normal([nodes[3], 2]), name='weight5',initializer=tf.contrib.layers.xavier_initializer())
-    b5 = tf.Variable(tf.random_normal([2]), name='bias5')
+    W5 = tf.get_variable(tf.random_normal([nodes[3], 2]), name='Weight5',initializer=tf.contrib.layers.xavier_initializer())
+    b5 = tf.Variable(tf.random_normal([2]), name='Bias5')
     hypothesis = tf.matmul(layer4, W5) + b5
 
     # cost/loss function
