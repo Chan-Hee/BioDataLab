@@ -195,6 +195,7 @@ for i in range(len(conf)):
         train_acc , test_acc = (set_train_four_layer(i,repeat, nodes, learning_rate))
     train_accs.append(train_acc)
     test_accs.append(test_acc)
+    tf.reset_default_graph()
 
 
 train_accs = pd.DataFrame(data=train_accs , 
