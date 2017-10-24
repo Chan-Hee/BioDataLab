@@ -34,79 +34,25 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     X = tf.placeholder(tf.float32, [None, cnt_train])
     Y = tf.placeholder(tf.float32, [None, 1])
 
-    W1 = tf.get_variable( shape= [cnt_train, nodes[0]], name='weight1' , initializer=tf.contrib.layers.xavier_initializer())
+    W1 = tf.Variable(tf.random_normal([cnt_train, nodes[0]]), name='weight1')
     b1 = tf.Variable(tf.random_normal([nodes[0]]), name='bias1')
-    layer1 = tf.nn.relu(tf.matmul(X, W1) + b1)
+    layer1 = tf.sigmoid(tf.matmul(X, W1) + b1)
 
-    W2 = tf.get_variable(shape =[nodes[0], nodes[1]], name='weight2', initializer=tf.contrib.layers.xavier_initializer())
+    W2 = tf.Variable(tf.random_normal([nodes[0], nodes[1]]), name='weight2')
     b2 = tf.Variable(tf.random_normal([nodes[1]]), name='bias2')
-    layer2 = tf.nn.relu(tf.matmul(layer1, W2) + b2)
+    layer2 = tf.sigmoid(tf.matmul(layer1, W2) + b2)
 
-    W3 = tf.get_variable(shape= [nodes[1], nodes[2]], name='weight3',initializer=tf.contrib.layers.xavier_initializer())
+    W3 = tf.Variable(tf.random_normal([nodes[1], nodes[2]]), name='weight3')
     b3 = tf.Variable(tf.random_normal([nodes[2]]), name='bias3')
-    layer3 = tf.nn.relu(tf.matmul(layer2, W3) + b3)
+    layer3 = tf.sigmoid(tf.matmul(layer2, W3) + b3)
 
-    W4 = tf.get_variable(shape=[nodes[2], 1], name='weight4',initializer=tf.contrib.layers.xavier_initializer())
+    W4 = tf.Variable(tf.random_normal([nodes[2], 1]), name='weight4')
     b4 = tf.Variable(tf.random_normal([1]), name='bias4')
     hypothesis = tf.sigmoid(tf.matmul(layer3, W4) + b4)
-    
 
     # cost/loss function
     cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
-    train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-
-    # Accuracy computation
-    # True if hypothesis>0.5 else False
-    predicted = tf.cast(hypothesis > 0.5, dtype=tf.float32)
-    accuracy = tf.reduce_mean(tf.cast(tf.equal(predicted, Y), dtype=tf.float32))
-    with tf.Session() as sess:
-        # Initialize TensorFlow variables
-        sess.run(tf.global_variables_initializer())
-
-        for step in range(repeat):
-            sess.run(train, feed_dict={X: train_x, Y: train_y})
-            if step == repeat-1:
-                ####Train Accuracy report####
-                h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y})
-                print("\nTrain Accuracy: ", train_a)
-            if step % 2000 == 0 : 
-                h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
-                print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
-        ######Accuracy Report#####
-        h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
-        print("\nTest Accuracy: ", test_a)
-    
-    return train_a, test_a
-        
-def set_train_four_layer(num ,repeat, nodes, learning_rate):
-    train_a = 0
-    test_a = 0
-    X = tf.placeholder(tf.float32, [None, cnt_train])
-    Y = tf.placeholder(tf.float32, [None, 1])
-    
-    W1 = tf.get_variable( shape= [cnt_train, nodes[0]], name='weight1' , initializer=tf.contrib.layers.xavier_initializer())
-    b1 = tf.Variable(tf.random_normal([nodes[0]]), name='bias1')
-    layer1 = tf.nn.relu(tf.matmul(X, W1) + b1)
-    
-    W2 = tf.get_variable(shape =[nodes[0], nodes[1]], name='weight2', initializer=tf.contrib.layers.xavier_initializer())
-    b2 = tf.Variable(tf.random_normal([nodes[1]]), name='bias2')
-    layer2 = tf.nn.relu(tf.matmul(layer1, W2) + b2)
-    
-    W3 = tf.get_variable(shape= [nodes[1], nodes[2]], name='weight3',initializer=tf.contrib.layers.xavier_initializer())
-    b3 = tf.Variable(tf.random_normal([nodes[2]]), name='bias3')
-    layer3 = tf.nn.relu(tf.matmul(layer2, W3) + b3)
-
-    W4 = tf.get_variable(shape = [nodes[2], nodes[3]] , name='weight4' , initializer=tf.contrib.layers.xavier_initializer())
-    b4 = tf.Variable(tf.random_normal([nodes[3]]), name='bias4')
-    layer4 = tf.nn.relu(tf.matmul(layer3, W4) + b4)
-
-    W5 = tf.get_variable(tf.random_normal([nodes[3], 1]), name='weight5',initializer=tf.contrib.layers.xavier_initializer())
-    b5 = tf.Variable(tf.random_normal([1]), name='bias5')
-    hypothesis = tf.sigmoid(tf.matmul(layer4, W5) + b5)
-
-    # cost/loss function
-    cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
-    train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
+    train = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minimize(cost)
 
     # Accuracy computation
     # True if hypothesis>0.5 else False
@@ -124,7 +70,60 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
                 print("\nTrain Accuracy: ", train_a)
             if step % 2000 == 0 : 
                 h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
-                print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
+                print("\nCurrent Accuracy : ", train_a , "Cost : ",cost , "Current Step : ", step)
+        ######Accuracy Report#####
+        h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
+        print("\nTest Accuracy: ", test_a)
+    
+    return train_a, test_a
+        
+def set_train_four_layer(num ,repeat, nodes, learning_rate):
+    train_a = 0
+    test_a = 0
+    X = tf.placeholder(tf.float32, [None, cnt_train])
+    Y = tf.placeholder(tf.float32, [None, 2])
+
+    W1 = tf.Variable(tf.random_normal([cnt_train, nodes[0]]), name='weight1')
+    b1 = tf.Variable(tf.random_normal([nodes[0]]), name='bias1')
+    layer1 = tf.sigmoid(tf.matmul(X, W1) + b1)
+
+    W2 = tf.Variable(tf.random_normal([nodes[0], nodes[1]]), name='weight2')
+    b2 = tf.Variable(tf.random_normal([nodes[1]]), name='bias2')
+    layer2 = tf.sigmoid(tf.matmul(layer1, W2) + b2)
+
+    W3 = tf.Variable(tf.random_normal([nodes[1], nodes[2]]), name='weight3')
+    b3 = tf.Variable(tf.random_normal([nodes[2]]), name='bias3')
+    layer3 = tf.sigmoid(tf.matmul(layer2, W3) + b3)
+
+    W4 = tf.Variable(tf.random_normal([nodes[2], nodes[3]]), name='weight4')
+    b4 = tf.Variable(tf.random_normal([nodes[3]]), name='bias4')
+    layer4 = tf.sigmoid(tf.matmul(layer3, W4) + b4)
+
+    W5 = tf.Variable(tf.random_normal([nodes[3], 1]), name='weight5')
+    b5 = tf.Variable(tf.random_normal([1]), name='bias5')
+    hypothesis = tf.sigmoid(tf.matmul(layer4, W5) + b5)
+
+    # cost/loss function
+    cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1 - Y) * tf.log(1 - hypothesis))
+    train = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minimize(cost)
+
+    # Accuracy computation
+    # True if hypothesis>0.5 else False
+    predicted = tf.cast(hypothesis > 0.5, dtype=tf.float32)
+    accuracy = tf.reduce_mean(tf.cast(tf.equal(predicted, Y), dtype=tf.float32))
+    with tf.Session() as sess:
+        # Initialize TensorFlow variables
+        sess.run(tf.global_variables_initializer())
+
+        for step in range(repeat):
+            sess.run(train, feed_dict={X: train_x, Y: train_y})
+            if step == repeat-1:
+                ####Train Accuracy report####
+                h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y})
+                print("\nTrain Accuracy: ", train_a)
+            if step % 2000 == 0 : 
+                h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
+                print("\nCurrent Accuracy : ", train_a , "Cost : ",cost , "Current Step : ", step)
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
         print("\nTest Accuracy: ", test_a)
@@ -163,7 +162,11 @@ for i in range(len(conf)):
     data_x = xdata.loc[idx]
     data_x = data_x.as_matrix()
     data_x = data_x[1:, 3:-1]
-    data_y = ydata[1:, 1:]    # eliminate heading, string data
+    data_y = ydata[1:, 1:]# eliminate heading, string data
+
+    data_y = data_y.flatten() #One-Hot-Encoding
+    data_y = pd.get_dummies(data_y)
+
     data_x = data_x.transpose()
     
     
@@ -192,5 +195,4 @@ test_accs = pd.DataFrame(data=test_accs ,
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
 conf.to_csv('/home/tjahn/Git/Data/output/'+conf_filename[:-4]+'_result.csv')
-
 
