@@ -29,6 +29,7 @@ def top_of_variance(per,  data_x):
     return idx_list
 
 def set_train_three_layer(num,repeat, nodes, learning_rate):
+    tf.reset_default_graph()
     train_a = 0
     test_a = 0
     X = tf.placeholder(tf.float32, [None, cnt_train])
@@ -84,6 +85,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     return train_a, test_a
         
 def set_train_four_layer(num ,repeat, nodes, learning_rate):
+    tf.reset_default_graph()
     train_a = 0
     test_a = 0
     X = tf.placeholder(tf.float32, [None, cnt_train])
@@ -195,7 +197,6 @@ for i in range(len(conf)):
         train_acc , test_acc = (set_train_four_layer(i,repeat, nodes, learning_rate))
     train_accs.append(train_acc)
     test_accs.append(test_acc)
-    tf.reset_default_graph()
 
 
 train_accs = pd.DataFrame(data=train_accs , 
