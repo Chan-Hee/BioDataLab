@@ -149,7 +149,7 @@ x_filename = '/home/tjahn/Data/DNN10000/DNN10000.csv'
 xdata = pd.read_csv(x_filename)
 ydata = np.genfromtxt('/home/tjahn/Data/DNN10000/CancerResult.csv', delimiter=",")
 #conf_filename = input("Insert configure file directory and name : ")
-conf_filename = '/home/tjahn/Git/Data/input/learn_ps.csv'
+conf_filename = '/home/tjahn/Git/Data/input/relu_learn_ps.csv'
 conf = pd.read_csv(conf_filename)
 print(conf)
 train_accs = []
