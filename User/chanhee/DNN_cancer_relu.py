@@ -39,6 +39,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     b1 = tf.Variable(tf.random_normal([nodes[0]]), name='bias1')
     layer1 = tf.nn.relu(tf.matmul(X, W1) + b1)
 
+
     W2 = tf.get_variable(shape =[nodes[0], nodes[1]], name='weight2', initializer=tf.contrib.layers.xavier_initializer())
     b2 = tf.Variable(tf.random_normal([nodes[1]]), name='bias2')
     layer2 = tf.nn.relu(tf.matmul(layer1, W2) + b2)
@@ -208,6 +209,6 @@ test_accs = pd.DataFrame(data=test_accs ,
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
-conf.to_csv('/home/tjahn/Git/Data/output/'+conf_filename[:-4]+'_result.csv')
+conf.to_csv('/home/tjahn/Git/Data/output/relu_result.csv')
 
 
