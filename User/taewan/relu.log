@@ -1,0 +1,19 @@
+sys:1: DtypeWarning: Columns (2) have mixed types. Specify dtype option on import or set low_memory=False.
+   learning times  layer             node  learning rate  gene number
+0           20000      3       100 100 10           0.01            1
+1           20000      3       100 100 50           0.01            1
+2           20000      3      100 100 100           0.01            1
+3           20000      3       200 100 10           0.01            1
+4           20000      3       200 200 50           0.01            1
+5           20000      4    100 100 50 10           0.01            1
+6           20000      4    100 100 10 50           0.01            1
+7           20000      4  100 100 100 100           0.01            1
+8           20000      4    200 100 50 10           0.01            1
+9           20000      4    200 200 50 10           0.01            1
+2017-10-23 12:22:14.492470: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-23 12:22:14.492505: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-23 12:22:14.492511: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-23 12:22:14.492514: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-23 12:22:14.492518: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+
+Current Accuracy :  0.537405 cost :  6.3611 Current Step :  0
