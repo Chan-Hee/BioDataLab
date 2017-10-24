@@ -54,7 +54,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
 
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
-    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
+    train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
 
 
@@ -111,7 +111,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
-    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
+    train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
 
 
