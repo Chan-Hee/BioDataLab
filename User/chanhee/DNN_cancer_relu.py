@@ -107,7 +107,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     b4 = tf.Variable(tf.random_normal([nodes[3]]), name='Bias4')
     layer4 = tf.nn.relu(tf.matmul(layer3, W4) + b4)
 
-    W5 = tf.get_variable(tf.random_normal([nodes[3], 2]), name='Weight5',initializer=tf.contrib.layers.xavier_initializer())
+    W5 = tf.get_variable(shape = [nodes[3], 2],name='Weight5',initializer=tf.contrib.layers.xavier_initializer())
     b5 = tf.Variable(tf.random_normal([2]), name='Bias5')
     hypothesis = tf.matmul(layer4, W5) + b5
 
