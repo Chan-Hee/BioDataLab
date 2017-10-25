@@ -144,7 +144,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
             sess.run(train, feed_dict={X: train_x, Y: train_y,keep_prob:0.6})
             if step == repeat-1:
                 ####Train Accuracy report####
-                h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.6)
+                h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.6})
                 print("\nTrain Accuracy: ", train_a)
             if step % 20 == 0 :
                 h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.6})
