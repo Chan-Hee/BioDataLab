@@ -221,6 +221,6 @@ test_accs = pd.DataFrame(data=test_accs ,
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
-conf.to_csv('/home/tjahn/Git/Data/output/overfitting10_result.csv')
+conf.to_csv('/home/tjahn/Git/Data/output/overfitting30_result.csv')
 
 
