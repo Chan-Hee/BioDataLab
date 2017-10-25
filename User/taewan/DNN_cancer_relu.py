@@ -34,19 +34,19 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     X = tf.placeholder(tf.float32, [None, cnt_train])
     Y = tf.placeholder(tf.float32, [None, 2])
 
-    W1 = tf.get_variable( shape= [cnt_train, nodes[0]], name='weight1' , initializer=tf.contrib.layers.xavier_initializer())
+    W1 = tf.get_variable( shape= [cnt_train, nodes[0]], name='weight1' , initializer=tf.contrib.layers.xavier_initializer(), reuse=True)
     b1 = tf.Variable(tf.random_normal([nodes[0]]), name='bias1')
     layer1 = tf.nn.relu(tf.matmul(X, W1) + b1)
 
-    W2 = tf.get_variable(shape =[nodes[0], nodes[1]], name='weight2', initializer=tf.contrib.layers.xavier_initializer())
+    W2 = tf.get_variable(shape =[nodes[0], nodes[1]], name='weight2', initializer=tf.contrib.layers.xavier_initializer(), reuse=True)
     b2 = tf.Variable(tf.random_normal([nodes[1]]), name='bias2')
     layer2 = tf.nn.relu(tf.matmul(layer1, W2) + b2)
 
-    W3 = tf.get_variable(shape= [nodes[1], nodes[2]], name='weight3',initializer=tf.contrib.layers.xavier_initializer())
+    W3 = tf.get_variable(shape= [nodes[1], nodes[2]], name='weight3',initializer=tf.contrib.layers.xavier_initializer(),reuse=True)
     b3 = tf.Variable(tf.random_normal([nodes[2]]), name='bias3')
     layer3 = tf.nn.relu(tf.matmul(layer2, W3) + b3)
 
-    W4 = tf.get_variable(shape=[nodes[2], 2], name='weight4',initializer=tf.contrib.layers.xavier_initializer())
+    W4 = tf.get_variable(shape=[nodes[2], 2], name='weight4',initializer=tf.contrib.layers.xavier_initializer(),reuse=True)
     b4 = tf.Variable(tf.random_normal([2]), name='bias4')
     hypothesis = tf.sigmoid(tf.matmul(layer3, W4) + b4)
     
@@ -92,23 +92,23 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     X = tf.placeholder(tf.float32, [None, cnt_train])
     Y = tf.placeholder(tf.float32, [None, 2])
     
-    W1 = tf.get_variable( shape= [cnt_train, nodes[0]], name='weight1' , initializer=tf.contrib.layers.xavier_initializer())
+    W1 = tf.get_variable( shape= [cnt_train, nodes[0]], name='weight1' , initializer=tf.contrib.layers.xavier_initializer(),reuse=True)
     b1 = tf.Variable(tf.random_normal([nodes[0]]), name='bias1')
     layer1 = tf.nn.relu(tf.matmul(X, W1) + b1)
     
-    W2 = tf.get_variable(shape =[nodes[0], nodes[1]], name='weight2', initializer=tf.contrib.layers.xavier_initializer())
+    W2 = tf.get_variable(shape =[nodes[0], nodes[1]], name='weight2', initializer=tf.contrib.layers.xavier_initializer(),reuse=True)
     b2 = tf.Variable(tf.random_normal([nodes[1]]), name='bias2')
     layer2 = tf.nn.relu(tf.matmul(layer1, W2) + b2)
     
-    W3 = tf.get_variable(shape= [nodes[1], nodes[2]], name='weight3',initializer=tf.contrib.layers.xavier_initializer())
+    W3 = tf.get_variable(shape= [nodes[1], nodes[2]], name='weight3',initializer=tf.contrib.layers.xavier_initializer(),reuse=True)
     b3 = tf.Variable(tf.random_normal([nodes[2]]), name='bias3')
     layer3 = tf.nn.relu(tf.matmul(layer2, W3) + b3)
 
-    W4 = tf.get_variable(shape = [nodes[2], nodes[3]] , name='weight4' , initializer=tf.contrib.layers.xavier_initializer())
+    W4 = tf.get_variable(shape = [nodes[2], nodes[3]] , name='weight4' , initializer=tf.contrib.layers.xavier_initializer(),reuse=True)
     b4 = tf.Variable(tf.random_normal([nodes[3]]), name='bias4')
     layer4 = tf.nn.relu(tf.matmul(layer3, W4) + b4)
 
-    W5 = tf.get_variable(tf.random_normal([nodes[3], 2]), name='weight5',initializer=tf.contrib.layers.xavier_initializer())
+    W5 = tf.get_variable(tf.random_normal([nodes[3], 2]), name='weight5',initializer=tf.contrib.layers.xavier_initializer(),reuse=True)
     b5 = tf.Variable(tf.random_normal([2]), name='bias5')
     hypothesis = tf.matmul(layer4, W5) + b5
 
@@ -155,7 +155,7 @@ x_filename = '/home/tjahn/Data/DNN10000/DNN10000.csv'
 xdata = pd.read_csv(x_filename)
 ydata = np.genfromtxt('/home/tjahn/Data/DNN10000/CancerResult.csv', delimiter=",")
 #conf_filename = input("Insert configure file directory and name : ")
-conf_filename = '/home/tjahn/Git/Data/input/learn_ps.csv'
+conf_filename = '/home/tjahn/Git/Data/input/relu_test_ps.csv'
 conf = pd.read_csv(conf_filename)
 print(conf)
 train_accs = []

@@ -1,0 +1,43 @@
+sys:1: DtypeWarning: Columns (2) have mixed types. Specify dtype option on import or set low_memory=False.
+   learning times  layer             node  learning rate  gene number
+0            1000      3        100 50 10         0.0001            1
+1           20000      3       100 100 50         0.0001            1
+2           20000      3      100 100 100         0.0001            1
+3           20000      3       200 100 10         0.0001            1
+4           20000      3       200 200 50         0.0001            1
+5           20000      4    100 100 50 10         0.0001            1
+6           20000      4    100 100 10 50         0.0001            1
+7           20000      4  100 100 100 100         0.0001            1
+8           20000      4    200 100 50 10         0.0001            1
+9           20000      4    200 200 50 10         0.0001            1
+2017-10-24 23:10:42.317966: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-24 23:10:42.318000: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-24 23:10:42.318004: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-24 23:10:42.318007: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-24 23:10:42.318011: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+
+Current Accuracy :  0.449856 cost :  1.33064 Current Step :  0
+
+Test Accuracy:  0.4905
+Traceback (most recent call last):
+  File "DNN_cancer_relu2.py", line 191, in <module>
+    train_acc , test_acc = (set_train_three_layer(i,repeat, nodes, learning_rate))
+  File "DNN_cancer_relu2.py", line 37, in set_train_three_layer
+    W1 = tf.get_variable( shape= [cnt_train, nodes[0]], name='weight1' , initializer=tf.contrib.layers.xavier_initializer())
+  File "/usr/local/lib/python3.4/dist-packages/tensorflow/python/ops/variable_scope.py", line 1065, in get_variable
+    use_resource=use_resource, custom_getter=custom_getter)
+  File "/usr/local/lib/python3.4/dist-packages/tensorflow/python/ops/variable_scope.py", line 962, in get_variable
+    use_resource=use_resource, custom_getter=custom_getter)
+  File "/usr/local/lib/python3.4/dist-packages/tensorflow/python/ops/variable_scope.py", line 367, in get_variable
+    validate_shape=validate_shape, use_resource=use_resource)
+  File "/usr/local/lib/python3.4/dist-packages/tensorflow/python/ops/variable_scope.py", line 352, in _true_getter
+    use_resource=use_resource)
+  File "/usr/local/lib/python3.4/dist-packages/tensorflow/python/ops/variable_scope.py", line 664, in _get_single_variable
+    name, "".join(traceback.format_list(tb))))
+ValueError: Variable weight1 already exists, disallowed. Did you mean to set reuse=True in VarScope? Originally defined at:
+
+  File "DNN_cancer_relu2.py", line 37, in set_train_three_layer
+    W1 = tf.get_variable( shape= [cnt_train, nodes[0]], name='weight1' , initializer=tf.contrib.layers.xavier_initializer())
+  File "DNN_cancer_relu2.py", line 191, in <module>
+    train_acc , test_acc = (set_train_three_layer(i,repeat, nodes, learning_rate))
+
