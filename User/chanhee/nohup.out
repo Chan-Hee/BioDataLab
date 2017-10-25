@@ -1,0 +1,122 @@
+2017-10-25 03:15:33.296931: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 03:15:33.296968: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 03:15:33.296973: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 03:15:33.296977: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 03:15:33.296980: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+sys:1: DtypeWarning: Columns (2) have mixed types. Specify dtype option on import or set low_memory=False.
+   learning times  layer             node  learning rate  gene number
+0            6000      3        100 50 10         0.0001            1
+1            6000      3       100 100 50         0.0001            1
+2            6000      3      100 100 100         0.0001            1
+3            6000      3       200 100 10         0.0001            1
+4            6000      3       200 200 50         0.0001            1
+5            6000      4    100 100 50 10         0.0001            1
+6            6000      4    100 100 10 50         0.0001            1
+7            6000      4  100 100 100 100         0.0001            1
+8            6000      4    200 100 50 10         0.0001            1
+9            6000      4    200 200 50 10         0.0001            1
+
+Current Accuracy :  0.478706 cost :  9.6929 Current Step :  0
+
+Current Accuracy :  0.774073 cost :  0.89073 Current Step :  2000
+
+Current Accuracy :  0.900837 cost :  0.379038 Current Step :  4000
+
+Train Accuracy:  0.941052
+
+Test Accuracy:  0.806
+
+Current Accuracy :  0.517297 cost :  6.55773 Current Step :  0
+
+Current Accuracy :  0.896341 cost :  0.542326 Current Step :  2000
+
+Current Accuracy :  0.959036 cost :  0.215429 Current Step :  4000
+
+Train Accuracy:  0.972149
+
+Test Accuracy:  0.7935
+
+Current Accuracy :  0.536031 cost :  9.85038 Current Step :  0
+
+Current Accuracy :  0.901961 cost :  0.656916 Current Step :  2000
+
+Current Accuracy :  0.956288 cost :  0.248924 Current Step :  4000
+
+Train Accuracy:  0.970651
+
+Test Accuracy:  0.795
+
+Current Accuracy :  0.533283 cost :  5.71822 Current Step :  0
+
+Current Accuracy :  0.916323 cost :  0.460794 Current Step :  2000
+
+Current Accuracy :  0.956538 cost :  0.176712 Current Step :  4000
+
+Train Accuracy:  0.963032
+
+Test Accuracy:  0.796
+
+Current Accuracy :  0.487448 cost :  8.67665 Current Step :  0
+
+Current Accuracy :  0.935057 cost :  0.529653 Current Step :  2000
+
+Current Accuracy :  0.974897 cost :  0.162124 Current Step :  4000
+
+Train Accuracy:  0.981391
+
+Test Accuracy:  0.808
+
+Current Accuracy :  0.490821 Cost :  4.3876 Current Step :  0
+
+Current Accuracy :  0.787686 Cost :  0.553847 Current Step :  2000
+
+Current Accuracy :  0.910703 Cost :  0.255316 Current Step :  4000
+
+Train Accuracy:  0.945048
+
+Test Accuracy:  0.8065
+
+Current Accuracy :  0.469214 Cost :  4.76229 Current Step :  0
+
+Current Accuracy :  0.681903 Cost :  0.688417 Current Step :  2000
+
+Current Accuracy :  0.892219 Cost :  0.291297 Current Step :  4000
+
+Train Accuracy:  0.943799
+
+Test Accuracy:  0.801
+
+Current Accuracy :  0.487448 Cost :  6.37569 Current Step :  0
+
+Current Accuracy :  0.879356 Cost :  0.466727 Current Step :  2000
+
+Current Accuracy :  0.950418 Cost :  0.159591 Current Step :  4000
+
+Train Accuracy:  0.974647
+
+Test Accuracy:  0.794
+
+Current Accuracy :  0.504933 Cost :  6.63943 Current Step :  0
+
+Current Accuracy :  0.820157 Cost :  0.50425 Current Step :  2000
+
+Current Accuracy :  0.951792 Cost :  0.194505 Current Step :  4000
+
+Train Accuracy:  0.97727
+
+Test Accuracy:  0.806
+
+Current Accuracy :  0.539153 Cost :  5.86113 Current Step :  0
+
+Current Accuracy :  0.815661 Cost :  0.454303 Current Step :  2000
+
+Current Accuracy :  0.952791 Cost :  0.183762 Current Step :  4000
+
+Train Accuracy:  0.979893
+
+Test Accuracy:  0.799
+2017-10-25 12:01:57.143175: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 12:01:57.143453: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 12:01:57.143468: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 12:01:57.143473: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 12:01:57.143478: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
