@@ -1,17 +1,45 @@
 sys:1: DtypeWarning: Columns (2) have mixed types. Specify dtype option on import or set low_memory=False.
-Traceback (most recent call last):
-  File "DNN_cancer_relu.py", line 159, in <module>
-    conf = pd.read_csv(conf_filename)
-  File "/usr/local/lib/python3.4/dist-packages/pandas/io/parsers.py", line 655, in parser_f
-    return _read(filepath_or_buffer, kwds)
-  File "/usr/local/lib/python3.4/dist-packages/pandas/io/parsers.py", line 405, in _read
-    parser = TextFileReader(filepath_or_buffer, **kwds)
-  File "/usr/local/lib/python3.4/dist-packages/pandas/io/parsers.py", line 764, in __init__
-    self._make_engine(self.engine)
-  File "/usr/local/lib/python3.4/dist-packages/pandas/io/parsers.py", line 985, in _make_engine
-    self._engine = CParserWrapper(self.f, **self.options)
-  File "/usr/local/lib/python3.4/dist-packages/pandas/io/parsers.py", line 1605, in __init__
-    self._reader = parsers.TextReader(src, **kwds)
-  File "pandas/_libs/parsers.pyx", line 394, in pandas._libs.parsers.TextReader.__cinit__ (pandas/_libs/parsers.c:4209)
-  File "pandas/_libs/parsers.pyx", line 710, in pandas._libs.parsers.TextReader._setup_parser_source (pandas/_libs/parsers.c:8873)
-FileNotFoundError: File b'/home/tjahn/Git/Data/input/relu_test_ps.csv' does not exist
+   learning times  layer             node  learning rate  gene number
+0            2000      3    1000 1000 500         0.0001           30
+1            2000      3      1000 500 50         0.0001           30
+2            1000      4  1000 500 500 50         0.0001           30
+3            1500      4  1000 500 500 50         0.0001           30
+2017-10-25 12:32:32.117312: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 12:32:32.117347: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 12:32:32.117351: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 12:32:32.117355: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 12:32:32.117358: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+
+Current Accuracy :  0.683152 cost :  0.643927 Current Step :  0
+
+Current Accuracy :  0.916198 cost :  0.409628 Current Step :  20
+
+Current Accuracy :  0.964406 cost :  0.354908 Current Step :  40
+
+Test Accuracy:  0.8745
+
+Current Accuracy :  0.661921 cost :  0.637464 Current Step :  0
+
+Current Accuracy :  0.921319 cost :  0.401251 Current Step :  20
+
+Current Accuracy :  0.962533 cost :  0.355599 Current Step :  40
+
+Test Accuracy:  0.8495
+
+Current Accuracy :  0.463095 Cost :  2.3765 Current Step :  0
+
+Current Accuracy :  0.870239 Cost :  0.333551 Current Step :  20
+
+Current Accuracy :  0.941801 Cost :  0.175287 Current Step :  40
+
+Current Accuracy :  0.980892 Cost :  0.0831922 Current Step :  60
+
+Test Accuracy:  0.8285
+
+Current Accuracy :  0.552017 Cost :  1.08176 Current Step :  0
+
+Current Accuracy :  0.873361 Cost :  0.342025 Current Step :  20
+
+Current Accuracy :  0.951168 Cost :  0.158959 Current Step :  40
+
+Test Accuracy:  0.84
