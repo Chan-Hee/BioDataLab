@@ -80,9 +80,11 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
                 ####Train Accuracy report####
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.5})
                 print("\nTrain Accuracy: ", train_a)
-            if step % 2000 == 0 : 
+            if step % 20 == 0 :
                 h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y,keep_prob:0.5})
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
+                if train_a > 0.95:
+                    break
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y,keep_prob:1})
         print("\nTest Accuracy: ", test_a)
