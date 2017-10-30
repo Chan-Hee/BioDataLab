@@ -67,10 +67,16 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
     with tf.Session() as sess:
-        # Initialize TensorFlow variables
-        sess.run(tf.global_variables_initializer())
+        # tensorboard --logdir=./logs/xor_logs    
+         merged_summary = tf.summary.merge_all()
+         writer = tf.summary.FileWriter("./logs/1")
+         writer.add_graph(sess.graph) # Show the graph
 
-        for step in range(repeat):
+
+        # Initialize TensorFlow variables
+         sess.run(tf.global_variables_initializer())
+
+         for step in range(repeat):
             sess.run(train, feed_dict={X: train_x, Y: train_y})
             if step == repeat-1:
                 ####Train Accuracy report####
@@ -82,8 +88,8 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
                 if train_a > 0.95 :
                     break
         ######Accuracy Report#####
-        h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
-        print("\nTest Accuracy: ", test_a)
+         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
+         print("\nTest Accuracy: ", test_a)
     
     return train_a, test_a
         
@@ -129,10 +135,15 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
     with tf.Session() as sess:
-        # Initialize TensorFlow variables
-        sess.run(tf.global_variables_initializer())
+	  # tensorboard --logdir=./logs/xor_logs    
+         merged_summary = tf.summary.merge_all()
+         writer = tf.summary.FileWriter("./logs/2")
+         writer.add_graph(sess.graph) # Show the graph
 
-        for step in range(repeat):
+        # Initialize TensorFlow variables
+         sess.run(tf.global_variables_initializer())
+
+         for step in range(repeat):
             sess.run(train, feed_dict={X: train_x, Y: train_y})
             if step == repeat-1:
                 ####Train Accuracy report####
@@ -145,8 +156,8 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
                     break
 
         ######Accuracy Report#####
-        h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
-        print("\nTest Accuracy: ", test_a)
+         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y})    
+         print("\nTest Accuracy: ", test_a)
     
     return train_a, test_a
 
@@ -214,6 +225,6 @@ test_accs = pd.DataFrame(data=test_accs ,
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
-conf.to_csv('/home/tjahn/Git/Data/output/'+ conf_filename[:-4] +'.csv' , sep= ',')
+conf.to_csv('/home/tjahn/Git/User/sungmin/output'+ conf_filename[:-4] +'.csv' , sep= ',')
 
 
