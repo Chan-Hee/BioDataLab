@@ -167,7 +167,7 @@ for i in range(len(conf)):
     nodes = list(map(int , node.split(" ")))
 
     j = 0
-    
+    cnt_train = len(train_x[1, :])    
     indexs = list(range(len(cnt_train)))
     random.shuffle(indexs)
     variance_set = xdata.iloc[indexs[2000:],:]
@@ -200,7 +200,6 @@ for i in range(len(conf)):
     ###############################Edit############################
 
     #print(train_y)
-    cnt_train = len(train_x[1, :])
     if(conf.iloc[i]['layer'] == 3):
         train_acc , test_acc = (set_train_three_layer(i,repeat, nodes, learning_rate))
     elif(conf.iloc[i]['layer']== 4):
