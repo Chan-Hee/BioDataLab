@@ -15,8 +15,8 @@ def cal_var(variances, per):
     return variances[per_idx]
     
 def random_five_fold(data, num, indexs):
-    test_set = data[indexs[:2000],:]
-    train_set = data[indexs[2000:],:]
+    test_set = data[:, indexs[:2000]]
+    train_set = data[ :, indexs[2000:]]
     #train_set = np.concatenate((train_set,data[(num+1)*2000:] ), axis=0)
     return train_set , test_set
     
@@ -191,11 +191,12 @@ for i in range(len(conf)):
     data_y = data_y.flatten()
     data_y = pd.get_dummies(data_y)
 
-    data_x = data_x.transpose()
-    
+
     
     ###############################Edit############################
     train_x, test_x = random_five_fold(data_x,j,indexs)
+    train_x = train_x.transpose()
+    test_x = test_x.transpose()
     train_y, test_y = random_five_fold(data_y,j,indexs)
     ###############################Edit############################
 
