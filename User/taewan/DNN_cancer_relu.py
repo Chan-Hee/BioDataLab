@@ -14,12 +14,12 @@ def cal_var(variances, per):
     per_idx = int(all_cnt*(per/100))
     return variances[per_idx]
     
-def random_five_fold(data, num, indexs):
-    test_set = data[:, indexs[:2000]]
-    train_set = data[ :, indexs[2000:]]
-    #train_set = np.concatenate((train_set,data[(num+1)*2000:] ), axis=0)
-    return train_set , test_set
-    
+#def random_five_fold(data, num, indexs):
+#    test_set = data[:, indexs[:2000]]
+#    train_set = data[ :, indexs[2000:]]
+#    #train_set = np.concatenate((train_set,data[(num+1)*2000:] ), axis=0)
+#    return train_set , test_set
+
 def top_of_variance(per,  data_x):
     ##data_x['variance']
     ##calculate value  
@@ -170,7 +170,7 @@ for i in range(len(conf)):
     cnt_train = len(xdata.iloc[:,-1])    
     indexs = list(range(len(xdata.iloc[1,3:-1])))
     random.shuffle(indexs)
-    variance_set = xdata.iloc[indexs[2000:],:]
+    variance_set = xdata.iloc[:, indexs[2000:]]
     ###############################Edit############################
     #variance_set = pd.concat([xdata.iloc[:2000*j], xdata.iloc[2000*(j+1):]])
     #print(variance_set.iloc[:,-1])
@@ -194,7 +194,8 @@ for i in range(len(conf)):
 
     
     ###############################Edit############################
-    train_x, test_x = random_five_fold(data_x,j,indexs)
+    test_x = data_x[:,indexs[:2000]]
+    train_x = data_x[:,indexs[2000:]]
     train_x = train_x.transpose()
     test_x = test_x.transpose()
     train_y, test_y = random_five_fold(data_y,j,indexs)
