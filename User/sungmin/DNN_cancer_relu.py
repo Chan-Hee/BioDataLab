@@ -225,6 +225,6 @@ test_accs = pd.DataFrame(data=test_accs ,
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
-conf.to_csv('/home/tjahn/Git/User/sungmin/output'+ conf_filename[:-4] +'.csv' , sep= ',')
+conf.to_csv(conf_filename[:-4] +'.csv' , sep= ',')
 
 
