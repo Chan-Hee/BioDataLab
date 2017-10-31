@@ -157,7 +157,7 @@ x_filename = '/home/tjahn/Data/DNN10000/DNN10000.csv'
 xdata = pd.read_csv(x_filename)
 ydata = np.genfromtxt('/home/tjahn/Data/DNN10000/CancerResult.csv', delimiter=",")
 #conf_filename = input("Insert configure file directory and name : ")
-conf_filename = '/home/tjahn/Git/Data/input/relu_test_ps3.csv'
+conf_filename = '/home/tjahn/Git/Data/input/relu_test_ps.csv'
 conf = pd.read_csv(conf_filename)
 print(conf)
 train_accs = []
@@ -219,6 +219,6 @@ test_accs = pd.DataFrame(data=test_accs ,
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
-conf.to_csv('/home/tjahn/Git/Data/output/'+ conf_filename[:-4] +'.csv' , sep= ',')
+conf.to_csv('/home/tjahn/Git/Data/output/'+ conf_filename[:-4] +'_result.csv' , sep= ',')
 
 
