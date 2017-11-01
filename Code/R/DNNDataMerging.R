@@ -86,8 +86,8 @@ GetVar<-function(Toy1000){
 #################################################### Main ##################################################
 setwd("/home/tjahn/Data/")
 #setwd("/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
-set.seed(2017)
-#data<-MergeToyFile(20,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
+set.seed(777)
+#data<-MergeToyFile(100,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
 data<-MergeToyFile(10000,"/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
 
 RawToy<-data$x
@@ -100,9 +100,9 @@ not_log2_scale_ids = names( which(maxs > 100 ) )
 # change the non log 2 scaled data to log2 scale
 
 for( j in 1 : length(not_log2_scale_ids ) ) {
-  
-  RawToy[,not_log2_scale_ids[j] ] = log2( RawToy[,not_log2_scale_ids[j] ] )
-  
+  temp = log2( RawToy[,not_log2_scale_ids[j] ] )
+  RawToy[,not_log2_scale_ids[j] ] = temp
+
 }
 
 
@@ -115,6 +115,6 @@ Toy1000<-GetVar(Toy1000)
 temp1<-Toy1000[,c(1,2,3)]
 temp2<-round(Toy1000[,c(-1,-2,-3)],digits = 3)
 Toy1000<-cbind(temp1,temp2)
-
+setwd("home/tjahn/Data/DNN10000")
 write.csv(Toy1000,"DNN10000.csv",row.names = FALSE)
-write.csv(CancerResult,"CancerResult10000.csv",row.names = FALSE)
+write.csv(CancerResult,"CancerResult.csv",row.names = FALSE)
