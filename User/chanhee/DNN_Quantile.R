@@ -1,7 +1,7 @@
 ################################################### Merging Files #########################################
 ##hi
 SelectFile<-function(filenames){
-
+  
   randVector=sample(1:length(filenames),replace = FALSE)
   return(filenames[randVector])
   
@@ -35,7 +35,7 @@ MergeUntil<-function(filenames,n){
     
     i=i+1
     #drop sample which contains at least one NA
-  
+    
     index = colSums(is.na(data)) == 0
     end = length(data)
     Rindex = index[4:end]
@@ -80,7 +80,7 @@ NormalizeToy<-function(RawToy){
 #################################################### VarianceTest ##########################################
 GetVar<-function(Toy1000){
   Toy1000$VAR<-apply(Toy1000[,4:length(Toy1000)],1,sd)
-    return(Toy1000)
+  return(Toy1000)
 }
 
 #################################################### Main ##################################################
@@ -109,12 +109,29 @@ for( j in 1 : length(not_log2_scale_ids ) ) {
 
 CancerResult<-data$y
 
+# install packages for normalization
+source('http://bioconductor.org/biocLite.R')
+biocLite('preprocessCore')
+#load package
+library(preprocessCore)
 
-Toy1000<- NormalizeToy(RawToy)
+# normalize.quantile only accept matrix type
+mat = as.matrix( RawToy[,c(-1,-2,-3)] )
+
+# exercise while it runs
+post.norm <- normalize.quantiles(mat)
+
+
+data_n = data.frame( mat )
+data_n = cbind( RawToy[,c(1:3)], data_n) 
+
+
+Toy1000<- data_n
 Toy1000<-GetVar(Toy1000)
 temp1<-Toy1000[,c(1,2,3)]
 temp2<-round(Toy1000[,c(-1,-2,-3)],digits = 3)
 Toy1000<-cbind(temp1,temp2)
 
-write.csv(Toy1000,"DNN10000.csv",row.names = FALSE)
-write.csv(CancerResult,"CancerResult10000.csv",row.names = FALSE)
+write.csv(Toy1000,"DNN_Quantile.csv",row.names = FALSE)
+write.csv(CancerResult,"CancerResult_Quantile.csv",row.names = FALSE)
+
