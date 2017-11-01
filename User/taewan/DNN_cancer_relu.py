@@ -14,12 +14,12 @@ def cal_var(variances, per):
     per_idx = int(all_cnt*(per/100))
     return variances[per_idx]
     
-def five_fold(data, num):
-    test_set = data[num*2000:(num+1)*2000]
-    train_set = data[:num*2000]
-    train_set = np.concatenate((train_set,data[(num+1)*2000:] ), axis=0)
-    return train_set , test_set
-    
+#def random_five_fold(data, num, indexs):
+#    test_set = data[:, indexs[:2000]]
+#    train_set = data[ :, indexs[2000:]]
+#    #train_set = np.concatenate((train_set,data[(num+1)*2000:] ), axis=0)
+#    return train_set , test_set
+
 def top_of_variance(per,  data_x):
     ##data_x['variance']
     ##calculate value  
@@ -74,10 +74,10 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
             sess.run(train, feed_dict={X: train_x, Y: train_y})
             if step == repeat-1:
                 ####Train Accuracy report####
-                h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y})
+                h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y  })
                 print("\nTrain Accuracy: ", train_a)
             if step % 20 == 0 :
-                h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
+                h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y })
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
                 if train_a > 0.95 :
                     break
@@ -139,7 +139,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y})
                 print("\nTrain Accuracy: ", train_a)
             if step % 20 == 0 : 
-                h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y})
+                h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y })
                 print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
                 if train_a > 0.95 :
                     break
@@ -157,7 +157,7 @@ x_filename = '/home/tjahn/Data/DNN10000/DNN10000.csv'
 xdata = pd.read_csv(x_filename)
 ydata = np.genfromtxt('/home/tjahn/Data/DNN10000/CancerResult.csv', delimiter=",")
 #conf_filename = input("Insert configure file directory and name : ")
-conf_filename = '/home/tjahn/Git/Data/input/relu_test_ps3.csv'
+conf_filename = '/home/tjahn/Git/Data/input/relu_test_ps.csv'
 conf = pd.read_csv(conf_filename)
 print(conf)
 train_accs = []
@@ -167,8 +167,12 @@ for i in range(len(conf)):
     nodes = list(map(int , node.split(" ")))
 
     j = 0
+    cnt_train = len(xdata.iloc[:,-1])    
+    indexs = list(range(len(xdata.iloc[1,3:-1])))
+    random.shuffle(indexs)
+    variance_set = xdata.iloc[:, indexs[2000:]]
     ###############################Edit############################
-    variance_set = pd.concat([xdata.iloc[:2000*j], xdata.iloc[2000*(j+1):]])
+    #variance_set = pd.concat([xdata.iloc[:2000*j], xdata.iloc[2000*(j+1):]])
     #print(variance_set.iloc[:,-1])
     variances = variance_set.iloc[:,-1]
     #print(variances)
@@ -178,7 +182,7 @@ for i in range(len(conf)):
     #print(variances)
     idx = top_of_variance(cal_var(variances, gene) , variance_set)
     ###############################Edit############################
-
+    
     data_x = xdata.loc[idx]
     data_x = data_x.as_matrix()
     data_x = data_x[1:, 3:-1]
@@ -187,16 +191,17 @@ for i in range(len(conf)):
     data_y = data_y.flatten()
     data_y = pd.get_dummies(data_y)
 
-    data_x = data_x.transpose()
-    
+
     
     ###############################Edit############################
-    train_x, test_x = five_fold(data_x,j)
-    train_y, test_y = five_fold(data_y,j)
+    test_x = data_x[:,indexs[:2000]]
+    train_x = data_x[:,indexs[2000:]]
+    train_x = train_x.transpose()
+    test_x = test_x.transpose()
+    train_y, test_y = random_five_fold(data_y,j,indexs)
     ###############################Edit############################
 
     #print(train_y)
-    cnt_train = len(train_x[1, :])
     if(conf.iloc[i]['layer'] == 3):
         train_acc , test_acc = (set_train_three_layer(i,repeat, nodes, learning_rate))
     elif(conf.iloc[i]['layer']== 4):
@@ -214,6 +219,6 @@ test_accs = pd.DataFrame(data=test_accs ,
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
-conf.to_csv('/home/tjahn/Git/Data/output/relu_result.csv')
+conf.to_csv('/home/tjahn/Git/Data/output/'+ conf_filename[:-4] +'_result.csv' , sep= ',')
 
 

@@ -17,7 +17,7 @@ MergeUntil<-function(filenames,n){
   cancer<-data.frame(GSM_NUMBER=GSM,CANCER=diagnose)
   i=2
   
-  while(ncol(data)<=n+3 | filenames[i]=="NA"){
+  while(ncol(data)<=n+3 & i<length(filenames)){
     
     Ndata<-read.table(filenames[i],header=TRUE)
     

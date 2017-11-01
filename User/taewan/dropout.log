@@ -1,0 +1,69 @@
+sys:1: DtypeWarning: Columns (2) have mixed types. Specify dtype option on import or set low_memory=False.
+   learning times  layer             node  learning rate  gene number
+0            2000      3    1000 1000 500         0.0001           30
+1            2000      3      1000 500 50         0.0001           30
+2            1000      4  1000 500 500 50         0.0001           30
+3            1500      4  1000 500 500 50         0.0001           30
+2017-10-25 16:48:13.049318: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 16:48:13.049353: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 16:48:13.049358: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 16:48:13.049361: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-10-25 16:48:13.049364: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+
+Current Accuracy :  0.557762 cost :  0.699588 Current Step :  0
+
+Current Accuracy :  0.829524 cost :  0.478274 Current Step :  20
+
+Current Accuracy :  0.915699 cost :  0.398113 Current Step :  40
+
+Current Accuracy :  0.951542 cost :  0.364783 Current Step :  60
+
+Test Accuracy:  0.8615
+
+Current Accuracy :  0.588485 cost :  0.685109 Current Step :  0
+
+Current Accuracy :  0.824029 cost :  0.485081 Current Step :  20
+
+Current Accuracy :  0.910953 cost :  0.407064 Current Step :  40
+
+Current Accuracy :  0.941676 cost :  0.373044 Current Step :  60
+
+Current Accuracy :  0.958411 cost :  0.356921 Current Step :  80
+
+Test Accuracy:  0.875
+
+Current Accuracy :  0.525915 Cost :  1.38606 Current Step :  0
+
+Current Accuracy :  0.738354 Cost :  0.553038 Current Step :  20
+
+Current Accuracy :  0.833146 Cost :  0.383534 Current Step :  40
+
+Current Accuracy :  0.906582 Cost :  0.241777 Current Step :  60
+
+Current Accuracy :  0.952167 Cost :  0.140344 Current Step :  80
+
+Test Accuracy:  0.85
+
+Current Accuracy :  0.512676 Cost :  1.75477 Current Step :  0
+
+Current Accuracy :  0.73748 Cost :  0.569101 Current Step :  20
+
+Current Accuracy :  0.827276 Cost :  0.398734 Current Step :  40
+
+Current Accuracy :  0.896965 Cost :  0.256864 Current Step :  60
+
+Current Accuracy :  0.943425 Cost :  0.152532 Current Step :  80
+
+Current Accuracy :  0.967154 Cost :  0.0920017 Current Step :  100
+
+Test Accuracy:  0.858
+Traceback (most recent call last):
+  File "DNN_cancer_relu_dropout.py", line 226, in <module>
+    conf.to_csv('/home/tjahn/Git/Data/output/'+ conf_filename[:-4] +'.csv' , sep= ',')
+  File "/usr/local/lib/python3.4/dist-packages/pandas/core/frame.py", line 1403, in to_csv
+    formatter.save()
+  File "/usr/local/lib/python3.4/dist-packages/pandas/io/formats/format.py", line 1577, in save
+    compression=self.compression)
+  File "/usr/local/lib/python3.4/dist-packages/pandas/io/common.py", line 385, in _get_handle
+    f = open(path_or_buf, mode, errors='replace')
+FileNotFoundError: [Errno 2] No such file or directory: '/home/tjahn/Git/Data/output//home/tjahn/Git/Data/input/relu_test_ps3.csv'
