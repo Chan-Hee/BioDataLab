@@ -151,7 +151,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
             if step % 20 == 0 :
                 h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
-                if train_a > 0.95 :
+                if train_a > 0.97 :
                     break
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})    
@@ -219,7 +219,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
             if step % 20 == 0 : 
                 h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
-                if train_a > 0.95 :
+                if train_a > 0.97 :
                     break
 
         ######Accuracy Report#####
@@ -236,7 +236,7 @@ xdata = pd.read_csv(x_filename)
 ydata = np.genfromtxt('/home/tjahn/Data/DNN10000/CancerResult.csv', delimiter=",")
 #conf_filename = input("Insert configure file directory and name : ")
 conf_directory = '/home/tjahn/Git/Data/'
-conf_filename = 'input/relu_test_ps4.csv'
+conf_filename = 'input/relu_test_ps5.csv'
 conf = pd.read_csv(conf_directory+conf_filename)
 
 train_x, test_x, train_y, test_y = random_sample(xdata, ydata)
