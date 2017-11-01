@@ -1,4 +1,5 @@
 # set working directory
+setwd("/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
 # or adjust path to open the sample info file
 samples = read.table(file="GPL570_sampleinfo.txt", header=T, sep="\t" ) 
 
@@ -31,7 +32,7 @@ for( i in 1:length(files) ){
   #cleaning up memory
   gc()
 }
-
+setwd("/home/tjahn/Data")
 
 write.table(collect, file="GPL570.txt", sep="\t", quote=F, row.names=F)
 
