@@ -1,0 +1,3 @@
+learning times,layer,node,learning rate,gene number
+500,3,1000 500 50,0.005,30
+500,4,2000 2000 500 50,0.005,30
