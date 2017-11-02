@@ -122,7 +122,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
 
     W4 = tf.get_variable(shape=[nodes[2], 2], name='weight4',initializer=tf.contrib.layers.xavier_initializer())
     b4 = tf.Variable(tf.random_normal([2]), name='bias4')
-    hypothesis = tf.sigmoid(tf.matmul(layer3, W4) + b4)
+    hypothesis = tf.matmul(layer3, W4) + b4
     
 
 
