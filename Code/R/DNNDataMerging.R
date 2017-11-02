@@ -102,7 +102,7 @@ for( j in 1 : length(not_log2_scale_ids ) ) {
 }
 
 
-summary(RawToy)
+#summary(RawToy)
 CancerResult<-data$y
 
 
