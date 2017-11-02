@@ -151,7 +151,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
             if step % 20 == 0 :
                 h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
-                if train_a > 0.97 :
+                if train_a > 0.99 :
                     break
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})    
@@ -219,7 +219,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
             if step % 20 == 0 : 
                 h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
-                if train_a > 0.97 :
+                if train_a > 0.99 :
                     break
 
         ######Accuracy Report#####
@@ -266,4 +266,4 @@ test_accs = pd.DataFrame(data=test_accs ,
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
-conf.to_csv( conf_directory+'output'+conf_filename[5:-4] +'_result(chan).csv' , sep= ',')
+conf.to_csv( conf_directory+'output'+conf_filename[5:-4] +'_result99.csv' , sep= ',')
