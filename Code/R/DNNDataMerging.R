@@ -86,7 +86,7 @@ GetVar<-function(Toy1000){
 #################################################### Main ##################################################
 setwd("/home/tjahn/Data/")
 #setwd("/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
-set.seed(777)
+set.seed(2017)
 #data<-MergeToyFile(100,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
 data<-MergeToyFile(10000,"/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
 
@@ -115,6 +115,6 @@ Toy1000<-GetVar(Toy1000)
 temp1<-Toy1000[,c(1,2,3)]
 temp2<-round(Toy1000[,c(-1,-2,-3)],digits = 3)
 Toy1000<-cbind(temp1,temp2)
-setwd("home/tjahn/Data/DNN10000")
+
 write.csv(Toy1000,"DNN10000.csv",row.names = FALSE)
 write.csv(CancerResult,"CancerResult.csv",row.names = FALSE)
