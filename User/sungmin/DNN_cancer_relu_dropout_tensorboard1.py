@@ -70,15 +70,19 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
     with tf.Session() as sess:
-        # tensorboard --logdir=./logs/xor_logs
+
+	 # tensorboard --logdir=./logs/xor_logs
         merged_summary = tf.summary.merge_all()
         writer = tf.summary.FileWriter("./logs/1")
-        writer.add_graph(sess.graph)  # Show the graph   
+        writer.add_graph(sess.graph)  # Show the graph
+
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
 
         for step in range(repeat):
-            sess.run(train, feed_dict={X: train_x, Y: train_y , keep_prob : 0.7})
+            summary,_= sess.run([merged_summary, train],fedd_dict={X: trina_x, Y:train_y, keep_prob: 0.7})
+            writer.add_summary(summary,global_step=step)
+            #sess.run(train, feed_dict={X: train_x, Y: train_y , keep_prob : 0.7})
             if step == repeat-1:
                 ####Train Accuracy report####
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
@@ -142,7 +146,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
     with tf.Session() as sess:
-   	 # tensorboard --logdir=./logs/xor_logs
+        # tensorboard --logdir=./logs/xor_logs
         merged_summary = tf.summary.merge_all()
         writer = tf.summary.FileWriter("./logs/2")
         writer.add_graph(sess.graph)  # Show the graph
@@ -151,7 +155,10 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
         sess.run(tf.global_variables_initializer())
 
         for step in range(repeat):
-            sess.run(train, feed_dict={X: train_x, Y: train_y, keep_prob : 0.7})
+            summary,_= sess.run([merged_summary, train],fedd_dict={X: trina_x, Y:train_y, keep_prob: 0.7})
+            writer.add_summary(summary,global_step=step)
+
+            #sess.run(train, feed_dict={X: train_x, Y: train_y, keep_prob : 0.7})
             if step == repeat-1:
                 ####Train Accuracy report####
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})

@@ -70,10 +70,6 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
     with tf.Session() as sess:
-        # tensorboard --logdir=./logs/xor_logs
-        merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("./logs/1")
-        writer.add_graph(sess.graph)  # Show the graph   
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
 
@@ -138,14 +134,9 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
-
-
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
     with tf.Session() as sess:
-   	 # tensorboard --logdir=./logs/xor_logs
-        merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("./logs/2")
-        writer.add_graph(sess.graph)  # Show the graph
+too many values to unpack (expected 5)
 
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
