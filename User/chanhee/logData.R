@@ -83,7 +83,7 @@ GetVar<-function(Toy1000){
 setwd("/home/tjahn/Data/")
 #setwd("/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
 set.seed(2017)
-#data<-MergeToyFile(100,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
+#data<-MergeToyFile(1000,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
 data<-MergeToyFile(10000,"/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
 
 RawToy<-data$x
@@ -97,7 +97,8 @@ not_log2_scale_ids = names( which(maxs > 100 ) )
 
 for( j in 1 : length(not_log2_scale_ids ) ) {
   exception = RawToy[,not_log2_scale_ids[j]]<1
-  RawToy[exception,not_log2_scale_ids] = 1
+  RawToy[exception,not_log2_scale_ids[j]] = 1
+  
   temp = log2( RawToy[,not_log2_scale_ids[j] ] )
   RawToy[,not_log2_scale_ids[j] ] = temp
   
