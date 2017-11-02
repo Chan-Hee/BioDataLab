@@ -65,15 +65,11 @@ MergeToyFile<-function(n,mypath){
 ################################################### Normalization #########################################
 
 NormalizeToy<-function(RawToy){
-  temp<-RawToy[,c(1,2,3)]
-  for(i in colnames(RawToy)[4:length(RawToy)]){
-    NormalizedV<-(RawToy[,i]-mean(RawToy[,i]))/sd(RawToy[,i])
-    RawToy[,i]<-NormalizedV
+  for(i in 4:length(colnames(RawToy))){
+    
+    RawToy[,i]<-(RawToy[,i]-mean(RawToy[,i]))/sd(RawToy[,i])
+
   }
-  RawToy[,1]<-temp[,1]
-  RawToy[,2]<-temp[,2]
-  RawToy[,3]<-temp[,3]
-  
   
   return(RawToy)
 }
@@ -95,18 +91,18 @@ RawToy<-RawToy[RawToy$Gene_Symbol!="",]
 RawToy<-RawToy[!duplicated(RawToy[,2]),]
 
 maxs = sapply( RawToy[, c(-1,-2,-3)], max ) 
-not_log2_scale_ids = names( which(maxs > 100 ) )
+not_log2_scale_ids = names( which(maxs < 100 ) )
 
 # change the non log 2 scaled data to log2 scale
 
 for( j in 1 : length(not_log2_scale_ids ) ) {
-  temp = log2( RawToy[,not_log2_scale_ids[j] ] )
+  temp = 2^( RawToy[,not_log2_scale_ids[j] ] )
   RawToy[,not_log2_scale_ids[j] ] = temp
 
 }
 
 
-
+summary(RawToy)
 CancerResult<-data$y
 
 
