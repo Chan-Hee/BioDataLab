@@ -60,7 +60,9 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-
+    
+    #sungmin추가
+    cost_summ=tf.summary.scalar("cost",cost)
 
 
     # Accuracy computation
@@ -69,6 +71,10 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
+    
+    accuracy_summ = tf.summary.scalar("accuracy1", accuracy)   
+
+
     with tf.Session() as sess:
 
 	 # tensorboard --logdir=./logs/xor_logs
@@ -142,9 +148,9 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
-
-
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
+    accuracy_summ = tf.summary.scalar("accuracy2",accuracy)
+    
     with tf.Session() as sess:
         # tensorboard --logdir=./logs/xor_logs
         merged_summary = tf.summary.merge_all()
