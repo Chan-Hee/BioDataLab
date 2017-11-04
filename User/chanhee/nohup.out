@@ -5840,3 +5840,14 @@ Current Accuracy :  0.970768 Cost :  0.0880199 Current Step :  2020
 
 Test Accuracy:  0.95
 [1] "10000" " : "   "0"    
+Error in library(stringr) : there is no package called ‘stringr’
+Execution halted
+Warning messages:
+1: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+Error in parse(text = x, keep.source = FALSE) : 
+  <text>:1:20674: unexpected symbol
+1: 1+MGC24103+C7orf42+SCD+NEU1+ABHD5+HNRNPU+SDHC+CRIPT+HOXB13+MIR101-1+CEP250+LOC100510377+SPATA17+TSLP+FAM19A2+ZNF653+USP1+FBXO43+FUK+LOC100505971+RCAN2+RNF38+MOBKL2A+PLAGL1+ATP13A1+FAM108C1+STX
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+Calls: glm ... formula -> formula.character -> formula -> eval -> parse
+Execution halted

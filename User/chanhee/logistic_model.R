@@ -30,6 +30,8 @@ genes <- colnames(data[,!results])
 num_of_attributes<-dim(data)[2]-1
 betas <- c()
 
+num_of_attributes = 10
+
 for(i in 1:num_of_attributes){
   glm_model<-glm(result~get(genes[i]),family = binomial(link = logit),data = train)
 
