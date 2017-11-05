@@ -9,6 +9,7 @@ library(stringr)
 r_name<-as.character(data[,2])
 data<-as.data.frame(t(data[,c(-1,-2,-3,-length(data))]))
 r_name<-str_replace_all(r_name," /// ","")
+r_name<-str_replace_all(r_name,"-","")
 colnames(data)<-r_name
 
 data$result<-result[,2]
@@ -30,7 +31,7 @@ genes <- colnames(data[,!results])
 num_of_attributes<-dim(data)[2]-1
 betas <- c()
 
-num_of_attributes = 10
+#num_of_attributes = 10
 
 for(i in 1:num_of_attributes){
   glm_model<-glm(result~get(genes[i]),family = binomial(link = logit),data = train)

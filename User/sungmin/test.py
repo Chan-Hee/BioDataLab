@@ -129,8 +129,8 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-
-
+    cost_summ=tf.summary.scalar("cost_3layer",cost)
+    
 
     # Accuracy computation
     # True if hypothesis>0.5 else False
@@ -138,7 +138,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
-   
+    accuracy_summ = tf.summary.scalar("accuracy_3layer",accuracy)   
     with tf.Session() as sess:
        
         # tensorboard --logdir=./logs/xor_logs
@@ -151,7 +151,10 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
         sess.run(tf.global_variables_initializer())
 
         for step in range(repeat):
-            sess.run(train, feed_dict={X: train_x, Y: train_y , keep_prob : 0.7})
+            sess.run(train, feed_dict={X: train_x, Y: train_y , keep_prob : 0.7})            
+            summary,_=sess.run([merged_summary,train], feed_dict={X: train_x, Y: train_y , keep_prob : 0.7})
+            writer.add_summary(summary,global_step=step)
+
             if step == repeat-1:
                 ####Train Accuracy report####
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
@@ -159,7 +162,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
             if step % 20 == 0 :
                 h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
-                if train_a > 0.95 :
+                if train_a > 0.98 :
                     break
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})    
@@ -203,7 +206,8 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-
+    cost_summ=tf.summary.scalar("cost_4layer",cost)
+    
 
 
     # Accuracy computation
@@ -211,9 +215,11 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
-
-
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
+    accuracy_summ = tf.summary.scalar("accuracy_4layer",accuracy)
+
+
+
     with tf.Session() as sess:
 
         # tensorboard --logdir=./logs/xor_logs
@@ -225,6 +231,9 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
         for step in range(repeat):
             sess.run(train, feed_dict={X: train_x, Y: train_y, keep_prob : 0.7})
+
+            summary,_=sess.run([merged_summary,train], feed_dict={X: train_x, Y: train_y, keep_prob : 0.7})
+            writer.add_summary(summary,global_step=step)
             if step == repeat-1:
                 ####Train Accuracy report####
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
@@ -232,7 +241,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
             if step % 20 == 0 : 
                 h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
-                if train_a > 0.95 :
+                if train_a > 0.98 :
                     break
 
         ######Accuracy Report#####
@@ -279,4 +288,4 @@ test_accs = pd.DataFrame(data=test_accs ,
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
-conf.to_csv( '/home/tjahn/Git/User/sungmin/output'+conf_filename[5:-4] +'_result_sungtest95.csv' , sep= ',')
+conf.to_csv( '/home/tjahn/Git/User/sungmin/output'+conf_filename[5:-4] +'_result_sungtest98.csv' , sep= ',')

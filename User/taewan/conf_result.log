@@ -1,0 +1,2220 @@
+sys:1: DtypeWarning: Columns (2) have mixed types. Specify dtype option on import or set low_memory=False.
+2017-11-05 16:46:19.337221: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-05 16:46:19.337255: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-05 16:46:19.337260: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-05 16:46:19.337263: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-05 16:46:19.337266: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+
+Current Accuracy :  0.540037 cost :  100.426 Current Step :  0
+
+Current Accuracy :  0.566646 cost :  0.716434 Current Step :  20
+
+Current Accuracy :  0.659213 cost :  0.652245 Current Step :  40
+
+Current Accuracy :  0.73629 cost :  0.55535 Current Step :  60
+
+Current Accuracy :  0.804747 cost :  0.471735 Current Step :  80
+
+Current Accuracy :  0.848595 cost :  0.409093 Current Step :  100
+
+Current Accuracy :  0.860587 cost :  0.375155 Current Step :  120
+
+Current Accuracy :  0.887196 cost :  0.326633 Current Step :  140
+
+Current Accuracy :  0.894691 cost :  0.302747 Current Step :  160
+
+Current Accuracy :  0.913804 cost :  0.25944 Current Step :  180
+
+Current Accuracy :  0.923923 cost :  0.235202 Current Step :  200
+
+Current Accuracy :  0.928295 cost :  0.23083 Current Step :  220
+
+Current Accuracy :  0.932042 cost :  0.211849 Current Step :  240
+
+Current Accuracy :  0.941537 cost :  0.182305 Current Step :  260
+
+Current Accuracy :  0.947658 cost :  0.171158 Current Step :  280
+
+Current Accuracy :  0.951905 cost :  0.156378 Current Step :  300
+
+Current Accuracy :  0.925547 cost :  0.198243 Current Step :  320
+
+Current Accuracy :  0.950906 cost :  0.156157 Current Step :  340
+
+Current Accuracy :  0.958026 cost :  0.137957 Current Step :  360
+
+Current Accuracy :  0.955903 cost :  0.134438 Current Step :  380
+
+Current Accuracy :  0.964897 cost :  0.127155 Current Step :  400
+
+Current Accuracy :  0.967645 cost :  0.112108 Current Step :  420
+
+Current Accuracy :  0.966271 cost :  0.109408 Current Step :  440
+
+Current Accuracy :  0.969019 cost :  0.0922554 Current Step :  460
+
+Current Accuracy :  0.966646 cost :  0.104446 Current Step :  480
+
+Current Accuracy :  0.974641 cost :  0.0821778 Current Step :  500
+
+Test Accuracy:  0.952
+
+Current Accuracy :  0.459963 cost :  525.565 Current Step :  0
+
+Current Accuracy :  0.479575 cost :  0.715739 Current Step :  20
+
+Current Accuracy :  0.583885 cost :  0.671113 Current Step :  40
+
+Current Accuracy :  0.745909 cost :  0.537984 Current Step :  60
+
+Current Accuracy :  0.830731 cost :  0.402677 Current Step :  80
+
+Current Accuracy :  0.868832 cost :  0.340859 Current Step :  100
+
+Current Accuracy :  0.891568 cost :  0.29177 Current Step :  120
+
+Current Accuracy :  0.909681 cost :  0.254698 Current Step :  140
+
+Current Accuracy :  0.930543 cost :  0.204274 Current Step :  160
+
+Current Accuracy :  0.935166 cost :  0.180878 Current Step :  180
+
+Current Accuracy :  0.946284 cost :  0.1574 Current Step :  200
+
+Current Accuracy :  0.950156 cost :  0.139137 Current Step :  220
+
+Current Accuracy :  0.949656 cost :  0.137673 Current Step :  240
+
+Current Accuracy :  0.963648 cost :  0.108503 Current Step :  260
+
+Current Accuracy :  0.961399 cost :  0.106244 Current Step :  280
+
+Current Accuracy :  0.922923 cost :  0.199449 Current Step :  300
+
+Current Accuracy :  0.959275 cost :  0.116353 Current Step :  320
+
+Current Accuracy :  0.964772 cost :  0.0994398 Current Step :  340
+
+Current Accuracy :  0.969519 cost :  0.0858778 Current Step :  360
+
+Current Accuracy :  0.972392 cost :  0.0828843 Current Step :  380
+
+Test Accuracy:  0.943
+
+Current Accuracy :  0.540037 cost :  193.501 Current Step :  0
+
+Current Accuracy :  0.660837 cost :  0.61516 Current Step :  20
+
+Current Accuracy :  0.798876 cost :  0.445064 Current Step :  40
+
+Current Accuracy :  0.867833 cost :  0.333245 Current Step :  60
+
+Current Accuracy :  0.894691 cost :  0.271988 Current Step :  80
+
+Current Accuracy :  0.914553 cost :  0.225914 Current Step :  100
+
+Current Accuracy :  0.933042 cost :  0.182355 Current Step :  120
+
+Current Accuracy :  0.928919 cost :  0.193452 Current Step :  140
+
+Current Accuracy :  0.942536 cost :  0.162339 Current Step :  160
+
+Current Accuracy :  0.947408 cost :  0.150954 Current Step :  180
+
+Current Accuracy :  0.953029 cost :  0.13039 Current Step :  200
+
+Current Accuracy :  0.949781 cost :  0.134719 Current Step :  220
+
+Current Accuracy :  0.963273 cost :  0.107351 Current Step :  240
+
+Current Accuracy :  0.964022 cost :  0.103017 Current Step :  260
+
+Current Accuracy :  0.957651 cost :  0.119717 Current Step :  280
+
+Current Accuracy :  0.961649 cost :  0.103945 Current Step :  300
+
+Current Accuracy :  0.969019 cost :  0.0902495 Current Step :  320
+
+Current Accuracy :  0.973267 cost :  0.079827 Current Step :  340
+
+Test Accuracy:  0.949
+
+Current Accuracy :  0.540037 cost :  388.622 Current Step :  0
+
+Current Accuracy :  0.549906 cost :  0.680322 Current Step :  20
+
+Current Accuracy :  0.7198 cost :  0.581269 Current Step :  40
+
+Current Accuracy :  0.803373 cost :  0.448747 Current Step :  60
+
+Current Accuracy :  0.863835 cost :  0.346208 Current Step :  80
+
+Current Accuracy :  0.887071 cost :  0.29764 Current Step :  100
+
+Current Accuracy :  0.912929 cost :  0.245264 Current Step :  120
+
+Current Accuracy :  0.915053 cost :  0.237956 Current Step :  140
+
+Current Accuracy :  0.927295 cost :  0.192404 Current Step :  160
+
+Current Accuracy :  0.918426 cost :  0.219022 Current Step :  180
+
+Current Accuracy :  0.946908 cost :  0.153933 Current Step :  200
+
+Current Accuracy :  0.934041 cost :  0.177089 Current Step :  220
+
+Current Accuracy :  0.953779 cost :  0.137949 Current Step :  240
+
+Current Accuracy :  0.957527 cost :  0.126378 Current Step :  260
+
+Current Accuracy :  0.953154 cost :  0.1296 Current Step :  280
+
+Current Accuracy :  0.960525 cost :  0.113738 Current Step :  300
+
+Current Accuracy :  0.951156 cost :  0.134941 Current Step :  320
+
+Current Accuracy :  0.955403 cost :  0.124312 Current Step :  340
+
+Current Accuracy :  0.9594 cost :  0.114948 Current Step :  360
+
+Current Accuracy :  0.9599 cost :  0.105092 Current Step :  380
+
+Current Accuracy :  0.953529 cost :  0.12249 Current Step :  400
+
+Current Accuracy :  0.946159 cost :  0.144182 Current Step :  420
+
+Current Accuracy :  0.948532 cost :  0.135275 Current Step :  440
+
+Current Accuracy :  0.953904 cost :  0.12533 Current Step :  460
+
+Current Accuracy :  0.951031 cost :  0.119936 Current Step :  480
+
+Current Accuracy :  0.957651 cost :  0.108393 Current Step :  500
+
+Current Accuracy :  0.954279 cost :  0.123336 Current Step :  520
+
+Current Accuracy :  0.966896 cost :  0.0906821 Current Step :  540
+
+Current Accuracy :  0.96802 cost :  0.0879875 Current Step :  560
+
+Current Accuracy :  0.970893 cost :  0.081324 Current Step :  580
+
+Test Accuracy:  0.9365
+
+Current Accuracy :  0.539538 cost :  7.9432 Current Step :  0
+
+Current Accuracy :  0.509557 cost :  0.695566 Current Step :  20
+
+Current Accuracy :  0.659463 cost :  0.634177 Current Step :  40
+
+Current Accuracy :  0.742161 cost :  0.570022 Current Step :  60
+
+Current Accuracy :  0.807495 cost :  0.495121 Current Step :  80
+
+Current Accuracy :  0.84722 cost :  0.442003 Current Step :  100
+
+Current Accuracy :  0.872455 cost :  0.369982 Current Step :  120
+
+Current Accuracy :  0.89594 cost :  0.302352 Current Step :  140
+
+Current Accuracy :  0.921549 cost :  0.244002 Current Step :  160
+
+Current Accuracy :  0.931918 cost :  0.206802 Current Step :  180
+
+Current Accuracy :  0.939788 cost :  0.178863 Current Step :  200
+
+Current Accuracy :  0.941661 cost :  0.165723 Current Step :  220
+
+Current Accuracy :  0.95278 cost :  0.136331 Current Step :  240
+
+Current Accuracy :  0.960775 cost :  0.113176 Current Step :  260
+
+Current Accuracy :  0.962149 cost :  0.113033 Current Step :  280
+
+Current Accuracy :  0.971643 cost :  0.0816736 Current Step :  300
+
+Test Accuracy:  0.952
+
+Current Accuracy :  0.540037 cost :  29.4754 Current Step :  0
+
+Current Accuracy :  0.704809 cost :  0.59711 Current Step :  20
+
+Current Accuracy :  0.804747 cost :  0.4358 Current Step :  40
+
+Current Accuracy :  0.879076 cost :  0.304321 Current Step :  60
+
+Current Accuracy :  0.908432 cost :  0.245044 Current Step :  80
+
+Current Accuracy :  0.935166 cost :  0.176487 Current Step :  100
+
+Current Accuracy :  0.940662 cost :  0.160868 Current Step :  120
+
+Current Accuracy :  0.958151 cost :  0.125758 Current Step :  140
+
+Current Accuracy :  0.962898 cost :  0.105371 Current Step :  160
+
+Current Accuracy :  0.971268 cost :  0.0811247 Current Step :  180
+
+Test Accuracy:  0.953
+
+Current Accuracy :  0.540037 cost :  82.6713 Current Step :  0
+
+Current Accuracy :  0.579263 cost :  0.718653 Current Step :  20
+
+Current Accuracy :  0.691193 cost :  0.595474 Current Step :  40
+
+Current Accuracy :  0.801874 cost :  0.464693 Current Step :  60
+
+Current Accuracy :  0.834603 cost :  0.42236 Current Step :  80
+
+Current Accuracy :  0.874828 cost :  0.351085 Current Step :  100
+
+Current Accuracy :  0.903685 cost :  0.309653 Current Step :  120
+
+Current Accuracy :  0.915053 cost :  0.274918 Current Step :  140
+
+Current Accuracy :  0.917427 cost :  0.259496 Current Step :  160
+
+Current Accuracy :  0.925172 cost :  0.26805 Current Step :  180
+
+Current Accuracy :  0.931293 cost :  0.229302 Current Step :  200
+
+Current Accuracy :  0.938164 cost :  0.219187 Current Step :  220
+
+Current Accuracy :  0.938039 cost :  0.207527 Current Step :  240
+
+Current Accuracy :  0.937664 cost :  0.198454 Current Step :  260
+
+Current Accuracy :  0.939663 cost :  0.194268 Current Step :  280
+
+Current Accuracy :  0.940537 cost :  0.187144 Current Step :  300
+
+Current Accuracy :  0.946284 cost :  0.185812 Current Step :  320
+
+Current Accuracy :  0.949157 cost :  0.171732 Current Step :  340
+
+Current Accuracy :  0.95203 cost :  0.161418 Current Step :  360
+
+Current Accuracy :  0.952655 cost :  0.15759 Current Step :  380
+
+Current Accuracy :  0.954778 cost :  0.155165 Current Step :  400
+
+Current Accuracy :  0.953029 cost :  0.157405 Current Step :  420
+
+Current Accuracy :  0.949157 cost :  0.160209 Current Step :  440
+
+Current Accuracy :  0.947283 cost :  0.165089 Current Step :  460
+
+Current Accuracy :  0.944909 cost :  0.185297 Current Step :  480
+
+Current Accuracy :  0.954778 cost :  0.144672 Current Step :  500
+
+Current Accuracy :  0.958276 cost :  0.136083 Current Step :  520
+
+Current Accuracy :  0.957027 cost :  0.130933 Current Step :  540
+
+Current Accuracy :  0.962898 cost :  0.126371 Current Step :  560
+
+Current Accuracy :  0.958151 cost :  0.131441 Current Step :  580
+
+Current Accuracy :  0.9599 cost :  0.12751 Current Step :  600
+
+Current Accuracy :  0.961024 cost :  0.120244 Current Step :  620
+
+Current Accuracy :  0.966021 cost :  0.107378 Current Step :  640
+
+Current Accuracy :  0.964647 cost :  0.106265 Current Step :  660
+
+Current Accuracy :  0.966271 cost :  0.101086 Current Step :  680
+
+Current Accuracy :  0.967395 cost :  0.106386 Current Step :  700
+
+Current Accuracy :  0.96827 cost :  0.0959696 Current Step :  720
+
+Current Accuracy :  0.965896 cost :  0.102387 Current Step :  740
+
+Current Accuracy :  0.963773 cost :  0.105033 Current Step :  760
+
+Current Accuracy :  0.966771 cost :  0.100301 Current Step :  780
+
+Current Accuracy :  0.961274 cost :  0.110676 Current Step :  800
+
+Current Accuracy :  0.95128 cost :  0.135164 Current Step :  820
+
+Current Accuracy :  0.961399 cost :  0.105404 Current Step :  840
+
+Current Accuracy :  0.964397 cost :  0.106126 Current Step :  860
+
+Current Accuracy :  0.953779 cost :  0.122272 Current Step :  880
+
+Current Accuracy :  0.960275 cost :  0.106263 Current Step :  900
+
+Current Accuracy :  0.96015 cost :  0.106573 Current Step :  920
+
+Current Accuracy :  0.961649 cost :  0.113421 Current Step :  940
+
+Current Accuracy :  0.954279 cost :  0.128082 Current Step :  960
+
+Current Accuracy :  0.961274 cost :  0.103858 Current Step :  980
+
+Train Accuracy:  0.965522
+
+Test Accuracy:  0.941
+
+Current Accuracy :  0.540037 cost :  231.544 Current Step :  0
+
+Current Accuracy :  0.569019 cost :  0.679084 Current Step :  20
+
+Current Accuracy :  0.69569 cost :  0.601891 Current Step :  40
+
+Current Accuracy :  0.768395 cost :  0.503713 Current Step :  60
+
+Current Accuracy :  0.81574 cost :  0.410584 Current Step :  80
+
+Current Accuracy :  0.862461 cost :  0.348016 Current Step :  100
+
+Current Accuracy :  0.871955 cost :  0.315853 Current Step :  120
+
+Current Accuracy :  0.892817 cost :  0.268165 Current Step :  140
+
+Current Accuracy :  0.906059 cost :  0.241681 Current Step :  160
+
+Current Accuracy :  0.905684 cost :  0.226255 Current Step :  180
+
+Current Accuracy :  0.922548 cost :  0.199685 Current Step :  200
+
+Current Accuracy :  0.925172 cost :  0.194627 Current Step :  220
+
+Current Accuracy :  0.929044 cost :  0.177369 Current Step :  240
+
+Current Accuracy :  0.933542 cost :  0.169248 Current Step :  260
+
+Current Accuracy :  0.942286 cost :  0.149029 Current Step :  280
+
+Current Accuracy :  0.940287 cost :  0.147043 Current Step :  300
+
+Current Accuracy :  0.937789 cost :  0.157652 Current Step :  320
+
+Current Accuracy :  0.945034 cost :  0.137547 Current Step :  340
+
+Current Accuracy :  0.949906 cost :  0.125322 Current Step :  360
+
+Current Accuracy :  0.955278 cost :  0.115411 Current Step :  380
+
+Current Accuracy :  0.953654 cost :  0.120869 Current Step :  400
+
+Current Accuracy :  0.95965 cost :  0.103997 Current Step :  420
+
+Current Accuracy :  0.959151 cost :  0.101167 Current Step :  440
+
+Current Accuracy :  0.9604 cost :  0.0990028 Current Step :  460
+
+Current Accuracy :  0.960275 cost :  0.0946112 Current Step :  480
+
+Current Accuracy :  0.960025 cost :  0.0943475 Current Step :  500
+
+Current Accuracy :  0.958526 cost :  0.100259 Current Step :  520
+
+Current Accuracy :  0.963648 cost :  0.0912902 Current Step :  540
+
+Current Accuracy :  0.969269 cost :  0.0821606 Current Step :  560
+
+Current Accuracy :  0.968645 cost :  0.0768175 Current Step :  580
+
+Current Accuracy :  0.971518 cost :  0.0765853 Current Step :  600
+
+Test Accuracy:  0.9405
+
+Current Accuracy :  0.540037 cost :  12.6252 Current Step :  0
+
+Current Accuracy :  0.552655 cost :  0.705731 Current Step :  20
+
+Current Accuracy :  0.724047 cost :  0.571927 Current Step :  40
+
+Current Accuracy :  0.826858 cost :  0.417992 Current Step :  60
+
+Current Accuracy :  0.882573 cost :  0.314311 Current Step :  80
+
+Current Accuracy :  0.909182 cost :  0.259382 Current Step :  100
+
+Current Accuracy :  0.926546 cost :  0.217856 Current Step :  120
+
+Current Accuracy :  0.933666 cost :  0.195494 Current Step :  140
+
+Current Accuracy :  0.945784 cost :  0.167411 Current Step :  160
+
+Current Accuracy :  0.929419 cost :  0.188342 Current Step :  180
+
+Current Accuracy :  0.945784 cost :  0.161635 Current Step :  200
+
+Current Accuracy :  0.960275 cost :  0.11556 Current Step :  220
+
+Current Accuracy :  0.966896 cost :  0.0984057 Current Step :  240
+
+Current Accuracy :  0.971393 cost :  0.0821375 Current Step :  260
+
+Test Accuracy:  0.9515
+
+Current Accuracy :  0.540037 cost :  54.9576 Current Step :  0
+
+Current Accuracy :  0.460837 cost :  0.705146 Current Step :  20
+
+Current Accuracy :  0.558651 cost :  0.674511 Current Step :  40
+
+Current Accuracy :  0.675453 cost :  0.627156 Current Step :  60
+
+Current Accuracy :  0.716052 cost :  0.586413 Current Step :  80
+
+Current Accuracy :  0.765646 cost :  0.54327 Current Step :  100
+
+Current Accuracy :  0.798626 cost :  0.500503 Current Step :  120
+
+Current Accuracy :  0.835728 cost :  0.440715 Current Step :  140
+
+Current Accuracy :  0.863335 cost :  0.396109 Current Step :  160
+
+Current Accuracy :  0.868457 cost :  0.363608 Current Step :  180
+
+Current Accuracy :  0.874578 cost :  0.349553 Current Step :  200
+
+Current Accuracy :  0.89619 cost :  0.302933 Current Step :  220
+
+Current Accuracy :  0.911056 cost :  0.274641 Current Step :  240
+
+Current Accuracy :  0.912055 cost :  0.259376 Current Step :  260
+
+Current Accuracy :  0.928045 cost :  0.23197 Current Step :  280
+
+Current Accuracy :  0.932167 cost :  0.211796 Current Step :  300
+
+Current Accuracy :  0.932167 cost :  0.210395 Current Step :  320
+
+Current Accuracy :  0.939163 cost :  0.185238 Current Step :  340
+
+Current Accuracy :  0.937539 cost :  0.186132 Current Step :  360
+
+Current Accuracy :  0.945784 cost :  0.161251 Current Step :  380
+
+Current Accuracy :  0.949157 cost :  0.149537 Current Step :  400
+
+Current Accuracy :  0.953654 cost :  0.13942 Current Step :  420
+
+Current Accuracy :  0.957776 cost :  0.12132 Current Step :  440
+
+Current Accuracy :  0.952904 cost :  0.126086 Current Step :  460
+
+Current Accuracy :  0.930793 cost :  0.198253 Current Step :  480
+
+Current Accuracy :  0.946783 cost :  0.147127 Current Step :  500
+
+Current Accuracy :  0.957277 cost :  0.11771 Current Step :  520
+
+Current Accuracy :  0.957152 cost :  0.122118 Current Step :  540
+
+Current Accuracy :  0.963273 cost :  0.101648 Current Step :  560
+
+Current Accuracy :  0.964897 cost :  0.0934727 Current Step :  580
+
+Current Accuracy :  0.944285 cost :  0.150439 Current Step :  600
+
+Current Accuracy :  0.963023 cost :  0.099031 Current Step :  620
+
+Current Accuracy :  0.964897 cost :  0.0942686 Current Step :  640
+
+Current Accuracy :  0.968395 cost :  0.0844563 Current Step :  660
+
+Current Accuracy :  0.968894 cost :  0.0814073 Current Step :  680
+
+Current Accuracy :  0.971018 cost :  0.080109 Current Step :  700
+
+Test Accuracy:  0.952
+
+Current Accuracy :  0.540037 cost :  629.034 Current Step :  0
+
+Current Accuracy :  0.542161 cost :  0.694521 Current Step :  20
+
+Current Accuracy :  0.670331 cost :  0.60688 Current Step :  40
+
+Current Accuracy :  0.787383 cost :  0.472133 Current Step :  60
+
+Current Accuracy :  0.837601 cost :  0.387283 Current Step :  80
+
+Current Accuracy :  0.875703 cost :  0.324479 Current Step :  100
+
+Current Accuracy :  0.903935 cost :  0.264353 Current Step :  120
+
+Current Accuracy :  0.911555 cost :  0.2354 Current Step :  140
+
+Current Accuracy :  0.931043 cost :  0.192052 Current Step :  160
+
+Current Accuracy :  0.939788 cost :  0.169979 Current Step :  180
+
+Current Accuracy :  0.941786 cost :  0.167422 Current Step :  200
+
+Current Accuracy :  0.94466 cost :  0.163108 Current Step :  220
+
+Current Accuracy :  0.953029 cost :  0.139177 Current Step :  240
+
+Current Accuracy :  0.952904 cost :  0.139034 Current Step :  260
+
+Current Accuracy :  0.957402 cost :  0.129498 Current Step :  280
+
+Current Accuracy :  0.957776 cost :  0.127655 Current Step :  300
+
+Current Accuracy :  0.959275 cost :  0.120706 Current Step :  320
+
+Current Accuracy :  0.964897 cost :  0.108056 Current Step :  340
+
+Current Accuracy :  0.956527 cost :  0.12442 Current Step :  360
+
+Current Accuracy :  0.965646 cost :  0.0982975 Current Step :  380
+
+Current Accuracy :  0.970393 cost :  0.0905841 Current Step :  400
+
+Test Accuracy:  0.939
+
+Current Accuracy :  0.540037 cost :  1400.71 Current Step :  0
+
+Current Accuracy :  0.508057 cost :  0.733806 Current Step :  20
+
+Current Accuracy :  0.698064 cost :  0.588688 Current Step :  40
+
+Current Accuracy :  0.79188 cost :  0.477773 Current Step :  60
+
+Current Accuracy :  0.845097 cost :  0.401483 Current Step :  80
+
+Current Accuracy :  0.864335 cost :  0.356126 Current Step :  100
+
+Current Accuracy :  0.887945 cost :  0.323341 Current Step :  120
+
+Current Accuracy :  0.903935 cost :  0.282948 Current Step :  140
+
+Current Accuracy :  0.918676 cost :  0.234133 Current Step :  160
+
+Current Accuracy :  0.926046 cost :  0.21829 Current Step :  180
+
+Current Accuracy :  0.938289 cost :  0.18852 Current Step :  200
+
+Current Accuracy :  0.903435 cost :  0.249989 Current Step :  220
+
+Current Accuracy :  0.918926 cost :  0.217016 Current Step :  240
+
+Current Accuracy :  0.933417 cost :  0.185187 Current Step :  260
+
+Current Accuracy :  0.944035 cost :  0.165567 Current Step :  280
+
+Current Accuracy :  0.932042 cost :  0.182225 Current Step :  300
+
+Current Accuracy :  0.948032 cost :  0.154292 Current Step :  320
+
+Current Accuracy :  0.943285 cost :  0.160666 Current Step :  340
+
+Current Accuracy :  0.953154 cost :  0.141455 Current Step :  360
+
+Current Accuracy :  0.946409 cost :  0.153203 Current Step :  380
+
+Current Accuracy :  0.953029 cost :  0.139443 Current Step :  400
+
+Current Accuracy :  0.953154 cost :  0.131882 Current Step :  420
+
+Current Accuracy :  0.955528 cost :  0.131997 Current Step :  440
+
+Current Accuracy :  0.95178 cost :  0.132659 Current Step :  460
+
+Current Accuracy :  0.951905 cost :  0.132379 Current Step :  480
+
+Current Accuracy :  0.949407 cost :  0.136855 Current Step :  500
+
+Current Accuracy :  0.958901 cost :  0.117704 Current Step :  520
+
+Current Accuracy :  0.947033 cost :  0.149449 Current Step :  540
+
+Current Accuracy :  0.939163 cost :  0.166237 Current Step :  560
+
+Current Accuracy :  0.93629 cost :  0.1829 Current Step :  580
+
+Current Accuracy :  0.942411 cost :  0.16539 Current Step :  600
+
+Current Accuracy :  0.950906 cost :  0.147097 Current Step :  620
+
+Current Accuracy :  0.938164 cost :  0.158524 Current Step :  640
+
+Current Accuracy :  0.954154 cost :  0.129897 Current Step :  660
+
+Current Accuracy :  0.957152 cost :  0.116652 Current Step :  680
+
+Current Accuracy :  0.961774 cost :  0.105653 Current Step :  700
+
+Current Accuracy :  0.922548 cost :  0.205324 Current Step :  720
+
+Current Accuracy :  0.936665 cost :  0.170887 Current Step :  740
+
+Current Accuracy :  0.946284 cost :  0.142918 Current Step :  760
+
+Current Accuracy :  0.938414 cost :  0.156754 Current Step :  780
+
+Current Accuracy :  0.944785 cost :  0.15478 Current Step :  800
+
+Current Accuracy :  0.94416 cost :  0.146202 Current Step :  820
+
+Current Accuracy :  0.95153 cost :  0.132528 Current Step :  840
+
+Current Accuracy :  0.948282 cost :  0.137759 Current Step :  860
+
+Current Accuracy :  0.95228 cost :  0.13132 Current Step :  880
+
+Current Accuracy :  0.959275 cost :  0.113984 Current Step :  900
+
+Current Accuracy :  0.965397 cost :  0.0973924 Current Step :  920
+
+Current Accuracy :  0.965771 cost :  0.0963163 Current Step :  940
+
+Current Accuracy :  0.949407 cost :  0.13033 Current Step :  960
+
+Current Accuracy :  0.945534 cost :  0.142429 Current Step :  980
+
+Train Accuracy:  0.950531
+
+Test Accuracy:  0.93
+
+Current Accuracy :  0.540037 cost :  124.144 Current Step :  0
+
+Current Accuracy :  0.47183 cost :  0.740893 Current Step :  20
+
+Current Accuracy :  0.622986 cost :  0.651764 Current Step :  40
+
+Current Accuracy :  0.661087 cost :  0.612236 Current Step :  60
+
+Current Accuracy :  0.725547 cost :  0.560798 Current Step :  80
+
+Current Accuracy :  0.790131 cost :  0.507879 Current Step :  100
+
+Current Accuracy :  0.811618 cost :  0.468421 Current Step :  120
+
+Current Accuracy :  0.8401 cost :  0.426132 Current Step :  140
+
+Current Accuracy :  0.859963 cost :  0.378935 Current Step :  160
+
+Current Accuracy :  0.821611 cost :  0.41929 Current Step :  180
+
+Current Accuracy :  0.87133 cost :  0.374307 Current Step :  200
+
+Current Accuracy :  0.886571 cost :  0.331814 Current Step :  220
+
+Current Accuracy :  0.904435 cost :  0.291516 Current Step :  240
+
+Current Accuracy :  0.916927 cost :  0.268143 Current Step :  260
+
+Current Accuracy :  0.924172 cost :  0.238728 Current Step :  280
+
+Current Accuracy :  0.932292 cost :  0.21955 Current Step :  300
+
+Current Accuracy :  0.939038 cost :  0.201732 Current Step :  320
+
+Current Accuracy :  0.94341 cost :  0.188008 Current Step :  340
+
+Current Accuracy :  0.94341 cost :  0.185324 Current Step :  360
+
+Current Accuracy :  0.957402 cost :  0.152337 Current Step :  380
+
+Current Accuracy :  0.957901 cost :  0.154251 Current Step :  400
+
+Current Accuracy :  0.960775 cost :  0.13892 Current Step :  420
+
+Current Accuracy :  0.9599 cost :  0.145331 Current Step :  440
+
+Current Accuracy :  0.966646 cost :  0.126589 Current Step :  460
+
+Current Accuracy :  0.964647 cost :  0.128574 Current Step :  480
+
+Current Accuracy :  0.966396 cost :  0.122018 Current Step :  500
+
+Current Accuracy :  0.962523 cost :  0.129811 Current Step :  520
+
+Current Accuracy :  0.965771 cost :  0.121664 Current Step :  540
+
+Current Accuracy :  0.965896 cost :  0.117062 Current Step :  560
+
+Current Accuracy :  0.971268 cost :  0.104381 Current Step :  580
+
+Test Accuracy:  0.9465
+
+Current Accuracy :  0.540037 Cost :  755.891 Current Step :  0
+
+Current Accuracy :  0.469332 Cost :  0.708306 Current Step :  20
+
+Current Accuracy :  0.51218 Cost :  0.689419 Current Step :  40
+
+Current Accuracy :  0.645472 Cost :  0.637899 Current Step :  60
+
+Current Accuracy :  0.730419 Cost :  0.568439 Current Step :  80
+
+Current Accuracy :  0.805497 Cost :  0.462022 Current Step :  100
+
+Current Accuracy :  0.859213 Cost :  0.361011 Current Step :  120
+
+Current Accuracy :  0.876577 Cost :  0.321474 Current Step :  140
+
+Current Accuracy :  0.897189 Cost :  0.268292 Current Step :  160
+
+Current Accuracy :  0.906184 Cost :  0.246835 Current Step :  180
+
+Current Accuracy :  0.916677 Cost :  0.227904 Current Step :  200
+
+Current Accuracy :  0.89544 Cost :  0.253633 Current Step :  220
+
+Current Accuracy :  0.915928 Cost :  0.214494 Current Step :  240
+
+Current Accuracy :  0.918051 Cost :  0.211319 Current Step :  260
+
+Current Accuracy :  0.927046 Cost :  0.189143 Current Step :  280
+
+Current Accuracy :  0.925796 Cost :  0.190888 Current Step :  300
+
+Current Accuracy :  0.923423 Cost :  0.190523 Current Step :  320
+
+Current Accuracy :  0.928295 Cost :  0.187281 Current Step :  340
+
+Current Accuracy :  0.93579 Cost :  0.164965 Current Step :  360
+
+Current Accuracy :  0.935665 Cost :  0.169964 Current Step :  380
+
+Current Accuracy :  0.929294 Cost :  0.183246 Current Step :  400
+
+Current Accuracy :  0.93554 Cost :  0.173684 Current Step :  420
+
+Current Accuracy :  0.919675 Cost :  0.203051 Current Step :  440
+
+Current Accuracy :  0.931293 Cost :  0.183602 Current Step :  460
+
+Current Accuracy :  0.945784 Cost :  0.143371 Current Step :  480
+
+Current Accuracy :  0.943785 Cost :  0.147576 Current Step :  500
+
+Current Accuracy :  0.948407 Cost :  0.142305 Current Step :  520
+
+Current Accuracy :  0.942036 Cost :  0.155134 Current Step :  540
+
+Current Accuracy :  0.948657 Cost :  0.141909 Current Step :  560
+
+Current Accuracy :  0.948157 Cost :  0.138957 Current Step :  580
+
+Current Accuracy :  0.954653 Cost :  0.127876 Current Step :  600
+
+Current Accuracy :  0.953779 Cost :  0.124529 Current Step :  620
+
+Current Accuracy :  0.947908 Cost :  0.13704 Current Step :  640
+
+Current Accuracy :  0.933042 Cost :  0.164381 Current Step :  660
+
+Current Accuracy :  0.94341 Cost :  0.140175 Current Step :  680
+
+Current Accuracy :  0.941786 Cost :  0.144003 Current Step :  700
+
+Current Accuracy :  0.944785 Cost :  0.146857 Current Step :  720
+
+Current Accuracy :  0.935166 Cost :  0.174128 Current Step :  740
+
+Current Accuracy :  0.933791 Cost :  0.172936 Current Step :  760
+
+Current Accuracy :  0.937664 Cost :  0.180842 Current Step :  780
+
+Current Accuracy :  0.93629 Cost :  0.160489 Current Step :  800
+
+Current Accuracy :  0.935915 Cost :  0.163149 Current Step :  820
+
+Current Accuracy :  0.943535 Cost :  0.146879 Current Step :  840
+
+Current Accuracy :  0.93679 Cost :  0.159329 Current Step :  860
+
+Current Accuracy :  0.935415 Cost :  0.158998 Current Step :  880
+
+Current Accuracy :  0.941537 Cost :  0.152186 Current Step :  900
+
+Current Accuracy :  0.941661 Cost :  0.149507 Current Step :  920
+
+Current Accuracy :  0.939788 Cost :  0.149555 Current Step :  940
+
+Current Accuracy :  0.948657 Cost :  0.133838 Current Step :  960
+
+Current Accuracy :  0.941287 Cost :  0.149391 Current Step :  980
+
+Train Accuracy:  0.933167
+
+Test Accuracy:  0.8775
+
+Current Accuracy :  0.540037 Cost :  121.319 Current Step :  0
+
+Current Accuracy :  0.645721 Cost :  0.63372 Current Step :  20
+
+Current Accuracy :  0.763398 Cost :  0.510529 Current Step :  40
+
+Current Accuracy :  0.839101 Cost :  0.388227 Current Step :  60
+
+Current Accuracy :  0.875203 Cost :  0.29959 Current Step :  80
+
+Current Accuracy :  0.905684 Cost :  0.237306 Current Step :  100
+
+Current Accuracy :  0.909432 Cost :  0.23703 Current Step :  120
+
+Current Accuracy :  0.924047 Cost :  0.186678 Current Step :  140
+
+Current Accuracy :  0.938663 Cost :  0.161244 Current Step :  160
+
+Current Accuracy :  0.948907 Cost :  0.127011 Current Step :  180
+
+Current Accuracy :  0.950656 Cost :  0.126733 Current Step :  200
+
+Current Accuracy :  0.890943 Cost :  0.298974 Current Step :  220
+
+Current Accuracy :  0.931418 Cost :  0.199387 Current Step :  240
+
+Current Accuracy :  0.941537 Cost :  0.154599 Current Step :  260
+
+Current Accuracy :  0.942536 Cost :  0.148089 Current Step :  280
+
+Current Accuracy :  0.947158 Cost :  0.139068 Current Step :  300
+
+Current Accuracy :  0.95178 Cost :  0.121808 Current Step :  320
+
+Current Accuracy :  0.945284 Cost :  0.136465 Current Step :  340
+
+Current Accuracy :  0.953904 Cost :  0.121617 Current Step :  360
+
+Current Accuracy :  0.964022 Cost :  0.0944922 Current Step :  380
+
+Current Accuracy :  0.964772 Cost :  0.0921316 Current Step :  400
+
+Current Accuracy :  0.966521 Cost :  0.0915464 Current Step :  420
+
+Current Accuracy :  0.962274 Cost :  0.103072 Current Step :  440
+
+Current Accuracy :  0.952405 Cost :  0.125943 Current Step :  460
+
+Current Accuracy :  0.889319 Cost :  0.263517 Current Step :  480
+
+Current Accuracy :  0.938039 Cost :  0.159001 Current Step :  500
+
+Current Accuracy :  0.947158 Cost :  0.130119 Current Step :  520
+
+Current Accuracy :  0.957651 Cost :  0.110687 Current Step :  540
+
+Current Accuracy :  0.963148 Cost :  0.0959298 Current Step :  560
+
+Current Accuracy :  0.956277 Cost :  0.117092 Current Step :  580
+
+Current Accuracy :  0.961274 Cost :  0.104258 Current Step :  600
+
+Current Accuracy :  0.956902 Cost :  0.111782 Current Step :  620
+
+Current Accuracy :  0.961649 Cost :  0.108593 Current Step :  640
+
+Current Accuracy :  0.96777 Cost :  0.0913052 Current Step :  660
+
+Current Accuracy :  0.965522 Cost :  0.0917345 Current Step :  680
+
+Current Accuracy :  0.968769 Cost :  0.083341 Current Step :  700
+
+Current Accuracy :  0.953529 Cost :  0.123143 Current Step :  720
+
+Current Accuracy :  0.957152 Cost :  0.111429 Current Step :  740
+
+Current Accuracy :  0.954029 Cost :  0.117901 Current Step :  760
+
+Current Accuracy :  0.95153 Cost :  0.123531 Current Step :  780
+
+Current Accuracy :  0.957527 Cost :  0.111417 Current Step :  800
+
+Current Accuracy :  0.952405 Cost :  0.118977 Current Step :  820
+
+Current Accuracy :  0.962399 Cost :  0.10057 Current Step :  840
+
+Current Accuracy :  0.965771 Cost :  0.0902715 Current Step :  860
+
+Current Accuracy :  0.968769 Cost :  0.0868468 Current Step :  880
+
+Current Accuracy :  0.921799 Cost :  0.191472 Current Step :  900
+
+Current Accuracy :  0.946908 Cost :  0.133377 Current Step :  920
+
+Current Accuracy :  0.953779 Cost :  0.122705 Current Step :  940
+
+Current Accuracy :  0.952655 Cost :  0.118727 Current Step :  960
+
+Current Accuracy :  0.953529 Cost :  0.113556 Current Step :  980
+
+Train Accuracy:  0.948532
+
+Test Accuracy:  0.859
+
+Current Accuracy :  0.540037 Cost :  1590.92 Current Step :  0
+
+Current Accuracy :  0.537289 Cost :  0.689339 Current Step :  20
+
+Current Accuracy :  0.541037 Cost :  0.685243 Current Step :  40
+
+Current Accuracy :  0.541537 Cost :  0.682653 Current Step :  60
+
+Current Accuracy :  0.541661 Cost :  0.67934 Current Step :  80
+
+Current Accuracy :  0.542661 Cost :  0.672419 Current Step :  100
+
+Current Accuracy :  0.545534 Cost :  0.644344 Current Step :  120
+
+Current Accuracy :  0.552405 Cost :  0.569547 Current Step :  140
+
+Current Accuracy :  0.813741 Cost :  0.490979 Current Step :  160
+
+Current Accuracy :  0.860962 Cost :  0.376824 Current Step :  180
+
+Current Accuracy :  0.85584 Cost :  0.374968 Current Step :  200
+
+Current Accuracy :  0.915803 Cost :  0.263111 Current Step :  220
+
+Current Accuracy :  0.926046 Cost :  0.231571 Current Step :  240
+
+Current Accuracy :  0.937914 Cost :  0.204404 Current Step :  260
+
+Current Accuracy :  0.948907 Cost :  0.180727 Current Step :  280
+
+Current Accuracy :  0.950906 Cost :  0.16792 Current Step :  300
+
+Current Accuracy :  0.950906 Cost :  0.162024 Current Step :  320
+
+Current Accuracy :  0.961024 Cost :  0.141561 Current Step :  340
+
+Current Accuracy :  0.959026 Cost :  0.138225 Current Step :  360
+
+Current Accuracy :  0.965022 Cost :  0.109595 Current Step :  380
+
+Current Accuracy :  0.959151 Cost :  0.122953 Current Step :  400
+
+Current Accuracy :  0.968145 Cost :  0.0984689 Current Step :  420
+
+Current Accuracy :  0.957527 Cost :  0.115057 Current Step :  440
+
+Current Accuracy :  0.968645 Cost :  0.0870834 Current Step :  460
+
+Current Accuracy :  0.965522 Cost :  0.0962955 Current Step :  480
+
+Current Accuracy :  0.967021 Cost :  0.0886185 Current Step :  500
+
+Current Accuracy :  0.969769 Cost :  0.081395 Current Step :  520
+
+Current Accuracy :  0.972642 Cost :  0.0763458 Current Step :  540
+
+Test Accuracy:  0.9345
+
+Current Accuracy :  0.459963 Cost :  3225.28 Current Step :  0
+
+Current Accuracy :  0.539788 Cost :  0.692948 Current Step :  20
+
+Current Accuracy :  0.540162 Cost :  0.692705 Current Step :  40
+
+Current Accuracy :  0.543285 Cost :  0.685858 Current Step :  60
+
+Current Accuracy :  0.547783 Cost :  0.678038 Current Step :  80
+
+Current Accuracy :  0.552655 Cost :  0.670476 Current Step :  100
+
+Current Accuracy :  0.554029 Cost :  0.663893 Current Step :  120
+
+Current Accuracy :  0.556027 Cost :  0.662144 Current Step :  140
+
+Current Accuracy :  0.555528 Cost :  0.658917 Current Step :  160
+
+Current Accuracy :  0.555278 Cost :  0.646214 Current Step :  180
+
+Current Accuracy :  0.556152 Cost :  0.619864 Current Step :  200
+
+Current Accuracy :  0.742661 Cost :  0.578561 Current Step :  220
+
+Current Accuracy :  0.827733 Cost :  0.471368 Current Step :  240
+
+Current Accuracy :  0.855465 Cost :  0.398287 Current Step :  260
+
+Current Accuracy :  0.885322 Cost :  0.330824 Current Step :  280
+
+Current Accuracy :  0.905434 Cost :  0.283928 Current Step :  300
+
+Current Accuracy :  0.931418 Cost :  0.221621 Current Step :  320
+
+Current Accuracy :  0.940787 Cost :  0.174854 Current Step :  340
+
+Current Accuracy :  0.941786 Cost :  0.179668 Current Step :  360
+
+Current Accuracy :  0.954653 Cost :  0.140018 Current Step :  380
+
+Current Accuracy :  0.958526 Cost :  0.122611 Current Step :  400
+
+Current Accuracy :  0.964397 Cost :  0.105036 Current Step :  420
+
+Current Accuracy :  0.963398 Cost :  0.10145 Current Step :  440
+
+Current Accuracy :  0.96752 Cost :  0.0955452 Current Step :  460
+
+Current Accuracy :  0.972392 Cost :  0.0783624 Current Step :  480
+
+Test Accuracy:  0.952
+
+Current Accuracy :  0.540037 Cost :  922.52 Current Step :  0
+
+Current Accuracy :  0.54441 Cost :  0.693959 Current Step :  20
+
+Current Accuracy :  0.76852 Cost :  0.503131 Current Step :  40
+
+Current Accuracy :  0.859338 Cost :  0.36827 Current Step :  60
+
+Current Accuracy :  0.890069 Cost :  0.295163 Current Step :  80
+
+Current Accuracy :  0.91143 Cost :  0.245154 Current Step :  100
+
+Current Accuracy :  0.926671 Cost :  0.20847 Current Step :  120
+
+Current Accuracy :  0.937789 Cost :  0.180621 Current Step :  140
+
+Current Accuracy :  0.945659 Cost :  0.160994 Current Step :  160
+
+Current Accuracy :  0.952655 Cost :  0.131154 Current Step :  180
+
+Current Accuracy :  0.95128 Cost :  0.136817 Current Step :  200
+
+Current Accuracy :  0.946533 Cost :  0.148758 Current Step :  220
+
+Current Accuracy :  0.963773 Cost :  0.10505 Current Step :  240
+
+Current Accuracy :  0.965022 Cost :  0.103847 Current Step :  260
+
+Current Accuracy :  0.96802 Cost :  0.0956969 Current Step :  280
+
+Current Accuracy :  0.883948 Cost :  0.288424 Current Step :  300
+
+Current Accuracy :  0.938414 Cost :  0.176561 Current Step :  320
+
+Current Accuracy :  0.956152 Cost :  0.129384 Current Step :  340
+
+Current Accuracy :  0.952655 Cost :  0.133845 Current Step :  360
+
+Current Accuracy :  0.95228 Cost :  0.132361 Current Step :  380
+
+Current Accuracy :  0.961149 Cost :  0.114825 Current Step :  400
+
+Current Accuracy :  0.9604 Cost :  0.111803 Current Step :  420
+
+Current Accuracy :  0.9594 Cost :  0.110328 Current Step :  440
+
+Current Accuracy :  0.966021 Cost :  0.0932069 Current Step :  460
+
+Current Accuracy :  0.961399 Cost :  0.107878 Current Step :  480
+
+Current Accuracy :  0.971143 Cost :  0.0818997 Current Step :  500
+
+Test Accuracy:  0.9235
+
+Current Accuracy :  0.540037 Cost :  1073.11 Current Step :  0
+
+Current Accuracy :  0.502311 Cost :  0.729174 Current Step :  20
+
+Current Accuracy :  0.516427 Cost :  0.703625 Current Step :  40
+
+Current Accuracy :  0.521924 Cost :  0.698311 Current Step :  60
+
+Current Accuracy :  0.522923 Cost :  0.692511 Current Step :  80
+
+Current Accuracy :  0.531918 Cost :  0.681935 Current Step :  100
+
+Current Accuracy :  0.523048 Cost :  0.681439 Current Step :  120
+
+Current Accuracy :  0.534041 Cost :  0.676056 Current Step :  140
+
+Current Accuracy :  0.544035 Cost :  0.662428 Current Step :  160
+
+Current Accuracy :  0.620612 Cost :  0.628979 Current Step :  180
+
+Current Accuracy :  0.72867 Cost :  0.545106 Current Step :  200
+
+Current Accuracy :  0.847845 Cost :  0.376281 Current Step :  220
+
+Current Accuracy :  0.897939 Cost :  0.281243 Current Step :  240
+
+Current Accuracy :  0.917552 Cost :  0.230622 Current Step :  260
+
+Current Accuracy :  0.932292 Cost :  0.2022 Current Step :  280
+
+Current Accuracy :  0.923173 Cost :  0.22827 Current Step :  300
+
+Current Accuracy :  0.938164 Cost :  0.181994 Current Step :  320
+
+Current Accuracy :  0.946284 Cost :  0.163782 Current Step :  340
+
+Current Accuracy :  0.95253 Cost :  0.140413 Current Step :  360
+
+Current Accuracy :  0.952904 Cost :  0.13556 Current Step :  380
+
+Current Accuracy :  0.955403 Cost :  0.137738 Current Step :  400
+
+Current Accuracy :  0.93579 Cost :  0.189821 Current Step :  420
+
+Current Accuracy :  0.936415 Cost :  0.182943 Current Step :  440
+
+Current Accuracy :  0.94441 Cost :  0.160586 Current Step :  460
+
+Current Accuracy :  0.946159 Cost :  0.155437 Current Step :  480
+
+Current Accuracy :  0.954778 Cost :  0.134997 Current Step :  500
+
+Current Accuracy :  0.953654 Cost :  0.136513 Current Step :  520
+
+Current Accuracy :  0.940162 Cost :  0.168682 Current Step :  540
+
+Current Accuracy :  0.951655 Cost :  0.135953 Current Step :  560
+
+Current Accuracy :  0.957152 Cost :  0.120441 Current Step :  580
+
+Current Accuracy :  0.953904 Cost :  0.12749 Current Step :  600
+
+Current Accuracy :  0.953154 Cost :  0.128086 Current Step :  620
+
+Current Accuracy :  0.949656 Cost :  0.138084 Current Step :  640
+
+Current Accuracy :  0.943161 Cost :  0.147288 Current Step :  660
+
+Current Accuracy :  0.953154 Cost :  0.130693 Current Step :  680
+
+Current Accuracy :  0.952904 Cost :  0.13388 Current Step :  700
+
+Current Accuracy :  0.953529 Cost :  0.126647 Current Step :  720
+
+Current Accuracy :  0.954528 Cost :  0.125055 Current Step :  740
+
+Current Accuracy :  0.957776 Cost :  0.1228 Current Step :  760
+
+Current Accuracy :  0.954778 Cost :  0.125962 Current Step :  780
+
+Current Accuracy :  0.955403 Cost :  0.118995 Current Step :  800
+
+Current Accuracy :  0.956527 Cost :  0.117909 Current Step :  820
+
+Current Accuracy :  0.95278 Cost :  0.123682 Current Step :  840
+
+Current Accuracy :  0.951031 Cost :  0.127791 Current Step :  860
+
+Current Accuracy :  0.935415 Cost :  0.160865 Current Step :  880
+
+Current Accuracy :  0.938039 Cost :  0.164946 Current Step :  900
+
+Current Accuracy :  0.938039 Cost :  0.165663 Current Step :  920
+
+Current Accuracy :  0.938913 Cost :  0.160787 Current Step :  940
+
+Current Accuracy :  0.936415 Cost :  0.173817 Current Step :  960
+
+Current Accuracy :  0.934541 Cost :  0.172965 Current Step :  980
+
+Train Accuracy:  0.948657
+
+Test Accuracy:  0.914
+
+Current Accuracy :  0.540037 Cost :  1532.37 Current Step :  0
+
+Current Accuracy :  0.519051 Cost :  0.695278 Current Step :  20
+
+Current Accuracy :  0.724422 Cost :  0.579597 Current Step :  40
+
+Current Accuracy :  0.799001 Cost :  0.480567 Current Step :  60
+
+Current Accuracy :  0.830481 Cost :  0.414826 Current Step :  80
+
+Current Accuracy :  0.861462 Cost :  0.359868 Current Step :  100
+
+Current Accuracy :  0.877577 Cost :  0.328713 Current Step :  120
+
+Current Accuracy :  0.897314 Cost :  0.29765 Current Step :  140
+
+Current Accuracy :  0.896565 Cost :  0.286603 Current Step :  160
+
+Current Accuracy :  0.91243 Cost :  0.254721 Current Step :  180
+
+Current Accuracy :  0.916177 Cost :  0.247484 Current Step :  200
+
+Current Accuracy :  0.922423 Cost :  0.223668 Current Step :  220
+
+Current Accuracy :  0.923173 Cost :  0.22515 Current Step :  240
+
+Current Accuracy :  0.934541 Cost :  0.193296 Current Step :  260
+
+Current Accuracy :  0.922174 Cost :  0.206009 Current Step :  280
+
+Current Accuracy :  0.93604 Cost :  0.186384 Current Step :  300
+
+Current Accuracy :  0.938039 Cost :  0.175235 Current Step :  320
+
+Current Accuracy :  0.942036 Cost :  0.172381 Current Step :  340
+
+Current Accuracy :  0.935415 Cost :  0.181598 Current Step :  360
+
+Current Accuracy :  0.938164 Cost :  0.175109 Current Step :  380
+
+Current Accuracy :  0.939163 Cost :  0.168378 Current Step :  400
+
+Current Accuracy :  0.936415 Cost :  0.177062 Current Step :  420
+
+Current Accuracy :  0.939538 Cost :  0.17234 Current Step :  440
+
+Current Accuracy :  0.941412 Cost :  0.16669 Current Step :  460
+
+Current Accuracy :  0.943285 Cost :  0.155927 Current Step :  480
+
+Current Accuracy :  0.943785 Cost :  0.151038 Current Step :  500
+
+Current Accuracy :  0.947783 Cost :  0.148904 Current Step :  520
+
+Current Accuracy :  0.948907 Cost :  0.138734 Current Step :  540
+
+Current Accuracy :  0.94416 Cost :  0.152711 Current Step :  560
+
+Current Accuracy :  0.946533 Cost :  0.144607 Current Step :  580
+
+Current Accuracy :  0.95228 Cost :  0.129278 Current Step :  600
+
+Current Accuracy :  0.94391 Cost :  0.153863 Current Step :  620
+
+Current Accuracy :  0.952655 Cost :  0.134041 Current Step :  640
+
+Current Accuracy :  0.950781 Cost :  0.128617 Current Step :  660
+
+Current Accuracy :  0.949532 Cost :  0.132237 Current Step :  680
+
+Current Accuracy :  0.931293 Cost :  0.184748 Current Step :  700
+
+Current Accuracy :  0.92767 Cost :  0.186356 Current Step :  720
+
+Current Accuracy :  0.946409 Cost :  0.146492 Current Step :  740
+
+Current Accuracy :  0.950531 Cost :  0.133337 Current Step :  760
+
+Current Accuracy :  0.947033 Cost :  0.139348 Current Step :  780
+
+Current Accuracy :  0.947408 Cost :  0.140261 Current Step :  800
+
+Current Accuracy :  0.948907 Cost :  0.131117 Current Step :  820
+
+Current Accuracy :  0.954279 Cost :  0.120645 Current Step :  840
+
+Current Accuracy :  0.949407 Cost :  0.130043 Current Step :  860
+
+Current Accuracy :  0.941661 Cost :  0.150284 Current Step :  880
+
+Current Accuracy :  0.933167 Cost :  0.169705 Current Step :  900
+
+Current Accuracy :  0.937914 Cost :  0.160527 Current Step :  920
+
+Current Accuracy :  0.945034 Cost :  0.146864 Current Step :  940
+
+Current Accuracy :  0.948407 Cost :  0.136249 Current Step :  960
+
+Current Accuracy :  0.950156 Cost :  0.134624 Current Step :  980
+
+Train Accuracy:  0.94466
+
+Test Accuracy:  0.8695
+
+Current Accuracy :  0.540037 Cost :  269.389 Current Step :  0
+
+Current Accuracy :  0.540287 Cost :  0.712414 Current Step :  20
+
+Current Accuracy :  0.613367 Cost :  0.66576 Current Step :  40
+
+Current Accuracy :  0.731793 Cost :  0.529278 Current Step :  60
+
+Current Accuracy :  0.833104 Cost :  0.400446 Current Step :  80
+
+Current Accuracy :  0.868207 Cost :  0.327063 Current Step :  100
+
+Current Accuracy :  0.881824 Cost :  0.292763 Current Step :  120
+
+Current Accuracy :  0.901686 Cost :  0.259009 Current Step :  140
+
+Current Accuracy :  0.902811 Cost :  0.25499 Current Step :  160
+
+Current Accuracy :  0.918801 Cost :  0.218179 Current Step :  180
+
+Current Accuracy :  0.928919 Cost :  0.190563 Current Step :  200
+
+Current Accuracy :  0.933542 Cost :  0.183345 Current Step :  220
+
+Current Accuracy :  0.941412 Cost :  0.168811 Current Step :  240
+
+Current Accuracy :  0.937289 Cost :  0.16782 Current Step :  260
+
+Current Accuracy :  0.939538 Cost :  0.16015 Current Step :  280
+
+Current Accuracy :  0.947783 Cost :  0.144171 Current Step :  300
+
+Current Accuracy :  0.947033 Cost :  0.1486 Current Step :  320
+
+Current Accuracy :  0.943036 Cost :  0.150493 Current Step :  340
+
+Current Accuracy :  0.950406 Cost :  0.137532 Current Step :  360
+
+Current Accuracy :  0.956902 Cost :  0.116667 Current Step :  380
+
+Current Accuracy :  0.957027 Cost :  0.113555 Current Step :  400
+
+Current Accuracy :  0.958651 Cost :  0.12226 Current Step :  420
+
+Current Accuracy :  0.952655 Cost :  0.128635 Current Step :  440
+
+Current Accuracy :  0.951405 Cost :  0.132697 Current Step :  460
+
+Current Accuracy :  0.956277 Cost :  0.113553 Current Step :  480
+
+Current Accuracy :  0.955653 Cost :  0.126046 Current Step :  500
+
+Current Accuracy :  0.954653 Cost :  0.121659 Current Step :  520
+
+Current Accuracy :  0.955153 Cost :  0.117827 Current Step :  540
+
+Current Accuracy :  0.961024 Cost :  0.110394 Current Step :  560
+
+Current Accuracy :  0.955778 Cost :  0.116585 Current Step :  580
+
+Current Accuracy :  0.961274 Cost :  0.10277 Current Step :  600
+
+Current Accuracy :  0.962773 Cost :  0.105002 Current Step :  620
+
+Current Accuracy :  0.961649 Cost :  0.110281 Current Step :  640
+
+Current Accuracy :  0.963898 Cost :  0.102256 Current Step :  660
+
+Current Accuracy :  0.957402 Cost :  0.109626 Current Step :  680
+
+Current Accuracy :  0.963898 Cost :  0.0952852 Current Step :  700
+
+Current Accuracy :  0.964522 Cost :  0.100509 Current Step :  720
+
+Current Accuracy :  0.916052 Cost :  0.220999 Current Step :  740
+
+Current Accuracy :  0.946533 Cost :  0.145593 Current Step :  760
+
+Current Accuracy :  0.954279 Cost :  0.126897 Current Step :  780
+
+Current Accuracy :  0.958026 Cost :  0.118098 Current Step :  800
+
+Current Accuracy :  0.961649 Cost :  0.103236 Current Step :  820
+
+Current Accuracy :  0.956277 Cost :  0.117927 Current Step :  840
+
+Current Accuracy :  0.964397 Cost :  0.102111 Current Step :  860
+
+Current Accuracy :  0.96827 Cost :  0.0907464 Current Step :  880
+
+Current Accuracy :  0.961524 Cost :  0.107659 Current Step :  900
+
+Current Accuracy :  0.956277 Cost :  0.115585 Current Step :  920
+
+Current Accuracy :  0.96752 Cost :  0.0949037 Current Step :  940
+
+Current Accuracy :  0.961274 Cost :  0.106389 Current Step :  960
+
+Current Accuracy :  0.962274 Cost :  0.111025 Current Step :  980
+
+Train Accuracy:  0.962399
+
+Test Accuracy:  0.852
+
+Current Accuracy :  0.539163 Cost :  17.5869 Current Step :  0
+
+Current Accuracy :  0.719925 Cost :  0.569354 Current Step :  20
+
+Current Accuracy :  0.805497 Cost :  0.464216 Current Step :  40
+
+Current Accuracy :  0.851343 Cost :  0.413749 Current Step :  60
+
+Current Accuracy :  0.866833 Cost :  0.346769 Current Step :  80
+
+Current Accuracy :  0.852217 Cost :  0.340272 Current Step :  100
+
+Current Accuracy :  0.903935 Cost :  0.246062 Current Step :  120
+
+Current Accuracy :  0.914054 Cost :  0.219798 Current Step :  140
+
+Current Accuracy :  0.892942 Cost :  0.238673 Current Step :  160
+
+Current Accuracy :  0.916177 Cost :  0.193228 Current Step :  180
+
+Current Accuracy :  0.929669 Cost :  0.169328 Current Step :  200
+
+Current Accuracy :  0.938289 Cost :  0.155735 Current Step :  220
+
+Current Accuracy :  0.605871 Cost :  0.674972 Current Step :  240
+
+Current Accuracy :  0.817864 Cost :  0.412137 Current Step :  260
+
+Current Accuracy :  0.87945 Cost :  0.307482 Current Step :  280
+
+Current Accuracy :  0.895815 Cost :  0.254902 Current Step :  300
+
+Current Accuracy :  0.910931 Cost :  0.22977 Current Step :  320
+
+Current Accuracy :  0.92055 Cost :  0.206159 Current Step :  340
+
+Current Accuracy :  0.929044 Cost :  0.172505 Current Step :  360
+
+Current Accuracy :  0.932417 Cost :  0.174995 Current Step :  380
+
+Current Accuracy :  0.933542 Cost :  0.168457 Current Step :  400
+
+Current Accuracy :  0.92055 Cost :  0.18923 Current Step :  420
+
+Current Accuracy :  0.940037 Cost :  0.154539 Current Step :  440
+
+Current Accuracy :  0.942161 Cost :  0.15021 Current Step :  460
+
+Current Accuracy :  0.95228 Cost :  0.122646 Current Step :  480
+
+Current Accuracy :  0.954154 Cost :  0.11437 Current Step :  500
+
+Current Accuracy :  0.948532 Cost :  0.118733 Current Step :  520
+
+Current Accuracy :  0.957776 Cost :  0.110606 Current Step :  540
+
+Current Accuracy :  0.947908 Cost :  0.134133 Current Step :  560
+
+Current Accuracy :  0.944285 Cost :  0.148295 Current Step :  580
+
+Current Accuracy :  0.949781 Cost :  0.134802 Current Step :  600
+
+Current Accuracy :  0.946409 Cost :  0.148381 Current Step :  620
+
+Current Accuracy :  0.947408 Cost :  0.141002 Current Step :  640
+
+Current Accuracy :  0.951156 Cost :  0.135172 Current Step :  660
+
+Current Accuracy :  0.961024 Cost :  0.107602 Current Step :  680
+
+Current Accuracy :  0.960525 Cost :  0.104926 Current Step :  700
+
+Current Accuracy :  0.958776 Cost :  0.116482 Current Step :  720
+
+Current Accuracy :  0.9599 Cost :  0.105457 Current Step :  740
+
+Current Accuracy :  0.958901 Cost :  0.0997244 Current Step :  760
+
+Current Accuracy :  0.958401 Cost :  0.116688 Current Step :  780
+
+Current Accuracy :  0.951031 Cost :  0.129172 Current Step :  800
+
+Current Accuracy :  0.940162 Cost :  0.149743 Current Step :  820
+
+Current Accuracy :  0.947783 Cost :  0.136772 Current Step :  840
+
+Current Accuracy :  0.935166 Cost :  0.161367 Current Step :  860
+
+Current Accuracy :  0.944785 Cost :  0.143781 Current Step :  880
+
+Current Accuracy :  0.948032 Cost :  0.136655 Current Step :  900
+
+Current Accuracy :  0.946159 Cost :  0.144458 Current Step :  920
+
+Current Accuracy :  0.950031 Cost :  0.135208 Current Step :  940
+
+Current Accuracy :  0.949282 Cost :  0.133995 Current Step :  960
+
+Current Accuracy :  0.956152 Cost :  0.118058 Current Step :  980
+
+Train Accuracy:  0.952405
+
+Test Accuracy:  0.8935
+
+Current Accuracy :  0.540037 Cost :  329.587 Current Step :  0
+
+Current Accuracy :  0.603998 Cost :  0.667349 Current Step :  20
+
+Current Accuracy :  0.735915 Cost :  0.5491 Current Step :  40
+
+Current Accuracy :  0.817489 Cost :  0.461756 Current Step :  60
+
+Current Accuracy :  0.801999 Cost :  0.450725 Current Step :  80
+
+Current Accuracy :  0.867083 Cost :  0.360146 Current Step :  100
+
+Current Accuracy :  0.880825 Cost :  0.316678 Current Step :  120
+
+Current Accuracy :  0.905809 Cost :  0.26274 Current Step :  140
+
+Current Accuracy :  0.921174 Cost :  0.224829 Current Step :  160
+
+Current Accuracy :  0.930418 Cost :  0.204155 Current Step :  180
+
+Current Accuracy :  0.933042 Cost :  0.178954 Current Step :  200
+
+Current Accuracy :  0.930668 Cost :  0.184069 Current Step :  220
+
+Current Accuracy :  0.939413 Cost :  0.164029 Current Step :  240
+
+Current Accuracy :  0.939413 Cost :  0.16226 Current Step :  260
+
+Current Accuracy :  0.84772 Cost :  0.355352 Current Step :  280
+
+Current Accuracy :  0.889819 Cost :  0.283927 Current Step :  300
+
+Current Accuracy :  0.909806 Cost :  0.24262 Current Step :  320
+
+Current Accuracy :  0.923048 Cost :  0.202416 Current Step :  340
+
+Current Accuracy :  0.929794 Cost :  0.192632 Current Step :  360
+
+Current Accuracy :  0.937664 Cost :  0.176869 Current Step :  380
+
+Current Accuracy :  0.92817 Cost :  0.201978 Current Step :  400
+
+Current Accuracy :  0.933167 Cost :  0.187705 Current Step :  420
+
+Current Accuracy :  0.933791 Cost :  0.182739 Current Step :  440
+
+Current Accuracy :  0.941037 Cost :  0.169871 Current Step :  460
+
+Current Accuracy :  0.934541 Cost :  0.181258 Current Step :  480
+
+Current Accuracy :  0.942036 Cost :  0.162982 Current Step :  500
+
+Current Accuracy :  0.942786 Cost :  0.161621 Current Step :  520
+
+Current Accuracy :  0.945409 Cost :  0.149891 Current Step :  540
+
+Current Accuracy :  0.934166 Cost :  0.171735 Current Step :  560
+
+Current Accuracy :  0.94391 Cost :  0.154644 Current Step :  580
+
+Current Accuracy :  0.949656 Cost :  0.142832 Current Step :  600
+
+Current Accuracy :  0.942786 Cost :  0.152262 Current Step :  620
+
+Current Accuracy :  0.942286 Cost :  0.158594 Current Step :  640
+
+Current Accuracy :  0.947908 Cost :  0.139439 Current Step :  660
+
+Current Accuracy :  0.950281 Cost :  0.136011 Current Step :  680
+
+Current Accuracy :  0.954154 Cost :  0.12528 Current Step :  700
+
+Current Accuracy :  0.948782 Cost :  0.139961 Current Step :  720
+
+Current Accuracy :  0.955403 Cost :  0.122613 Current Step :  740
+
+Current Accuracy :  0.955403 Cost :  0.124602 Current Step :  760
+
+Current Accuracy :  0.947533 Cost :  0.146658 Current Step :  780
+
+Current Accuracy :  0.950906 Cost :  0.132921 Current Step :  800
+
+Current Accuracy :  0.956652 Cost :  0.12106 Current Step :  820
+
+Current Accuracy :  0.955903 Cost :  0.123531 Current Step :  840
+
+Current Accuracy :  0.942036 Cost :  0.154239 Current Step :  860
+
+Current Accuracy :  0.952655 Cost :  0.127953 Current Step :  880
+
+Current Accuracy :  0.955528 Cost :  0.116984 Current Step :  900
+
+Current Accuracy :  0.954778 Cost :  0.125905 Current Step :  920
+
+Current Accuracy :  0.960025 Cost :  0.113426 Current Step :  940
+
+Current Accuracy :  0.964772 Cost :  0.0953682 Current Step :  960
+
+Current Accuracy :  0.962773 Cost :  0.100868 Current Step :  980
+
+Train Accuracy:  0.966646
+
+Test Accuracy:  0.935
+
+Current Accuracy :  0.460212 Cost :  17.0899 Current Step :  0
+
+Current Accuracy :  0.489944 Cost :  0.765307 Current Step :  20
+
+Current Accuracy :  0.561649 Cost :  0.709431 Current Step :  40
+
+Current Accuracy :  0.650718 Cost :  0.648151 Current Step :  60
+
+Current Accuracy :  0.698813 Cost :  0.577001 Current Step :  80
+
+Current Accuracy :  0.741287 Cost :  0.527623 Current Step :  100
+
+Current Accuracy :  0.73579 Cost :  0.527211 Current Step :  120
+
+Current Accuracy :  0.764522 Cost :  0.496806 Current Step :  140
+
+Current Accuracy :  0.764022 Cost :  0.484494 Current Step :  160
+
+Current Accuracy :  0.788507 Cost :  0.449886 Current Step :  180
+
+Current Accuracy :  0.794004 Cost :  0.435173 Current Step :  200
+
+Current Accuracy :  0.731918 Cost :  0.53979 Current Step :  220
+
+Current Accuracy :  0.787383 Cost :  0.448885 Current Step :  240
+
+Current Accuracy :  0.795378 Cost :  0.42956 Current Step :  260
+
+Current Accuracy :  0.804872 Cost :  0.414947 Current Step :  280
+
+Current Accuracy :  0.809869 Cost :  0.404758 Current Step :  300
+
+Current Accuracy :  0.802374 Cost :  0.411249 Current Step :  320
+
+Current Accuracy :  0.811993 Cost :  0.397673 Current Step :  340
+
+Current Accuracy :  0.748157 Cost :  0.513451 Current Step :  360
+
+Current Accuracy :  0.785759 Cost :  0.392839 Current Step :  380
+
+Current Accuracy :  0.805497 Cost :  0.331619 Current Step :  400
+
+Current Accuracy :  0.811118 Cost :  0.302387 Current Step :  420
+
+Current Accuracy :  0.9193 Cost :  0.209657 Current Step :  440
+
+Current Accuracy :  0.916427 Cost :  0.174124 Current Step :  460
+
+Current Accuracy :  0.922798 Cost :  0.246746 Current Step :  480
+
+Current Accuracy :  0.958776 Cost :  0.137841 Current Step :  500
+
+Current Accuracy :  0.970643 Cost :  0.101686 Current Step :  520
+
+Test Accuracy:  0.9435
+
+Current Accuracy :  0.540037 Cost :  93.6098 Current Step :  0
+
+Current Accuracy :  0.65659 Cost :  0.643968 Current Step :  20
+
+Current Accuracy :  0.786633 Cost :  0.498029 Current Step :  40
+
+Current Accuracy :  0.860587 Cost :  0.372104 Current Step :  60
+
+Current Accuracy :  0.891568 Cost :  0.290162 Current Step :  80
+
+Current Accuracy :  0.916802 Cost :  0.232284 Current Step :  100
+
+Current Accuracy :  0.945034 Cost :  0.163963 Current Step :  120
+
+Current Accuracy :  0.957651 Cost :  0.126324 Current Step :  140
+
+Current Accuracy :  0.9599 Cost :  0.120011 Current Step :  160
+
+Current Accuracy :  0.961399 Cost :  0.114005 Current Step :  180
+
+Current Accuracy :  0.96852 Cost :  0.101236 Current Step :  200
+
+Current Accuracy :  0.972642 Cost :  0.0842845 Current Step :  220
+
+Test Accuracy:  0.9425
+
+Current Accuracy :  0.540037 Cost :  5891.7 Current Step :  0
+
+Current Accuracy :  0.552155 Cost :  0.721777 Current Step :  20
+
+Current Accuracy :  0.726171 Cost :  0.563289 Current Step :  40
+
+Current Accuracy :  0.80837 Cost :  0.461013 Current Step :  60
+
+Current Accuracy :  0.858463 Cost :  0.365034 Current Step :  80
+
+Current Accuracy :  0.887695 Cost :  0.317585 Current Step :  100
+
+Current Accuracy :  0.901187 Cost :  0.292496 Current Step :  120
+
+Current Accuracy :  0.90331 Cost :  0.278613 Current Step :  140
+
+Current Accuracy :  0.907308 Cost :  0.271054 Current Step :  160
+
+Current Accuracy :  0.920799 Cost :  0.239991 Current Step :  180
+
+Current Accuracy :  0.936415 Cost :  0.210648 Current Step :  200
+
+Current Accuracy :  0.917177 Cost :  0.265373 Current Step :  220
+
+Current Accuracy :  0.935915 Cost :  0.203504 Current Step :  240
+
+Current Accuracy :  0.942661 Cost :  0.186502 Current Step :  260
+
+Current Accuracy :  0.939538 Cost :  0.191757 Current Step :  280
+
+Current Accuracy :  0.943036 Cost :  0.179076 Current Step :  300
+
+Current Accuracy :  0.941287 Cost :  0.1779 Current Step :  320
+
+Current Accuracy :  0.953279 Cost :  0.156305 Current Step :  340
+
+Current Accuracy :  0.953654 Cost :  0.150149 Current Step :  360
+
+Current Accuracy :  0.955528 Cost :  0.141439 Current Step :  380
+
+Current Accuracy :  0.955653 Cost :  0.1418 Current Step :  400
+
+Current Accuracy :  0.947408 Cost :  0.158055 Current Step :  420
+
+Current Accuracy :  0.951405 Cost :  0.14335 Current Step :  440
+
+Current Accuracy :  0.949407 Cost :  0.148213 Current Step :  460
+
+Current Accuracy :  0.953654 Cost :  0.136916 Current Step :  480
+
+Current Accuracy :  0.958526 Cost :  0.13086 Current Step :  500
+
+Current Accuracy :  0.954903 Cost :  0.132118 Current Step :  520
+
+Current Accuracy :  0.950906 Cost :  0.144439 Current Step :  540
+
+Current Accuracy :  0.938164 Cost :  0.169647 Current Step :  560
+
+Current Accuracy :  0.955028 Cost :  0.137042 Current Step :  580
+
+Current Accuracy :  0.954778 Cost :  0.13532 Current Step :  600
+
+Current Accuracy :  0.959151 Cost :  0.121079 Current Step :  620
+
+Current Accuracy :  0.959151 Cost :  0.121836 Current Step :  640
+
+Current Accuracy :  0.954279 Cost :  0.136654 Current Step :  660
+
+Current Accuracy :  0.961274 Cost :  0.119971 Current Step :  680
+
+Current Accuracy :  0.964772 Cost :  0.105754 Current Step :  700
+
+Current Accuracy :  0.962274 Cost :  0.106707 Current Step :  720
+
+Current Accuracy :  0.964772 Cost :  0.105855 Current Step :  740
+
+Current Accuracy :  0.964897 Cost :  0.10109 Current Step :  760
+
+Current Accuracy :  0.961024 Cost :  0.114476 Current Step :  780
+
+Current Accuracy :  0.951655 Cost :  0.130383 Current Step :  800
+
+Current Accuracy :  0.961649 Cost :  0.113964 Current Step :  820
+
+Current Accuracy :  0.964522 Cost :  0.100054 Current Step :  840
+
+Current Accuracy :  0.965022 Cost :  0.100266 Current Step :  860
+
+Current Accuracy :  0.965272 Cost :  0.0999862 Current Step :  880
+
+Current Accuracy :  0.963398 Cost :  0.104118 Current Step :  900
+
+Current Accuracy :  0.963523 Cost :  0.103779 Current Step :  920
+
+Current Accuracy :  0.969019 Cost :  0.0967644 Current Step :  940
+
+Current Accuracy :  0.968769 Cost :  0.0916664 Current Step :  960
+
+Current Accuracy :  0.963898 Cost :  0.100569 Current Step :  980
+
+Train Accuracy:  0.972642
+
+Test Accuracy:  0.927
+
+Current Accuracy :  0.540037 Cost :  1384.75 Current Step :  0
+
+Current Accuracy :  0.469706 Cost :  0.712124 Current Step :  20
+
+Current Accuracy :  0.472705 Cost :  0.698976 Current Step :  40
+
+Current Accuracy :  0.474329 Cost :  0.688708 Current Step :  60
+
+Current Accuracy :  0.475203 Cost :  0.683536 Current Step :  80
+
+Current Accuracy :  0.540037 Cost :  0.681238 Current Step :  100
+
+Current Accuracy :  0.540037 Cost :  0.68036 Current Step :  120
+
+Current Accuracy :  0.540037 Cost :  0.680659 Current Step :  140
+
+Current Accuracy :  0.540037 Cost :  0.680416 Current Step :  160
+
+Current Accuracy :  0.540037 Cost :  0.679652 Current Step :  180
+
+Current Accuracy :  0.540037 Cost :  0.68697 Current Step :  200
+
+Current Accuracy :  0.540037 Cost :  0.687021 Current Step :  220
+
+Current Accuracy :  0.540037 Cost :  0.686943 Current Step :  240
+
+Current Accuracy :  0.540037 Cost :  0.687303 Current Step :  260
+
+Current Accuracy :  0.540037 Cost :  0.687389 Current Step :  280
+
+Current Accuracy :  0.540037 Cost :  0.686709 Current Step :  300
+
+Current Accuracy :  0.540037 Cost :  0.686752 Current Step :  320
+
+Current Accuracy :  0.540037 Cost :  0.686541 Current Step :  340
+
+Current Accuracy :  0.540037 Cost :  0.687522 Current Step :  360
+
+Current Accuracy :  0.540037 Cost :  0.686369 Current Step :  380
+
+Current Accuracy :  0.540037 Cost :  0.686371 Current Step :  400
+
+Current Accuracy :  0.540037 Cost :  0.686138 Current Step :  420
+
+Current Accuracy :  0.540037 Cost :  0.685285 Current Step :  440
+
+Current Accuracy :  0.540037 Cost :  0.685945 Current Step :  460
+
+Current Accuracy :  0.540037 Cost :  0.681525 Current Step :  480
+
+Current Accuracy :  0.540037 Cost :  0.679057 Current Step :  500
+
+Current Accuracy :  0.540037 Cost :  0.678942 Current Step :  520
+
+Current Accuracy :  0.540037 Cost :  0.678886 Current Step :  540
+
+Current Accuracy :  0.540037 Cost :  0.679149 Current Step :  560
+
+Current Accuracy :  0.540037 Cost :  0.678378 Current Step :  580
+
+Current Accuracy :  0.540037 Cost :  0.67887 Current Step :  600
+
+Current Accuracy :  0.540037 Cost :  0.679086 Current Step :  620
+
+Current Accuracy :  0.540037 Cost :  0.678815 Current Step :  640
+
+Current Accuracy :  0.540037 Cost :  0.677727 Current Step :  660
+
+Current Accuracy :  0.540037 Cost :  0.678087 Current Step :  680
+
+Current Accuracy :  0.540037 Cost :  0.676589 Current Step :  700
+
+Current Accuracy :  0.540037 Cost :  0.676048 Current Step :  720
+
+Current Accuracy :  0.540037 Cost :  0.675746 Current Step :  740
+
+Current Accuracy :  0.540037 Cost :  0.676538 Current Step :  760
+
+Current Accuracy :  0.540037 Cost :  0.675411 Current Step :  780
+
+Current Accuracy :  0.540037 Cost :  0.675934 Current Step :  800
+
+Current Accuracy :  0.540037 Cost :  0.675452 Current Step :  820
+
+Current Accuracy :  0.540037 Cost :  0.675565 Current Step :  840
+
+Current Accuracy :  0.540037 Cost :  0.674894 Current Step :  860
+
+Current Accuracy :  0.540037 Cost :  0.675212 Current Step :  880
+
+Current Accuracy :  0.540037 Cost :  0.675279 Current Step :  900
+
+Current Accuracy :  0.540037 Cost :  0.673997 Current Step :  920
+
+Current Accuracy :  0.540037 Cost :  0.672983 Current Step :  940
+
+Current Accuracy :  0.540037 Cost :  0.673614 Current Step :  960
+
+Current Accuracy :  0.540037 Cost :  0.673748 Current Step :  980
+
+Train Accuracy:  0.540037
+
+Test Accuracy:  0.5265
+
+Current Accuracy :  0.540037 Cost :  124.705 Current Step :  0
+
+Current Accuracy :  0.609369 Cost :  0.685313 Current Step :  20
+
+Current Accuracy :  0.752655 Cost :  0.503847 Current Step :  40
+
+Current Accuracy :  0.835103 Cost :  0.393353 Current Step :  60
+
+Current Accuracy :  0.887945 Cost :  0.302785 Current Step :  80
+
+Current Accuracy :  0.903185 Cost :  0.265027 Current Step :  100
+
+Current Accuracy :  0.915803 Cost :  0.24159 Current Step :  120
+
+Current Accuracy :  0.930044 Cost :  0.200031 Current Step :  140
+
+Current Accuracy :  0.939663 Cost :  0.174719 Current Step :  160
+
+Current Accuracy :  0.93654 Cost :  0.170992 Current Step :  180
+
+Current Accuracy :  0.944035 Cost :  0.15586 Current Step :  200
+
+Current Accuracy :  0.942286 Cost :  0.163237 Current Step :  220
+
+Current Accuracy :  0.945034 Cost :  0.149061 Current Step :  240
+
+Current Accuracy :  0.953029 Cost :  0.135204 Current Step :  260
+
+Current Accuracy :  0.956527 Cost :  0.124227 Current Step :  280
+
+Current Accuracy :  0.954653 Cost :  0.121045 Current Step :  300
+
+Current Accuracy :  0.954029 Cost :  0.128364 Current Step :  320
+
+Current Accuracy :  0.956402 Cost :  0.115548 Current Step :  340
+
+Current Accuracy :  0.96065 Cost :  0.112741 Current Step :  360
+
+Current Accuracy :  0.959275 Cost :  0.110712 Current Step :  380
+
+Current Accuracy :  0.963523 Cost :  0.10386 Current Step :  400
+
+Current Accuracy :  0.964147 Cost :  0.103656 Current Step :  420
+
+Current Accuracy :  0.967395 Cost :  0.0930396 Current Step :  440
+
+Current Accuracy :  0.964522 Cost :  0.10342 Current Step :  460
+
+Current Accuracy :  0.966396 Cost :  0.0890586 Current Step :  480
+
+Current Accuracy :  0.962898 Cost :  0.0998697 Current Step :  500
+
+Current Accuracy :  0.964147 Cost :  0.0966327 Current Step :  520
+
+Current Accuracy :  0.966646 Cost :  0.0932048 Current Step :  540
+
+Current Accuracy :  0.959525 Cost :  0.115773 Current Step :  560
+
+Current Accuracy :  0.962898 Cost :  0.0974284 Current Step :  580
+
+Current Accuracy :  0.961274 Cost :  0.106498 Current Step :  600
+
+Current Accuracy :  0.959026 Cost :  0.111741 Current Step :  620
+
+Current Accuracy :  0.962648 Cost :  0.103944 Current Step :  640
+
+Current Accuracy :  0.965771 Cost :  0.0923255 Current Step :  660
+
+Current Accuracy :  0.965771 Cost :  0.0997064 Current Step :  680
+
+Current Accuracy :  0.964272 Cost :  0.0941939 Current Step :  700
+
+Current Accuracy :  0.965272 Cost :  0.0936393 Current Step :  720
+
+Current Accuracy :  0.960025 Cost :  0.104733 Current Step :  740
+
+Current Accuracy :  0.962898 Cost :  0.0998365 Current Step :  760
+
+Current Accuracy :  0.964772 Cost :  0.101135 Current Step :  780
+
+Current Accuracy :  0.967146 Cost :  0.0878103 Current Step :  800
+
+Current Accuracy :  0.969769 Cost :  0.0814384 Current Step :  820
+
+Current Accuracy :  0.968145 Cost :  0.0869381 Current Step :  840
+
+Current Accuracy :  0.970393 Cost :  0.0893953 Current Step :  860
+
+Test Accuracy:  0.9495
+
+Current Accuracy :  0.459963 Cost :  32.6722 Current Step :  0
+
+Current Accuracy :  0.459963 Cost :  0.754939 Current Step :  20
+
+Current Accuracy :  0.459963 Cost :  0.728257 Current Step :  40
+
+Current Accuracy :  0.459963 Cost :  0.710306 Current Step :  60
+
+Current Accuracy :  0.459963 Cost :  0.699731 Current Step :  80
+
+Current Accuracy :  0.459963 Cost :  0.694165 Current Step :  100
+
+Current Accuracy :  0.540037 Cost :  0.691583 Current Step :  120
+
+Current Accuracy :  0.540037 Cost :  0.690507 Current Step :  140
+
+Current Accuracy :  0.540037 Cost :  0.690112 Current Step :  160
+
+Current Accuracy :  0.540037 Cost :  0.689982 Current Step :  180
+
+Current Accuracy :  0.540037 Cost :  0.689948 Current Step :  200
+
+Current Accuracy :  0.540037 Cost :  0.689944 Current Step :  220
+
+Current Accuracy :  0.540037 Cost :  0.689941 Current Step :  240
+
+Current Accuracy :  0.540037 Cost :  0.689942 Current Step :  260
+
+Current Accuracy :  0.540037 Cost :  0.689944 Current Step :  280
+
+Current Accuracy :  0.540037 Cost :  0.689939 Current Step :  300
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  320
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  340
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  360
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  380
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  400
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  420
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  440
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  460
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  480
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  500
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  520
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  540
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  560
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  580
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  600
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  620
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  640
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  660
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  680
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  700
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  720
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  740
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  760
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  780
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  800
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  820
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  840
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  860
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  880
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  900
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  920
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  940
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  960
+
+Current Accuracy :  0.540037 Cost :  0.689929 Current Step :  980
+
+Train Accuracy:  0.540037
+
+Test Accuracy:  0.5265
+
+Current Accuracy :  0.459963 Cost :  1141.86 Current Step :  0
+
+Current Accuracy :  0.543785 Cost :  0.779758 Current Step :  20
+
+Current Accuracy :  0.66471 Cost :  0.656704 Current Step :  40
+
+Current Accuracy :  0.769519 Cost :  0.518547 Current Step :  60
+
+Current Accuracy :  0.819738 Cost :  0.433953 Current Step :  80
+
+Current Accuracy :  0.843723 Cost :  0.381331 Current Step :  100
+
+Current Accuracy :  0.871955 Cost :  0.327498 Current Step :  120
+
+Current Accuracy :  0.892067 Cost :  0.292255 Current Step :  140
+
+Current Accuracy :  0.900937 Cost :  0.269414 Current Step :  160
+
+Current Accuracy :  0.906309 Cost :  0.251072 Current Step :  180
+
+Current Accuracy :  0.917052 Cost :  0.232587 Current Step :  200
+
+Current Accuracy :  0.933916 Cost :  0.198131 Current Step :  220
+
+Current Accuracy :  0.922423 Cost :  0.220932 Current Step :  240
+
+Current Accuracy :  0.935915 Cost :  0.194719 Current Step :  260
+
+Current Accuracy :  0.945659 Cost :  0.165111 Current Step :  280
+
+Current Accuracy :  0.949781 Cost :  0.156699 Current Step :  300
+
+Current Accuracy :  0.950156 Cost :  0.15319 Current Step :  320
+
+Current Accuracy :  0.946284 Cost :  0.151988 Current Step :  340
+
+Current Accuracy :  0.945909 Cost :  0.160259 Current Step :  360
+
+Current Accuracy :  0.94441 Cost :  0.15614 Current Step :  380
+
+Current Accuracy :  0.950406 Cost :  0.142249 Current Step :  400
+
+Current Accuracy :  0.957776 Cost :  0.122788 Current Step :  420
+
+Current Accuracy :  0.95965 Cost :  0.113291 Current Step :  440
+
+Current Accuracy :  0.954154 Cost :  0.126281 Current Step :  460
+
+Current Accuracy :  0.961274 Cost :  0.111216 Current Step :  480
+
+Current Accuracy :  0.951655 Cost :  0.142272 Current Step :  500
+
+Current Accuracy :  0.95253 Cost :  0.128715 Current Step :  520
+
+Current Accuracy :  0.950031 Cost :  0.131613 Current Step :  540
+
+Current Accuracy :  0.959275 Cost :  0.116839 Current Step :  560
+
+Current Accuracy :  0.945659 Cost :  0.139166 Current Step :  580
+
+Current Accuracy :  0.945284 Cost :  0.13749 Current Step :  600
+
+Current Accuracy :  0.955278 Cost :  0.118194 Current Step :  620
+
+Current Accuracy :  0.955653 Cost :  0.11987 Current Step :  640
+
+Current Accuracy :  0.956652 Cost :  0.113414 Current Step :  660
+
+Current Accuracy :  0.961774 Cost :  0.105263 Current Step :  680
+
+Current Accuracy :  0.948032 Cost :  0.127181 Current Step :  700
+
+Current Accuracy :  0.945284 Cost :  0.144879 Current Step :  720
+
+Current Accuracy :  0.958276 Cost :  0.113469 Current Step :  740
+
+Current Accuracy :  0.96777 Cost :  0.0878 Current Step :  760
+
+Current Accuracy :  0.960275 Cost :  0.109219 Current Step :  780
+
+Current Accuracy :  0.964022 Cost :  0.0940853 Current Step :  800
+
+Current Accuracy :  0.964022 Cost :  0.092369 Current Step :  820
+
+Current Accuracy :  0.961899 Cost :  0.0964687 Current Step :  840
+
+Current Accuracy :  0.96065 Cost :  0.102102 Current Step :  860
+
+Current Accuracy :  0.961274 Cost :  0.103654 Current Step :  880
+
+Current Accuracy :  0.956402 Cost :  0.114789 Current Step :  900
+
+Current Accuracy :  0.962773 Cost :  0.0955427 Current Step :  920
+
+Current Accuracy :  0.948907 Cost :  0.128298 Current Step :  940
+
+Current Accuracy :  0.951405 Cost :  0.130174 Current Step :  960
+
+Current Accuracy :  0.946159 Cost :  0.140524 Current Step :  980
+
+Train Accuracy:  0.952405
+
+Test Accuracy:  0.921

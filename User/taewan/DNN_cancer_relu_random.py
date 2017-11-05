@@ -236,7 +236,7 @@ xdata = pd.read_csv(x_filename)
 ydata = np.genfromtxt('/home/tjahn/Data/DNN10000/CancerResult.csv', delimiter=",")
 #conf_filename = input("Insert configure file directory and name : ")
 conf_directory = '/home/tjahn/Git/Data/'
-conf_filename = 'input/relu_test_ps6.csv'
+conf_filename = 'input/relu_test_ps7.csv'
 conf = pd.read_csv(conf_directory+conf_filename)
 
 train_x, test_x, train_y, test_y = random_sample(xdata, ydata)
