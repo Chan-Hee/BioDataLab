@@ -129,7 +129,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-    cost_summ = tf.summary.scalar("cost_3",cost)
+    cost_summ = tf.summary.scalar("cost_500_500_50",cost)
  
 
     # Accuracy computation
@@ -138,11 +138,11 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
-    accuracy_summ = tf.summary.scalar("accuarcy_3",accuracy)
+    accuracy_summ = tf.summary.scalar("accuarcy_500_500_50",accuracy)
     with tf.Session() as sess:
 	 # tensorboard --logdir=./logs/xor_logs
         merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("./logs/3")
+        writer = tf.summary.FileWriter("./log/500_500_50")
         writer.add_graph(sess.graph)  # Show the graph
     
         # Initialize TensorFlow variables
@@ -202,7 +202,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-    cost_summ = tf.summary.scalar("cost_4",cost)
+    cost_summ = tf.summary.scalar("cost_500_500_500_50",cost)
 
 
     # Accuracy computation
@@ -211,12 +211,12 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
-    accuracy_summ= tf.summary.scalar("accuracy_4",accuracy)
+    accuracy_summ= tf.summary.scalar("accuracy_500_500_500_50",accuracy)
     with tf.Session() as sess:
 
          # tensorboard --logdir=./logs/xor_logs
         merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("./logs/4")
+        writer = tf.summary.FileWriter("./log/500_500_500_50")
         writer.add_graph(sess.graph)  # Show the graph
 
         # Initialize TensorFlow variables
@@ -251,7 +251,7 @@ ydata = np.genfromtxt('/home/tjahn/Data/DNN10000/CancerResult.csv', delimiter=",
 #conf_filename = input("Insert configure file directory and name : ")
 conf_directory = '/home/tjahn/Git/Data/'
 conf_filename = 'input/relu_test_ps7.csv'
-conf_sungmin = '/home/tjahn/Git/User/sungmin/input/relu_test_ps7.csv'
+conf_sungmin = '/home/tjahn/Git/User/sungmin/input/tb2.csv'
 ##conf = pd.read_csv(conf_directory+conf_filename)
 conf = pd.read_csv(conf_sungmin)
 train_x, test_x, train_y, test_y = random_sample(xdata, ydata)
@@ -281,4 +281,4 @@ test_accs = pd.DataFrame(data=test_accs ,
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
-conf.to_csv('/home/tjahn/Git/Data/User/sungmin/output'+conf_filename[5:-4] +'_result_test1_1.csv' , sep= ',')
+conf.to_csv('/home/tjahn/Git/User/sungmin/output/result_tb2.csv' , sep= ',')
