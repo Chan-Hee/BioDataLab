@@ -1,67 +1,13 @@
-####Import Modules####
 import random
 import numpy as np
 import math
 import pandas as pd
-import tensorflow as tf 
+import tensorflow as tf
 
-####Set Random Seed ####
 tf.set_random_seed(777) 
 
-def random_sample_fivefold(xdata, ydata , num):
-    ####################### Variance를 구하기 위해 자른다. ##############################
-    datas_x = xdata.iloc[:,3:-1]
-    ####How to random sampling?####
-    indexs = list(range(len(datas_x.iloc[1])))
-    # print(indexs)
-    random.shuffle(indexs)
-    train_datas = pd.concat([datas_x.iloc[:,indexs[:2000*num]], datas_x.iloc[:,indexs[2000*(num+1):]]])
-    print(train_datas)
-    print(len(train_datas))
-    # train_datas = datas_x.iloc[:,indexs[2000:]]
-    variances = train_datas.var(axis = 1)
-    sorted_var = np.sort(variances)
-    sorted_var = sorted_var[::-1]
-    per = 1   #gene percent of variances 
-    idx = int((per/100)*len(sorted_var))
-    # print(sorted_var[idx])
-    gene_idx = top_of_variance(sorted_var[idx], variances)
-    ######################### Train set에 의해 구해진 variance를 기준으로 자른 index들 ##########################3
-    
-    data_x = xdata.iloc[gene_idx,3:-1]
-    data_x = data_x.as_matrix()
-    data_x = data_x.transpose()
-    train_set = data_x[indexs[:2000*num]]
-    train_x = np.concatenate((train_set,data_x[indexs[(num+1)*2000:]]), axis=0)
-    test_x = data_x[indexs[2000*num:2000*(num+1)],:]
-    data_y = ydata[1:, 1:]    # eliminate heading, string data
-    # One-Hot-Encoding
-    data_y = data_y.flatten()
-    data_y = pd.get_dummies(data_y)
-    data_y = data_y.as_matrix()
-    train_set = data_y[indexs[:2000*num]]
-    train_y = np.concatenate((train_set,data_y[indexs[(num+1)*2000:]]), axis=0)
-    test_y = data_y[indexs[2000*num:2000*(num+1)],:]
-
-    return train_x, test_x, train_y, test_y
 
 def random_sample(xdata, ydata):
-    ####################### Variance를 구하기 위해 자른다. ##############################
-    datas_x = xdata.iloc[:,3:-1]
-    ####How to random sampling?####
-    indexs = list(range(len(datas_x.iloc[1])))
-    # print(indexs)
-    random.shuffle(indexs)
-    train_datas = datas_x.iloc[:,indexs[2000:]]
-    variances = train_datas.var(axis = 1)
-    sorted_var = np.sort(variances)
-    sorted_var = sorted_var[::-1]
-    per = 1   #gene percent of variances 
-    idx = int((per/100)*len(sorted_var))
-    # print(sorted_var[idx])
-    gene_idx = top_of_variance(sorted_var[idx], variances)
-    ######################### Train set에 의해 구해진 variance를 기준으로 자른 index들 ##########################3
-    
     data_x = xdata.iloc[gene_idx,3:-1]
     data_x = data_x.as_matrix()
     data_x = data_x.transpose()
@@ -75,6 +21,12 @@ def random_sample(xdata, ydata):
     test_y = data_y.loc[indexs[:2000],:]
     
     return train_x, test_x, train_y, test_y
+
+def five_fold(data, num):
+    test_set = data[indexs[num*2000:(num+1)*2000]]
+    train_set = data[indexs[:num*2000]]
+    train_set = np.concatenate((train_set,data[indexs[(num+1)*2000:]] ), axis=0)
+    return train_set , test_set
 
 def cal_var(variances, per):
     all_cnt = len(variances)
@@ -151,7 +103,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
             if step % 20 == 0 :
                 h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
-                if train_a > 0.97 :
+                if train_a > 0.95 :
                     break
         ######Accuracy Report#####
         h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})    
@@ -219,7 +171,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
             if step % 20 == 0 : 
                 h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
-                if train_a > 0.97 :
+                if train_a > 0.95 :
                     break
 
         ######Accuracy Report#####
@@ -236,34 +188,78 @@ xdata = pd.read_csv(x_filename)
 ydata = np.genfromtxt('/home/tjahn/Data/DNN10000/CancerResult.csv', delimiter=",")
 #conf_filename = input("Insert configure file directory and name : ")
 conf_directory = '/home/tjahn/Git/Data/'
-conf_filename = 'input/relu_test_ps5.csv'
+conf_filename = 'input/relu_test_ps7.csv'
 conf = pd.read_csv(conf_directory+conf_filename)
 
-train_x, test_x, train_y, test_y = random_sample(xdata, ydata)
 
+# train_x, test_x, train_y, test_y = random_sample(xdata, ydata)
+#variance를 한번 뽑아야한다. 
+####################### Variance를 구하기 위해 자른다. ##############################
+####################### 데이터에서 정보 부분만큼의 길이를 이용해서 random한 index를 만든다. ###############################
+
+datas_x = xdata.iloc[:,3:-1]
+indexs = list(range(len(datas_x.iloc[1])))
+random.shuffle(indexs)
+train_datas = datas_x.iloc[:,indexs[2000:]]
+
+####################### 랜덤한 정보들 중 필요한 정보만을 취한다. ############################
+variances = train_datas.var(axis = 1)
+################ 여기서 index를 뽑아서 , gene 이름을 가지고 있어야 할 것 같다. ##########################
+####################### 분산 값을 가지고 있다. ###############################
+sorted_var = np.sort(variances)
+sorted_var = sorted_var[::-1]
+per = 1   #gene percent of variances 
+idx = int((per/100)*len(sorted_var))
+####################### 분산의 양에 따라 뽑아낸다. ########################
+
+# print(sorted_var[idx])
+gene_idx = top_of_variance(sorted_var[idx], variances)
+xdata = xdata.iloc[:,3:-1] 
+xdata = xdata.iloc[gene_idx]
+####################### 분산에 의해 뽑힌 Gene idx 들 ######################
+######################### Train set에 의해 구해진 variance를 기준으로 자른 index들 ##########################
+######################## 결정 된 gene 정보와 결정 된 shuffle index 2가지를 이용해서 문제를 해결하자 #########################
 train_accs = []
 test_accs = []
 for i in range(len(conf)):
     repeat, layer, node , learning_rate, gene = conf.iloc[i]
     nodes = list(map(int , node.split(" ")))
-
-    #print(train_y)
-    cnt_train = len(train_x[1, :])
-    if(conf.iloc[i]['layer'] == 3):
-        train_acc , test_acc = (set_train_three_layer(i,repeat, nodes, learning_rate))
-    elif(conf.iloc[i]['layer']== 4):
-        train_acc , test_acc = (set_train_four_layer(i,repeat, nodes, learning_rate))
-    train_accs.append(train_acc)
-    test_accs.append(test_acc)
+    train_accs_conf = []
+    test_accs_conf = []
+    for j in range(5):
+        data_x = xdata
+        data_x = data_x.as_matrix()
+        data_y = ydata[1:, 1:]    # eliminate heading, string data
+        data_y = data_y.flatten()
+        data_y = pd.get_dummies(data_y)
+        data_y = data_y.as_matrix()
+        data_x = data_x.transpose()
+        ###5-fold data 
+        ####Data Processing - divide train and test set####
+        ####5-fold code  is needed ####
+        train_x, test_x = five_fold(data_x,j)
+        train_y, test_y = five_fold(data_y,j)
+        cnt_train = len(train_x[1, :])
+        if(conf.iloc[i]['layer'] == 3):
+            train_acc , test_acc = (set_train_three_layer(i,repeat, nodes, learning_rate))
+            train_accs_conf.append(train_acc)
+            test_accs_conf.append(test_acc)
+        elif(conf.iloc[i]['layer']== 4):
+            train_acc , test_acc = (set_train_four_layer(i,repeat, nodes, learning_rate))
+            train_accs_conf.append(train_acc)
+            test_accs_conf.append(test_acc)
+    train_accs.append(train_accs_conf)
+    test_accs.append(test_accs_conf)
 
 
 train_accs = pd.DataFrame(data=train_accs , 
                           index = list(range(len(conf))) , 
-                          columns = ["train_acc"])
+                          columns = ["tr-fold-1","tr-fold-2","tr-fold-3","tr-fold-4","tr-fold-5"])
 test_accs = pd.DataFrame(data=test_accs , 
                           index = list(range(len(conf))) , 
-                          columns = ["test_acc"])
+                          columns = ["te-fold-1","te-fold-2","te-fold-3","te-fold-4","te-fold-5"])
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
 conf.to_csv( conf_directory+'output'+conf_filename[5:-4] +'_result.csv' , sep= ',')
+
