@@ -95,7 +95,16 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
         sess.run(tf.global_variables_initializer())
 
         for step in range(repeat):
-            sess.run(train, feed_dict={X: train_x, Y: train_y , keep_prob : 0.7})
+            avg_cost = 0
+            total_num = len(train_x)/batch_size
+            
+            for i in range(total_num):
+                batch_x = train_x[i*batch_size:(i+1)*batch_size]
+                batch_y = train_y[i*batch_size:(i+1)*batch_size]
+                c, _ =sess.run([cost, optimizer], feed_dict={X: batch_x, Y: batch_y , keep_prob : 0.7})
+                avg_cost += c/total_num
+    
+            print('Epoch:', '%04d' % (epoch + 1), 'cost =', '{:.9f}'.format(avg_cost))
             if step == repeat-1:
                 ####Train Accuracy report####
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
@@ -105,12 +114,13 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
                 if train_a > 0.95 :
                     break
-        ######Accuracy Report#####
-        h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})    
+
+######Accuracy Report#####
+        h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
-    
+
     return train_a, test_a
-        
+
 def set_train_four_layer(num ,repeat, nodes, learning_rate):
     tf.reset_default_graph()
     keep_prob = tf.placeholder(tf.float32)
@@ -163,19 +173,28 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
         sess.run(tf.global_variables_initializer())
 
         for step in range(repeat):
-            sess.run(train, feed_dict={X: train_x, Y: train_y, keep_prob : 0.7})
+            avg_cost = 0
+            total_num = len(train_x)/batch_size
+            
+            for i in range(total_num):
+                batch_x = train_x[i*batch_size:(i+1)*batch_size]
+                batch_y = train_y[i*batch_size:(i+1)*batch_size]
+                c, _ =sess.run([cost, optimizer], feed_dict={X: batch_x, Y: batch_y , keep_prob : 0.7})
+                avg_cost += c/total_num
+
+            print('Epoch:', '%04d' % (epoch + 1), 'cost =', '{:.9f}'.format(avg_cost))
             if step == repeat-1:
                 ####Train Accuracy report####
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nTrain Accuracy: ", train_a)
-            if step % 20 == 0 : 
-                h, c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
-                print("\nCurrent Accuracy : ", train_a , "Cost : ",c , "Current Step : ", step)
+            if step % 20 == 0 :
+                h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
+                print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
                 if train_a > 0.95 :
                     break
 
-        ######Accuracy Report#####
-        h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})    
+######Accuracy Report#####
+        h, c, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
     
     return train_a, test_a
