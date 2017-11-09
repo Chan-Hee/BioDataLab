@@ -1,6 +1,6 @@
 # Data importing
-#data<-read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/DNN_log_10000.csv")
-#result<-read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/CancerResult_log.csv")
+data<-read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/DNN_log_10000.csv")
+result<-read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/CancerResult_log.csv")
 
 data<-read.csv("/home/tjahn/Data/DNN_log_10000.csv")
 result<-read.csv("/home/tjahn/Data/CancerResult_log.csv")
@@ -38,7 +38,7 @@ for(i in 1:k){
   genes <- colnames(data[,!results])
   betas <- c()
   
-  #num_of_attributes = 10
+  #num_of_attributes = 100
   
   for(i in 1:num_of_attributes){
     glm_model<-glm(Result~get(genes[i]),family = binomial(link = logit),data = train)
@@ -50,11 +50,11 @@ for(i in 1:k){
   }
   
   betas <- sort(betas,decreasing = TRUE)  
-  betas30<- betas[1:as.integer(0.3*num_of_attributes)]
+  betas3<- betas[1:as.integer(0.03*num_of_attributes)]
   
   # Model Fitting
 
-  x<-names(betas30)
+  x<-names(betas3)
   temp1<-train$Result
   temp2<-test$Result
   
@@ -62,9 +62,9 @@ for(i in 1:k){
   train$Result<-temp1
   test<-test[,x]
   test$Result<-temp2
-  
+  null_model<-glm(Result~1,family = binomial(link = logit),data = train)
   final_model<-glm(Result ~ .,family = binomial(link = logit), data = train)
-  model.aic.forward<-step(final_model,direction = "forward")
+  model.aic.forward<-step(null_model,scope = list(lower = null_model,upper = final_model),direction = "forward")
   
   train_predict<-predict(model.aic.forward,newdata = train,type = "response")
   train_predict<-ifelse(train_predict>0.5,1,0)
@@ -82,4 +82,4 @@ for(i in 1:k){
   }
 
 setwd("/home/tjahn/Git/User/chanhee")
-write.csv(report,"stepwids_fivefold_logistic_result.csv")
+write.csv(reports,"stepwise_fivefold_logistic_result.csv")
