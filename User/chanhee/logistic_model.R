@@ -54,7 +54,7 @@ for(i in 1:k){
   
   # Model Fitting
 
-  x<-names(betas3ㅌ)
+  x<-names(betas3)
   temp1<-train$Result
   temp2<-test$Result
   
