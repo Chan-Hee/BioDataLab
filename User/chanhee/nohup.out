@@ -5851,3 +5851,12 @@ Error in parse(text = x, keep.source = FALSE) :
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 Calls: glm ... formula -> formula.character -> formula -> eval -> parse
 Execution halted
+Error in terms.formula(formula, data = data) : 
+  invalid model formula in ExtractVars
+Calls: glm ... <Anonymous> -> model.frame.default -> terms -> terms.formula
+Execution halted
+Warning message:
+glm.fit: fitted probabilities numerically 0 or 1 occurred 
+Warning messages:
+1: glm.fit: algorithm did not converge 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
