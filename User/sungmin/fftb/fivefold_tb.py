@@ -81,8 +81,8 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-
-
+    #cost_summ = tf.summary.scalar(node + "_cost",cost)
+    cost_summ = tf.summary.scalar("cost",cost)
 
     # Accuracy computation
     # True if hypothesis>0.5 else False
@@ -90,12 +90,20 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
+    #accuracy_summ = tf.summary.scalar(node + "_accuarcy",accuracy)
+    accuracy_summ = tf.summary.scalar("accuracy",accuracy)
     with tf.Session() as sess:
+        merged_summary = tf.summary.merge_all()
+        writer = tf.summary.FileWriter("./log2/" + node)
+        writer.add_graph(sess.graph)  # Show the graph
+
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
 
         for step in range(repeat):
             sess.run(train, feed_dict={X: train_x, Y: train_y , keep_prob : 0.7})
+            summary,_=sess.run([merged_summary,train], feed_dict={X: train_x, Y:train_y , keep_prob : 0.7})
+            writer.add_summary(summary, global_step =step)
             if step == repeat-1:
                 ####Train Accuracy report####
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
@@ -147,6 +155,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
+    cost_summ = tf.summary.scalar("cost",cost)
 
 
 
@@ -155,15 +164,22 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
-
-
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
+    accuracy_summ= tf.summary.scalar("accuracy",accuracy)
     with tf.Session() as sess:
+           # tensorboard --logdir=./logs/xor_logs
+        merged_summary = tf.summary.merge_all()
+        writer = tf.summary.FileWriter("./log2/"+node)
+        writer.add_graph(sess.graph)  # Show the graph
+
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
 
-        for step in range(repeat):
+        for step in range(repeat):            
             sess.run(train, feed_dict={X: train_x, Y: train_y, keep_prob : 0.7})
+            summary,_=sess.run([merged_summary,train], feed_dict={X: train_x, Y: train_y, keep_prob : 0.7})
+            writer.add_summary(summary, global_step =step)
+
             if step == repeat-1:
                 ####Train Accuracy report####
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
@@ -189,7 +205,9 @@ ydata = np.genfromtxt('/home/tjahn/Data/DNN10000/CancerResult.csv', delimiter=",
 #conf_filename = input("Insert configure file directory and name : ")
 conf_directory = '/home/tjahn/Git/Data/'
 conf_filename = 'input/relu_test_ps7.csv'
-conf = pd.read_csv(conf_directory+conf_filename)
+conf_sungmin = '/home/tjahn/Git/User/sungmin/fftb/input/1.csv'
+
+conf = pd.read_csv(conf_sungmin)
 
 
 # train_x, test_x, train_y, test_y = random_sample(xdata, ydata)
@@ -261,5 +279,5 @@ test_accs = pd.DataFrame(data=test_accs ,
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
-conf.to_csv( conf_directory+'output'+conf_filename[5:-4] +'_result.csv' , sep= ',')
+conf.to_csv('/home/tjahn/Git/User/sungmin/fftb/output/test2.csv' , sep= ',')
 
