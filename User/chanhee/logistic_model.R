@@ -1,6 +1,6 @@
 # Data importing
-data<-read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/DNN_log_10000.csv")
-result<-read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/CancerResult_log.csv")
+#data<-read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/DNN_log_10000.csv")
+#result<-read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/CancerResult_log.csv")
 
 data<-read.csv("/home/tjahn/Data/DNN_log_10000.csv")
 result<-read.csv("/home/tjahn/Data/CancerResult_log.csv")
