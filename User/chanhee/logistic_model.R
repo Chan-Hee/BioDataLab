@@ -9,9 +9,11 @@ library(stringr)
 r_name<-as.character(data[,2])
 data<-as.data.frame(t(data[,c(-1,-2,-3,-length(data))]))
 r_name<-str_replace_all(r_name," /// ","")
+r_name<-str_replace_all(r_name,"/","")
+
 colnames(data)<-r_name
 
-data$result<-result[,2]
+data$Result<-result[,2]
 
 # Random Sampling -> Test & Training Data set
 num_of_samples <- dim(data)[1]
@@ -39,7 +41,7 @@ for(i in 1:k){
   #num_of_attributes = 10
   
   for(i in 1:num_of_attributes){
-    glm_model<-glm(result~get(genes[i]),family = binomial(link = logit),data = train)
+    glm_model<-glm(Result~get(genes[i]),family = binomial(link = logit),data = train)
     
     beta<-abs(glm_model$coefficients[2])
     names(beta)<-genes[i]
@@ -51,22 +53,26 @@ for(i in 1:k){
   betas30<- betas[1:as.integer(0.3*num_of_attributes)]
   
   # Model Fitting
-  y<-"result"
+
   x<-names(betas30)
-  flma<-paste(y,paste(x,collapse ="+"),sep = "~")
+  temp1<-train$Result
+  temp2<-test$Result
   
-  final_model<-glm(flma,family = binomial(link = logit),data = train)
+  train<-train[,x]
+  train$Result<-temp1
+  test<-test[,x]
+  test$Result<-temp2
+  
+  final_model<-glm(Result ~ .,family = binomial(link = logit), data = train)
   model.aic.forward<-step(final_model,direction = "forward")
   
   train_predict<-predict(model.aic.forward,newdata = train,type = "response")
   train_predict<-ifelse(train_predict>0.5,1,0)
-  train_tble<-table(train_predict,actual.class = train$result)
-  train_accuracy<-(train_tble[1,1]+train_tble[2,2])/sum(train_tble)
-  
+  train_accuracy<-sum(train_predict==train$Result)/nrow(train)
+    
   test_predict<-predict(model.aic.forward,newdata = test,type = "response")
   test_predict<-ifelse(test_predict>0.5,1,0)
-  test_tble<-table(test_predict,actual.class = test$result)
-  test_accuracy<-(test_tble[1,1]+test_tble[2,2])/sum(test_tble)
+  test_accuracy<-sum(test_predict==test$Result)/nrow(test)
   
   report<-data.frame(test = test_accuracy, train = train_accuracy)
   reports<-rbind(reports,report)
