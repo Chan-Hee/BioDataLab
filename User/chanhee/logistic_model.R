@@ -9,14 +9,12 @@ library(stringr)
 r_name<-as.character(data[,2])
 data<-as.data.frame(t(data[,c(-1,-2,-3,-length(data))]))
 r_name<-str_replace_all(r_name," /// ","")
-r_name<-str_replace_all(r_name,"-","")
 colnames(data)<-r_name
 
 data$result<-result[,2]
 
 # Random Sampling -> Test & Training Data set
 num_of_samples <- dim(data)[1]
-
 
 ##rand_index <- sample(1:num_of_samples,num_of_samples)
 #test_index <- rand_index[1:as.integer(num_of_samples*0.2)]
@@ -33,29 +31,6 @@ for(i in 1:k){
   train<-subset(data, id %in% list[-i])
   test<-subset(data, id %in% c(i))
   results <- names(data) %in% "result"
-
-rand_index <- sample(1:num_of_samples,num_of_samples)
-test_index <- rand_index[1:as.integer(num_of_samples*0.2)]
-train_index <- rand_index[as.integer(num_of_samples*0.2+1):num_of_samples]
-
-train<-data[train_index,]
-test<-data[test_index,]
-
-# Model Fitting
-results <- names(data) %in% "result"
-genes <- colnames(data[,!results])
-
-num_of_attributes<-dim(data)[2]-1
-betas <- c()
-
-#num_of_attributes = 10
-
-for(i in 1:num_of_attributes){
-  glm_model<-glm(result~get(genes[i]),family = binomial(link = logit),data = train)
-
-  beta<-abs(glm_model$coefficients[2])
-  names(beta)<-genes[i]
-
   
   num_of_attributes<-dim(data)[2]-2
   genes <- colnames(data[,!results])
