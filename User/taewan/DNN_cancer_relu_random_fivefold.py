@@ -102,10 +102,8 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
             for i in range(total_num):
                 batch_x = train_x[i*batch_size:(i+1)*batch_size]
                 batch_y = train_y[i*batch_size:(i+1)*batch_size]
-                c =sess.run( cost , feed_dict={X: batch_x, Y: batch_y , keep_prob : 0.7})
-                avg_cost += c/total_num
+                sess.run( train , feed_dict={X: batch_x, Y: batch_y , keep_prob : 0.7})
     
-            print('Epoch:', '%04d' % (step + 1), 'cost =', '{:.9f}'.format(avg_cost))
             if step == repeat-1:
                 ####Train Accuracy report####
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
@@ -113,7 +111,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate):
             if step % 20 == 0 :
                 h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
-                if train_a > 0.95 :
+                if train_a > 0.97 :
                     break
 
 ######Accuracy Report#####
@@ -181,10 +179,8 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
             for i in range(total_num):
                 batch_x = train_x[i*batch_size:(i+1)*batch_size]
                 batch_y = train_y[i*batch_size:(i+1)*batch_size]
-                c =sess.run(cost, feed_dict={X: batch_x, Y: batch_y , keep_prob : 0.7})
-                avg_cost += c/total_num
+                sess.run(train, feed_dict={X: batch_x, Y: batch_y , keep_prob : 0.7})
 
-            print('step:', '%04d' % (step+ 1), 'cost =', '{:.9f}'.format(avg_cost))
             if step == repeat-1:
                 ####Train Accuracy report####
                 h, c, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
@@ -192,7 +188,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
             if step % 20 == 0 :
                 h,c, p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
-                if train_a > 0.95 :
+                if train_a > 0.97 :
                     break
 
 ######Accuracy Report#####
@@ -209,7 +205,7 @@ xdata = pd.read_csv(x_filename)
 ydata = np.genfromtxt('/home/tjahn/Data/DNN10000/CancerResult.csv', delimiter=",")
 #conf_filename = input("Insert configure file directory and name : ")
 conf_directory = '/home/tjahn/Git/Data/'
-conf_filename = 'input/relu_test_ps7.csv'
+conf_filename = 'input/relu_test_ps8.csv'
 conf = pd.read_csv(conf_directory+conf_filename)
 
 

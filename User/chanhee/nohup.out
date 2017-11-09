@@ -5860,3 +5860,19 @@ glm.fit: fitted probabilities numerically 0 or 1 occurred
 Warning messages:
 1: glm.fit: algorithm did not converge 
 2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+Error in library(stringr) : there is no package called ‘stringr’
+Execution halted
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+Warning in install.packages("stringr") :
+  'lib = "/usr/local/lib/R/site-library"' is not writable
+Error in install.packages("stringr") : unable to install packages
+Execution halted
+Error in parse(text = x, keep.source = FALSE) : 
+  <text>:1:18645: unexpected symbol
+1: FLJ12334+IDH3A+PDLIM2+VGLL3+FUBP1+POLQ+LTV1+GRPEL1+GPAT2+ABCF1+KIT+LOC100128252+LOC645744+TOM1L1+CELF2+MIF4GD+SPTBN2+PACSIN3+TUBB3+TFF2+NOD1+C11orf51+TCEB1+KCTD5+GMCL1GMCL1L+WIZ+PIM1+SERPING1+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+Calls: glm ... formula -> formula.character -> formula -> eval -> parse
+In addition: Warning message:
+glm.fit: fitted probabilities numerically 0 or 1 occurred 
+Execution halted
