@@ -1,5 +1,5 @@
 ################################################### Merging Files #########################################
-##hi
+
 SelectFile<-function(filenames){
   
   randVector=sample(1:length(filenames),replace = FALSE)
@@ -17,7 +17,7 @@ MergeUntil<-function(filenames,n){
   cancer<-data.frame(GSM_NUMBER=GSM,CANCER=diagnose)
   i=2
   
-  while(ncol(data)<=n+3 && i<length(filenames)){
+  while(i<length(filenames)){
     
     Ndata<-read.table(filenames[i],header=TRUE)
     
@@ -83,10 +83,11 @@ GetVar<-function(Toy1000){
 setwd("/home/tjahn/Data/")
 #setwd("/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
 set.seed(2017)
-#data<-MergeToyFile(1000,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
-data<-MergeToyFile(10000,"/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
+#datas<-MergeToyFile(1000,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
+datas<-MergeToyFile(10000,"/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
 
-RawToy<-data$x
+RawToy<-datas$x
+CancerResult<-datas$y
 RawToy<-RawToy[RawToy$Gene_Symbol!="",]
 RawToy<-RawToy[!duplicated(RawToy[,2]),]
 
@@ -106,7 +107,8 @@ for( j in 1 : length(not_log2_scale_ids ) ) {
 
 
 #summary(RawToy)
-CancerResult<-data$y
+
+
 
 
 Toy1000<- NormalizeToy(RawToy)
@@ -115,5 +117,25 @@ temp1<-Toy1000[,c(1,2,3)]
 temp2<-round(Toy1000[,c(-1,-2,-3)],digits = 3)
 Toy1000<-cbind(temp1,temp2)
 
-write.csv(Toy1000,"DNN_log_10000.csv",row.names = FALSE)
-write.csv(CancerResult,"CancerResult_log.csv",row.names = FALSE) 
+Toy1000<-Toy1000[rev(order(Toy1000$VAR)),]
+Toy1000<-Toy1000[1:6000,]
+
+library(stringr)
+r_name<-as.character(Toy1000[,2])
+data<-Toy1000[,c(-1,-2,-3,-length(Toy1000))]
+data<-as.data.frame(t(data))
+r_name<-str_replace_all(r_name," /// ","")
+r_name<-str_replace_all(r_name,"/","")
+
+colnames(data)<-r_name
+data$result<-CancerResult[,2]
+
+data$index<-sample(1:5,dim(data)[1],replace = TRUE)
+
+print("Cancer Result ratio")
+table(data$result)
+print("Number of Data")
+dim(data)
+
+
+write.csv(data,"FinalData.csv",row.names = FALSE)
