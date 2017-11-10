@@ -50,11 +50,11 @@ for(i in 1:k){
   }
   
   betas <- sort(betas,decreasing = TRUE)  
-  betas3<- betas[1:as.integer(0.03*num_of_attributes)]
+  betas50<- betas[1:50]
   
   # Model Fitting
 
-  x<-names(betas3)
+  x<-names(betas50)
   temp1<-train$Result
   temp2<-test$Result
   
