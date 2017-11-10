@@ -62,8 +62,8 @@ for(i in 1:k){
   train$Result<-temp1
   test<-test[,x]
   test$Result<-temp2
-  null_model<-glm(Result~1,family = binomial(link = logit),data = train)
-  final_model<-glm(Result ~ .,family = binomial(link = logit), data = train)
+  null_model<-glm(temp1~1,family = binomial(link = logit),data = train)
+  final_model<-glm(temp1 ~ .,family = binomial(link = logit), data = train)
   model.aic.forward<-step(null_model,scope = list(lower = null_model,upper = final_model),direction = "forward")
   
   train_predict<-predict(model.aic.forward,newdata = train,type = "response")
