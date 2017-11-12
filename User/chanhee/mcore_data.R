@@ -51,12 +51,13 @@ print("Normalize")
 
 num_val<-apply(p_df[,-length(p_df)],2,function(x){round(as.numeric(as.character(x)),digits = 3)})
 p_df[,-length(p_df)]<-as.data.frame(num_val)
-
-
 p_df[,-length(p_df)]<-apply(p_df[,-length(p_df)],1,function(x){round((x-mean(x))/sd(x),digits = 3)})
 
+#Add index
+p_df$index<-sample(1:5,dim(p_df)[1],replace = TRUE)
+
 end<-proc.time()
-time<-start-end
+time<-end-start
 print(time)
 
 write.csv(p_df,"Final_MCore_Data.csv")  
