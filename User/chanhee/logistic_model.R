@@ -62,3 +62,4 @@ for(i in 1:k){
 
 setwd("/home/tjahn/Git/User/chanhee")
 write.csv(reports,"final_stepwise_fivefold_logistic_result.csv")
+
