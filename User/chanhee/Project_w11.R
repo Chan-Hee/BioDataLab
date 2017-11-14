@@ -31,7 +31,6 @@ multmerge = function(mypath){
   data<-Reduce(function(x,y){y<-y[c(-1,-2,-3)]; cbind(x,y)}, datalist)
   
   return(list(Data = data, Result = result))
-  
 }
 
 datas<-multmerge("/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
