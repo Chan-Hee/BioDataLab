@@ -88,6 +88,8 @@ datas<-MergeToyFile(10000,"/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
 
 RawToy<-datas$x
 CancerResult<-datas$y
+print("Data before preprocessing")
+print(dim(RawToy))
 RawToy<-RawToy[RawToy$Gene_Symbol!="",]
 RawToy<-RawToy[!duplicated(RawToy[,2]),]
 
@@ -138,5 +140,5 @@ print("Number of Data")
 dim(data)
 
 
-write.csv(data,"FinalData.csv",row.names = FALSE)
+write.csv(data,"FinalData_with_tracking.csv",row.names = FALSE)
 

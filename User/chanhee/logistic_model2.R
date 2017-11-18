@@ -8,7 +8,7 @@ data<-read.csv("/home/tjahn/Data/FinalData.csv")
 
 
 # 5-fold cross validation
-k = 2 
+k = 5
 
 list = 1:k
 reports=data.frame()
@@ -61,5 +61,5 @@ for(i in 1:k){
 }
 
 setwd("/home/tjahn/Git/User/chanhee")
-write.csv(reports,"final_stepwise_doublefold_logistic_result.csv")
+write.csv(reports,"final_stepwise_fivefold_456logistic_result.csv")
 
