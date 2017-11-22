@@ -21,7 +21,7 @@ multmerge = function(mypath){
   
 }
 
-datas<-multmerge("/home/data/GEO_GPL570")
+datas<-multmerge("home/tjahn/Data/cancer_normal_database/GEO_GPL570")
 #datas<-multmerge("/Users/chanhee/Desktop/Data")
 
 df<-datas$Data
