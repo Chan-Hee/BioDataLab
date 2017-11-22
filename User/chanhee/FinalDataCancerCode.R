@@ -103,8 +103,11 @@ p_df$CancerCode<-CancerCode$CANCER_CODE
 # Add Five-fold  index
 p_df$Index<-sample(1:5,dim(p_df)[1],replace = TRUE)
 
-print("Final Data: nrow = patients, ncol = genes(6000) + Result + CancerCode + index")
+print("Final Data: nrow = patients, ncol = genes(6000) + Result + CancerCode + Index")
 print(dim(p_df))
+
+print("Cancer Result ratio")
+table(p_df$Result)
 
 write.csv(p_df,"Data_with_CancerCode.csv")
 
