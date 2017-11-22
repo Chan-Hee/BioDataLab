@@ -88,7 +88,7 @@ datas<-MergeToyFile(10000,"/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
 
 RawToy<-datas$x
 CancerResult<-datas$y
-print("Data before preprocessing")
+print("Data before preprocessing;row(gene),col(patients+3)")
 print(dim(RawToy))
 RawToy<-RawToy[RawToy$Gene_Symbol!="",]
 RawToy<-RawToy[!duplicated(RawToy[,2]),]
@@ -118,7 +118,9 @@ Toy1000<-GetVar(Toy1000)
 temp1<-Toy1000[,c(1,2,3)]
 temp2<-round(Toy1000[,c(-1,-2,-3)],digits = 3)
 Toy1000<-cbind(temp1,temp2)
-
+print("Data Preprocessed; row(genes), col(patients +4)")
+print("remove duplicated genes, no name genes, log2 scale, normalize, round to digit 3")
+print(dim(Toy1000))
 Toy1000<-Toy1000[rev(order(Toy1000$VAR)),]
 Toy1000<-Toy1000[1:6000,]
 
@@ -136,8 +138,8 @@ data$index<-sample(1:5,dim(data)[1],replace = TRUE)
 
 print("Cancer Result ratio")
 table(data$result)
-print("Number of Data")
-dim(data)
+print("Number of Data;after feature selection;row(patients),col(gene+index+result)")
+print(dim(data))
 
 
 write.csv(data,"FinalData_with_tracking.csv",row.names = FALSE)
