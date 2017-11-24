@@ -1,29 +1,16 @@
 ################################################### Merging Files #########################################
 
-SelectFile<-function(filenames){
-  
-  randVector=sample(1:length(filenames),replace = FALSE)
-  return(filenames[randVector])
-  
-}
-
-
-MergeUntil<-function(filenames,n){
-  
+MergeUntil<-function(filenames){
   
   data<-read.table(filenames[1],header=TRUE)
   GSM<-colnames(data[4:length(data)])
   diagnose<-rep(as.integer(substr(filenames[1],nchar(filenames[1])-4,nchar(filenames[1])-4),times=length(GSM)))
   cancer<-data.frame(GSM_NUMBER=GSM,CANCER=diagnose)
-  i=2
   
+  i=2
   while(i<length(filenames)){
     
     Ndata<-read.table(filenames[i],header=TRUE)
-    
-    #print (paste(n, " : ", filenames[i], " dim: " , dim(data)[1], ", ", dim(data)[2], " na: ", sum(is.na(data)) , " i: " , i , sep="") )
-    
-    #print( paste("is new data contain na? count of nas in the Ndata: ", sum(is.na(Ndata)) ) )
     
     if(nrow(Ndata)==nrow(data) && all(data$Gene_Symbol==Ndata$Gene_Symbol)){
       data<-cbind(data,Ndata[,c(-1,-2,-3)])
@@ -45,20 +32,14 @@ MergeUntil<-function(filenames,n){
     #drop samples in CancerResult also
     
     cancer=cancer[Rindex,]
-    
-    
   }
-  
-  print( c(n, " : " , sum(is.na(data)) ) )
-  
   return(list(x=data,y=cancer))
 }
 
-MergeToyFile<-function(n,mypath){
+MergeToyFile<-function(mypath){
   
   filenames<-list.files(path = mypath,full.names = TRUE)
-  filenames<-SelectFile(filenames)
-  datalist <- MergeUntil(filenames,n)
+  datalist <- MergeUntil(filenames)
   
   return(datalist)
 }
@@ -66,9 +47,7 @@ MergeToyFile<-function(n,mypath){
 
 NormalizeToy<-function(RawToy){
   for(i in 4:length(colnames(RawToy))){
-    
     RawToy[,i]<-(RawToy[,i]-mean(RawToy[,i]))/sd(RawToy[,i])
-    
   }
   
   return(RawToy)
@@ -81,10 +60,8 @@ GetVar<-function(Toy1000){
 
 #################################################### Main ##################################################
 setwd("/home/tjahn/Data/")
-#setwd("/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
-set.seed(2017)
-#datas<-MergeToyFile(1000,"/Users/chanhee/Google Drive/RA/DATA/cancer_normal_database/GEO_GPL570")
-datas<-MergeToyFile(10000,"/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
+#datas<-MergeToyFile("/Users/chanhee/Desktop/Data")
+datas<-MergeToyFile("/home/tjahn/Data/cancer_normal_database/GEO_GPL570")
 
 RawToy<-datas$x
 CancerResult<-datas$y
@@ -92,6 +69,7 @@ print("Data before preprocessing;row(gene),col(patients+3)")
 print(dim(RawToy))
 RawToy<-RawToy[RawToy$Gene_Symbol!="",]
 RawToy<-RawToy[!duplicated(RawToy[,2]),]
+
 
 maxs = sapply( RawToy[, c(-1,-2,-3)], max ) 
 not_log2_scale_ids = names( which(maxs > 100 ) )
@@ -110,11 +88,9 @@ for( j in 1 : length(not_log2_scale_ids ) ) {
 
 #summary(RawToy)
 
-
-
-
 Toy1000<- NormalizeToy(RawToy)
 Toy1000<-GetVar(Toy1000)
+
 temp1<-Toy1000[,c(1,2,3)]
 temp2<-round(Toy1000[,c(-1,-2,-3)],digits = 3)
 Toy1000<-cbind(temp1,temp2)
@@ -124,17 +100,18 @@ print(dim(Toy1000))
 Toy1000<-Toy1000[rev(order(Toy1000$VAR)),]
 Toy1000<-Toy1000[1:6000,]
 
-library(stringr)
+
 r_name<-as.character(Toy1000[,2])
 data<-Toy1000[,c(-1,-2,-3,-length(Toy1000))]
 data<-as.data.frame(t(data))
-r_name<-str_replace_all(r_name," /// ","")
-r_name<-str_replace_all(r_name,"/","")
-
 colnames(data)<-r_name
-data$result<-CancerResult[,2]
+#remove no name patients
 
 data$index<-sample(1:5,dim(data)[1],replace = TRUE)
+data$result<-CancerResult[,2]
+data<-data[substr(row.names(data),1,3)=="GSM",]
+
+
 
 print("Cancer Result ratio")
 table(data$result)
@@ -142,5 +119,5 @@ print("Number of Data;after feature selection;row(patients),col(gene+index+resul
 print(dim(data))
 
 
-write.csv(data,"FinalData_with_tracking.csv",row.names = FALSE)
+write.csv(data,"FinalData_GSM_gene_index_result.csv",row.names = TRUE)
 

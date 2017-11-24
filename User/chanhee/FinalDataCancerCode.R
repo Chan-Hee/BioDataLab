@@ -95,6 +95,7 @@ p_df<-temp
 
 #Add Cancer Case
 CancerCode<-read.csv("/home/tjahn/Git/User/chanhee/GPL570_sampleinfo.txt",sep = "\t")
+#CancerCode<-read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/GPL570_sampleinfo.txt",sep = "\t")
 row.names(CancerCode) = CancerCode$GSM_ID
 GSM<-row.names(p_df)
 CancerCode<-CancerCode[GSM,]
