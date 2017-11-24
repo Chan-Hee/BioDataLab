@@ -1,9 +1,9 @@
 # Data importing
 
 
-data<-read.csv("/home/tjahn/Data/FinalData_GSM_gene_index_result.csv.csv",row.names = 1)
+data<-read.csv("/home/tjahn/Data/FinalData_GSM_gene_index_result.csv",row.names = 1)
 #data<-read.csv("/Users/chanhee/FinalData_GSM_gene_index_result.csv",row.names = 1)
-setwd("/home/tjahn/Git/User/chanhee")
+setwd("/home/tjahn/Git/User/chanhee/visual_result")
 
 
 
