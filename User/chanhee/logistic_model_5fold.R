@@ -1,7 +1,7 @@
 # Data importing
 
 
-data<-read.csv("/home/tjahn/Data/FinalData.csv")
+data<-read.csv("/home/tjahn/Data/FinalData_GSM_gene_index_result.csv.csv")
 #data<-read.csv("FinalData.csv")
 
 # Random Sampling -> Test & Training Data set
@@ -61,5 +61,5 @@ for(i in 1:k){
 }
 
 setwd("/home/tjahn/Git/User/chanhee")
-write.csv(reports,"final_stepwise_fivefold_456logistic_result.csv")
+write.csv(reports,"final_stepwise_fivefold_5logistic_result.csv")
 

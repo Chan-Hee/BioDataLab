@@ -70,11 +70,9 @@ print(dim(RawToy))
 RawToy<-RawToy[RawToy$Gene_Symbol!="",]
 RawToy<-RawToy[!duplicated(RawToy[,2]),]
 
-
+# change the non log 2 scaled data to log2 scale
 maxs = sapply( RawToy[, c(-1,-2,-3)], max ) 
 not_log2_scale_ids = names( which(maxs > 100 ) )
-
-# change the non log 2 scaled data to log2 scale
 
 for( j in 1 : length(not_log2_scale_ids ) ) {
   exception = RawToy[,not_log2_scale_ids[j]]<1
