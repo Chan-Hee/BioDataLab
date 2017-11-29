@@ -19,7 +19,7 @@ def five_fold(data, i):
     return train_data , test_data
 
 def set_train_three_layer(num,repeat, nodes, learning_rate):
-    batch_size = 1000
+    batch_size = 1000ㅈ
     tf.reset_default_graph()
     keep_prob = tf.placeholder(tf.float32)
     train_a = 0
