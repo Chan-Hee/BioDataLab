@@ -342,3 +342,9 @@ Current Accuracy :  0.893935 cost :  0.281243 Current Step :  20
 Current Accuracy :  0.864704 cost :  0.368283 Current Step :  40
 
 Current Accuracy :  0.919511 cost :  0.240454 Current Step :  60
+
+Current Accuracy :  0.969725 cost :  0.164925 Current Step :  80
+
+Current Accuracy :  0.975258 cost :  0.116194 Current Step :  100
+
+Test Accuracy:  0.957584
