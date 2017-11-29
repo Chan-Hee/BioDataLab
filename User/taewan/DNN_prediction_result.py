@@ -90,16 +90,14 @@ def set_train_three_layer(repeat, nodes, learning_rate):
 ##################READ DATA############################
 datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
-repeat, layer, node , learning_rate, gene = 20, 3,'1500 1500 1500' ,0.01 , 60
+repeat, layer, node , learning_rate, gene = 1000, 3,'1500 1500 1500' ,0.01 , 60
 output_directory = '/home/tjahn/Git2/Data/output/'
 
 for j in range(5):
     #####Five fold#####
     train_data, test_data = five_fold(data, j)
-    train_GSM = train_data.iloc[:,0]
-    test_GSM = test_data.iloc[:,0]
-    train_GSM = pd.DataFrame(train_GSM)
-    test_GSM = pd.DataFrame(test_GSM)
+    train_GSM = train_data.iloc[:,0].tolist()
+    test_GSM = test_data.iloc[:,0].tolist()
 
     #####Train Data Set#####
     train_x = train_data.iloc[:,1:-2]
@@ -118,17 +116,21 @@ for j in range(5):
 
     cnt_train = len(train_x[1, :])
     train_p, train_h , test_p ,test_h = (set_train_three_layer(repeat, nodes, learning_rate))
-    train_p = pd.DataFrame(train_p)
-    train_h = pd.DataFrame(train_h)
-    test_p = pd.DataFrame(test_p)
-    test_h = pd.DataFrame(test_h)
+    train_p = pd.DataFrame(train_p, index = train_GSM )
+    train_h = pd.DataFrame(train_h , index = train_GSM)
+    test_p = pd.DataFrame(test_p , index = test_GSM)
+    test_h = pd.DataFrame(test_h, index = test_GSM)
+    train_y = pd.DataFrame(train_data.iloc[:,-1].as_matrix() , train_GSM)
+    test_y = pd.DataFrame(test_data.iloc[:,-1].as_matrix(), test_GSM)
 
-    train_result = pd.concat([train_GSM, train_p], axis=1,ignore_index=True)
-    train_result = pd.concat([train_result, train_h], axis =1 ,ignore_index=True)
-    test_result = pd.concat([test_GSM, test_p], axis=1,ignore_index=True)
-    test_result = pd.concat([test_result, test_h], axis=1,ignore_index=True)
+    train_result = pd.concat([train_y, train_p], axis = 1 )
+    train_result = pd.concat([train_result, train_h], axis =1)
     
+    test_result = pd.concat([test_y ,test_p] , axis =1 )
+    test_result = pd.concat([test_result, test_h], axis=1)
     
+    train_result.columns = ['result','prediction','prob0', 'prob1' ]
+    test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
 
     result_train_filename = "result_file_train" + str(j) +".csv"
