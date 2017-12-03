@@ -1,0 +1,72 @@
+2432 9481
+2017-11-29 23:02:08.117655: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-29 23:02:08.117693: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-29 23:02:08.117699: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-29 23:02:08.117703: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-29 23:02:08.117707: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+
+Current Accuracy :  0.484443 cost :  1.78926 Current Step :  0
+
+Current Accuracy :  0.906866 cost :  0.2918 Current Step :  20
+
+Current Accuracy :  0.972788 cost :  0.148453 Current Step :  40
+
+Test Accuracy:  0.951891
+2449 9464
+
+Current Accuracy :  0.541209 cost :  0.930468 Current Step :  0
+
+Current Accuracy :  0.952346 cost :  0.151589 Current Step :  20
+
+Current Accuracy :  0.921915 cost :  0.222018 Current Step :  40
+
+Current Accuracy :  0.962384 cost :  0.157329 Current Step :  60
+
+Current Accuracy :  0.962172 cost :  0.15205 Current Step :  80
+
+Current Accuracy :  0.982037 cost :  0.147196 Current Step :  100
+
+Test Accuracy:  0.951409
+2359 9554
+
+Current Accuracy :  0.523864 cost :  1.26717 Current Step :  0
+
+Current Accuracy :  0.926209 cost :  0.237271 Current Step :  20
+
+Current Accuracy :  0.953213 cost :  0.146673 Current Step :  40
+
+Current Accuracy :  0.96054 cost :  0.17766 Current Step :  60
+
+Current Accuracy :  0.965564 cost :  0.221444 Current Step :  80
+
+Current Accuracy :  0.978438 cost :  0.168753 Current Step :  100
+
+Test Accuracy:  0.960577
+2339 9574
+
+Current Accuracy :  0.507103 cost :  1.25697 Current Step :  0
+
+Current Accuracy :  0.950491 cost :  0.170329 Current Step :  20
+
+Current Accuracy :  0.968143 cost :  0.136638 Current Step :  40
+
+Current Accuracy :  0.957907 cost :  0.141458 Current Step :  60
+
+Current Accuracy :  0.962607 cost :  0.138475 Current Step :  80
+
+Current Accuracy :  0.968352 cost :  0.201326 Current Step :  100
+
+Current Accuracy :  0.975454 cost :  0.215388 Current Step :  120
+
+Test Accuracy:  0.953826
+2334 9579
+
+Current Accuracy :  0.520827 cost :  1.79954 Current Step :  0
+
+Current Accuracy :  0.905209 cost :  0.275464 Current Step :  20
+
+Current Accuracy :  0.941748 cost :  0.206292 Current Step :  40
+
+Current Accuracy :  0.972231 cost :  0.143739 Current Step :  60
+
+Test Accuracy:  0.954584
