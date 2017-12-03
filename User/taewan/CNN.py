@@ -71,40 +71,65 @@ def CNN():
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
         logits=logits, labels=Y))
     optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-    train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-    
-    predicted = tf.argmax(logits,1)
-    correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
-    accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
+#    train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
+
+
+    sess = tf.Session()
+    sess.run(tf.global_variables_initializer())
 
     # initialize
     # train my model
     print('Learning started. It takes sometime.')
-    with tf.Session() as sess:
-        # Initialize TensorFlow variables
-        sess.run(tf.global_variables_initializer())
+    for epoch in range(training_epochs):
+        avg_cost = 0
+        total_batch = int(len(train_x)/batch_size)
+        
+        for i in range(total_batch):
+            batch_x = train_x[i*batch_size:(i+1)*batch_size]
+            batch_y = train_y[i*batch_size:(i+1)*batch_size]
+            feed_dict = {X: batch_xs, Y: batch_ys, keep_prob: 0.7}
+            c, _ = sess.run([cost, optimizer], feed_dict=feed_dict)
+            avg_cost += c / total_batch
 
-        for step in range(repeat):
-            avg_cost = 0
-            total_num = int(len(train_x)/batch_size)
+        print('Epoch:', '%04d' % (epoch + 1), 'cost =', '{:.9f}'.format(avg_cost))
+    correct_prediction = tf.equal(tf.argmax(logits, 1), tf.argmax(Y, 1))
+    accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+    print('Accuracy:', sess.run(accuracy, feed_dict={
+                                X: test_x, Y: test_y, keep_prob: 1}))
 
-            for i in range(total_num):
-                batch_x = train_x[i*batch_size:(i+1)*batch_size]
-                batch_y = train_y[i*batch_size:(i+1)*batch_size]
-#                 print(len(batch_x), len(batch_y))
-                sess.run( train , feed_dict={X: batch_x, Y: batch_y , keep_prob : 0.7})
+    # Get one and predict
+    r = random.randint(0, mnist.test.num_examples - 1)
+    print("Label: ", sess.run(tf.argmax(mnist.test.labels[r:r + 1], 1)))
+    print("Prediction: ", sess.run(
+                                   tf.argmax(logits, 1), feed_dict={X: mnist.test.images[r:r + 1], keep_prob: 1}))
+    
 
-            if step == repeat-1:
-                ####Train Accuracy report####
-                train_h, train_a = sess.run([logits, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
-                print("\nTrain Accuracy: ", train_a)
-            if step % 20 == 0 :
-                train_h,train_a = sess.run([logits , accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
-                print("\nCurrent Accuracy : ", train_a)
-                if train_a > 0.97 :
-                    break
-        test_h, test_a = sess.run([logits, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
-        print("\nTest Accuracy: ", test_a)
+#
+#    with tf.Session() as sess:
+#        # Initialize TensorFlow variables
+#        sess.run(tf.global_variables_initializer())
+#
+#        for step in range(repeat):
+#            avg_cost = 0
+#            total_num = int(len(train_x)/batch_size)
+#
+#            for i in range(total_num):
+#                batch_x = train_x[i*batch_size:(i+1)*batch_size]
+#                batch_y = train_y[i*batch_size:(i+1)*batch_size]
+##                 print(len(batch_x), len(batch_y))
+#                sess.run( train , feed_dict={X: batch_x, Y: batch_y , keep_prob : 0.7})
+#
+#            if step == repeat-1:
+#                ####Train Accuracy report####
+#                train_h, train_a = sess.run([logits, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
+#                print("\nTrain Accuracy: ", train_a)
+#            if step % 20 == 0 :
+#                train_h,train_a = sess.run([logits , accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
+#                print("\nCurrent Accuracy : ", train_a)
+#                if train_a > 0.97 :
+#                    break
+#        test_h, test_a = sess.run([logits, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
+#        print("\nTest Accuracy: ", test_a)
     print('Learning Finished!')
     return train_h , test_h 
     
