@@ -77,12 +77,13 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 ####Train Accuracy report####
                 train_h, train_p, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nTrain Accuracy: ", train_a)
-            if step % 5 == 0 :
+            if step % 2 == 0 :
                 train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
 
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
-                if cal_a < past_cal_a+0.1 and train_a >0.95 :
+                print("cal_a:",cal_a,"past_cal_a:",past_cal_a)
+                if cal_a < past_cal_a+0.1 and train_a >0.97 :
                     print("cal_a:",cal_a,"past_cal_a:",past_cal_a)
                     print("BREAK!!")
                     break
