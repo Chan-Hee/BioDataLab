@@ -96,8 +96,10 @@ output_directory = '/home/tjahn/Git2/Data/output/'
 for j in range(5):
     #####Five fold#####
     train_data, test_data = five_fold(data, j)
-    cal_data = test_data[:int(len(test_GSM)/2)]
-    test_data = test_data[int(len(test_GSM) / 2):]
+    print("len(test_data)")
+    print(len(test_data))
+    cal_data = test_data[:int(len(test_data)/2)]
+    test_data = test_data[int(len(test_data) / 2):]
     train_GSM = train_data.iloc[:,0].tolist()
     test_GSM = test_data.iloc[:,0].tolist()
     cal_GSM = cal_data.iloc[:,0].tolist()
