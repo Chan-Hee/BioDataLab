@@ -7,7 +7,7 @@ import numpy as np
 import math
 import pandas as pd
 import tensorflow as tf
-tf.set_random_seed(777) 
+tf.set_random_seed(777)
 
 
 ##################Define Functions#####################
@@ -15,7 +15,7 @@ def five_fold(data, i):
     test_data = data[data['index']==i+1]
     train_data = data[(data['index']<i+1) | (data['index']>i+1)]
     print(len(test_data), len(train_data))
-    
+
     return train_data , test_data
 
 def set_train_three_layer(num,repeat, nodes, learning_rate):
@@ -102,7 +102,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     b1 = tf.Variable(tf.random_normal([nodes[0]]), name='Bias1')
     layer1 = tf.nn.relu(tf.matmul(X, W1) + b1)
     layer1 = tf.nn.dropout(layer1, keep_prob=keep_prob)
-    
+
     W2 = tf.get_variable(shape =[nodes[0], nodes[1]], name='Weight2', initializer=tf.contrib.layers.xavier_initializer())
     b2 = tf.Variable(tf.random_normal([nodes[1]]), name='Bias2')
     layer2 = tf.nn.relu(tf.matmul(layer1, W2) + b2)
@@ -125,7 +125,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-    
+
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
 
@@ -162,10 +162,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 
 datafilename = "/home/tjahn/Data/FinalData.csv"
 data = pd.read_csv(datafilename)
-conf_directory = '/home/tjahn/Git/Data/'
-conf_filename = 'input/relu_test_ps8.csv'
-conf = pd.read_csv(conf_directory+conf_filename)
-
+conf_filename = '/home/tjahn/Git/Data/input/relu_test_ps8.csv'
 conf = pd.read_csv(conffilename)
 ##################TRAIN MODEL AS CONF#################
 train_accs = []
@@ -178,14 +175,16 @@ for i in range(len(conf)):
     for j in range(5):
         #####Five fold#####
         train_data, test_data = five_fold(data, j)
-        
+        cal_data = test_data[:int(len(test_data.columns)/2),:]
+        test_data = test_data[int(len(test_data.columns)/2):,] 
+
         #####Train Data Set#####
         train_x = train_data.iloc[:,:-2]
         train_x = train_x.as_matrix()
         train_y = train_data.iloc[:,-2].as_matrix()
         train_y = train_y.flatten()
         train_y = pd.get_dummies(train_y)
-        
+
         #####Test Data Set#####
         test_x = test_data.iloc[:,:-2]
         test_x = test_x.as_matrix()
@@ -206,14 +205,13 @@ for i in range(len(conf)):
     test_accs.append(test_accs_conf)
 
 ##################STORE RESULT##########################
-train_accs = pd.DataFrame(data=train_accs , 
-                          index = list(range(len(conf))) , 
+train_accs = pd.DataFrame(data=train_accs ,
+                          index = list(range(len(conf))) ,
                           columns = ["tr-fold-1","tr-fold-2","tr-fold-3","tr-fold-4","tr-fold-5"])
-test_accs = pd.DataFrame(data=test_accs , 
-                          index = list(range(len(conf))) , 
+test_accs = pd.DataFrame(data=test_accs ,
+                          index = list(range(len(conf))) ,
                           columns = ["te-fold-1","te-fold-2","te-fold-3","te-fold-4","te-fold-5"])
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
 conf.to_csv( conf_directory+'output'+conf_filename[5:-4] +'_result.csv' , sep= ',')
-
