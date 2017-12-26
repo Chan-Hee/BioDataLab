@@ -163,7 +163,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
 datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
 conf_filename = '/home/tjahn/Git/Data/input/relu_test_ps8.csv'
-conf = pd.read_csv(confilename)
+conf = pd.read_csv(conf_filename)
 ##################TRAIN MODEL AS CONF#################
 train_accs = []
 test_accs = []
