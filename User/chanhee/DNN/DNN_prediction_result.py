@@ -88,7 +88,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                     print("Number of Calibration:",len(calibration_queue))
 
                 cal_sum=sum(calibration_queue)/float(len(calibration_queue))
-                if abs(cal_sum-max(calibration_queue))/cal_sum<0.01 and abs(cal_sum-min(calibration_queue))/cal_sum<0.01:
+                if abs(cal_sum-max(calibration_queue))/cal_sum<0.01 and abs(cal_sum-min(calibration_queue))/cal_sum<0.01 and len(calibration_queue)==5:
                     print("cal_a:",cal_a)
                     print("BREAK!!")
                     break
