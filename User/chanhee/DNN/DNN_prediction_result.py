@@ -80,9 +80,11 @@ def set_train_three_layer(repeat, nodes, learning_rate):
             if step % 20 == 0 :
                 train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
+
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
-                if cal_a > 0.8 :
+                if cal_a < past_cal_a :
                     break
+                past_cal_a = cal_a
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
 
@@ -97,10 +99,8 @@ output_directory = '/home/tjahn/Git2/Data/output/'
 for j in range(5):
     #####Five fold#####
     train_data, test_data = five_fold(data, j)
-    print("len(test_data)")
-    print(len(test_data))
     cal_data = test_data[:int(len(test_data)/2)]
-    test_data = test_data[int(len(test_data) / 2):]
+    test_data = test_data[int(len(test_data)/2):]
     train_GSM = train_data.iloc[:,0].tolist()
     test_GSM = test_data.iloc[:,0].tolist()
     cal_GSM = cal_data.iloc[:,0].tolist()
