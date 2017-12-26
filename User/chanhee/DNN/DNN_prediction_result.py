@@ -85,7 +85,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 print("Calibration Accuracy:",cal_a,"Past Calibration Accuracy:",past_cal_a)
                 if step <= 20:
                     calibration_queue.append(cal_a)
-                    print("Number of Calibration:"len(calibration_queue))
+                    print("Number of Calibration:",len(calibration_queue))
                 else:
                     cal_sum=sum(calibration_queue)/float(len(calibration_queue))
                     if cal_sum > cal_a:
