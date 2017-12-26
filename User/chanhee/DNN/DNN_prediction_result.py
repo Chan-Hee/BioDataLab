@@ -84,6 +84,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
                 if cal_a < past_cal_a :
                     break
+                    print("BREAK!!")
                 past_cal_a = cal_a
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
