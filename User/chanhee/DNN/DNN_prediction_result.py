@@ -63,7 +63,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
     with tf.Session() as sess:
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
-        past_cal_a = 0
+        calibration_queue = []
         for step in range(repeat):
             avg_cost = 0
             total_num = int(len(train_x)/batch_size)
@@ -82,13 +82,21 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
 
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
-                print("cal_a:",cal_a,"past_cal_a:",past_cal_a)
-                if cal_a < past_cal_a+0.1 and train_a >0.97 :
-                    print("cal_a:",cal_a,"past_cal_a:",past_cal_a)
-                    print("BREAK!!")
-                    break
+                print("Calibration Accuracy:",cal_a,"Past Calibration Accuracy:",past_cal_a)
+                if step <= 20:
+                    calibration_queue.append(cal_a)
+                    print("Number of Calibration:"len(calibration_queue))
+                else:
+                    cal_sum=sum(calibration_queue)/float(len(calibration_queue))
+                    if cal_sum > cal_a:
+                        print("cal_a:",cal_a,"past_cal_a:",past_cal_a)
+                        print("BREAK!!")
+                        break
+                    else:
+                        calibration_queue.pop(0)
+                        calibration_queue.append(cal_a)
+                        print(calibration_queue)
 
-                past_cal_a = cal_a
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
 
