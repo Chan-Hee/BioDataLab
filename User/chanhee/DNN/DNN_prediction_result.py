@@ -4,26 +4,26 @@ import numpy as np
 import math
 import pandas as pd
 import tensorflow as tf
-tf.set_random_seed(777) 
+tf.set_random_seed(777)
 
 
 ##################Define Functions#####################
 def five_fold_name(data,i):
     test_names = data[data['index']==i+1]
-    
-    
+
+
 def five_fold(data, i):
     test_data = data[data['index']==i+1]
     train_data = data[(data['index']<i+1) | (data['index']>i+1)]
     print(len(test_data), len(train_data))
-    
+
     return train_data , test_data
 
 def set_train_three_layer(repeat, nodes, learning_rate):
     batch_size = 1000
     tf.reset_default_graph()
     keep_prob = tf.placeholder(tf.float32)
-    
+
     X = tf.placeholder(tf.float32, [None, cnt_train])
     Y = tf.placeholder(tf.float32, [None, 2])
 
@@ -85,7 +85,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
 
-    return train_p ,train_h, test_p,test_h 
+    return train_p ,train_h, test_p,test_h
 
 ##################READ DATA############################
 datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
@@ -117,6 +117,13 @@ for j in range(5):
     test_y = test_y.flatten()
     test_y = pd.get_dummies(test_y)
 
+    ####Cal Data Set#####
+    cal_x = cal_data.iloc[:,1:-2]
+    cal_x = cal_x.as_matrix()
+    cal_y = cal_data.iloc[:,-1].as_matrix()
+    cal_y = cal_y.flatten()
+    cal_y = pd.get_dummies(cal_y)
+
     cnt_train = len(train_x[1, :])
     train_p, train_h , test_p ,test_h = (set_train_three_layer(repeat, nodes, learning_rate))
     train_p = pd.DataFrame(train_p, index = train_GSM )
@@ -128,10 +135,10 @@ for j in range(5):
 
     train_result = pd.concat([train_y, train_p], axis = 1 )
     train_result = pd.concat([train_result, train_h], axis =1)
-    
+
     test_result = pd.concat([test_y ,test_p] , axis =1 )
     test_result = pd.concat([test_result, test_h], axis=1)
-    
+
     train_result.columns = ['result','prediction','prob0', 'prob1' ]
     test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
@@ -141,4 +148,4 @@ for j in range(5):
     result_test_filename = "result_file_test" + str(j) +".csv"
     test_result.to_csv(output_directory+result_test_filename , sep= ',')
     ###train h를 file로
-    ###test h를 file로 
+    ###test h를 file로
