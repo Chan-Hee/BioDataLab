@@ -63,7 +63,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
     with tf.Session() as sess:
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
-
+        past_cal_a = 0
         for step in range(repeat):
             avg_cost = 0
             total_num = int(len(train_x)/batch_size)
@@ -77,7 +77,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 ####Train Accuracy report####
                 train_h, train_p, train_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 print("\nTrain Accuracy: ", train_a)
-            if step % 20 == 0 :
+            if step % 2 == 0 :
                 train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
                 cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
 
