@@ -160,7 +160,7 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate):
     return train_a, test_a
 ##################READ DATA############################
 
-datafilename = "/home/tjahn/Data/FinalData.csv"
+datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
 conf_filename = '/home/tjahn/Git/Data/input/relu_test_ps8.csv'
 conf = pd.read_csv(conffilename)
@@ -176,19 +176,19 @@ for i in range(len(conf)):
         #####Five fold#####
         train_data, test_data = five_fold(data, j)
         cal_data = test_data[:int(len(test_data.columns)/2),:]
-        test_data = test_data[int(len(test_data.columns)/2):,] 
+        test_data = test_data[int(len(test_data.columns)/2):,]
 
         #####Train Data Set#####
         train_x = train_data.iloc[:,:-2]
         train_x = train_x.as_matrix()
-        train_y = train_data.iloc[:,-2].as_matrix()
+        train_y = train_data.iloc[:,-1].as_matrix()
         train_y = train_y.flatten()
         train_y = pd.get_dummies(train_y)
 
         #####Test Data Set#####
         test_x = test_data.iloc[:,:-2]
         test_x = test_x.as_matrix()
-        test_y = test_data.iloc[:,-2].as_matrix()
+        test_y = test_data.iloc[:,-1].as_matrix()
         test_y = test_y.flatten()
         test_y = pd.get_dummies(test_y)
 
