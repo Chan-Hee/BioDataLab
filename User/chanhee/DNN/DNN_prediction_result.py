@@ -82,14 +82,14 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
 
                 print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
-                print("Calibration Accuracy:",cal_a,"Past Calibration Accuracy:",past_cal_a)
+                print("Calibration Accuracy:",cal_a)
                 if step <= 20:
                     calibration_queue.append(cal_a)
                     print("Number of Calibration:",len(calibration_queue))
                 else:
                     cal_sum=sum(calibration_queue)/float(len(calibration_queue))
                     if cal_sum > cal_a:
-                        print("cal_a:",cal_a,"past_cal_a:",past_cal_a)
+                        print("cal_a:",cal_a)
                         print("BREAK!!")
                         break
                     else:
