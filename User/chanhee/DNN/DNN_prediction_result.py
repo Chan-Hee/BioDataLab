@@ -98,9 +98,9 @@ for j in range(5):
     train_data, test_data = five_fold(data, j)
     train_GSM = train_data.iloc[:,0].tolist()
     test_GSM = test_data.iloc[:,0].tolist()
-    print("len(test_GSM)")
-    print(len(test_GSM))
-    cal_GSM = test_GSM
+
+    cal_GSM = test_GSM[:int(len(test_GSM)/2)]
+    test_GSM = test_GSM[int(len(test_GSM) / 2):]
 
     #####Train Data Set#####
     train_x = train_data.iloc[:,1:-2]
