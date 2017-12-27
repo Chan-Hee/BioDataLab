@@ -67,7 +67,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
         sess.run(tf.global_variables_initializer())
         stop_switch = True
         step=0
-        while(stop_switch and step < 30):
+        while(stop_switch and step < 10):
             if(step==1):
                 saver.save(sess, 'my-model')
             total_num = int(len(train_x)/batch_size)
