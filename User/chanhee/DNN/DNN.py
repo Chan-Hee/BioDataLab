@@ -83,7 +83,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
             step+=1
             print("\nTraining Accuracy : ", train_a , "Calibration Accuracy : ", cal_a, step)
 
-
+        new_saver = tf.train.import_meta_graph('my-model.meta')
         new_saver.restore(sess, tf.train.latest_checkpoint('./'))
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
