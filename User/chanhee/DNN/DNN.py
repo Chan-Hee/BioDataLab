@@ -72,11 +72,11 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 batch_y = train_y[i*batch_size:(i+1)*batch_size]
                 sess.run( train , feed_dict={X: batch_x, Y: batch_y , keep_prob : 0.7})
 
-            if step % 2 == 0 :
-                train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
-                cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
 
-                print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
+            train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
+            cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
+
+            print("\nCurrent Accuracy : ", train_a , "cost : ", c , "Current Step : ", step)
 
 
 
