@@ -69,7 +69,7 @@ def set_train_three_layer(num,repeat, nodes, learning_rate,j,train_rate):
         print(trainc + "_"+cn+"_"+js)	
 
         merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("./Flog/" + node+"/"+trainc+"/"+node+"_"+js)
+        writer = tf.summary.FileWriter("./Flog1/" + node+"/"+trainc+"/"+node+"_"+js)
         writer.add_graph(sess.graph)  # Show the graph
 
         # Initialize TensorFlow variables
@@ -185,11 +185,11 @@ def set_train_four_layer(num ,repeat, nodes, learning_rate,j,train_rate):
     return train_a, test_a
 ##################READ DATA############################
 
-datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
+datafilename = "/home/tjahn/Data/FinalData.csv"
 data = pd.read_csv(datafilename)
-conf_directory = '/home/tjahn/Git2/Data/'
+conf_directory = '/home/tjahn/Git/Data/'
 conf_filename = 'input/relu_test_ps8.csv'
-conf_sungmin = '/home/tjahn/Git2/User/sungmin/final/input.csv'
+conf_sungmin = '/home/tjahn/Git/User/sungmin/final/input.csv'
 
 conf = pd.read_csv(conf_sungmin)
 ##################TRAIN MODEL AS CONF#################
@@ -240,4 +240,4 @@ test_accs = pd.DataFrame(data=test_accs ,
 
 accuracies = pd.concat([train_accs, test_accs], axis=1)
 conf = pd.concat([conf, accuracies] , axis = 1)
-conf.to_csv( '/home/tjahn/Git2/User/sungmin/final/result.csv' , sep= ',')
+conf.to_csv( '/home/tjahn/Git/User/sungmin/final/result.csv' , sep= ',')
