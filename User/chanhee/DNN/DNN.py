@@ -66,9 +66,9 @@ def set_train_three_layer(repeat, nodes, learning_rate):
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
         stop_switch = True
-        i=0
-        while(stop_switch and i < 30):
-            if(i==1):
+        step=0
+        while(stop_switch and step < 30):
+            if(step==1):
                 saver.save(sess, 'my-model')
             total_num = int(len(train_x)/batch_size)
 
@@ -80,8 +80,8 @@ def set_train_three_layer(repeat, nodes, learning_rate):
 
             train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :1})
             cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
-            i+=1
-            print("\nTraining Accuracy : ", train_a , "Calibration Accuracy : ", cal_a)
+            step+=1
+            print("\nTraining Accuracy : ", train_a , "Calibration Accuracy : ", cal_a, step)
 
 
         new_saver.restore(sess, tf.train.latest_checkpoint('./'))
