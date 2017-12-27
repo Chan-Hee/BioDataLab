@@ -88,7 +88,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
 ##################READ DATA############################
 datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
-repeat, layer, node , learning_rate, gene = 1000, 3,'1500 1500 1500' , 0.002 , 60
+repeat, layer, node , learning_rate, gene = 1000, 3,'150 1500 150' , 0.002 , 60
 output_directory = '/home/tjahn/Git2/Data/output/'
 
 for j in range(5):
