@@ -73,7 +73,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 sess.run(train , feed_dict={X: batch_x, Y: batch_y , keep_prob : 0.7})
 
 
-            train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :0.7})
+            train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :1})
             cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
 
             print("\nTraining Accuracy : ", train_a , "Calibration Accuracy : ", cal_a)
