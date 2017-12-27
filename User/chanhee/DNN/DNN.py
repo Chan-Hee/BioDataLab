@@ -60,11 +60,16 @@ def set_train_three_layer(repeat, nodes, learning_rate):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
+
+    saver = tf.train.Saver()
     with tf.Session() as sess:
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
         stop_switch = True
-        while(stop_switch):
+        i=0
+        while(stop_switch and i < 30):
+            if(i==1):
+                saver.save(sess, 'my-model')
             total_num = int(len(train_x)/batch_size)
 
             for i in range(total_num):
@@ -75,11 +80,11 @@ def set_train_three_layer(repeat, nodes, learning_rate):
 
             train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :1})
             cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
-
+            i+=1
             print("\nTraining Accuracy : ", train_a , "Calibration Accuracy : ", cal_a)
 
 
-
+        new_saver.restore(sess, tf.train.latest_checkpoint('./'))
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
 
