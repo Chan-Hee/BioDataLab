@@ -11,9 +11,9 @@ def CNN():
     tf.set_random_seed(777)  # reproducibility
     tf.reset_default_graph()
 
-    learning_rate = 0.001
-    training_epochs = 15
-    batch_size = 100
+    learning_rate = 0.01
+    training_epochs = 100
+    batch_size = 10
 
     # dropout (keep_prob) rate  0.7~0.5 on training, but should be 1 for testing
     keep_prob = tf.placeholder(tf.float32)
@@ -85,8 +85,8 @@ def CNN():
         total_batch = int(len(train_x)/batch_size)
         
         for i in range(total_batch):
-            batch_x = train_x[i*batch_size:(i+1)*batch_size]
-            batch_y = train_y[i*batch_size:(i+1)*batch_size]
+            batch_xs = train_x[i*batch_size:(i+1)*batch_size]
+            batch_ys = train_y[i*batch_size:(i+1)*batch_size]
             feed_dict = {X: batch_xs, Y: batch_ys, keep_prob: 0.7}
             c, _ = sess.run([cost, optimizer], feed_dict=feed_dict)
             avg_cost += c / total_batch
@@ -98,10 +98,6 @@ def CNN():
                                 X: test_x, Y: test_y, keep_prob: 1}))
 
     # Get one and predict
-    r = random.randint(0, mnist.test.num_examples - 1)
-    print("Label: ", sess.run(tf.argmax(mnist.test.labels[r:r + 1], 1)))
-    print("Prediction: ", sess.run(
-                                   tf.argmax(logits, 1), feed_dict={X: mnist.test.images[r:r + 1], keep_prob: 1}))
     
 
 #

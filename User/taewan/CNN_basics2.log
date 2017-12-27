@@ -1,0 +1,83 @@
+2432 9481
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_1:0", shape=(?, 2), dtype=float32)
+2017-12-20 21:30:02.977604: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-20 21:30:02.977640: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-20 21:30:02.977646: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-20 21:30:02.977650: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-20 21:30:02.977654: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Learning started. It takes sometime.
+Epoch: 0001 acc = 0.46
+Epoch: 0021 acc = 0.90
+Epoch: 0041 acc = 0.92
+Epoch: 0061 acc = 0.94
+Train Accuracy : 0.972893
+Test Accuracy: 0.938322
+Learning Finished!
+2449 9464
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_1:0", shape=(?, 2), dtype=float32)
+Learning started. It takes sometime.
+Epoch: 0001 acc = 0.67
+Epoch: 0021 acc = 0.92
+Epoch: 0041 acc = 0.94
+Epoch: 0061 acc = 0.97
+Train Accuracy : 0.970097
+Test Accuracy: 0.931401
+Learning Finished!
+2359 9554
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_1:0", shape=(?, 2), dtype=float32)
+Learning started. It takes sometime.
+Epoch: 0001 acc = 0.46
+Epoch: 0021 acc = 0.92
+Epoch: 0041 acc = 0.94
+Train Accuracy : 0.970484
+Test Accuracy: 0.930055
+Learning Finished!
+2339 9574
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_1:0", shape=(?, 2), dtype=float32)
+Learning started. It takes sometime.
+Epoch: 0001 acc = 0.46
+Epoch: 0021 acc = 0.87
+Epoch: 0041 acc = 0.92
+Epoch: 0061 acc = 0.95
+Train Accuracy : 0.970336
+Test Accuracy: 0.935015
+Learning Finished!
+2334 9579
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_1:0", shape=(?, 2), dtype=float32)
+Learning started. It takes sometime.
+Epoch: 0001 acc = 0.46
+Epoch: 0021 acc = 0.88
+Epoch: 0041 acc = 0.94
+Train Accuracy : 0.9715
+Test Accuracy: 0.927592
+Learning Finished!
