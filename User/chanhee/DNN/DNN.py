@@ -4,7 +4,7 @@ import numpy as np
 import math
 import pandas as pd
 import tensorflow as tf
-from scioy import stats
+from scipy import stats
 tf.set_random_seed(777)
 
 
