@@ -4,6 +4,7 @@ import numpy as np
 import math
 import pandas as pd
 import tensorflow as tf
+from scioy import stats
 tf.set_random_seed(777)
 
 
@@ -67,11 +68,9 @@ def set_train_three_layer(repeat, nodes, learning_rate):
         sess.run(tf.global_variables_initializer())
         stop_switch = True
         step=0
-        while(stop_switch and step < 10):
-            if(step==1):
-                saver.save(sess, 'my-model')
+        AccuracyList=[]
+        while(stop_switch):
             total_num = int(len(train_x)/batch_size)
-
             for i in range(total_num):
                 batch_x = train_x[i*batch_size:(i+1)*batch_size]
                 batch_y = train_y[i*batch_size:(i+1)*batch_size]
@@ -81,10 +80,23 @@ def set_train_three_layer(repeat, nodes, learning_rate):
             train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :1})
             cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
             step+=1
-            print("\nTraining Accuracy : ", train_a , "Calibration Accuracy : ", cal_a, step)
+            print("\nTraining Accuracy : ", train_a , "Calibration Accuracy : ", cal_a,"Step :", step)
+            if len(AccuracyList) = 20:
+                AccuracyList.pop(0)
+                AccuracyList.append(cal_a)
+                beforeAccuracy = AccuracyList[:int(len(AccuracyList)/2)]
+                afterAccuracy = AccuracyList[int(len(AccuracyList)/2):]
+                tTestResult = stats.ttest_rel(beforeAccuracy,afterAccuracy)
+                if tTestResult.pvalue<0.05 :
+                    stop_switch = False
+                    print("Learning Finished!! P-Value: ",tTestResult.pvalue)
 
-        new_saver = tf.train.import_meta_graph('my-model.meta')
-        new_saver.restore(sess, tf.train.latest_checkpoint('./'))
+            else:
+                AccuracyList.append(cal_a)
+
+
+
+
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
 
@@ -93,7 +105,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
 ##################READ DATA############################
 datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
-repeat, layer, node , learning_rate, gene = 1000, 3,'150 1500 150' , 0.002 , 60
+repeat, layer, node , learning_rate, gene = 1000, 3,'1500 1500 1500' , 0.002 , 60
 output_directory = '/home/tjahn/Git2/Data/output/'
 
 for j in range(5):
