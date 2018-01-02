@@ -87,7 +87,8 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 beforeAccuracy = AccuracyList[:int(len(AccuracyList)/2)]
                 afterAccuracy = AccuracyList[int(len(AccuracyList)/2):]
                 tTestResult = stats.ttest_rel(beforeAccuracy,afterAccuracy)
-                if tTestResult.pvalue<0.05 :
+                print("P-Value: ",tTestResult.pvalue)
+                if tTestResult.pvalue<0.01 :
                     stop_switch = False
                     print("Learning Finished!! P-Value: ",tTestResult.pvalue)
 
@@ -96,14 +97,15 @@ def set_train_three_layer(repeat, nodes, learning_rate):
 
 
 
-
+        w1_matrix=W1.eval()
+        print(w1_matrix[:100,:100])
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
 
     return train_p ,train_h, test_p,test_h
 
 ##################READ DATA############################
-datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
+datafilename = "~/Desktop/FinalData_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
 repeat, layer, node , learning_rate, gene = 1000, 3,'1500 1500 1500' , 0.002 , 60
 output_directory = '/home/tjahn/Git2/Data/output/'
