@@ -81,16 +81,16 @@ def set_train_three_layer(repeat, nodes, learning_rate):
             cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
             step+=1
             print("\nTraining Accuracy : ", train_a , "Calibration Accuracy : ", cal_a,"Step :", step)
-            if len(AccuracyList) == 20:
+            if len(AccuracyList) == 10:
                 AccuracyList.pop(0)
                 AccuracyList.append(cal_a)
                 beforeAccuracy = AccuracyList[:int(len(AccuracyList)/2)]
                 afterAccuracy = AccuracyList[int(len(AccuracyList)/2):]
                 tTestResult = stats.ttest_rel(beforeAccuracy,afterAccuracy)
-                print("P-Value: ",tTestResult.pvalue)
-                if tTestResult.pvalue<0.01 :
+                print("P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
+                if tTestResult.pvalue>0.05:
                     stop_switch = False
-                    print("Learning Finished!! P-Value: ",tTestResult.pvalue)
+                    print("Learning Finished!! P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
 
             else:
                 AccuracyList.append(cal_a)
@@ -98,7 +98,18 @@ def set_train_three_layer(repeat, nodes, learning_rate):
 
 
         w1_matrix=W1.eval()
-        print(w1_matrix[:100,:100])
+
+        weighted_sum = w1_matrix.sum(axis=1)
+        weighted_max = w1_matrix.max(axis=1)
+        gene_names = list(data)[1:-2]
+
+        weighted_sum_result = pd.DataFrame({"gene_names":gene_names,"weighted_sum":weighted_sum,"weighted_max":weighted_max})
+        weighted_sum_result.to_csv("./weighted_sum.csv",sep=",")
+
+
+
+
+
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
 
