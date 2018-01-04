@@ -88,7 +88,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 afterAccuracy = AccuracyList[int(len(AccuracyList)/2):]
                 tTestResult = stats.ttest_rel(beforeAccuracy,afterAccuracy)
                 print("P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
-                if tTestResult.pvalue>0.05 and min(afterAccuracy) > 0.96:
+                if tTestResult.pvalue>0.05 and max(AccuracyList)-min(AccuracyList) > 0.01:
                     stop_switch = False
                     print("Learning Finished!! P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
 
