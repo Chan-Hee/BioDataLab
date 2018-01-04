@@ -88,7 +88,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 afterAccuracy = AccuracyList[int(len(AccuracyList)/2):]
                 tTestResult = stats.ttest_rel(beforeAccuracy,afterAccuracy)
                 print("P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
-                if tTestResult.pvalue>0.05:
+                if tTestResult.pvalue>0.05 and min(afterAccuracy) > 0.96:
                     stop_switch = False
                     print("Learning Finished!! P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
 
@@ -116,10 +116,10 @@ def set_train_three_layer(repeat, nodes, learning_rate):
     return train_p ,train_h, test_p,test_h,weighted_sum_result
 
 ##################READ DATA############################
-datafilename = "~/Desktop/FinalData_GSM_gene_index_result.csv"
+datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
 repeat, layer, node , learning_rate, gene = 1000, 3,'1500 1500 1500' , 0.002 , 60
-output_directory = '~/Desktop/'
+output_directory = '/home/tjahn/Git2/User/chanhee/DNN/'
 
 for j in range(5):
     #####Five fold#####
