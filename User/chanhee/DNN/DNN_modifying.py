@@ -62,7 +62,6 @@ def set_train_three_layer(repeat, nodes, learning_rate):
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
 
-    saver = tf.train.Saver()
     with tf.Session() as sess:
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
@@ -88,7 +87,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 afterAccuracy = AccuracyList[int(len(AccuracyList)/2):]
                 tTestResult = stats.ttest_rel(beforeAccuracy,afterAccuracy)
                 print("P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
-                if tTestResult.pvalue>0.05 and max(AccuracyList)-min(AccuracyList) > 0.01:
+                if tTestResult.pvalue>0.05 and max(AccuracyList)-min(AccuracyList) < 0.01:
                     stop_switch = False
                     print("Learning Finished!! P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
 
