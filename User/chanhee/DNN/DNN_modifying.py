@@ -137,6 +137,7 @@ for j in range(5):
     train_y = train_data.iloc[:,-1].as_matrix()
     train_y = train_y.flatten()
     train_y = pd.get_dummies(train_y)
+    cnt_train = len(train_x[1, :])
     nodes = [cnt_train,cnt_train,cnt_train]
 
     #####Test Data Set#####
@@ -153,7 +154,7 @@ for j in range(5):
     cal_y = cal_y.flatten()
     cal_y = pd.get_dummies(cal_y)
 
-    cnt_train = len(train_x[1, :])
+
     train_p, train_h , test_p ,test_h,weighted_sum_result = (set_train_three_layer(repeat, nodes, learning_rate))
     train_p = pd.DataFrame(train_p, index = train_GSM )
     train_h = pd.DataFrame(train_h , index = train_GSM)
