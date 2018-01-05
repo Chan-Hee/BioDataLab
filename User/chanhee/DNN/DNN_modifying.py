@@ -79,14 +79,14 @@ def set_train_three_layer(repeat, nodes, learning_rate):
             cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
             step+=1
             print("\nTraining Accuracy : ", train_a , "Calibration Accuracy : ", cal_a,"Step :", step)
-            if len(AccuracyList) == 10:
+            if len(AccuracyList) == 20:
                 AccuracyList.pop(0)
                 AccuracyList.append(cal_a)
                 beforeAccuracy = AccuracyList[:int(len(AccuracyList)/2)]
                 afterAccuracy = AccuracyList[int(len(AccuracyList)/2):]
                 tTestResult = stats.ttest_rel(beforeAccuracy,afterAccuracy)
                 print("P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
-                if max(AccuracyList)-min(AccuracyList) < 0.01:
+                if max(AccuracyList)-min(AccuracyList)< 0.01 and min(AccuracyList)>0.95 :
                     stop_switch = False
                     print("Learning Finished!! P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
 
