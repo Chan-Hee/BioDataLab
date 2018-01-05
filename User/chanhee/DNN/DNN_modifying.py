@@ -115,7 +115,8 @@ def set_train_three_layer(repeat, nodes, learning_rate):
 
 ##################READ DATA############################
 #datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
-datafilename = "/home/tjahn/Data/DNN/FinalData90off_GSM_gene_index_result.csv"
+gene_off = input()
+datafilename = "/home/tjahn/Data/DNN/FinalData"+gene_off+"off_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
 repeat, layer, node , learning_rate, gene = 1000, 3,'1500 1500 1500' , 0.002 , 60
 output_directory = '/home/tjahn/Git2/User/chanhee/DNN/'
@@ -170,11 +171,11 @@ for j in range(5):
     test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
 
-    result_train_filename = "result_file_train" + str(j) +".csv"
+    result_train_filename = "result_file_train"+ gene_off + str(j) +".csv"
     train_result.to_csv(output_directory+result_train_filename , sep= ',')
-    result_test_filename = "result_file_test" + str(j) +".csv"
+    result_test_filename = "result_file_test" + gene_off +str(j) +".csv"
     test_result.to_csv(output_directory+result_test_filename , sep= ',')
     ###train h를 file로
     ###test h를 file로
-    weighted_sum_filename="result_weigthed_sum"+str(j)+".csv"
+    weighted_sum_filename="result_weigthed_sum"+gene_off+str(j)+".csv"
     weighted_sum_result.to_csv(output_directory+weighted_sum_filename,sep=",")
