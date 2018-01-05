@@ -72,7 +72,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
             for i in range(total_num):
                 batch_x = train_x[i*batch_size:(i+1)*batch_size]
                 batch_y = train_y[i*batch_size:(i+1)*batch_size]
-                sess.run(train , feed_dict={X: batch_x, Y: batch_y , keep_prob : 0.1})
+                sess.run(train , feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
 
 
             train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :1})
