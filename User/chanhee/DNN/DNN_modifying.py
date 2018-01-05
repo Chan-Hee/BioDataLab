@@ -137,7 +137,7 @@ for j in range(5):
     train_y = train_data.iloc[:,-1].as_matrix()
     train_y = train_y.flatten()
     train_y = pd.get_dummies(train_y)
-    nodes = list(map(int , node.split(" ")))
+    nodes = [cnt_train,cnt_train,cnt_train]
 
     #####Test Data Set#####
     test_x = test_data.iloc[:,1:-2]
