@@ -1,0 +1,49 @@
+weighted_sum0 <- read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/DNN/result/result_weigthed_sum0.csv")
+names(weighted_sum0)[1]<-"index"
+
+weighted_sum1 <- read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/DNN/result/result_weigthed_sum1.csv")
+names(weighted_sum1)[1]<-"index"
+
+weighted_sum2 <- read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/DNN/result/result_weigthed_sum2.csv")
+names(weighted_sum2)[1]<-"index"
+
+weighted_sum3 <- read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/DNN/result/result_weigthed_sum3.csv")
+names(weighted_sum3)[1]<-"index"
+
+weighted_sum4 <- read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/DNN/result/result_weigthed_sum4.csv")
+names(weighted_sum4)[1]<-"index"
+
+index_genes<-weighted_sum0[,1:2]
+sum_of_weights<-as.matrix(weighted_sum0[,3:4])+-as.matrix(weighted_sum1[,3:4])+as.matrix(weighted_sum2[,3:4])+as.matrix(weighted_sum3[,3:4])+-as.matrix(weighted_sum4[,3:4])
+
+weighted_sum<-cbind(index_genes,sum_of_weights)
+weighted_sum$abs_sum<-abs(weighted_sum$weighted_sum)
+
+weighted_sum<-weighted_sum[rev(order(weighted_sum$abs_sum)),]
+weighted_sum$gene_names<-as.character(weighted_sum$gene_names)
+
+data<-read.csv("/Users/chanhee/Desktop/FinalData_GSM_gene_index_result.csv")
+row.names(data)<-data$X
+data<-data[,-1]
+selected_gene_index<-weighted_sum$index+1
+
+data10off<-data[,selected_gene_index[601:6000]]
+data20off<-data[,selected_gene_index[1201:6000]]
+data30off<-data[,selected_gene_index[1801:6000]]
+data40off<-data[,selected_gene_index[241:6000]]
+data50off<-data[,selected_gene_index[3001:6000]]
+data60off<-data[,selected_gene_index[3601:6000]]
+data70off<-data[,selected_gene_index[4201:6000]]
+data80off<-data[,selected_gene_index[4801:6000]]
+data90off<-data[,selected_gene_index[5401:6000]]
+
+write.csv(data10off,"/Users/chanhee/Desktop/FinalData10off_GSM_gene_index_result.csv")
+write.csv(data20off,"/Users/chanhee/Desktop/FinalData20off_GSM_gene_index_result.csv")
+write.csv(data30off,"/Users/chanhee/Desktop/FinalData30off_GSM_gene_index_result.csv")
+write.csv(data40off,"/Users/chanhee/Desktop/FinalData40off_GSM_gene_index_result.csv")
+write.csv(data50off,"/Users/chanhee/Desktop/FinalData50off_GSM_gene_index_result.csv")
+write.csv(data60off,"/Users/chanhee/Desktop/FinalData60off_GSM_gene_index_result.csv")
+write.csv(data70off,"/Users/chanhee/Desktop/FinalData70off_GSM_gene_index_result.csv")
+write.csv(data80off,"/Users/chanhee/Desktop/FinalData80off_GSM_gene_index_result.csv")
+write.csv(data90off,"/Users/chanhee/Desktop/FinalData90off_GSM_gene_index_result.csv")
+
