@@ -27,15 +27,15 @@ row.names(data)<-data$X
 data<-data[,-1]
 selected_gene_index<-weighted_sum$index+1
 
-data10off<-data[,selected_gene_index[601:6000]]
-data20off<-data[,selected_gene_index[1201:6000]]
-data30off<-data[,selected_gene_index[1801:6000]]
-data40off<-data[,selected_gene_index[241:6000]]
-data50off<-data[,selected_gene_index[3001:6000]]
-data60off<-data[,selected_gene_index[3601:6000]]
-data70off<-data[,selected_gene_index[4201:6000]]
-data80off<-data[,selected_gene_index[4801:6000]]
-data90off<-data[,selected_gene_index[5401:6000]]
+data10off<-data[,c(selected_gene_index[601:6000],6001,6002)]
+data20off<-data[,c(selected_gene_index[1201:6000],6001,6002)]
+data30off<-data[,c(selected_gene_index[1801:6000],6001,6002)]
+data40off<-data[,c(selected_gene_index[241:6000],6001,6002)]
+data50off<-data[,c(selected_gene_index[3001:6000],6001,6002)]
+data60off<-data[,c(selected_gene_index[3601:6000],6001,6002)]
+data70off<-data[,c(selected_gene_index[4201:6000],6001,6002)]
+data80off<-data[,c(selected_gene_index[4801:6000],6001,6002)]
+data90off<-data[,c(selected_gene_index[5401:6000],6001,6002)]
 
 write.csv(data10off,"/Users/chanhee/Desktop/FinalData10off_GSM_gene_index_result.csv")
 write.csv(data20off,"/Users/chanhee/Desktop/FinalData20off_GSM_gene_index_result.csv")
