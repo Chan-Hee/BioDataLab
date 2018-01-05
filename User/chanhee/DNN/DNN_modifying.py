@@ -86,7 +86,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 afterAccuracy = AccuracyList[int(len(AccuracyList)/2):]
                 tTestResult = stats.ttest_rel(beforeAccuracy,afterAccuracy)
                 print("P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
-                if max(AccuracyList)-min(AccuracyList)< 0.01 and min(AccuracyList)>0.95 :
+                if max(AccuracyList)-min(AccuracyList)< 0.01 and min(AccuracyList)>0.94 :
                     stop_switch = False
                     print("Learning Finished!! P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
 
@@ -119,7 +119,7 @@ print("Percent of Gene Elimination from 6000 : ")
 gene_off = input()
 datafilename = "/home/tjahn/Data/FinalData"+gene_off+"off_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
-repeat, layer, node , learning_rate, gene = 1000, 3,'1500 1500 1500' , 0.002 , 60
+repeat, layer, learning_rate= 1000, 3 , 0.002
 output_directory = '/home/tjahn/Git2/User/chanhee/DNN/'
 
 for j in range(5):

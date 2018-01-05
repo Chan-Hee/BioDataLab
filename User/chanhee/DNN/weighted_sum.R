@@ -36,6 +36,9 @@ data60off<-data[,c(selected_gene_index[3601:6000],6001,6002)]
 data70off<-data[,c(selected_gene_index[4201:6000],6001,6002)]
 data80off<-data[,c(selected_gene_index[4801:6000],6001,6002)]
 data90off<-data[,c(selected_gene_index[5401:6000],6001,6002)]
+data95off<-data[,c(selected_gene_index[5701:6000],6001,6002)]
+data99off<-data[,c(selected_gene_index[5941:6000],6001,6002)]
+
 
 write.csv(data10off,"/Users/chanhee/Desktop/FinalData10off_GSM_gene_index_result.csv")
 write.csv(data20off,"/Users/chanhee/Desktop/FinalData20off_GSM_gene_index_result.csv")
@@ -46,4 +49,6 @@ write.csv(data60off,"/Users/chanhee/Desktop/FinalData60off_GSM_gene_index_result
 write.csv(data70off,"/Users/chanhee/Desktop/FinalData70off_GSM_gene_index_result.csv")
 write.csv(data80off,"/Users/chanhee/Desktop/FinalData80off_GSM_gene_index_result.csv")
 write.csv(data90off,"/Users/chanhee/Desktop/FinalData90off_GSM_gene_index_result.csv")
+write.csv(data95off,"/Users/chanhee/Desktop/FinalData95off_GSM_gene_index_result.csv")
+write.csv(data99off,"/Users/chanhee/Desktop/FinalData99off_GSM_gene_index_result.csv")
 
