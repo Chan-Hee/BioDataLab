@@ -61,8 +61,6 @@ def set_train_three_layer(repeat, nodes, learning_rate):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
-
-    saver = tf.train.Saver()
     with tf.Session() as sess:
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
@@ -81,14 +79,14 @@ def set_train_three_layer(repeat, nodes, learning_rate):
             cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
             step+=1
             print("\nTraining Accuracy : ", train_a , "Calibration Accuracy : ", cal_a,"Step :", step)
-            if len(AccuracyList) == 10:
+            if len(AccuracyList) == 20:
                 AccuracyList.pop(0)
                 AccuracyList.append(cal_a)
                 beforeAccuracy = AccuracyList[:int(len(AccuracyList)/2)]
                 afterAccuracy = AccuracyList[int(len(AccuracyList)/2):]
                 tTestResult = stats.ttest_rel(beforeAccuracy,afterAccuracy)
                 print("P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
-                if tTestResult.pvalue>0.05 and max(AccuracyList)-min(AccuracyList) > 0.01:
+                if max(AccuracyList)-min(AccuracyList)< 0.01 and min(AccuracyList)>0.94 :
                     stop_switch = False
                     print("Learning Finished!! P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
 
@@ -116,9 +114,12 @@ def set_train_three_layer(repeat, nodes, learning_rate):
     return train_p ,train_h, test_p,test_h,weighted_sum_result
 
 ##################READ DATA############################
-datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
+#datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
+print("Percent of Gene Elimination from 6000 : ")
+gene_off = input()
+datafilename = "/home/tjahn/Data/FinalData"+gene_off+"off_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
-repeat, layer, node , learning_rate, gene = 1000, 3,'1500 1500 1500' , 0.002 , 60
+repeat, layer, learning_rate= 1000, 3 , 0.002
 output_directory = '/home/tjahn/Git2/User/chanhee/DNN/'
 
 for j in range(5):
@@ -136,7 +137,8 @@ for j in range(5):
     train_y = train_data.iloc[:,-1].as_matrix()
     train_y = train_y.flatten()
     train_y = pd.get_dummies(train_y)
-    nodes = list(map(int , node.split(" ")))
+    cnt_train = len(train_x[1, :])
+    nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
 
     #####Test Data Set#####
     test_x = test_data.iloc[:,1:-2]
@@ -152,7 +154,7 @@ for j in range(5):
     cal_y = cal_y.flatten()
     cal_y = pd.get_dummies(cal_y)
 
-    cnt_train = len(train_x[1, :])
+
     train_p, train_h , test_p ,test_h,weighted_sum_result = (set_train_three_layer(repeat, nodes, learning_rate))
     train_p = pd.DataFrame(train_p, index = train_GSM )
     train_h = pd.DataFrame(train_h , index = train_GSM)
@@ -171,11 +173,11 @@ for j in range(5):
     test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
 
-    result_train_filename = "result_file_train" + str(j) +".csv"
+    result_train_filename = "result_file_train"+ gene_off + str(j) +".csv"
     train_result.to_csv(output_directory+result_train_filename , sep= ',')
-    result_test_filename = "result_file_test" + str(j) +".csv"
+    result_test_filename = "result_file_test" + gene_off +str(j) +".csv"
     test_result.to_csv(output_directory+result_test_filename , sep= ',')
     ###train h를 file로
     ###test h를 file로
-    weighted_sum_filename="result_weigthed_sum"+str(j)+".csv"
+    weighted_sum_filename="result_weigthed_sum"+gene_off+str(j)+".csv"
     weighted_sum_result.to_csv(output_directory+weighted_sum_filename,sep=",")
