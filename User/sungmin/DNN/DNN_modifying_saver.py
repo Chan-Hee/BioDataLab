@@ -64,7 +64,6 @@ def set_train_three_layer(repeat, nodes, learning_rate):
 
 
 ####
-    saver = tf.train.Saver()
     with tf.Session() as sess:
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
@@ -98,6 +97,11 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 if(max(AccuracyList)> max_Accuracy):
                     max_step = step
                     max_Accuracy = max(AccuracyList)
+                    saver = tf.train.Saver()
+                    save_path = saver.save(sess, '/home/tjahn/Git2/User/sungmin/DNN/savepath/')
+                    print("Save path: ",save_path)
+
+
 ######
                 if max(AccuracyList)-min(AccuracyList)< 0.01 and min(AccuracyList)>0.94 and max(beforeAccuracy) > max(afterAccuracy):
                     stop_switch = False
@@ -108,10 +112,9 @@ def set_train_three_layer(repeat, nodes, learning_rate):
             else:
                 AccuracyList.append(cal_a)
 ######
-        save_path = saver.save(sess, '/home/tjahn/Git2/User/sungmin/DNN/savepath/',global_step = max_step) 
+   
         print("Save path: ",save_path)
         w1_matrix=W1.eval()
-
         weighted_sum = w1_matrix.sum(axis=1)
         weighted_max = w1_matrix.max(axis=1)
         gene_names = list(data)[1:-2]
