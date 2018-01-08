@@ -119,7 +119,10 @@ datafilename = "/home/tjahn/Data/FinalData"+gene_off+"off_GSM_gene_index_result.
 data = pd.read_csv(datafilename)
 repeat, layer, learning_rate= 1000, 3 , 0.002
 output_directory = '/home/tjahn/Git2/User/chanhee/DNN/'
-weighted_sum_Accuracy = dict.fromkeys(["gene_off","train_a","cal_a","test_a"],[])
+Gene_Elimination = []
+Training_Accuracy=[]
+Calibration_Accuracy=[]
+Test_Accuracy=[]
 for j in range(5):
     #####Five fold#####
     train_data, test_data = five_fold(data, j)
@@ -170,16 +173,17 @@ for j in range(5):
     train_result.columns = ['result','prediction','prob0', 'prob1' ]
     test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
-    weighted_sum_Accuracy["gene_off"].append(weighted_sum_result[0])
-    weighted_sum_Accuracy["train_a"].append(weighted_sum_result[1])
-    weighted_sum_Accuracy["cal_a"].append(weighted_sum_result[2])
-    weighted_sum_Accuracy["test_a"].append(weighted_sum_result[3])
-    print("\n\n ___________________________________________")
-    print(weighted_sum_result,weighted_sum_result[0],weighted_sum_result[1],weighted_sum_result[2],weighted_sum_result[3])
+    Gene_Elimination.append(weighted_sum_result[0])
+    Training_Accuracy.append(weighted_sum_result[1])
+    Calibration_Accuracy.append(weighted_sum_result[2])
+    Test_Accuracy.append(weighted_sum_result[3])
 
 ## Accuracy Data 생성 ##
 
-print(weighted_sum_Accuracy)
+print("\n",Gene_Elimination)
+print("\n",Training_Accuracy)
+print("\n",Calibration_Accuracy_Elimination)
+print("\n",Test_Accuracy_Elimination)
 
 #### 파일 생성 ####
 
