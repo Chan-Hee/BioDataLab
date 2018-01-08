@@ -178,12 +178,10 @@ for j in range(5):
     Calibration_Accuracy.append(weighted_sum_result[2])
     Test_Accuracy.append(weighted_sum_result[3])
 
-## Accuracy Data 생성 ##
 
-print("\n",Gene_Elimination)
-print("\n",Training_Accuracy)
-print("\n",Calibration_Accuracy_Elimination)
-print("\n",Test_Accuracy_Elimination)
+## Accuracy Data 생성 ##
+Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy)
+
 
 #### 파일 생성 ####
 
@@ -195,5 +193,5 @@ print("\n",Test_Accuracy_Elimination)
     ###train h를 file로
     ###test h를 file로
 
-    #weighted_sum_filename="result_weigthed_sum"+gene_off+"percent_off_"str(j)+".csv"
-    #weighted_sum_result.to_csv(output_directory+weighted_sum_filename,sep=",")
+Accuracy_Dataframe_filename="result_weigthed_sum"+gene_off+"percent_off_"str(j)+".csv"
+Accuracy_Dataframe_result.to_csv(output_directory+Accuracy_Dataframe_filename,sep=",")
