@@ -116,12 +116,12 @@ def set_train_three_layer(repeat, nodes, learning_rate):
         print("Save path: ",save_path)
 
    
-   #    w1_matrix=W1.eval()
-   #     weighted_sum = w1_matrix.sum(axis=1)
-   #     weighted_max = w1_matrix.max(axis=1)
-   #     gene_names = list(data)[1:-2]
+        w1_matrix=W1.eval()
+        weighted_sum = w1_matrix.sum(axis=1)
+        weighted_max = w1_matrix.max(axis=1)
+        gene_names = list(data)[1:-2]
 
-  #      weighted_sum_result = pd.DataFrame({"gene_names":gene_names,"weighted_sum":weighted_sum,"weighted_max":weighted_max})
+        weighted_sum_result = pd.DataFrame({"gene_names":gene_names,"weighted_sum":weighted_sum,"weighted_max":weighted_max})
 
 
 
@@ -143,7 +143,7 @@ gene_off = input()
 datafilename = "/home/tjahn/Data/FinalData"+gene_off+"off_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
 repeat, layer, learning_rate= 1000, 3 , 0.002
-output_directory = '/home/tjahn/Git2/User/sungmin/DNN/result'
+output_directory = '/home/tjahn/Git2/User/sungmin/DNN/result/'
 
 for j in range(5):
     #####Five fold#####
