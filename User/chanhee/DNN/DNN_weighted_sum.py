@@ -101,15 +101,11 @@ def set_train_three_layer(repeat, nodes, learning_rate):
         weighted_max = w1_matrix.max(axis=1)
         gene_names = list(data)[1:-2]
 
-        weighted_sum_result = pd.DataFrame({"gene_off":gene_off,"training_accuracy":train_a,"calibration_accuracy":cal_a,"test_accuracy":test_a})
-
-
-
-
-
 
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
+
+        weighted_sum_result = pd.DataFrame({"gene_off":gene_off,"training_accuracy":train_a,"calibration_accuracy":cal_a,"test_accuracy":test_a})
 
     return train_p ,train_h, test_p,test_h,weighted_sum_result,
 
