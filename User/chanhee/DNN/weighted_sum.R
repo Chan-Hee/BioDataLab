@@ -52,3 +52,4 @@ write.csv(data90off,"/Users/chanhee/Desktop/FinalData90off_GSM_gene_index_result
 write.csv(data95off,"/Users/chanhee/Desktop/FinalData95off_GSM_gene_index_result.csv")
 write.csv(data99off,"/Users/chanhee/Desktop/FinalData99off_GSM_gene_index_result.csv")
 
+
