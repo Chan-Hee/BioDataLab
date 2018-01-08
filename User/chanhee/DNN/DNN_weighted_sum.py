@@ -194,4 +194,4 @@ Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training
     ###test h를 file로
 
 Accuracy_Dataframe_filename="result_weigthed_sum"+gene_off+"percent_off_"+str(j)+".csv"
-Accuracy_Dataframe_result.to_csv(output_directory+Accuracy_Dataframe_filename,sep=",")
+Accuracy_Dataframe.to_csv(output_directory+Accuracy_Dataframe_filename,sep=",")
