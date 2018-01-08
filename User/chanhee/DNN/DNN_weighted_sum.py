@@ -5,8 +5,7 @@ import math
 import pandas as pd
 import tensorflow as tf
 from scipy import stats
-from itertools import chain
-from collections import defaultdicts
+
 
 tf.set_random_seed(777)
 
