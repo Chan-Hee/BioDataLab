@@ -5,6 +5,9 @@ import math
 import pandas as pd
 import tensorflow as tf
 from scipy import stats
+from itertools import chain
+from collections import defaultdicts
+
 tf.set_random_seed(777)
 
 
@@ -105,7 +108,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
 
-        weighted_sum_result = pd.DataFrame({"gene_off":gene_off,"training_accuracy":train_a,"calibration_accuracy":cal_a,"test_accuracy":test_a})
+        weighted_sum_result = [gene_off,train_a,cal_a,test_a]
 
     return train_p ,train_h, test_p,test_h,weighted_sum_result,
 
@@ -117,7 +120,7 @@ datafilename = "/home/tjahn/Data/FinalData"+gene_off+"off_GSM_gene_index_result.
 data = pd.read_csv(datafilename)
 repeat, layer, learning_rate= 1000, 3 , 0.002
 output_directory = '/home/tjahn/Git2/User/chanhee/DNN/'
-weighted_sum_Accuracy = pd.DataFrame()
+weighted_sum_Accuracy = dict.fromkeys(["gene_off","train_a","cal_a","test_a"],[])
 for j in range(5):
     #####Five fold#####
     train_data, test_data = five_fold(data, j)
@@ -168,7 +171,10 @@ for j in range(5):
     train_result.columns = ['result','prediction','prob0', 'prob1' ]
     test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
-    weighted_sum_Accuracy=pd.concat(weighted_sum_Accuracy,weighted_sum_result)
+    weighted_sum_Accuracy["gene_off"].append(gene_off)
+    weighted_sum_Accuracy["train_a"].append(train_a)
+    weighted_sum_Accuracy["cal_a"].append(cal_a)
+    weighted_sum_Accuracy["test_a"].append(test_a)
 
 print("Accuracy Report: ",weighted_sum_Accuracy)
 
