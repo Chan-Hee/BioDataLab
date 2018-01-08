@@ -178,7 +178,7 @@ for j in range(5):
     print(weighted_sum_result,weighted_sum_result[0],weighted_sum_result[1],weighted_sum_result[2],weighted_sum_result[3])
 
 ## Accuracy Data 생성 ##
-
+ print("\n\n =========================================\n",weighted_sum_Accuracy)
 
 #### 파일 생성 ####
 
