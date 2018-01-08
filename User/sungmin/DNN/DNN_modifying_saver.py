@@ -113,14 +113,15 @@ def set_train_three_layer(repeat, nodes, learning_rate):
             else:
                 AccuracyList.append(cal_a)
 ######
-   
         print("Save path: ",save_path)
-        w1_matrix=W1.eval()
-        weighted_sum = w1_matrix.sum(axis=1)
-        weighted_max = w1_matrix.max(axis=1)
-        gene_names = list(data)[1:-2]
 
-        weighted_sum_result = pd.DataFrame({"gene_names":gene_names,"weighted_sum":weighted_sum,"weighted_max":weighted_max})
+   
+   #    w1_matrix=W1.eval()
+   #     weighted_sum = w1_matrix.sum(axis=1)
+   #     weighted_max = w1_matrix.max(axis=1)
+   #     gene_names = list(data)[1:-2]
+
+  #      weighted_sum_result = pd.DataFrame({"gene_names":gene_names,"weighted_sum":weighted_sum,"weighted_max":weighted_max})
 
 
 
@@ -129,7 +130,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
        # tf.saved_model.loader.load(sess,save_path)      
 ##restored
         saver.restore(sess,save_path)
-        print(save_path.eval())  
+     
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
 
@@ -142,7 +143,7 @@ gene_off = input()
 datafilename = "/home/tjahn/Data/FinalData"+gene_off+"off_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
 repeat, layer, learning_rate= 1000, 3 , 0.002
-output_directory = '/home/tjahn/Git2/User/chanhee/DNN/'
+output_directory = '/home/tjahn/Git2/User/sungmin/DNN/result'
 
 for j in range(5):
     #####Five fold#####
@@ -201,5 +202,5 @@ for j in range(5):
     test_result.to_csv(output_directory+result_test_filename , sep= ',')
     ###train h를 file로
     ###test h를 file로
-    weighted_sum_filename="result_weigthed_sum"+gene_off+str(j)+".csv"
-    weighted_sum_result.to_csv(output_directory+weighted_sum_filename,sep=",")
+   # weighted_sum_filename="result_weigthed_sum"+gene_off+str(j)+".csv"
+   # weighted_sum_result.to_csv(output_directory+weighted_sum_filename,sep=",")
