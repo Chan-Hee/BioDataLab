@@ -170,10 +170,10 @@ for j in range(5):
     train_result.columns = ['result','prediction','prob0', 'prob1' ]
     test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
-    weighted_sum_Accuracy["gene_off"].append(gene_off)
-    weighted_sum_Accuracy["train_a"].append(train_a)
-    weighted_sum_Accuracy["cal_a"].append(cal_a)
-    weighted_sum_Accuracy["test_a"].append(test_a)
+    weighted_sum_Accuracy["gene_off"].append(weighted_sum_result[0])
+    weighted_sum_Accuracy["train_a"].append(weighted_sum_result[1])
+    weighted_sum_Accuracy["cal_a"].append(weighted_sum_result[2])
+    weighted_sum_Accuracy["test_a"].append(weighted_sum_result[3])
 
 print("Accuracy Report: ",weighted_sum_Accuracy)
 
