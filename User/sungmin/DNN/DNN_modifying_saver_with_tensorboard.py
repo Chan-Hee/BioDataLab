@@ -52,7 +52,7 @@ def set_train_three_layer(repeat, nodes, learning_rate, j):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-    cost_summ = tf.summary.scalar(node+"_cost_"+str(j+1),cost)
+    cost_summ = tf.summary.scalar("tensorboard" + str(nodes)+"_cost",cost)
 
 
     # Accuracy computation
@@ -61,7 +61,7 @@ def set_train_three_layer(repeat, nodes, learning_rate, j):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
-    accuracy_summ = tf.summary.scalar(node+"_accuracy_"+str(j+1),accuracy)
+    accuracy_summ = tf.summary.scalar("tensorboard" + str(nodes)+"_accuracy",accuracy)
 
 
 
@@ -69,7 +69,7 @@ def set_train_three_layer(repeat, nodes, learning_rate, j):
 ####
     with tf.Session() as sess:
         merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("./log/" + node +"_"+str(j+1))
+        writer = tf.summary.FileWriter("./log/tensorboard" + str(nodes) +"_" + str(j+1))
         writer.add_graph(sess.graph)
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())

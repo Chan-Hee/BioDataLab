@@ -1,2 +1,2 @@
-model_checkpoint_path: "/home/tjahn/Git2/User/sungmin/DNN/savepath/saved"
-all_model_checkpoint_paths: "/home/tjahn/Git2/User/sungmin/DNN/savepath/saved"
+model_checkpoint_path: "/home/tjahn/Git2/User/sungmin/DNN/savepath/saved.ckpt"
+all_model_checkpoint_paths: "/home/tjahn/Git2/User/sungmin/DNN/savepath/saved.ckpt"
