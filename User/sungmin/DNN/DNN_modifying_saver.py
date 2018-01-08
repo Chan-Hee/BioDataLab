@@ -99,7 +99,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                     max_step = step
                     max_Accuracy = max(AccuracyList)
                    # saver = tf.train.Saver()
-                    save_path = saver.save(sess, '/home/tjahn/Git2/User/sungmin/DNN/savepath/saved')
+                    save_path = saver.save(sess, '/home/tjahn/Git2/User/sungmin/DNN/savepath/saved.ckpt')
                     print("Save path: ",save_path,"\nMax_step: ",max_step,"\nMax_Accuracy: ",max_Accuracy )
 
 
