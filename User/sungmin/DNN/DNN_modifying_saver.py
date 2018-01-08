@@ -63,6 +63,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
 
 
+    saver = tf.train.Saver()
 ####
     with tf.Session() as sess:
         # Initialize TensorFlow variables
@@ -97,9 +98,9 @@ def set_train_three_layer(repeat, nodes, learning_rate):
                 if(max(AccuracyList)> max_Accuracy):
                     max_step = step
                     max_Accuracy = max(AccuracyList)
-                    saver = tf.train.Saver()
-                    save_path = saver.save(sess, '/home/tjahn/Git2/User/sungmin/DNN/savepath/')
-                    print("Save path: ",save_path)
+                   # saver = tf.train.Saver()
+                    save_path = saver.save(sess, '/home/tjahn/Git2/User/sungmin/DNN/savepath/saved')
+                    print("Save path: ",save_path,"\nMax_step: ",max_step,"\nMax_Accuracy: ",max_Accuracy )
 
 
 ######
@@ -124,8 +125,11 @@ def set_train_three_layer(repeat, nodes, learning_rate):
 
 
 
-
-
+##이거 아닌듯
+       # tf.saved_model.loader.load(sess,save_path)      
+##restored
+        saver.restore(sess,save_path)
+        print(save_path.eval())  
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
 
