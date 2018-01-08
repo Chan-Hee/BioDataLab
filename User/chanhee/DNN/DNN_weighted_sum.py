@@ -174,8 +174,8 @@ for j in range(5):
     weighted_sum_Accuracy["train_a"].append(weighted_sum_result[1])
     weighted_sum_Accuracy["cal_a"].append(weighted_sum_result[2])
     weighted_sum_Accuracy["test_a"].append(weighted_sum_result[3])
-
-print("Accuracy Report: ",weighted_sum_Accuracy)
+    print("\n\n ___________________________________________")
+    print(weighted_sum_result,weighted_sum_result[0],weighted_sum_result[1],weighted_sum_result[2],weighted_sum_result[3])
 
 ## Accuracy Data 생성 ##
 
