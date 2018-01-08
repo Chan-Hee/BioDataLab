@@ -1778,3 +1778,8 @@ Learning Finished!! P-Value:  0.319234786747
  [0.96743786, 0.96572405, 0.96315336, 0.96229649, 0.9597258]
 
 Test Accuracy:  0.954584
+Percent of Gene Elimination from 6000 : 
+Traceback (most recent call last):
+  File "DNN_weighted_sum.py", line 117, in <module>
+    gene_off = input()
+OSError: [Errno 9] Bad file descriptor
