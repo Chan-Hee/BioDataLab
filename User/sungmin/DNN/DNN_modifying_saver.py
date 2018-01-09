@@ -104,7 +104,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
 
 
 ######
-                if min(AccuracyList)>0.94 and max(beforeAccuracy) >= max(afterAccuracy):
+                if min(AccuracyList)>0.94 and max(beforeAccuracy) >= max(afterAccuracy) and abs(max(AccuracyList)-min(AccuracyList)) < 0.1:
                     stop_switch = False
                     
                     print("Learning Finished!! P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
@@ -115,7 +115,7 @@ def set_train_three_layer(repeat, nodes, learning_rate):
 ######
     #    print("Save path: ",save_path)
         print("max step: ", max_step," load max accuracy:  ",max_Accuracy)
-        print("last step: ",step, " max accuracy: ",max(AccuracyList))
+        print("last step: ",step, " last accuracy: ",AccuracyList.pop)
         w1_matrix=W1.eval()
         weighted_sum = w1_matrix.sum(axis=1)
         weighted_max = w1_matrix.max(axis=1)
