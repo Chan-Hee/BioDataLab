@@ -54,7 +54,7 @@ def set_train_three_layer(repeat, nodes, learning_rate, j):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-    cost_summ = tf.summary.scalar(str(nodes)+"_cost",cost)
+#    cost_summ = tf.summary.scalar(str(nodes)+"_cost",cost)
 
 
 
@@ -64,13 +64,13 @@ def set_train_three_layer(repeat, nodes, learning_rate, j):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
-    accuracy_summ = tf.summary.scalar(str(nodes)+"_accuracy",accuracy)
+ #   accuracy_summ = tf.summary.scalar(str(nodes)+"_accuracy",accuracy)
 
     saver = tf.train.Saver()
     with tf.Session() as sess:
-        merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/" + str(nodes) +"_" + str(j+1))
-        writer.add_graph(sess.graph)
+#        merged_summary = tf.summary.merge_all()
+#        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/" + str(nodes) +"_" + str(j+1))
+#        writer.add_graph(sess.graph)
 
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
@@ -87,8 +87,8 @@ def set_train_three_layer(repeat, nodes, learning_rate, j):
                 batch_x = train_x[i*batch_size:(i+1)*batch_size]
                 batch_y = train_y[i*batch_size:(i+1)*batch_size]
                 sess.run(train , feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
-                summary,_=sess.run([merged_summary,train], feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
-                writer.add_summary(summary, global_step =step)
+#                summary,_=sess.run([merged_summary,train], feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
+#                writer.add_summary(summary, global_step =step)
 
             train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :1})
             cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
