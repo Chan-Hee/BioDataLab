@@ -139,23 +139,24 @@ def set_train_three_layer(repeat, nodes, learning_rate, j):
 #datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
 #print("Percent of Gene Elimination from 6000 : ")
 #gene_off = input()
-datafilename = "/home/tjahn/Data/FinalData"+gene_off+"off_GSM_gene_index_result.csv"
-data = pd.read_csv(datafilename)
-output_directory = "/home/tjahn/tj_save_data/sungmin/result/"
+#datafilename = "/home/tjahn/Data/FinalData"+gene_off+"off_GSM_gene_index_result.csv"
+#data = pd.read_csv(datafilename)
+output_directory = "/home/tjahn/tf_save_data/sungmin/result/"
 ###
-conf_directory = "home/tjahn/Git2/User/sungmin/DNN/input/"
+conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
 
 
 ###
 for i in range(len(conf)):
-    repeat, layer, node, learning_rate,gene_off = conf.iloc[i]
-    print(layer + " layers, " + node + " nodes " + gene_off + " % gene elimination\n") 
+    repeat, layer, node, learning_rate, gene_off = conf.iloc[i]
+ #   print(layer + " layers, " + node + " nodes " + gene_off + " % gene elimination\n") 
     nodes = list(map(int, node.split(" ")))
-
 ####sm
- 
+    datafilename = "/home/tjahn/Data/FinalData"+str(gene_off)+"off_GSM_gene_index_result.csv"
+    data = pd.read_csv(datafilename)
+
 ####sm
     Gene_Elimination = []
     Training_Accuracy=[]
@@ -231,5 +232,5 @@ for i in range(len(conf)):
     ###train h를 file로
     ###test h를 file로
 
-    Accuracy_Dataframe_filename="result_weigthed_sum_gene_"+gene_off+"percent_off_"+nodes+".csv"
+    Accuracy_Dataframe_filename="result_weigthed_sum_gene_"+str(gene_off)+"percent_off_"+str(node)+".csv"
     Accuracy_Dataframe.to_csv(output_directory+Accuracy_Dataframe_filename,sep=",")
