@@ -5,6 +5,8 @@ import math
 import pandas as pd
 import tensorflow as tf
 from scipy import stats
+
+
 tf.set_random_seed(777)
 
 
@@ -20,7 +22,7 @@ def five_fold(data, i):
 
     return train_data , test_data
 
-def set_train_three_layer(repeat, nodes, learning_rate,j):
+def set_train_three_layer(repeat, nodes, learning_rate):
     batch_size = 1000
     tf.reset_default_graph()
     keep_prob = tf.placeholder(tf.float32)
@@ -52,7 +54,8 @@ def set_train_three_layer(repeat, nodes, learning_rate,j):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-    cost_summ = tf.summary.scalar(node+"_cost_"+str(j+1),cost)
+    cost_summ = tf.summary.scalar(str(nodes)+"_cost",cost)
+
 
 
     # Accuracy computation
@@ -61,28 +64,31 @@ def set_train_three_layer(repeat, nodes, learning_rate,j):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
-    accuracy_summ = tf.summary.scalar(node + "_accuracy_" +str(j+1),accuracy)
-    with tf.Session() as sess:
-        
-        merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("./log/"+node + "_" + str(j+1))
-        writer.add_graph(sess.graph)
+    accuracy_summ = tf.summary.scalar(str(nodes)+"_accuracy",accuracy)
 
+    saver = tf.train.Saver()
+    with tf.Session() as sess:
+        merged_summary = tf.summary.merge_all()
+        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/" + str(nodes) +"_" + str(j+1))
+        writer.add_graph(sess.graph)
 
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
         stop_switch = True
         step=0
         AccuracyList=[]
+        
+        max_step = 0
+        max_Accuracy = 0
+
         while(stop_switch):
             total_num = int(len(train_x)/batch_size)
             for i in range(total_num):
                 batch_x = train_x[i*batch_size:(i+1)*batch_size]
                 batch_y = train_y[i*batch_size:(i+1)*batch_size]
                 sess.run(train , feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
-                
-                summary,_ =sess.run([merged_summary,train],feed_dict = {X: batch_x, Y: batch_y , keep_prob : 1})
-                writer.add_summary(summary,global_step = step)
+                summary,_=sess.run([merged_summary,train], feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
+                writer.add_summary(summary, global_step =step)
 
             train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :1})
             cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
@@ -95,7 +101,15 @@ def set_train_three_layer(repeat, nodes, learning_rate,j):
                 afterAccuracy = AccuracyList[int(len(AccuracyList)/2):]
                 tTestResult = stats.ttest_rel(beforeAccuracy,afterAccuracy)
                 print("P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
-                if max(AccuracyList)-min(AccuracyList)< 0.01 and min(AccuracyList)>0.94 :
+
+#save path
+                if(max(AccuracyList)> max_Accuracy):
+                    max_step = step
+                    max_Accuracy = max(AccuracyList)
+                    save_path = saver.save(sess, '/home/tjahn/tf_save_data/sungmin/save_path/saved')
+                    print("Save path: ",save_path,"\nMax_step: ",max_step,"\nMax_Accuracy: ",max_Accuracy )
+
+                if max(AccuracyList)-min(AccuracyList)< 0.01 and min(AccuracyList)>0.94 and max(beforeAccuracy) >= max(afterAccuracy) :
                     stop_switch = False
                     print("Learning Finished!! P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
 
@@ -110,17 +124,16 @@ def set_train_three_layer(repeat, nodes, learning_rate,j):
         weighted_max = w1_matrix.max(axis=1)
         gene_names = list(data)[1:-2]
 
-        weighted_sum_result = pd.DataFrame({"gene_names":gene_names,"weighted_sum":weighted_sum,"weighted_max":weighted_max})
-
-
-
-
-
+        print("Save path: ",save_path)
+        saver.restore(sess,save_path)
+        print("Max_step: ",max_step,"Max_accuracy: ", max_Accuracy)
 
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
 
-    return train_p ,train_h, test_p,test_h,weighted_sum_result
+        weighted_sum_result = [gene_off,train_a,cal_a,test_a]
+
+    return train_p ,train_h, test_p,test_h,weighted_sum_result,
 
 ##################READ DATA############################
 #datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
@@ -130,7 +143,10 @@ datafilename = "/home/tjahn/Data/FinalData"+gene_off+"off_GSM_gene_index_result.
 data = pd.read_csv(datafilename)
 repeat, layer, learning_rate= 1000, 3 , 0.002
 output_directory = '/home/tjahn/Git2/User/chanhee/DNN/'
-
+Gene_Elimination = []
+Training_Accuracy=[]
+Calibration_Accuracy=[]
+Test_Accuracy=[]
 for j in range(5):
     #####Five fold#####
     train_data, test_data = five_fold(data, j)
@@ -164,7 +180,7 @@ for j in range(5):
     cal_y = pd.get_dummies(cal_y)
 
 
-    train_p, train_h , test_p ,test_h,weighted_sum_result = (set_train_three_layer(repeat, nodes, learning_rate, j))
+    train_p, train_h , test_p ,test_h, weighted_sum_result = (set_train_three_layer(repeat, nodes, learning_rate))
     train_p = pd.DataFrame(train_p, index = train_GSM )
     train_h = pd.DataFrame(train_h , index = train_GSM)
     test_p = pd.DataFrame(test_p , index = test_GSM)
@@ -181,12 +197,25 @@ for j in range(5):
     train_result.columns = ['result','prediction','prob0', 'prob1' ]
     test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
+    Gene_Elimination.append(weighted_sum_result[0])
+    Training_Accuracy.append(weighted_sum_result[1])
+    Calibration_Accuracy.append(weighted_sum_result[2])
+    Test_Accuracy.append(weighted_sum_result[3])
 
-    result_train_filename = "result_file_train"+ gene_off + str(j) +".csv"
-    train_result.to_csv(output_directory+result_train_filename , sep= ',')
-    result_test_filename = "result_file_test" + gene_off +str(j) +".csv"
-    test_result.to_csv(output_directory+result_test_filename , sep= ',')
+
+## Accuracy Data 생성 ##
+Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy})
+
+
+#### 파일 생성 ####
+
+    #result_train_filename = "result_file_train"+ gene_off + str(j) +".csv"
+    #train_result.to_csv(output_directory+result_train_filename , sep= ',')
+    #result_test_filename = "result_file_test" + gene_off +str(j) +".csv"
+    #test_result.to_csv(output_directory+result_test_filename , sep= ',')
+
     ###train h를 file로
     ###test h를 file로
-    weighted_sum_filename="result_weigthed_sum"+gene_off+str(j)+".csv"
-    weighted_sum_result.to_csv(output_directory+weighted_sum_filename,sep=",")
+
+Accuracy_Dataframe_filename="result_weigthed_sum_gene_"+gene_off+"percent_off.csv"
+Accuracy_Dataframe.to_csv(output_directory+Accuracy_Dataframe_filename,sep=",")
