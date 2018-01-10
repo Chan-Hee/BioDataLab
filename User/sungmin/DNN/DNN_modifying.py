@@ -22,7 +22,7 @@ def five_fold(data, i):
 
     return train_data , test_data
 
-def set_train_three_layer(repeat, nodes, learning_rate):
+def set_train_three_layer(repeat, nodes, learning_rate, j):
     batch_size = 1000
     tf.reset_default_graph()
     keep_prob = tf.placeholder(tf.float32)
@@ -142,7 +142,7 @@ gene_off = input()
 datafilename = "/home/tjahn/Data/FinalData"+gene_off+"off_GSM_gene_index_result.csv"
 data = pd.read_csv(datafilename)
 repeat, layer, learning_rate= 1000, 3 , 0.002
-output_directory = '/home/tjahn/Git2/User/chanhee/DNN/'
+output_directory = '/home/tjahn/tf_save_data/sungmin/result/'
 Gene_Elimination = []
 Training_Accuracy=[]
 Calibration_Accuracy=[]
@@ -180,7 +180,7 @@ for j in range(5):
     cal_y = pd.get_dummies(cal_y)
 
 
-    train_p, train_h , test_p ,test_h, weighted_sum_result = (set_train_three_layer(repeat, nodes, learning_rate))
+    train_p, train_h , test_p ,test_h, weighted_sum_result = (set_train_three_layer(repeat, nodes, learning_rate, j))
     train_p = pd.DataFrame(train_p, index = train_GSM )
     train_h = pd.DataFrame(train_h , index = train_GSM)
     test_p = pd.DataFrame(test_p , index = test_GSM)
