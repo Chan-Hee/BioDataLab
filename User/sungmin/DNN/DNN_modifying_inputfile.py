@@ -108,10 +108,17 @@ def set_train_three_layer(nodes, learning_rate, j):
                     max_Accuracy = max(AccuracyList)
                     save_path = saver.save(sess, '/home/tjahn/tf_save_data/sungmin/save_path/saved')
                     print("Save path: ",save_path,"\nMax_step: ",max_step,"\nMax_Accuracy: ",max_Accuracy )
+                 
+                    print("W1, W2, W3, W4: %s  %s  %s  %s \n", W1.eval(),W2.eval(),W3.eval(), W4.eval())
 
+                    # print("W1, W2, W3, W4: " W1.eval() + " "+ W2.eval()+ " " +W3.eval() + " " + W4.eval())
                 if max(AccuracyList)-min(AccuracyList)< 0.01 and min(AccuracyList)>0.94 and max(beforeAccuracy) >= max(afterAccuracy) :
                     stop_switch = False
                     print("Learning Finished!! P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
+                    print("W1, W2, W3, W4: %s  %s  %s  %s \n", W1.eval(),W2.eval(),W3.eval(), W4.eval())
+
+                   # print("W1, W2, W3, W4: "+ W1.eval() + " "+ W2.eval()+ " " +W3.eval() + " " + W4.eval())
+           
 
             else:
                 AccuracyList.append(cal_a)
@@ -127,6 +134,8 @@ def set_train_three_layer(nodes, learning_rate, j):
         print("Save path: ",save_path)
         saver.restore(sess,save_path)
         print("Max_step: ",max_step,"Max_accuracy: ", max_Accuracy)
+       # print("W1, W2, W3, W4: "+ W1.eval() + " "+ W2.eval()+ " " +W3.eval() + " " + W4.eval())
+        print("W1, W2, W3, W4: %s  %s  %s  %s \n", W1.eval(),W2.eval(),W3.eval(), W4.eval())
 
         test_h, test_p, test_a = sess.run([hypothesis, predicted, accuracy],feed_dict={X: test_x, Y: test_y, keep_prob :1.0})
         print("\nTest Accuracy: ", test_a)
@@ -137,8 +146,9 @@ def set_train_three_layer(nodes, learning_rate, j):
     return train_p ,train_h, test_p,test_h,weighted_sum_result
 
 ##################READ DATA############################
-output_directory = "/home/tjahn/tf_save_data/sungmin/result/"
+repeat, layer, learning_rate = 1000, 3, 0.002
 
+output_directory = "/home/tjahn/tf_save_data/sungmin/result/"
 conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
@@ -148,11 +158,11 @@ conf = pd.read_csv(conf_directory + conf_filename)
 for i in range(len(conf)):
    # repeat, layer, node, learning_rate, gene_off = conf.iloc[i]
    # nodes = list(map(int, node.split(" ")))
-    learning_rate, gene_off = conf.iloc[i]
+    gene_off = conf.iloc[i]
+
 ####sm
     datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result.csv"
     data = pd.read_csv(datafilename)
-
 ####sm
     Gene_Elimination = []
     Training_Accuracy=[]
