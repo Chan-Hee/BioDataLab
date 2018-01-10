@@ -1,3 +1,3 @@
-learning times,layer,node,learning rate,percent of gene elimination
-1000,3,300 300 300,0.002,95
-1000,3,300 150 75,0.002,95
+learning rate,percent of gene elimination
+0.002,95
+0.002,90

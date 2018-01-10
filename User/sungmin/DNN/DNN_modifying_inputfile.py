@@ -22,7 +22,7 @@ def five_fold(data, i):
 
     return train_data , test_data
 
-def set_train_three_layer(repeat, nodes, learning_rate, j):
+def set_train_three_layer(nodes, learning_rate, j):
     batch_size = 1000
     tf.reset_default_graph()
     keep_prob = tf.placeholder(tf.float32)
@@ -132,17 +132,13 @@ def set_train_three_layer(repeat, nodes, learning_rate, j):
         print("\nTest Accuracy: ", test_a)
 
         weighted_sum_result = [gene_off,train_a,cal_a,test_a]
+    #    weighted_sum_result = [gene_off,train_a,cal_a,test_a,max_step,max_Accuracy]
          
-    return train_p ,train_h, test_p,test_h,weighted_sum_result,
+    return train_p ,train_h, test_p,test_h,weighted_sum_result
 
 ##################READ DATA############################
-#datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
-#print("Percent of Gene Elimination from 6000 : ")
-#gene_off = input()
-#datafilename = "/home/tjahn/Data/FinalData"+gene_off+"off_GSM_gene_index_result.csv"
-#data = pd.read_csv(datafilename)
 output_directory = "/home/tjahn/tf_save_data/sungmin/result/"
-###
+
 conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
@@ -150,11 +146,11 @@ conf = pd.read_csv(conf_directory + conf_filename)
 
 ###
 for i in range(len(conf)):
-    repeat, layer, node, learning_rate, gene_off = conf.iloc[i]
- #   print(layer + " layers, " + node + " nodes " + gene_off + " % gene elimination\n") 
-    nodes = list(map(int, node.split(" ")))
+   # repeat, layer, node, learning_rate, gene_off = conf.iloc[i]
+   # nodes = list(map(int, node.split(" ")))
+    learning_rate, gene_off = conf.iloc[i]
 ####sm
-    datafilename = "/home/tjahn/Data/FinalData"+str(gene_off)+"off_GSM_gene_index_result.csv"
+    datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result.csv"
     data = pd.read_csv(datafilename)
 
 ####sm
@@ -162,6 +158,8 @@ for i in range(len(conf)):
     Training_Accuracy=[]
     Calibration_Accuracy=[]
     Test_Accuracy=[]
+  #  Max_step = []
+  #  Max_Accuracy = []
     for j in range(5):
     #####Five fold#####
         train_data, test_data = five_fold(data, j)
@@ -178,7 +176,7 @@ for i in range(len(conf)):
         train_y = train_y.flatten()
         train_y = pd.get_dummies(train_y)
         cnt_train = len(train_x[1, :])
-      #  nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
+        nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
 
     #####Test Data Set#####
         test_x = test_data.iloc[:,1:-2]
@@ -195,7 +193,7 @@ for i in range(len(conf)):
         cal_y = pd.get_dummies(cal_y)
 
 
-        train_p, train_h , test_p ,test_h, weighted_sum_result = (set_train_three_layer(repeat, nodes, learning_rate, j))
+        train_p, train_h , test_p ,test_h, weighted_sum_result  = (set_train_three_layer(nodes, learning_rate, j))
         train_p = pd.DataFrame(train_p, index = train_GSM )
         train_h = pd.DataFrame(train_h , index = train_GSM)
         test_p = pd.DataFrame(test_p , index = test_GSM)
@@ -216,9 +214,11 @@ for i in range(len(conf)):
         Training_Accuracy.append(weighted_sum_result[1])
         Calibration_Accuracy.append(weighted_sum_result[2])
         Test_Accuracy.append(weighted_sum_result[3])
-
-
+      #  Max_step.append(weighted_sum_result[4])
+      #  Max_Accuracy.append(weighted_sum_result[5])
 ## Accuracy Data 생성 ##
+   # Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy,"Max_step":Max_step,"Max_Accuracy":Max_Accuracy})
+
     Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy})
 
 
@@ -232,5 +232,5 @@ for i in range(len(conf)):
     ###train h를 file로
     ###test h를 file로
 
-    Accuracy_Dataframe_filename="result_weigthed_sum_gene_"+str(gene_off)+"percent_off_"+str(node)+".csv"
+    Accuracy_Dataframe_filename="result_weigthed_sum_gene_"+str(int(gene_off))+"percent_off_"+str(nodes)+".csv"
     Accuracy_Dataframe.to_csv(output_directory+Accuracy_Dataframe_filename,sep=",")
