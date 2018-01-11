@@ -54,7 +54,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-    cost_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(nodes)+"_cost",cost)
+    cost_summ = tf.summary.scalar("reverse_"+str(int(gene_off))+"_"+str(nodes)+"_cost",cost)
 
 
 
@@ -64,7 +64,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
-    accuracy_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(nodes)+"_accuracy",accuracy)
+    accuracy_summ = tf.summary.scalar("reverse_"+str(int(gene_off))+"_"+str(nodes)+"_accuracy",accuracy)
 
     saver = tf.train.Saver()
     with tf.Session() as sess:
@@ -148,7 +148,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
 ##################READ DATA############################
 repeat, layer, learning_rate = 1000, 3, 0.002
 
-output_directory = "/home/tjahn/tf_save_data/sungmin/result/"
+output_directory = "/home/tjahn/tf_save_data/sungmin/result_change_cal_to_test/"
 conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
@@ -173,8 +173,10 @@ for i in range(len(conf)):
     for j in range(5):
     #####Five fold#####
         train_data, test_data = five_fold(data, j)
-        cal_data = test_data[:int(len(test_data)/2)]
-        test_data = test_data[int(len(test_data)/2):]
+      #  cal_data = test_data[:int(len(test_data)/2)]
+      #  test_data = test_data[int(len(test_data)/2):]
+        test_data = test_data[:int(len(test_data)/2)]
+        cal_data = test_data[int(len(test_data)/2):]
         train_GSM = train_data.iloc[:,0].tolist()
         test_GSM = test_data.iloc[:,0].tolist()
         cal_GSM = cal_data.iloc[:,0].tolist()
