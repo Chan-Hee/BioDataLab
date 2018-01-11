@@ -69,7 +69,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     saver = tf.train.Saver()
     with tf.Session() as sess:
         merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
+        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/gene_off_"+str(int(gene_off)) +"/reverse_" + str(nodes) +"_" + str(j+1))
         writer.add_graph(sess.graph)
 
         # Initialize TensorFlow variables
@@ -116,7 +116,6 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
                     stop_switch = False
                     print("Learning Finished!! P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
                    # print("W1, W2, W3, W4: %s  %s  %s  %s \n", W1.eval(),W2.eval(),W3.eval(), W4.eval())
-
                    # print("W1, W2, W3, W4: "+ W1.eval() + " "+ W2.eval()+ " " +W3.eval() + " " + W4.eval())
            
 
@@ -244,5 +243,5 @@ for i in range(len(conf)):
     ###train h를 file로
     ###test h를 file로
 
-    Accuracy_Dataframe_filename="result_weigthed_sum_gene_"+str(int(gene_off))+"percent_off_"+str(nodes)+".csv"
+    Accuracy_Dataframe_filename="reverse_result_weigthed_sum_gene_"+str(int(gene_off))+"percent_off_"+str(nodes)+".csv"
     Accuracy_Dataframe.to_csv(output_directory+Accuracy_Dataframe_filename,sep=",")
