@@ -150,7 +150,7 @@ repeat, layer, learning_rate = 1000, 3, 0.002
 
 output_directory = "/home/tjahn/tf_save_data/sungmin/result/"
 conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
-conf_filename = "input40.csv"
+conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
 
 

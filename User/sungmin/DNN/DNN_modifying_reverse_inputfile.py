@@ -172,10 +172,13 @@ for i in range(len(conf)):
     for j in range(5):
     #####Five fold#####
         train_data, test_data = five_fold(data, j)
-      #  cal_data = test_data[:int(len(test_data)/2)]
-      #  test_data = test_data[int(len(test_data)/2):]
-        test_data = test_data[:int(len(test_data)/2)]
-        cal_data = test_data[int(len(test_data)/2):]
+        cal_data = test_data[:int(len(test_data)/2)]
+        test_data = test_data[int(len(test_data)/2):]
+       
+        temp = test_data
+        test_data = cal_data
+        cal_data = temp
+  
         train_GSM = train_data.iloc[:,0].tolist()
         test_GSM = test_data.iloc[:,0].tolist()
         cal_GSM = cal_data.iloc[:,0].tolist()
