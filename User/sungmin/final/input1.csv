@@ -1,6 +1,0 @@
-learning times,layer,node,learning rate,gene number,train_rate
-1000,3,1500 1500 1500,0.005,40,95
-1000,3,1500 1000 500,0.005,40,95
-
-
-
