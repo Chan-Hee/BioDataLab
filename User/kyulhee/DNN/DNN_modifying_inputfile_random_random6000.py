@@ -69,7 +69,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     saver = tf.train.Saver()
     with tf.Session() as sess:
         merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("random_gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
+        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/kyulhee/tensorboard/Random6000_random_gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
         writer.add_graph(sess.graph)
 
         # Initialize TensorFlow variables
@@ -106,7 +106,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
                 if(max(AccuracyList)> max_Accuracy):
                     max_step = step
                     max_Accuracy = max(AccuracyList)
-                    save_path = saver.save(sess, 'saved')
+                    save_path = saver.save(sess, '/home/tjahn/tf_save_data/kyulhee/save_path/saved')
                     print("Save path: ",save_path,"\nMax_step: ",max_step,"\nMax_Accuracy: ",max_Accuracy )
                  
                    # print("W1, W2, W3, W4: ", W1.eval(),W2.eval(),W3.eval(), W4.eval())
@@ -148,20 +148,20 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
 ##################READ DATA############################
 repeat, layer, learning_rate = 1000, 3, 0.002
 
-output_directory = "/C:\\test"
-#conf_directory = "/home/tjahn/Git2/User/kyulhee/DNN/input/"
-#conf_filename = "input.csv"
-conf = [99]
+output_directory = "/home/tjahn/tf_save_data/kyulhee/result/"
+conf_directory = "/home/tjahn/Git2/User/kyulhee/DNN/input/"
+conf_filename = "input.csv"
+conf = pd.read_csv(conf_directory + conf_filename)
 
 
 ###
 for i in range(len(conf)):
    # repeat, layer, node, learning_rate, gene_off = conf.iloc[i]
    # nodes = list(map(int, node.split(" ")))
-    gene_off = conf[i]
+    gene_off = conf.iloc[i]
 
 ####sm
-    datafilename = "FinalData_Random_"+str(int(gene_off))+"off_GSM_gene_index_result.csv"
+    datafilename = "/home/tjahn/Data/FinalData_Random6000_Random_"+str(int(gene_off))+"off_GSM_gene_index_result.csv"
     data = pd.read_csv(datafilename)
 ####sm
     Gene_Elimination = []
@@ -242,5 +242,5 @@ for i in range(len(conf)):
     ###train h를 file로
     ###test h를 file로
 
-    Accuracy_Dataframe_filename="result_weigthed_sum_gene_"+str(int(gene_off))+"percent_off_"+str(nodes)+".csv"
+    Accuracy_Dataframe_filename="Random6000_result_weigthed_sum_gene_"+str(int(gene_off))+"percent_off_"+str(nodes)+".csv"
     Accuracy_Dataframe.to_csv(output_directory+Accuracy_Dataframe_filename,sep=",")
