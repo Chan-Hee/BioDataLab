@@ -14,7 +14,7 @@ weighted_sum4 <- read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/DNN/re
 names(weighted_sum4)[1]<-"index"
 
 index_genes<-weighted_sum0[,1:2]
-sum_of_weights<-as.matrix(weighted_sum0[,3:4])+-as.matrix(weighted_sum1[,3:4])+as.matrix(weighted_sum2[,3:4])+as.matrix(weighted_sum3[,3:4])+-as.matrix(weighted_sum4[,3:4])
+sum_of_weights<-abs(as.matrix(weighted_sum0[,3:4]))+abs(as.matrix(weighted_sum1[,3:4]))+abs(as.matrix(weighted_sum2[,3:4]))+abs(as.matrix(weighted_sum3[,3:4]))+abs(as.matrix(weighted_sum4[,3:4]))
 
 weighted_sum<-cbind(index_genes,sum_of_weights)
 weighted_sum$abs_sum<-abs(weighted_sum$weighted_sum)
@@ -30,7 +30,7 @@ selected_gene_index<-weighted_sum$index+1
 data10off<-data[,c(selected_gene_index[601:6000],6001,6002)]
 data20off<-data[,c(selected_gene_index[1201:6000],6001,6002)]
 data30off<-data[,c(selected_gene_index[1801:6000],6001,6002)]
-data40off<-data[,c(selected_gene_index[241:6000],6001,6002)]
+data40off<-data[,c(selected_gene_index[2401:6000],6001,6002)]
 data50off<-data[,c(selected_gene_index[3001:6000],6001,6002)]
 data60off<-data[,c(selected_gene_index[3601:6000],6001,6002)]
 data70off<-data[,c(selected_gene_index[4201:6000],6001,6002)]
