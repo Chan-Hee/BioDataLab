@@ -69,7 +69,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     saver = tf.train.Saver()
     with tf.Session() as sess:
         merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
+        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/without_rare_cancer/gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
         writer.add_graph(sess.graph)
 
         # Initialize TensorFlow variables
@@ -148,7 +148,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
 ##################READ DATA############################
 repeat, layer, learning_rate = 1000, 3, 0.002
 
-output_directory = "/home/tjahn/tf_save_data/sungmin/result/"
+output_directory = "/home/tjahn/tf_save_data/sungmin/result/without_rare_cancer/"
 conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
@@ -161,7 +161,7 @@ for i in range(len(conf)):
     gene_off = conf.iloc[i]
 
 ####sm
-    datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result.csv"
+    datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result_without_rare_cancer.csv"
     data = pd.read_csv(datafilename)
 ####sm
     Gene_Elimination = []
