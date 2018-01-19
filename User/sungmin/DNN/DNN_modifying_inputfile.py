@@ -173,6 +173,7 @@ for i in range(len(conf)):
     for j in range(5):
     #####Five fold#####
         train_data, test_data = five_fold(data, j)
+        test_data.sample(frac = 1 )
         cal_data = test_data[:int(len(test_data)/2)]
         test_data = test_data[int(len(test_data)/2):]
         train_GSM = train_data.iloc[:,0].tolist()
