@@ -161,7 +161,7 @@ for i in range(len(conf)):
     gene_off = conf.iloc[i]
 
 ####sm
-    datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result_without_rare_cancer.csv"
+    datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result_result_without_rare_cancer.csv"
     data = pd.read_csv(datafilename)
 ####sm
     Gene_Elimination = []
