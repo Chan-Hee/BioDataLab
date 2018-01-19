@@ -14,3 +14,34 @@ Traceback (most recent call last):
   File "pandas/_libs/parsers.pyx", line 394, in pandas._libs.parsers.TextReader.__cinit__ (pandas/_libs/parsers.c:4209)
   File "pandas/_libs/parsers.pyx", line 710, in pandas._libs.parsers.TextReader._setup_parser_source (pandas/_libs/parsers.c:8873)
 FileNotFoundError: File b'/home/tjahn/Data/FinalData95off_GSM_gene_index_result_without_rare_cancer.csv' does not exist
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/pandas/core/indexes/base.py", line 2442, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc (pandas/_libs/index.c:5280)
+  File "pandas/_libs/index.pyx", line 154, in pandas._libs.index.IndexEngine.get_loc (pandas/_libs/index.c:5126)
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1210, in pandas._libs.hashtable.PyObjectHashTable.get_item (pandas/_libs/hashtable.c:20523)
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1218, in pandas._libs.hashtable.PyObjectHashTable.get_item (pandas/_libs/hashtable.c:20477)
+KeyError: 'index'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "DNN_modifying_inputfile.py", line 175, in <module>
+    train_data, test_data = five_fold(data, j)
+  File "DNN_modifying_inputfile.py", line 19, in five_fold
+    test_data = data[data['index']==i+1]
+  File "/usr/local/lib/python3.4/dist-packages/pandas/core/frame.py", line 1964, in __getitem__
+    return self._getitem_column(key)
+  File "/usr/local/lib/python3.4/dist-packages/pandas/core/frame.py", line 1971, in _getitem_column
+    return self._get_item_cache(key)
+  File "/usr/local/lib/python3.4/dist-packages/pandas/core/generic.py", line 1645, in _get_item_cache
+    values = self._data.get(item)
+  File "/usr/local/lib/python3.4/dist-packages/pandas/core/internals.py", line 3590, in get
+    loc = self.items.get_loc(item)
+  File "/usr/local/lib/python3.4/dist-packages/pandas/core/indexes/base.py", line 2444, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 132, in pandas._libs.index.IndexEngine.get_loc (pandas/_libs/index.c:5280)
+  File "pandas/_libs/index.pyx", line 154, in pandas._libs.index.IndexEngine.get_loc (pandas/_libs/index.c:5126)
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1210, in pandas._libs.hashtable.PyObjectHashTable.get_item (pandas/_libs/hashtable.c:20523)
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1218, in pandas._libs.hashtable.PyObjectHashTable.get_item (pandas/_libs/hashtable.c:20477)
+KeyError: 'index'
