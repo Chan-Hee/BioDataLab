@@ -69,7 +69,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     saver = tf.train.Saver()
     with tf.Session() as sess:
         merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/without_rare_cancer/gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
+        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/with_rare_cancer/gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
         writer.add_graph(sess.graph)
 
         # Initialize TensorFlow variables
@@ -106,7 +106,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
                 if(max(AccuracyList)> max_Accuracy):
                     max_step = step
                     max_Accuracy = max(AccuracyList)
-                    save_path = saver.save(sess, '/home/tjahn/tf_save_data/sungmin/save_path/saved')
+                    save_path = saver.save(sess, '/home/tjahn/tf_save_data/sungmin/save_path_with_cancer/saved')
                     print("Save path: ",save_path,"\nMax_step: ",max_step,"\nMax_Accuracy: ",max_Accuracy )
                  
                    # print("W1, W2, W3, W4: ", W1.eval(),W2.eval(),W3.eval(), W4.eval())
@@ -148,7 +148,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
 ##################READ DATA############################
 repeat, layer, learning_rate = 1000, 3, 0.002
 
-output_directory = "/home/tjahn/tf_save_data/sungmin/result/without_rare_cancer/"
+output_directory = "/home/tjahn/tf_save_data/sungmin/result/with_rare_cancer/"
 conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
@@ -161,7 +161,7 @@ for i in range(len(conf)):
     gene_off = conf.iloc[i]
 
 ####sm
-    datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result_result_without_rare_cancer.csv"
+    datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result.csv"
     data = pd.read_csv(datafilename)
 ####sm
     Gene_Elimination = []
@@ -173,7 +173,7 @@ for i in range(len(conf)):
     for j in range(5):
     #####Five fold#####
         train_data, test_data = five_fold(data, j)
-        test_data = test_data.sample(frac = 1 )
+        test_data = test_data.sample(frac = 1)
         cal_data = test_data[:int(len(test_data)/2)]
         test_data = test_data[int(len(test_data)/2):]
         train_GSM = train_data.iloc[:,0].tolist()
