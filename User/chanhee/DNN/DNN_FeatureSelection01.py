@@ -148,7 +148,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
 ##################READ DATA############################
 repeat, layer, learning_rate = 1000, 3, 0.002
 
-output_directory = "/home/tjahn/Git2/User/chanee/DNN/"
+output_directory = "/home/tjahn/Git2/User/chanhee/DNN/"
 conf_directory = "/home/tjahn/Git2/User/chanhee/DNN/input/"
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
