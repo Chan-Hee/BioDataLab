@@ -234,9 +234,9 @@ for i in range(len(conf)):
 
 #### 파일 생성 ####
 
-    result_train_filename = "result_file_train"+ gene_off + str(j) +".csv"
+    result_train_filename = "result_file_train"+ str(j) +".csv"
     train_result.to_csv(output_directory+result_train_filename , sep= ',')
-    result_test_filename = "result_file_test" + gene_off +str(j) +".csv"
+    result_test_filename = "result_file_test" +str(j) +".csv"
     test_result.to_csv(output_directory+result_test_filename , sep= ',')
 
     ###train h를 file로
