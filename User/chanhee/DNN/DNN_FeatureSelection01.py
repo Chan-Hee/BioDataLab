@@ -169,6 +169,7 @@ conf = pd.read_csv(conf_directory + conf_filename)
 
 ####sm
 datafilename = "/home/tjahn/Data/FinalData00off_GSM_gene_index_result.csv"
+gene_off = 00
 data = pd.read_csv(datafilename)
 ####sm
 Gene_Elimination = []
