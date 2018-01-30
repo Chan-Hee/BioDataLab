@@ -98,10 +98,9 @@ def CNN():
                                 X: test_x, Y: test_y, keep_prob: 1}))
 
     # Get one and predict
-    r = random.randint(0, mnist.test.num_examples - 1)
-    print("Label: ", sess.run(tf.argmax(mnist.test.labels[r:r + 1], 1)))
+    print("Label: ", sess.run(tf.argmax(test_y[10], 1)))
     print("Prediction: ", sess.run(
-                                   tf.argmax(logits, 1), feed_dict={X: mnist.test.images[r:r + 1], keep_prob: 1}))
+                                   tf.argmax(logits, 1), feed_dict={X:test_x[10], keep_prob: 1}))
     
 
 #
