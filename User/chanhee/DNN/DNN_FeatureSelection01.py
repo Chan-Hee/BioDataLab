@@ -5,6 +5,7 @@ import math
 import pandas as pd
 import tensorflow as tf
 from scipy import stats
+import copy
 
 
 tf.set_random_seed(777)
@@ -143,7 +144,18 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
         weighted_sum_result = [str(int(gene_off)),train_a,cal_a,test_a]
     #    weighted_sum_result = [gene_off,train_a,cal_a,test_a,max_step,max_Accuracy]
 
-    return train_p ,train_h, test_p,test_h,weighted_sum_result
+    # Doubled train_X -> Feature Selection method 01
+        double_train_x = copy.deepcopy(train_x)
+
+        gene_double_probability_change_list=[]
+        for i in range(len(double_train_x.shape[0])):
+            double_train_x.iloc[i,] = 2*double_train_x.iloc[i,]
+            double_train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: double_train_x, Y: train_y, keep_prob :1})
+            probability_change = sum(abs(double_train_h.iloc[:,0]-train_h.iloc[:,0]))
+            gene_double_probability_change_list.append(probability_change)
+        gene_double_probability_change_dic = {"probability_change":gene_double_probability_change_list,"index":range(len(train_GSM))}
+        gene_double_probability_change_df = pd.DataFrame(index = train_GSM,data = gene_double_probability_change_dic)
+    return train_p ,train_h, test_p,test_h,weighted_sum_result,gene_double_probability_change_df
 
 ##################READ DATA############################
 repeat, layer, learning_rate = 1000, 3, 0.002
@@ -203,7 +215,7 @@ for i in range(len(conf)):
         cal_y = pd.get_dummies(cal_y)
 
 
-        train_p, train_h , test_p ,test_h, weighted_sum_result  = (set_train_three_layer(nodes, learning_rate, j, gene_off))
+        train_p, train_h , test_p ,test_h, weighted_sum_result, gene_double_probability_change_df = (set_train_three_layer(nodes, learning_rate, j, gene_off))
         train_p = pd.DataFrame(train_p, index = train_GSM )
         train_h = pd.DataFrame(train_h , index = train_GSM)
         test_p = pd.DataFrame(test_p , index = test_GSM)
@@ -220,24 +232,26 @@ for i in range(len(conf)):
         train_result.columns = ['result','prediction','prob0', 'prob1' ]
         test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
-        Gene_Elimination.append(weighted_sum_result[0])
-        Training_Accuracy.append(weighted_sum_result[1])
-        Calibration_Accuracy.append(weighted_sum_result[2])
-        Test_Accuracy.append(weighted_sum_result[3])
+        gene_double_probability_change_df_filename = "result_doubled_gene_prob_change"+ str(j) +".csv"
+        gene_double_probability_change_df.to_csv(output_directory+result_train_filename , sep= ',')
+
+    #    Gene_Elimination.append(weighted_sum_result[0])
+    #    Training_Accuracy.append(weighted_sum_result[1])
+    #    Calibration_Accuracy.append(weighted_sum_result[2])
+    #    Test_Accuracy.append(weighted_sum_result[3])
       #  Max_step.append(weighted_sum_result[4])
       #  Max_Accuracy.append(weighted_sum_result[5])
 ## Accuracy Data 생성 ##
    # Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy,"Max_step":Max_step,"Max_Accuracy":Max_Accuracy})
 
-    Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy})
+    #Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy})
 
 
 #### 파일 생성 ####
 
-    result_train_filename = "result_file_train"+ str(j) +".csv"
-    train_result.to_csv(output_directory+result_train_filename , sep= ',')
-    result_test_filename = "result_file_test" +str(j) +".csv"
-    test_result.to_csv(output_directory+result_test_filename , sep= ',')
+
+    #result_test_filename = "result_file_test" +str(j) +".csv"
+    #test_result.to_csv(output_directory+result_test_f-ilename , sep= ',')
 
     ###train h를 file로
     ###test h를 file로
