@@ -148,13 +148,13 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
         double_train_x = pd.DataFrame( index = train_GSM,data=copy.deepcopy(train_x))
 
         gene_double_probability_change_list=[]
-        for i in range(int(double_train_x.shape[0])):
-            double_train_x.iloc[i,:] = 2*double_train_x.iloc[i,:]
+        for i in range(int(double_train_x.shape[1])):
+            double_train_x.iloc[:,i] = 2*double_train_x.iloc[:,i]
             double_train_h,d_c, d_train_p,d_train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: double_train_x, Y: train_y, keep_prob :1})
             probability_change = sum(abs(double_train_h[:,0]-train_h[:,0]))
             gene_double_probability_change_list.append(probability_change)
-        gene_double_probability_change_dic = {"probability_change":gene_double_probability_change_list,"index":range(len(train_GSM))}
-        gene_double_probability_change_df = pd.DataFrame(index = train_GSM,data = gene_double_probability_change_dic)
+        gene_double_probability_change_dic = {"gene_names":list(data)[1:-2],"probability_change":gene_double_probability_change_list,"gene_index":range(double_train_x.shape[1])}
+        gene_double_probability_change_df = pd.DataFrame(index = ,data = gene_double_probability_change_dic)
     return train_p ,train_h, test_p,test_h,weighted_sum_result,gene_double_probability_change_df
 
 ##################READ DATA############################
