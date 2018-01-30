@@ -161,7 +161,7 @@ conf = pd.read_csv(conf_directory + conf_filename)
 ###
 for i in range(len(conf)):
    # repeat, layer, node, learning_rate, gene_off = conf.iloc[i]
-    gene_off = conf.iloc[i]
+   # gene_off = conf.iloc[i]
     layer, node, gene_off = conf.iloc[i]
     nodes = list(map(int, node.split(" ")))
    
