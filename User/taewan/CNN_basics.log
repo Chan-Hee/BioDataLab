@@ -1,0 +1,560 @@
+2432 9481
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_1:0", shape=(?, 2), dtype=float32)
+2017-12-15 19:53:20.609347: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-15 19:53:20.609371: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-15 19:53:20.609375: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-15 19:53:20.609379: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-15 19:53:20.609382: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Learning started. It takes sometime.
+Epoch: 0001 cost = 0.824243989
+Epoch: 0002 cost = 0.718823922
+Epoch: 0003 cost = 0.649560859
+Epoch: 0004 cost = 0.571572673
+Epoch: 0005 cost = 0.526833309
+Epoch: 0006 cost = 0.475504002
+Epoch: 0007 cost = 0.445747074
+Epoch: 0008 cost = 0.427898978
+Epoch: 0009 cost = 0.402904441
+Epoch: 0010 cost = 0.389781027
+Epoch: 0011 cost = 0.374591369
+Epoch: 0012 cost = 0.367693958
+Epoch: 0013 cost = 0.359537691
+Epoch: 0014 cost = 0.360222441
+Epoch: 0015 cost = 0.339918772
+Epoch: 0016 cost = 0.323721846
+Epoch: 0017 cost = 0.313692795
+Epoch: 0018 cost = 0.297387711
+Epoch: 0019 cost = 0.290858500
+Epoch: 0020 cost = 0.278901432
+Epoch: 0021 cost = 0.271437612
+Epoch: 0022 cost = 0.263464141
+Epoch: 0023 cost = 0.257670620
+Epoch: 0024 cost = 0.254515054
+Epoch: 0025 cost = 0.252448270
+Epoch: 0026 cost = 0.242800569
+Epoch: 0027 cost = 0.235145516
+Epoch: 0028 cost = 0.223376475
+Epoch: 0029 cost = 0.219899240
+Epoch: 0030 cost = 0.208011835
+Epoch: 0031 cost = 0.200876773
+Epoch: 0032 cost = 0.193637124
+Epoch: 0033 cost = 0.192367201
+Epoch: 0034 cost = 0.189846113
+Epoch: 0035 cost = 0.182027917
+Epoch: 0036 cost = 0.176709325
+Epoch: 0037 cost = 0.168868755
+Epoch: 0038 cost = 0.168323877
+Epoch: 0039 cost = 0.165754920
+Epoch: 0040 cost = 0.162916848
+Epoch: 0041 cost = 0.154084477
+Epoch: 0042 cost = 0.159224620
+Epoch: 0043 cost = 0.142881730
+Epoch: 0044 cost = 0.157546620
+Epoch: 0045 cost = 0.140197430
+Epoch: 0046 cost = 0.137161085
+Epoch: 0047 cost = 0.140346184
+Epoch: 0048 cost = 0.125862086
+Epoch: 0049 cost = 0.127922330
+Epoch: 0050 cost = 0.125481189
+Epoch: 0051 cost = 0.126509760
+Epoch: 0052 cost = 0.120106908
+Epoch: 0053 cost = 0.118083867
+Epoch: 0054 cost = 0.107309346
+Epoch: 0055 cost = 0.095140414
+Epoch: 0056 cost = 0.097292804
+Epoch: 0057 cost = 0.091820171
+Epoch: 0058 cost = 0.091390222
+Epoch: 0059 cost = 0.085908004
+Epoch: 0060 cost = 0.090979606
+Epoch: 0061 cost = 0.087259110
+Epoch: 0062 cost = 0.096782071
+Epoch: 0063 cost = 0.076263833
+Epoch: 0064 cost = 0.079951694
+Epoch: 0065 cost = 0.084061824
+Epoch: 0066 cost = 0.077422651
+Epoch: 0067 cost = 0.069743625
+Epoch: 0068 cost = 0.071245938
+Epoch: 0069 cost = 0.075036840
+Epoch: 0070 cost = 0.071888011
+Epoch: 0071 cost = 0.070941540
+Epoch: 0072 cost = 0.064925497
+Epoch: 0073 cost = 0.072628486
+Epoch: 0074 cost = 0.064343349
+Epoch: 0075 cost = 0.067835268
+Epoch: 0076 cost = 0.058168321
+Epoch: 0077 cost = 0.066934233
+Epoch: 0078 cost = 0.068289357
+Epoch: 0079 cost = 0.060654766
+Epoch: 0080 cost = 0.056909688
+Epoch: 0081 cost = 0.061655311
+Epoch: 0082 cost = 0.052951583
+Epoch: 0083 cost = 0.050675125
+Epoch: 0084 cost = 0.054742493
+Epoch: 0085 cost = 0.052194184
+Epoch: 0086 cost = 0.055812130
+Epoch: 0087 cost = 0.056672169
+Epoch: 0088 cost = 0.052815213
+Epoch: 0089 cost = 0.048880810
+Epoch: 0090 cost = 0.050031991
+Epoch: 0091 cost = 0.047384572
+Epoch: 0092 cost = 0.048282301
+Epoch: 0093 cost = 0.043640193
+Epoch: 0094 cost = 0.044076350
+Epoch: 0095 cost = 0.042735180
+Epoch: 0096 cost = 0.046631342
+Epoch: 0097 cost = 0.063674860
+Epoch: 0098 cost = 0.052398485
+Epoch: 0099 cost = 0.049270574
+Epoch: 0100 cost = 0.038943566
+Accuracy: 0.956003
+Learning Finished!
+2449 9464
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_1:0", shape=(?, 2), dtype=float32)
+Learning started. It takes sometime.
+Epoch: 0001 cost = 0.762502279
+Epoch: 0002 cost = 0.626443288
+Epoch: 0003 cost = 0.527240538
+Epoch: 0004 cost = 0.459169236
+Epoch: 0005 cost = 0.413348699
+Epoch: 0006 cost = 0.387340916
+Epoch: 0007 cost = 0.368369561
+Epoch: 0008 cost = 0.360639237
+Epoch: 0009 cost = 0.350601760
+Epoch: 0010 cost = 0.324051430
+Epoch: 0011 cost = 0.315451818
+Epoch: 0012 cost = 0.303773321
+Epoch: 0013 cost = 0.291547116
+Epoch: 0014 cost = 0.280591211
+Epoch: 0015 cost = 0.258792158
+Epoch: 0016 cost = 0.258319819
+Epoch: 0017 cost = 0.251033749
+Epoch: 0018 cost = 0.246293564
+Epoch: 0019 cost = 0.230034031
+Epoch: 0020 cost = 0.217533292
+Epoch: 0021 cost = 0.212771991
+Epoch: 0022 cost = 0.202665693
+Epoch: 0023 cost = 0.182689449
+Epoch: 0024 cost = 0.185130291
+Epoch: 0025 cost = 0.176493773
+Epoch: 0026 cost = 0.160876283
+Epoch: 0027 cost = 0.161003355
+Epoch: 0028 cost = 0.143356257
+Epoch: 0029 cost = 0.140135553
+Epoch: 0030 cost = 0.147209593
+Epoch: 0031 cost = 0.144757609
+Epoch: 0032 cost = 0.139998481
+Epoch: 0033 cost = 0.130195047
+Epoch: 0034 cost = 0.131389668
+Epoch: 0035 cost = 0.125897115
+Epoch: 0036 cost = 0.123066018
+Epoch: 0037 cost = 0.118261641
+Epoch: 0038 cost = 0.109605258
+Epoch: 0039 cost = 0.103237225
+Epoch: 0040 cost = 0.103809542
+Epoch: 0041 cost = 0.101416441
+Epoch: 0042 cost = 0.092038476
+Epoch: 0043 cost = 0.091458529
+Epoch: 0044 cost = 0.082213506
+Epoch: 0045 cost = 0.089935492
+Epoch: 0046 cost = 0.087669286
+Epoch: 0047 cost = 0.082812263
+Epoch: 0048 cost = 0.078719392
+Epoch: 0049 cost = 0.075368098
+Epoch: 0050 cost = 0.079646131
+Epoch: 0051 cost = 0.070978656
+Epoch: 0052 cost = 0.072664624
+Epoch: 0053 cost = 0.072235148
+Epoch: 0054 cost = 0.063899210
+Epoch: 0055 cost = 0.065893357
+Epoch: 0056 cost = 0.068400834
+Epoch: 0057 cost = 0.068587050
+Epoch: 0058 cost = 0.060855421
+Epoch: 0059 cost = 0.057903937
+Epoch: 0060 cost = 0.060732489
+Epoch: 0061 cost = 0.054261505
+Epoch: 0062 cost = 0.058352691
+Epoch: 0063 cost = 0.052519238
+Epoch: 0064 cost = 0.053944207
+Epoch: 0065 cost = 0.048877914
+Epoch: 0066 cost = 0.053171072
+Epoch: 0067 cost = 0.050169915
+Epoch: 0068 cost = 0.037978922
+Epoch: 0069 cost = 0.042559229
+Epoch: 0070 cost = 0.045576430
+Epoch: 0071 cost = 0.044475999
+Epoch: 0072 cost = 0.037744865
+Epoch: 0073 cost = 0.040252646
+Epoch: 0074 cost = 0.044472074
+Epoch: 0075 cost = 0.043112880
+Epoch: 0076 cost = 0.044949846
+Epoch: 0077 cost = 0.050587711
+Epoch: 0078 cost = 0.048402053
+Epoch: 0079 cost = 0.036761438
+Epoch: 0080 cost = 0.035929484
+Epoch: 0081 cost = 0.036046759
+Epoch: 0082 cost = 0.030997717
+Epoch: 0083 cost = 0.034471996
+Epoch: 0084 cost = 0.037814392
+Epoch: 0085 cost = 0.041130076
+Epoch: 0086 cost = 0.042161290
+Epoch: 0087 cost = 0.044926600
+Epoch: 0088 cost = 0.032552109
+Epoch: 0089 cost = 0.036376752
+Epoch: 0090 cost = 0.040646562
+Epoch: 0091 cost = 0.034108550
+Epoch: 0092 cost = 0.038396062
+Epoch: 0093 cost = 0.042408628
+Epoch: 0094 cost = 0.039031897
+Epoch: 0095 cost = 0.031855846
+Epoch: 0096 cost = 0.033069243
+Epoch: 0097 cost = 0.033633714
+Epoch: 0098 cost = 0.032845538
+Epoch: 0099 cost = 0.036384413
+Epoch: 0100 cost = 0.032531826
+Accuracy: 0.948142
+Learning Finished!
+2359 9554
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_1:0", shape=(?, 2), dtype=float32)
+Learning started. It takes sometime.
+Epoch: 0001 cost = 0.801327609
+Epoch: 0002 cost = 0.754707651
+Epoch: 0003 cost = 0.704304253
+Epoch: 0004 cost = 0.585659644
+Epoch: 0005 cost = 0.530172335
+Epoch: 0006 cost = 0.482655862
+Epoch: 0007 cost = 0.460279256
+Epoch: 0008 cost = 0.441904699
+Epoch: 0009 cost = 0.427362849
+Epoch: 0010 cost = 0.425303341
+Epoch: 0011 cost = 0.410352543
+Epoch: 0012 cost = 0.401654732
+Epoch: 0013 cost = 0.391498363
+Epoch: 0014 cost = 0.407778339
+Epoch: 0015 cost = 0.376698065
+Epoch: 0016 cost = 0.370238920
+Epoch: 0017 cost = 0.363160230
+Epoch: 0018 cost = 0.355076437
+Epoch: 0019 cost = 0.354199591
+Epoch: 0020 cost = 0.348850260
+Epoch: 0021 cost = 0.345627685
+Epoch: 0022 cost = 0.330460454
+Epoch: 0023 cost = 0.333410505
+Epoch: 0024 cost = 0.324138622
+Epoch: 0025 cost = 0.317446541
+Epoch: 0026 cost = 0.308876472
+Epoch: 0027 cost = 0.297149885
+Epoch: 0028 cost = 0.305929825
+Epoch: 0029 cost = 0.297388779
+Epoch: 0030 cost = 0.286629148
+Epoch: 0031 cost = 0.293056381
+Epoch: 0032 cost = 0.270071983
+Epoch: 0033 cost = 0.252747960
+Epoch: 0034 cost = 0.262801075
+Epoch: 0035 cost = 0.244240071
+Epoch: 0036 cost = 0.231297112
+Epoch: 0037 cost = 0.234938928
+Epoch: 0038 cost = 0.215611873
+Epoch: 0039 cost = 0.206996533
+Epoch: 0040 cost = 0.203048605
+Epoch: 0041 cost = 0.194955796
+Epoch: 0042 cost = 0.184195379
+Epoch: 0043 cost = 0.172794248
+Epoch: 0044 cost = 0.167168526
+Epoch: 0045 cost = 0.174550373
+Epoch: 0046 cost = 0.164437699
+Epoch: 0047 cost = 0.154499565
+Epoch: 0048 cost = 0.149139380
+Epoch: 0049 cost = 0.148662124
+Epoch: 0050 cost = 0.149502257
+Epoch: 0051 cost = 0.142941431
+Epoch: 0052 cost = 0.122860514
+Epoch: 0053 cost = 0.130187495
+Epoch: 0054 cost = 0.118024379
+Epoch: 0055 cost = 0.122688239
+Epoch: 0056 cost = 0.111350928
+Epoch: 0057 cost = 0.108816854
+Epoch: 0058 cost = 0.104737001
+Epoch: 0059 cost = 0.093101601
+Epoch: 0060 cost = 0.094518867
+Epoch: 0061 cost = 0.091387972
+Epoch: 0062 cost = 0.101749611
+Epoch: 0063 cost = 0.094262579
+Epoch: 0064 cost = 0.082008422
+Epoch: 0065 cost = 0.092345493
+Epoch: 0066 cost = 0.084063796
+Epoch: 0067 cost = 0.086814410
+Epoch: 0068 cost = 0.074698694
+Epoch: 0069 cost = 0.078933943
+Epoch: 0070 cost = 0.088759917
+Epoch: 0071 cost = 0.080413336
+Epoch: 0072 cost = 0.078920049
+Epoch: 0073 cost = 0.078970586
+Epoch: 0074 cost = 0.068594040
+Epoch: 0075 cost = 0.075864602
+Epoch: 0076 cost = 0.073125717
+Epoch: 0077 cost = 0.079078272
+Epoch: 0078 cost = 0.062801867
+Epoch: 0079 cost = 0.065964707
+Epoch: 0080 cost = 0.068343055
+Epoch: 0081 cost = 0.071103687
+Epoch: 0082 cost = 0.064320828
+Epoch: 0083 cost = 0.067893641
+Epoch: 0084 cost = 0.056064938
+Epoch: 0085 cost = 0.069278830
+Epoch: 0086 cost = 0.061692275
+Epoch: 0087 cost = 0.058372667
+Epoch: 0088 cost = 0.049652257
+Epoch: 0089 cost = 0.050566196
+Epoch: 0090 cost = 0.053410832
+Epoch: 0091 cost = 0.051544120
+Epoch: 0092 cost = 0.052583267
+Epoch: 0093 cost = 0.051643215
+Epoch: 0094 cost = 0.052230222
+Epoch: 0095 cost = 0.050279761
+Epoch: 0096 cost = 0.052884441
+Epoch: 0097 cost = 0.048550162
+Epoch: 0098 cost = 0.044565771
+Epoch: 0099 cost = 0.040943235
+Epoch: 0100 cost = 0.040873489
+Accuracy: 0.949979
+Learning Finished!
+2339 9574
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_1:0", shape=(?, 2), dtype=float32)
+Learning started. It takes sometime.
+Epoch: 0001 cost = 0.804933639
+Epoch: 0002 cost = 0.719645066
+Epoch: 0003 cost = 0.606169238
+Epoch: 0004 cost = 0.525838838
+Epoch: 0005 cost = 0.490680472
+Epoch: 0006 cost = 0.458360032
+Epoch: 0007 cost = 0.447206823
+Epoch: 0008 cost = 0.433956056
+Epoch: 0009 cost = 0.431252270
+Epoch: 0010 cost = 0.419335966
+Epoch: 0011 cost = 0.416300408
+Epoch: 0012 cost = 0.404615106
+Epoch: 0013 cost = 0.403507492
+Epoch: 0014 cost = 0.391508675
+Epoch: 0015 cost = 0.388270612
+Epoch: 0016 cost = 0.382936362
+Epoch: 0017 cost = 0.377436047
+Epoch: 0018 cost = 0.375136817
+Epoch: 0019 cost = 0.360601095
+Epoch: 0020 cost = 0.370941683
+Epoch: 0021 cost = 0.357226484
+Epoch: 0022 cost = 0.351782064
+Epoch: 0023 cost = 0.345833786
+Epoch: 0024 cost = 0.337567257
+Epoch: 0025 cost = 0.330371623
+Epoch: 0026 cost = 0.330762808
+Epoch: 0027 cost = 0.316588078
+Epoch: 0028 cost = 0.311019178
+Epoch: 0029 cost = 0.308629205
+Epoch: 0030 cost = 0.296973422
+Epoch: 0031 cost = 0.297690460
+Epoch: 0032 cost = 0.280361314
+Epoch: 0033 cost = 0.274782136
+Epoch: 0034 cost = 0.281152852
+Epoch: 0035 cost = 0.260234993
+Epoch: 0036 cost = 0.254177650
+Epoch: 0037 cost = 0.245595520
+Epoch: 0038 cost = 0.244087993
+Epoch: 0039 cost = 0.227285132
+Epoch: 0040 cost = 0.238867949
+Epoch: 0041 cost = 0.239970817
+Epoch: 0042 cost = 0.221391085
+Epoch: 0043 cost = 0.215380847
+Epoch: 0044 cost = 0.209229360
+Epoch: 0045 cost = 0.208048609
+Epoch: 0046 cost = 0.203196677
+Epoch: 0047 cost = 0.187023297
+Epoch: 0048 cost = 0.184928628
+Epoch: 0049 cost = 0.179780071
+Epoch: 0050 cost = 0.176689900
+Epoch: 0051 cost = 0.178483177
+Epoch: 0052 cost = 0.168687959
+Epoch: 0053 cost = 0.164655350
+Epoch: 0054 cost = 0.165099780
+Epoch: 0055 cost = 0.151532417
+Epoch: 0056 cost = 0.153205708
+Epoch: 0057 cost = 0.149246423
+Epoch: 0058 cost = 0.139746066
+Epoch: 0059 cost = 0.145561850
+Epoch: 0060 cost = 0.143403479
+Epoch: 0061 cost = 0.136597121
+Epoch: 0062 cost = 0.127134887
+Epoch: 0063 cost = 0.127373363
+Epoch: 0064 cost = 0.137479550
+Epoch: 0065 cost = 0.131614091
+Epoch: 0066 cost = 0.127962254
+Epoch: 0067 cost = 0.121307684
+Epoch: 0068 cost = 0.115182663
+Epoch: 0069 cost = 0.109502545
+Epoch: 0070 cost = 0.101982786
+Epoch: 0071 cost = 0.106816155
+Epoch: 0072 cost = 0.110081999
+Epoch: 0073 cost = 0.102488297
+Epoch: 0074 cost = 0.113601043
+Epoch: 0075 cost = 0.086425066
+Epoch: 0076 cost = 0.103436057
+Epoch: 0077 cost = 0.106918739
+Epoch: 0078 cost = 0.087006325
+Epoch: 0079 cost = 0.091768595
+Epoch: 0080 cost = 0.083411194
+Epoch: 0081 cost = 0.084008451
+Epoch: 0082 cost = 0.087521119
+Epoch: 0083 cost = 0.091648384
+Epoch: 0084 cost = 0.078475517
+Epoch: 0085 cost = 0.081622733
+Epoch: 0086 cost = 0.088443126
+Epoch: 0087 cost = 0.082685498
+Epoch: 0088 cost = 0.079207209
+Epoch: 0089 cost = 0.081596627
+Epoch: 0090 cost = 0.069770406
+Epoch: 0091 cost = 0.072294422
+Epoch: 0092 cost = 0.074205721
+Epoch: 0093 cost = 0.071165629
+Epoch: 0094 cost = 0.065323940
+Epoch: 0095 cost = 0.064457132
+Epoch: 0096 cost = 0.065452406
+Epoch: 0097 cost = 0.063457529
+Epoch: 0098 cost = 0.057699601
+Epoch: 0099 cost = 0.059262855
+Epoch: 0100 cost = 0.059738467
+Accuracy: 0.938435
+Learning Finished!
+2334 9579
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_1:0", shape=(?, 2), dtype=float32)
+Learning started. It takes sometime.
+Epoch: 0001 cost = 0.796967073
+Epoch: 0002 cost = 0.767998453
+Epoch: 0003 cost = 0.717838734
+Epoch: 0004 cost = 0.582095721
+Epoch: 0005 cost = 0.509746229
+Epoch: 0006 cost = 0.469814996
+Epoch: 0007 cost = 0.451240562
+Epoch: 0008 cost = 0.434010648
+Epoch: 0009 cost = 0.422539600
+Epoch: 0010 cost = 0.429596463
+Epoch: 0011 cost = 0.419019635
+Epoch: 0012 cost = 0.407623557
+Epoch: 0013 cost = 0.391622697
+Epoch: 0014 cost = 0.393411573
+Epoch: 0015 cost = 0.392504844
+Epoch: 0016 cost = 0.378083025
+Epoch: 0017 cost = 0.381808549
+Epoch: 0018 cost = 0.374529442
+Epoch: 0019 cost = 0.371815402
+Epoch: 0020 cost = 0.362836468
+Epoch: 0021 cost = 0.358819610
+Epoch: 0022 cost = 0.357793996
+Epoch: 0023 cost = 0.346111032
+Epoch: 0024 cost = 0.343564743
+Epoch: 0025 cost = 0.345357851
+Epoch: 0026 cost = 0.330891824
+Epoch: 0027 cost = 0.330272513
+Epoch: 0028 cost = 0.332737981
+Epoch: 0029 cost = 0.320769832
+Epoch: 0030 cost = 0.310425994
+Epoch: 0031 cost = 0.313547647
+Epoch: 0032 cost = 0.302651344
+Epoch: 0033 cost = 0.301839088
+Epoch: 0034 cost = 0.295997621
+Epoch: 0035 cost = 0.294882279
+Epoch: 0036 cost = 0.287701641
+Epoch: 0037 cost = 0.279062514
+Epoch: 0038 cost = 0.275478807
+Epoch: 0039 cost = 0.278471453
+Epoch: 0040 cost = 0.263997527
+Epoch: 0041 cost = 0.264216215
+Epoch: 0042 cost = 0.265307331
+Epoch: 0043 cost = 0.255740415
+Epoch: 0044 cost = 0.260185333
+Epoch: 0045 cost = 0.257288650
+Epoch: 0046 cost = 0.244581924
+Epoch: 0047 cost = 0.234178776
+Epoch: 0048 cost = 0.238920294
+Epoch: 0049 cost = 0.232480226
+Epoch: 0050 cost = 0.238979875
+Epoch: 0051 cost = 0.238746864
+Epoch: 0052 cost = 0.220406401
+Epoch: 0053 cost = 0.229882038
+Epoch: 0054 cost = 0.223695869
+Epoch: 0055 cost = 0.216742625
+Epoch: 0056 cost = 0.217038682
+Epoch: 0057 cost = 0.212343721
+Epoch: 0058 cost = 0.200252915
+Epoch: 0059 cost = 0.209493102
+Epoch: 0060 cost = 0.205264474
+Epoch: 0061 cost = 0.196003570
+Epoch: 0062 cost = 0.187136432
+Epoch: 0063 cost = 0.195037720
+Epoch: 0064 cost = 0.200010081
+Epoch: 0065 cost = 0.189624164
+Epoch: 0066 cost = 0.186370857
+Epoch: 0067 cost = 0.187470129
+Epoch: 0068 cost = 0.179414736
+Epoch: 0069 cost = 0.188257870
+Epoch: 0070 cost = 0.181418700
+Epoch: 0071 cost = 0.176778887
+Epoch: 0072 cost = 0.176553470
+Epoch: 0073 cost = 0.167273143
+Epoch: 0074 cost = 0.171054871
+Epoch: 0075 cost = 0.182864126
+Epoch: 0076 cost = 0.172447135
+Epoch: 0077 cost = 0.171544419
+Epoch: 0078 cost = 0.173193310
+Epoch: 0079 cost = 0.164609747
+Epoch: 0080 cost = 0.174095100
+Epoch: 0081 cost = 0.159626852
+Epoch: 0082 cost = 0.173232882
+Epoch: 0083 cost = 0.166927565
+Epoch: 0084 cost = 0.165151253
+Epoch: 0085 cost = 0.165798265
+Epoch: 0086 cost = 0.152954114
+Epoch: 0087 cost = 0.156395714
+Epoch: 0088 cost = 0.155120609
+Epoch: 0089 cost = 0.147297398
+Epoch: 0090 cost = 0.156536481
+Epoch: 0091 cost = 0.148838597
+Epoch: 0092 cost = 0.148342219
+Epoch: 0093 cost = 0.144089895
+Epoch: 0094 cost = 0.142720523
+Epoch: 0095 cost = 0.136867539
+Epoch: 0096 cost = 0.135562089
+Epoch: 0097 cost = 0.138003138
+Epoch: 0098 cost = 0.138310420
+Epoch: 0099 cost = 0.131911578
+Epoch: 0100 cost = 0.130716148
+Accuracy: 0.934019
+Learning Finished!

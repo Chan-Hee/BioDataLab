@@ -1,0 +1,215 @@
+2432 9481
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_3:0", shape=(?, 2), dtype=float32)
+2017-12-05 00:02:11.315382: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-05 00:02:11.315423: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-05 00:02:11.315429: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-05 00:02:11.315433: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-12-05 00:02:11.315437: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Learning started. It takes sometime.
+Epoch: 0001 cost = 0.779162718
+Epoch: 0002 cost = 0.679783813
+Epoch: 0003 cost = 0.606343839
+Epoch: 0004 cost = 0.564848936
+Epoch: 0005 cost = 0.530503117
+Epoch: 0006 cost = 0.495694696
+Epoch: 0007 cost = 0.471014637
+Epoch: 0008 cost = 0.451297390
+Epoch: 0009 cost = 0.426511345
+Epoch: 0010 cost = 0.406245807
+Epoch: 0011 cost = 0.384776107
+Epoch: 0012 cost = 0.381681535
+Epoch: 0013 cost = 0.369134449
+Epoch: 0014 cost = 0.358962417
+Epoch: 0015 cost = 0.346868298
+Epoch: 0016 cost = 0.325285757
+Epoch: 0017 cost = 0.309997413
+Epoch: 0018 cost = 0.310152163
+Epoch: 0019 cost = 0.289031129
+Epoch: 0020 cost = 0.286404000
+Epoch: 0021 cost = 0.276521631
+Epoch: 0022 cost = 0.265914363
+Epoch: 0023 cost = 0.255203566
+Epoch: 0024 cost = 0.242137919
+Epoch: 0025 cost = 0.233103213
+Epoch: 0026 cost = 0.235952811
+Epoch: 0027 cost = 0.229379153
+Epoch: 0028 cost = 0.208627774
+Epoch: 0029 cost = 0.199580088
+Epoch: 0030 cost = 0.200749252
+Accuracy: 0.888158
+Learning Finished!
+2449 9464
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_3:0", shape=(?, 2), dtype=float32)
+Learning started. It takes sometime.
+Epoch: 0001 cost = 0.714547316
+Epoch: 0002 cost = 0.694179846
+Epoch: 0003 cost = 0.692791527
+Epoch: 0004 cost = 0.693459136
+Epoch: 0005 cost = 0.692702104
+Epoch: 0006 cost = 0.691625847
+Epoch: 0007 cost = 0.691101499
+Epoch: 0008 cost = 0.691336921
+Epoch: 0009 cost = 0.690989620
+Epoch: 0010 cost = 0.690635802
+Epoch: 0011 cost = 0.690685183
+Epoch: 0012 cost = 0.690669855
+Epoch: 0013 cost = 0.690417011
+Epoch: 0014 cost = 0.682347704
+Epoch: 0015 cost = 0.676165534
+Epoch: 0016 cost = 0.612343573
+Epoch: 0017 cost = 0.548381115
+Epoch: 0018 cost = 0.530296429
+Epoch: 0019 cost = 0.497677139
+Epoch: 0020 cost = 0.486296022
+Epoch: 0021 cost = 0.468958238
+Epoch: 0022 cost = 0.459326080
+Epoch: 0023 cost = 0.445385700
+Epoch: 0024 cost = 0.425053081
+Epoch: 0025 cost = 0.419819086
+Epoch: 0026 cost = 0.401696202
+Epoch: 0027 cost = 0.391056221
+Epoch: 0028 cost = 0.368087200
+Epoch: 0029 cost = 0.364425203
+Epoch: 0030 cost = 0.353786417
+Accuracy: 0.836668
+Learning Finished!
+2359 9554
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_3:0", shape=(?, 2), dtype=float32)
+Learning started. It takes sometime.
+Epoch: 0001 cost = 0.719592136
+Epoch: 0002 cost = 0.690713456
+Epoch: 0003 cost = 0.690643691
+Epoch: 0004 cost = 0.690536119
+Epoch: 0005 cost = 0.690526451
+Epoch: 0006 cost = 0.690168367
+Epoch: 0007 cost = 0.690229103
+Epoch: 0008 cost = 0.668031012
+Epoch: 0009 cost = 0.604072476
+Epoch: 0010 cost = 0.548642625
+Epoch: 0011 cost = 0.504278959
+Epoch: 0012 cost = 0.479073467
+Epoch: 0013 cost = 0.459257123
+Epoch: 0014 cost = 0.433644708
+Epoch: 0015 cost = 0.410635751
+Epoch: 0016 cost = 0.401289342
+Epoch: 0017 cost = 0.396676269
+Epoch: 0018 cost = 0.381193155
+Epoch: 0019 cost = 0.367462176
+Epoch: 0020 cost = 0.347184513
+Epoch: 0021 cost = 0.341041701
+Epoch: 0022 cost = 0.324696113
+Epoch: 0023 cost = 0.304792813
+Epoch: 0024 cost = 0.301894516
+Epoch: 0025 cost = 0.296527571
+Epoch: 0026 cost = 0.278626777
+Epoch: 0027 cost = 0.261185663
+Epoch: 0028 cost = 0.251325649
+Epoch: 0029 cost = 0.247505160
+Epoch: 0030 cost = 0.237130594
+Accuracy: 0.892327
+Learning Finished!
+2339 9574
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_3:0", shape=(?, 2), dtype=float32)
+Learning started. It takes sometime.
+Epoch: 0001 cost = 0.981501897
+Epoch: 0002 cost = 0.824279698
+Epoch: 0003 cost = 0.801324883
+Epoch: 0004 cost = 0.744336474
+Epoch: 0005 cost = 0.667022342
+Epoch: 0006 cost = 0.599719251
+Epoch: 0007 cost = 0.571549554
+Epoch: 0008 cost = 0.536834949
+Epoch: 0009 cost = 0.515805022
+Epoch: 0010 cost = 0.500931023
+Epoch: 0011 cost = 0.486546797
+Epoch: 0012 cost = 0.472681816
+Epoch: 0013 cost = 0.458507044
+Epoch: 0014 cost = 0.445594165
+Epoch: 0015 cost = 0.440246480
+Epoch: 0016 cost = 0.415326469
+Epoch: 0017 cost = 0.418092626
+Epoch: 0018 cost = 0.403835869
+Epoch: 0019 cost = 0.395084167
+Epoch: 0020 cost = 0.383125357
+Epoch: 0021 cost = 0.369863009
+Epoch: 0022 cost = 0.358389825
+Epoch: 0023 cost = 0.356235738
+Epoch: 0024 cost = 0.347580980
+Epoch: 0025 cost = 0.319377441
+Epoch: 0026 cost = 0.319271952
+Epoch: 0027 cost = 0.316380422
+Epoch: 0028 cost = 0.302954532
+Epoch: 0029 cost = 0.286962202
+Epoch: 0030 cost = 0.272810128
+Accuracy: 0.879436
+Learning Finished!
+2334 9579
+This Train is No.1
+Tensor("dropout/mul:0", shape=(?, 39, 39, 32), dtype=float32)
+Tensor("dropout_1/mul:0", shape=(?, 20, 20, 64), dtype=float32)
+Tensor("dropout_2/mul:0", shape=(?, 10, 10, 128), dtype=float32)
+Tensor("Reshape_1:0", shape=(?, 12800), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("dropout_3/mul:0", shape=(?, 1280), dtype=float32)
+Tensor("add_3:0", shape=(?, 2), dtype=float32)
+Learning started. It takes sometime.
+Epoch: 0001 cost = 0.702594575
+Epoch: 0002 cost = 0.692353939
+Epoch: 0003 cost = 0.690594546
+Epoch: 0004 cost = 0.690855018
+Epoch: 0005 cost = 0.690377990
+Epoch: 0006 cost = 0.690485629
+Epoch: 0007 cost = 0.690442329
+Epoch: 0008 cost = 0.690164106
+Epoch: 0009 cost = 0.690721031
+Epoch: 0010 cost = 0.690308005
+Epoch: 0011 cost = 0.690138024
+Epoch: 0012 cost = 0.690211220
+Epoch: 0013 cost = 0.690047479
+Epoch: 0014 cost = 0.690116920
+Epoch: 0015 cost = 0.690065339
+Epoch: 0016 cost = 0.690082029
+Epoch: 0017 cost = 0.690103269
+Epoch: 0018 cost = 0.690271313
+Epoch: 0019 cost = 0.690427204
+Epoch: 0020 cost = 0.690218466
+Epoch: 0021 cost = 0.690157705
+Epoch: 0022 cost = 0.690074593
+Epoch: 0023 cost = 0.690170750
+Epoch: 0024 cost = 0.690162016
+Epoch: 0025 cost = 0.690173821
+Epoch: 0026 cost = 0.690151047
+Epoch: 0027 cost = 0.690148625
+Epoch: 0028 cost = 0.690391483
+Epoch: 0029 cost = 0.690161601
+Epoch: 0030 cost = 0.690080001
+Accuracy: 0.530848
+Learning Finished!
