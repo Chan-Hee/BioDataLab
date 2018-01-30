@@ -166,95 +166,90 @@ conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
 
 
-###
-for i in range(len(conf)):
-   # repeat, layer, node, learning_rate, gene_off = conf.iloc[i]
-   # nodes = list(map(int, node.split(" ")))
-    gene_off = conf.iloc[i]
 
 ####sm
-    datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result.csv"
-    data = pd.read_csv(datafilename)
+datafilename = "/home/tjahn/Data/FinalData00off_GSM_gene_index_result.csv"
+data = pd.read_csv(datafilename)
 ####sm
-    Gene_Elimination = []
-    Training_Accuracy=[]
-    Calibration_Accuracy=[]
-    Test_Accuracy=[]
-  #  Max_step = []
-  #  Max_Accuracy = []
-    for j in range(5):
-    #####Five fold#####
-        train_data, test_data = five_fold(data, j)
-        cal_data = test_data[:int(len(test_data)/2)]
-        test_data = test_data[int(len(test_data)/2):]
-        train_GSM = train_data.iloc[:,0].tolist()
-        test_GSM = test_data.iloc[:,0].tolist()
-        cal_GSM = cal_data.iloc[:,0].tolist()
+Gene_Elimination = []
+Training_Accuracy=[]
+Calibration_Accuracy=[]
+Test_Accuracy=[]
+#  Max_step = []
+#  Max_Accuracy = []
+for j in range(5):
+#####Five fold#####
+    train_data, test_data = five_fold(data, j)
+    cal_data = test_data[:int(len(test_data)/2)]
+    test_data = test_data[int(len(test_data)/2):]
+    train_GSM = train_data.iloc[:,0].tolist()
+    test_GSM = test_data.iloc[:,0].tolist()
+    cal_GSM = cal_data.iloc[:,0].tolist()
 
-    #####Train Data Set#####
-        train_x = train_data.iloc[:,1:-2]
-        train_x = train_x.as_matrix()
-        train_y = train_data.iloc[:,-1].as_matrix()
-        train_y = train_y.flatten()
-        train_y = pd.get_dummies(train_y)
-        cnt_train = len(train_x[1, :])
-        nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
+#####Train Data Set#####
+    train_x = train_data.iloc[:,1:-2]
+    train_x = train_x.as_matrix()
+    train_y = train_data.iloc[:,-1].as_matrix()
+    train_y = train_y.flatten()
+    train_y = pd.get_dummies(train_y)
+    cnt_train = len(train_x[1, :])
+    nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
 
-    #####Test Data Set#####
-        test_x = test_data.iloc[:,1:-2]
-        test_x = test_x.as_matrix()
-        test_y = test_data.iloc[:,-1].as_matrix()
-        test_y = test_y.flatten()
-        test_y = pd.get_dummies(test_y)
+#####Test Data Set#####
+    test_x = test_data.iloc[:,1:-2]
+    test_x = test_x.as_matrix()
+    test_y = test_data.iloc[:,-1].as_matrix()
+    test_y = test_y.flatten()
+    test_y = pd.get_dummies(test_y)
 
-    ####Cal Data Set#####
-        cal_x = cal_data.iloc[:,1:-2]
-        cal_x = cal_x.as_matrix()
-        cal_y = cal_data.iloc[:,-1].as_matrix()
-        cal_y = cal_y.flatten()
-        cal_y = pd.get_dummies(cal_y)
+####Cal Data Set#####
+    cal_x = cal_data.iloc[:,1:-2]
+    cal_x = cal_x.as_matrix()
+    cal_y = cal_data.iloc[:,-1].as_matrix()
+    cal_y = cal_y.flatten()
+    cal_y = pd.get_dummies(cal_y)
 
 
-        train_p, train_h , test_p ,test_h, weighted_sum_result, gene_double_probability_change_df = (set_train_three_layer(nodes, learning_rate, j, gene_off))
-        train_p = pd.DataFrame(train_p, index = train_GSM )
-        train_h = pd.DataFrame(train_h , index = train_GSM)
-        test_p = pd.DataFrame(test_p , index = test_GSM)
-        test_h = pd.DataFrame(test_h, index = test_GSM)
-        train_y = pd.DataFrame(train_data.iloc[:,-1].as_matrix() , train_GSM)
-        test_y = pd.DataFrame(test_data.iloc[:,-1].as_matrix(), test_GSM)
+    train_p, train_h , test_p ,test_h, weighted_sum_result, gene_double_probability_change_df = (set_train_three_layer(nodes, learning_rate, j, gene_off))
+    train_p = pd.DataFrame(train_p, index = train_GSM )
+    train_h = pd.DataFrame(train_h , index = train_GSM)
+    test_p = pd.DataFrame(test_p , index = test_GSM)
+    test_h = pd.DataFrame(test_h, index = test_GSM)
+    train_y = pd.DataFrame(train_data.iloc[:,-1].as_matrix() , train_GSM)
+    test_y = pd.DataFrame(test_data.iloc[:,-1].as_matrix(), test_GSM)
 
-        train_result = pd.concat([train_y, train_p], axis = 1 )
-        train_result = pd.concat([train_result, train_h], axis =1)
+    train_result = pd.concat([train_y, train_p], axis = 1 )
+    train_result = pd.concat([train_result, train_h], axis =1)
 
-        test_result = pd.concat([test_y ,test_p] , axis =1 )
-        test_result = pd.concat([test_result, test_h], axis=1)
+    test_result = pd.concat([test_y ,test_p] , axis =1 )
+    test_result = pd.concat([test_result, test_h], axis=1)
 
-        train_result.columns = ['result','prediction','prob0', 'prob1' ]
-        test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
+    train_result.columns = ['result','prediction','prob0', 'prob1' ]
+    test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
-        gene_double_probability_change_df_filename = "result_doubled_gene_prob_change"+ str(j) +".csv"
-        gene_double_probability_change_df.to_csv(output_directory+gene_double_probability_change_df_filename, sep= ',')
+    gene_double_probability_change_df_filename = "result_doubled_gene_prob_change"+ str(j) +".csv"
+    gene_double_probability_change_df.to_csv(output_directory+gene_double_probability_change_df_filename, sep= ',')
 
-    #    Gene_Elimination.append(weighted_sum_result[0])
-    #    Training_Accuracy.append(weighted_sum_result[1])
-    #    Calibration_Accuracy.append(weighted_sum_result[2])
-    #    Test_Accuracy.append(weighted_sum_result[3])
-      #  Max_step.append(weighted_sum_result[4])
-      #  Max_Accuracy.append(weighted_sum_result[5])
+#    Gene_Elimination.append(weighted_sum_result[0])
+#    Training_Accuracy.append(weighted_sum_result[1])
+#    Calibration_Accuracy.append(weighted_sum_result[2])
+#    Test_Accuracy.append(weighted_sum_result[3])
+  #  Max_step.append(weighted_sum_result[4])
+  #  Max_Accuracy.append(weighted_sum_result[5])
 ## Accuracy Data 생성 ##
-   # Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy,"Max_step":Max_step,"Max_Accuracy":Max_Accuracy})
+# Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy,"Max_step":Max_step,"Max_Accuracy":Max_Accuracy})
 
-    #Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy})
+#Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy})
 
 
 #### 파일 생성 ####
 
 
-    #result_test_filename = "result_file_test" +str(j) +".csv"
-    #test_result.to_csv(output_directory+result_test_f-ilename , sep= ',')
+#result_test_filename = "result_file_test" +str(j) +".csv"
+#test_result.to_csv(output_directory+result_test_f-ilename , sep= ',')
 
-    ###train h를 file로
-    ###test h를 file로
+###train h를 file로
+###test h를 file로
 
-    #Accuracy_Dataframe_filename="result_weigthed_sum_gene_"+str(int(gene_off))+"percent_off_"+str(nodes)+".csv"
-    #Accuracy_Dataframe.to_csv(output_directory+Accuracy_Dataframe_filename,sep=",")
+#Accuracy_Dataframe_filename="result_weigthed_sum_gene_"+str(int(gene_off))+"percent_off_"+str(nodes)+".csv"
+#Accuracy_Dataframe.to_csv(output_directory+Accuracy_Dataframe_filename,sep=",")
