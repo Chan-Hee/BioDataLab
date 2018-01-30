@@ -149,7 +149,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
 
         gene_double_probability_change_list=[]
         for i in range(int(double_train_x.shape[0])):
-            double_train_x.iloc[i,] = 2*double_train_x.iloc[i,]
+            double_train_x.iloc[i,:] = 2*double_train_x.iloc[i,:]
             double_train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: double_train_x, Y: train_y, keep_prob :1})
             probability_change = sum(abs(double_train_h.iloc[:,0]-train_h.iloc[:,0]))
             gene_double_probability_change_list.append(probability_change)
