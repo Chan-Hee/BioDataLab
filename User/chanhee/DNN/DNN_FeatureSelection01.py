@@ -151,8 +151,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
         for i in range(int(double_train_x.shape[0])):
             double_train_x.iloc[i,:] = 2*double_train_x.iloc[i,:]
             double_train_h_arr,d_c, d_train_p,d_train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: double_train_x, Y: train_y, keep_prob :1})
-            double_train_h = pd.DataFrame( index = train_GSM,data=copy.deepcopy(double_train_h_arr))
-            probability_change = sum(abs(double_train_h.iloc[:,0]-train_h.iloc[:,0]))
+            probability_change = sum(abs(double_train_h[:,0]-train_h[:,0]))
             gene_double_probability_change_list.append(probability_change)
         gene_double_probability_change_dic = {"probability_change":gene_double_probability_change_list,"index":range(len(train_GSM))}
         gene_double_probability_change_df = pd.DataFrame(index = train_GSM,data = gene_double_probability_change_dic)
