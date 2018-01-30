@@ -233,7 +233,7 @@ for i in range(len(conf)):
         test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
         gene_double_probability_change_df_filename = "result_doubled_gene_prob_change"+ str(j) +".csv"
-        gene_double_probability_change_df.to_csv(output_directory+result_train_filename , sep= ',')
+        gene_double_probability_change_df.to_csv(output_directory+gene_double_probability_change_df_filename, sep= ',')
 
     #    Gene_Elimination.append(weighted_sum_result[0])
     #    Training_Accuracy.append(weighted_sum_result[1])
