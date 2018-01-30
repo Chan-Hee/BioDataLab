@@ -1,20 +1,26 @@
-##################Import Modules#######################
+
+# coding: utf-8
+
+# In[9]:
+
+
+# ##################Import Modules#######################
 import random
 import numpy as np
 import math
 import pandas as pd
 import tensorflow as tf
 from scipy import stats
-import copy
-
 
 tf.set_random_seed(777)
 
 
-##################Define Functions#####################
+# In[10]:
+
+
+# ##################Define Functions#####################
 def five_fold_name(data,i):
     test_names = data[data['index']==i+1]
-
 
 def five_fold(data, i):
     test_data = data[data['index']==i+1]
@@ -23,39 +29,47 @@ def five_fold(data, i):
 
     return train_data , test_data
 
-def set_train_three_layer(nodes, learning_rate, j, gene_off):
+
+# In[29]:
+
+
+def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
+    
+####message for start
+    print("Gene_off: ",gene_off,"\nLayer: ",layer,"\nNodes: ",nodes,"\n Five fold count: ",five_fold_count+1)
     batch_size = 1000
     tf.reset_default_graph()
     keep_prob = tf.placeholder(tf.float32)
 
     X = tf.placeholder(tf.float32, [None, cnt_train])
     Y = tf.placeholder(tf.float32, [None, 2])
+    W = []
+    b = []
+    m = 0
+    hidden_layer = []
+    for m in  range(layer):
+        if(m == 0):
+            W.append(tf.get_variable( shape= [cnt_train, nodes[m]], name='weight'+str(m) , initializer=tf.contrib.layers.xavier_initializer()) )
+            b.append(tf.Variable(tf.random_normal([nodes[m]]), name='bias'+str(m)))
+            hidden_layer.append(tf.nn.relu(tf.matmul(X, W[m]) + b[m]))
+            hidden_layer[m] = tf.nn.dropout(hidden_layer[m], keep_prob=keep_prob)
 
-    W1 = tf.get_variable( shape= [cnt_train, nodes[0]], name='weight1' , initializer=tf.contrib.layers.xavier_initializer())
-    b1 = tf.Variable(tf.random_normal([nodes[0]]), name='bias1')
-    layer1 = tf.nn.relu(tf.matmul(X, W1) + b1)
-    layer1 = tf.nn.dropout(layer1, keep_prob=keep_prob)
+        else:
+            W.append(tf.get_variable( shape= [nodes[m-1], nodes[m]], name='weight'+str(m) , initializer=tf.contrib.layers.xavier_initializer()) )
+            b.append(tf.Variable(tf.random_normal([nodes[m]]), name='bias'+str(m)))
+            hidden_layer.append(tf.nn.relu(tf.matmul(hidden_layer[m-1], W[m]) + b[m]))
+            hidden_layer[m] = tf.nn.dropout(hidden_layer[m], keep_prob=keep_prob)
+            
+    W.append(tf.get_variable(shape=[nodes[m], 2], name='weight'+str(m+1),initializer=tf.contrib.layers.xavier_initializer()))
+    b.append(tf.Variable(tf.random_normal([2]), name='bias'+str(m+1)))
+    hypothesis = tf.matmul(hidden_layer[m], W[m+1]) + b[m+1]
 
-    W2 = tf.get_variable(shape =[nodes[0], nodes[1]], name='weight2', initializer=tf.contrib.layers.xavier_initializer())
-    b2 = tf.Variable(tf.random_normal([nodes[1]]), name='bias2')
-    layer2 = tf.nn.relu(tf.matmul(layer1, W2) + b2)
-    layer2 = tf.nn.dropout(layer2 , keep_prob=keep_prob)
-
-    W3 = tf.get_variable(shape= [nodes[1], nodes[2]], name='weight3',initializer=tf.contrib.layers.xavier_initializer())
-    b3 = tf.Variable(tf.random_normal([nodes[2]]), name='bias3')
-    layer3 = tf.nn.relu(tf.matmul(layer2, W3) + b3)
-    layer3 = tf.nn.dropout(layer3, keep_prob=keep_prob)
-
-    W4 = tf.get_variable(shape=[nodes[2], 2], name='weight4',initializer=tf.contrib.layers.xavier_initializer())
-    b4 = tf.Variable(tf.random_normal([2]), name='bias4')
-    logits = tf.matmul(layer3, W4) + b4
-    hypothesis = tf.nn.softmax(logits)
 
 
     # cost/loss function
-    cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=Y))
+    cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=hypothesis, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-    cost_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(nodes)+"_cost",cost)
+    cost_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(layer)+"_"+str(nodes)+"_cost",cost)
 
 
 
@@ -65,12 +79,12 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
-    accuracy_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(nodes)+"_accuracy",accuracy)
+    accuracy_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(layer)+"_"+str(nodes)+"_accuracy",accuracy)
 
     saver = tf.train.Saver()
     with tf.Session() as sess:
         merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/with_rare_cancer/gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
+        writer = tf.summary.FileWriter(tensorboard_directory+"gene_off_"+str(int(gene_off)) +"/" + str(layer) +"/" + str(nodes) +"_" + str(five_fold_count+1))
         writer.add_graph(sess.graph)
 
         # Initialize TensorFlow variables
@@ -78,7 +92,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
         stop_switch = True
         step=0
         AccuracyList=[]
-
+        
         max_step = 0
         max_Accuracy = 0
 
@@ -100,39 +114,31 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
                 AccuracyList.append(cal_a)
                 beforeAccuracy = AccuracyList[:int(len(AccuracyList)/2)]
                 afterAccuracy = AccuracyList[int(len(AccuracyList)/2):]
-                tTestResult = stats.ttest_rel(beforeAccuracy,afterAccuracy)
-                print("P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
+                #tTestResult = stats.ttest_rel(beforeAccuracy,afterAccuracy)
+                #print("P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
 
 #save path
                 if(max(AccuracyList)> max_Accuracy):
                     max_step = step
                     max_Accuracy = max(AccuracyList)
-                    save_path = saver.save(sess, '/home/tjahn/tf_save_data/sungmin/save_path/with_rare_cancer/saved')
+                    save_path = saver.save(sess, save_path_directory)
                     print("Save path: ",save_path,"\nMax_step: ",max_step,"\nMax_Accuracy: ",max_Accuracy )
-
-                   # print("W1, W2, W3, W4: ", W1.eval(),W2.eval(),W3.eval(), W4.eval())
-
-                    # print("W1, W2, W3, W4: " W1.eval() + " "+ W2.eval()+ " " +W3.eval() + " " + W4.eval())
+                 
+#Early stopping
                 if max(AccuracyList)-min(AccuracyList)< 0.01 and min(AccuracyList)>0.94 and max(beforeAccuracy) >= max(afterAccuracy) :
                     stop_switch = False
-                    print("Learning Finished!! P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
-                   # print("W1, W2, W3, W4: %s  %s  %s  %s \n", W1.eval(),W2.eval(),W3.eval(), W4.eval())
-
-                   # print("W1, W2, W3, W4: "+ W1.eval() + " "+ W2.eval()+ " " +W3.eval() + " " + W4.eval())
-
-
+                    print("Learning Finished!! \n",beforeAccuracy,"\n",afterAccuracy)
             else:
                 AccuracyList.append(cal_a)
 
 
 
-        w1_matrix=W1.eval()
+        #w1_matrix=W1.eval()
 
-        weighted_sum = w1_matrix.sum(axis=1)
-        weighted_max = w1_matrix.max(axis=1)
-        gene_names = list(data)[1:-2]
+        #weighted_sum = w1_matrix.sum(axis=1)
+        #weighted_max = w1_matrix.max(axis=1)
+        #gene_names = list(data)[1:-2]
 
-        print("Save path: ",save_path)
         saver.restore(sess,save_path)
         print("Max_step: ",max_step,"Max_accuracy: ", max_Accuracy)
        # print("W1, W2, W3, W4: "+ W1.eval() + " "+ W2.eval()+ " " +W3.eval() + " " + W4.eval())
@@ -143,45 +149,56 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
 
         weighted_sum_result = [str(int(gene_off)),train_a,cal_a,test_a]
     #    weighted_sum_result = [gene_off,train_a,cal_a,test_a,max_step,max_Accuracy]
+         
+    return train_p ,train_h, test_p,test_h,weighted_sum_result
 
-    # Doubled train_X -> Feature Selection method 01
-        double_train_x = pd.DataFrame( index = train_GSM,data=copy.deepcopy(train_x))
 
-        gene_double_probability_change_list=[]
-        for i in range(int(double_train_x.shape[0])):
-            double_train_x.iloc[i,:] = 2*double_train_x.iloc[i,:]
-            double_train_h,d_c, d_train_p,d_train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: double_train_x, Y: train_y, keep_prob :1})
-            probability_change = sum(abs(double_train_h[:,0]-train_h[:,0]))
-            gene_double_probability_change_list.append(probability_change)
-        gene_double_probability_change_dic = {"probability_change":gene_double_probability_change_list,"index":range(len(train_GSM))}
-        gene_double_probability_change_df = pd.DataFrame(index = train_GSM,data = gene_double_probability_change_dic)
-    return train_p ,train_h, test_p,test_h,weighted_sum_result,gene_double_probability_change_df
+# In[30]:
 
-##################READ DATA############################
-repeat, layer, learning_rate = 1000, 3, 0.002
 
-output_directory = "/home/tjahn/Git2/User/chanhee/DNN/"
-conf_directory = "/home/tjahn/Git2/User/chanhee/DNN/input/"
+# ##################READ DATA############################
+
+# In[20]:
+
+local_directory = "C:/Users/sungmin/Desktop/DNN/"
+learning_rate = 0.002
+concept_directory = "pre/"
+
+output_directory = local_directory+concept_directory
+conf_directory = "C:/Users/sungmin/Desktop/DNN/input/"
+data_directory = "C:/Users/sungmin/Desktop/DNN/"
+tensorboard_directory = "C:/Users/sungmin/Desktop/DNN/tensorboard/"+concept_directory
+save_path_directory = "C:/Users/sungmin/Desktop/DNN/save_path/saved/"+concept_directory
+
+#output_directory = "/home/tjahn/tf_save_data/sungmin/result/"+concept_directory
+#conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
+#data_directory = "/home/tjahn/Data/"
+#tensorboard_directory = "/home/tjahn/tf_save_data/sungmin/tensorboard/"+concept_directory
+#save_path_directory = "/home/tjahn/tf_save_data/sungmin/save_path/saved/"+concept_directory
+####input = layer node gene_selection 
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
+
+
+# In[19]:
 
 
 ###
 for i in range(len(conf)):
    # repeat, layer, node, learning_rate, gene_off = conf.iloc[i]
-   # nodes = list(map(int, node.split(" ")))
-    gene_off = conf.iloc[i]
+   # gene_off = conf.iloc[i]
+    layer, node, gene_off = conf.iloc[i]
+    nodes = list(map(int, node.split(" ")))
+   
 
 ####sm
-    datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result.csv"
-    data = pd.read_csv(datafilename)
+    datafilename = "FinalData_Random6000_Random_"+str(gene_off)+"off_GSM_gene_index_result.csv"
+    data = pd.read_csv(data_directory + datafilename)
 ####sm
     Gene_Elimination = []
     Training_Accuracy=[]
     Calibration_Accuracy=[]
     Test_Accuracy=[]
-  #  Max_step = []
-  #  Max_Accuracy = []
     for j in range(5):
     #####Five fold#####
         train_data, test_data = five_fold(data, j)
@@ -198,7 +215,7 @@ for i in range(len(conf)):
         train_y = train_y.flatten()
         train_y = pd.get_dummies(train_y)
         cnt_train = len(train_x[1, :])
-        nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
+        #nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
 
     #####Test Data Set#####
         test_x = test_data.iloc[:,1:-2]
@@ -215,7 +232,8 @@ for i in range(len(conf)):
         cal_y = pd.get_dummies(cal_y)
 
 
-        train_p, train_h , test_p ,test_h, weighted_sum_result, gene_double_probability_change_df = (set_train_three_layer(nodes, learning_rate, j, gene_off))
+        #train_p, train_h , test_p ,test_h, weighted_sum_result  = (set_train_three_layer(nodes, learning_rate, j, gene_off))
+        train_p, train_h, test_p, test_h, weighted_sum_result = (sm_deep_learning(layer, nodes, learning_rate, j, gene_off))
         train_p = pd.DataFrame(train_p, index = train_GSM )
         train_h = pd.DataFrame(train_h , index = train_GSM)
         test_p = pd.DataFrame(test_p , index = test_GSM)
@@ -232,29 +250,28 @@ for i in range(len(conf)):
         train_result.columns = ['result','prediction','prob0', 'prob1' ]
         test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
-        gene_double_probability_change_df_filename = "result_doubled_gene_prob_change"+ str(j) +".csv"
-        gene_double_probability_change_df.to_csv(output_directory+result_train_filename , sep= ',')
-
-    #    Gene_Elimination.append(weighted_sum_result[0])
-    #    Training_Accuracy.append(weighted_sum_result[1])
-    #    Calibration_Accuracy.append(weighted_sum_result[2])
-    #    Test_Accuracy.append(weighted_sum_result[3])
+        Gene_Elimination.append(weighted_sum_result[0])
+        Training_Accuracy.append(weighted_sum_result[1])
+        Calibration_Accuracy.append(weighted_sum_result[2])
+        Test_Accuracy.append(weighted_sum_result[3])
       #  Max_step.append(weighted_sum_result[4])
       #  Max_Accuracy.append(weighted_sum_result[5])
 ## Accuracy Data 생성 ##
    # Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy,"Max_step":Max_step,"Max_Accuracy":Max_Accuracy})
 
-    #Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy})
+    Accuracy_Dataframe = pd.DataFrame({"Gene_Elimination":Gene_Elimination,"Training_Accuracy":Training_Accuracy,"Calibration_Accuracy":Calibration_Accuracy,"Test_Accuracy":Test_Accuracy})
 
 
 #### 파일 생성 ####
 
-
-    #result_test_filename = "result_file_test" +str(j) +".csv"
-    #test_result.to_csv(output_directory+result_test_f-ilename , sep= ',')
+    #result_train_filename = "result_file_train"+ gene_off + str(j) +".csv"
+    #train_result.to_csv(output_directory+result_train_filename , sep= ',')
+    #result_test_filename = "result_file_test" + gene_off +str(j) +".csv"
+    #test_result.to_csv(output_directory+result_test_filename , sep= ',')
 
     ###train h를 file로
     ###test h를 file로
 
-    #Accuracy_Dataframe_filename="result_weigthed_sum_gene_"+str(int(gene_off))+"percent_off_"+str(nodes)+".csv"
-    #Accuracy_Dataframe.to_csv(output_directory+Accuracy_Dataframe_filename,sep=",")
+    Accuracy_Dataframe_filename="result_weigthed_sum_gene_"+str(int(gene_off))+"percent_off_"+str(nodes)+".csv"
+    Accuracy_Dataframe.to_csv(output_directory+Accuracy_Dataframe_filename,sep=",")
+
