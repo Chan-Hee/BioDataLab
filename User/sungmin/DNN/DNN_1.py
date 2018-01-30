@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[9]:
-
-
 # ##################Import Modules#######################
 import random
 import numpy as np
@@ -13,11 +7,6 @@ import tensorflow as tf
 from scipy import stats
 
 tf.set_random_seed(777)
-
-
-# In[10]:
-
-
 # ##################Define Functions#####################
 def five_fold_name(data,i):
     test_names = data[data['index']==i+1]
@@ -28,9 +17,6 @@ def five_fold(data, i):
     print(len(test_data), len(train_data))
 
     return train_data , test_data
-
-
-# In[29]:
 
 
 def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
@@ -153,28 +139,22 @@ def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
     return train_p ,train_h, test_p,test_h,weighted_sum_result
 
 
-# In[30]:
-
-
 # ##################READ DATA############################
-
-# In[20]:
-
-local_directory = "C:/Users/sungmin/Desktop/DNN/"
+#local_directory = "C:/Users/sungmin/Desktop/DNN/"
 learning_rate = 0.002
 concept_directory = "pre/"
 
-output_directory = local_directory+concept_directory
-conf_directory = "C:/Users/sungmin/Desktop/DNN/input/"
-data_directory = "C:/Users/sungmin/Desktop/DNN/"
-tensorboard_directory = "C:/Users/sungmin/Desktop/DNN/tensorboard/"+concept_directory
-save_path_directory = "C:/Users/sungmin/Desktop/DNN/save_path/saved/"+concept_directory
+#output_directory = local_directory+concept_directory
+#conf_directory = "C:/Users/sungmin/Desktop/DNN/input/"
+#data_directory = "C:/Users/sungmin/Desktop/DNN/"
+#tensorboard_directory = "C:/Users/sungmin/Desktop/DNN/tensorboard/"+concept_directory
+#save_path_directory = "C:/Users/sungmin/Desktop/DNN/save_path/saved/"+concept_directory
 
-#output_directory = "/home/tjahn/tf_save_data/sungmin/result/"+concept_directory
-#conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
-#data_directory = "/home/tjahn/Data/"
-#tensorboard_directory = "/home/tjahn/tf_save_data/sungmin/tensorboard/"+concept_directory
-#save_path_directory = "/home/tjahn/tf_save_data/sungmin/save_path/saved/"+concept_directory
+output_directory = "/home/tjahn/tf_save_data/sungmin/result/"+concept_directory
+conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
+data_directory = "/home/tjahn/Data/"
+tensorboard_directory = "/home/tjahn/tf_save_data/sungmin/tensorboard/"+concept_directory
+save_path_directory = "/home/tjahn/tf_save_data/sungmin/save_path/saved"
 ####input = layer node gene_selection 
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
