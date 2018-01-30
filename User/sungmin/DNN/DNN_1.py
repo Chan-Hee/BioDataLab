@@ -1,3 +1,9 @@
+
+# coding: utf-8
+
+# In[9]:
+
+
 # ##################Import Modules#######################
 import random
 import numpy as np
@@ -7,6 +13,10 @@ import tensorflow as tf
 from scipy import stats
 
 tf.set_random_seed(777)
+
+
+# In[10]:
+
 
 # ##################Define Functions#####################
 def five_fold_name(data,i):
@@ -18,6 +28,10 @@ def five_fold(data, i):
     print(len(test_data), len(train_data))
 
     return train_data , test_data
+
+
+# In[29]:
+
 
 def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
     
@@ -31,23 +45,24 @@ def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
     Y = tf.placeholder(tf.float32, [None, 2])
     W = []
     b = []
+    m = 0
     hidden_layer = []
     for m in  range(layer):
         if(m == 0):
-            W.append(tf.get_variable( shape= [cnt_train, nodes[m]], name='weight'+str(m+1) , initializer=tf.contrib.layers.xavier_initializer()) )
-            b.append(tf.Variable(tf.random_normal([nodes[m]]), name='bias'+str(m+1)))
+            W.append(tf.get_variable( shape= [cnt_train, nodes[m]], name='weight'+str(m) , initializer=tf.contrib.layers.xavier_initializer()) )
+            b.append(tf.Variable(tf.random_normal([nodes[m]]), name='bias'+str(m)))
             hidden_layer.append(tf.nn.relu(tf.matmul(X, W[m]) + b[m]))
             hidden_layer[m] = tf.nn.dropout(hidden_layer[m], keep_prob=keep_prob)
 
         else:
-            W.append(tf.get_variable( shape= [cnt_train, nodes[m]], name='weight'+str(m+1) , initializer=tf.contrib.layers.xavier_initializer()) )
-            b.append(tf.Variable(tf.random_normal([nodes[m]]), name='bias'+str(m+1)))
+            W.append(tf.get_variable( shape= [nodes[m-1], nodes[m]], name='weight'+str(m) , initializer=tf.contrib.layers.xavier_initializer()) )
+            b.append(tf.Variable(tf.random_normal([nodes[m]]), name='bias'+str(m)))
             hidden_layer.append(tf.nn.relu(tf.matmul(hidden_layer[m-1], W[m]) + b[m]))
             hidden_layer[m] = tf.nn.dropout(hidden_layer[m], keep_prob=keep_prob)
             
-    W.append = tf.get_variable(shape=[nodes[m], 2], name='weight'+str(m+1),initializer=tf.contrib.layers.xavier_initializer())
-    b.append = tf.Variable(tf.random_normal([2]), name='bias'+str(m+1))
-    hypothesis = tf.matmul(layer[m], W[m+1]) + b[m+1]
+    W.append(tf.get_variable(shape=[nodes[m], 2], name='weight'+str(m+1),initializer=tf.contrib.layers.xavier_initializer()))
+    b.append(tf.Variable(tf.random_normal([2]), name='bias'+str(m+1)))
+    hypothesis = tf.matmul(hidden_layer[m], W[m+1]) + b[m+1]
 
 
 
@@ -138,18 +153,28 @@ def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
     return train_p ,train_h, test_p,test_h,weighted_sum_result
 
 
+# In[30]:
+
+
 # ##################READ DATA############################
 
 # In[20]:
 
-
+local_directory = "C:/Users/sungmin/Desktop/DNN/"
 learning_rate = 0.002
 concept_directory = "pre/"
-output_directory = "/home/tjahn/tf_save_data/sungmin/result/"+concept_directory
-conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
-data_directory = "/home/tjahn/Data/"
-tensorboard_directory = "/home/tjahn/tf_save_data/sungmin/tensorboard/"+concept_directory
-save_path_directory = "/home/tjahn/tf_save_data/sungmin/save_path/saved/"+concept_directory
+
+output_directory = local_directory+concept_directory
+conf_directory = "C:/Users/sungmin/Desktop/DNN/input/"
+data_directory = "C:/Users/sungmin/Desktop/DNN/"
+tensorboard_directory = "C:/Users/sungmin/Desktop/DNN/tensorboard/"+concept_directory
+save_path_directory = "C:/Users/sungmin/Desktop/DNN/save_path/saved/"+concept_directory
+
+#output_directory = "/home/tjahn/tf_save_data/sungmin/result/"+concept_directory
+#conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
+#data_directory = "/home/tjahn/Data/"
+#tensorboard_directory = "/home/tjahn/tf_save_data/sungmin/tensorboard/"+concept_directory
+#save_path_directory = "/home/tjahn/tf_save_data/sungmin/save_path/saved/"+concept_directory
 ####input = layer node gene_selection 
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
@@ -167,7 +192,7 @@ for i in range(len(conf)):
    
 
 ####sm
-    datafilename = "FinalData"+str(gene_off)+"off_GSM_gene_index_result.csv"
+    datafilename = "FinalData_Random6000_Random_"+str(gene_off)+"off_GSM_gene_index_result.csv"
     data = pd.read_csv(data_directory + datafilename)
 ####sm
     Gene_Elimination = []
@@ -208,7 +233,7 @@ for i in range(len(conf)):
 
 
         #train_p, train_h , test_p ,test_h, weighted_sum_result  = (set_train_three_layer(nodes, learning_rate, j, gene_off))
-        train_p, train_h, test_p, test_h, weighted_sum_result = sm_deep_learning(layer, nodes, learning_rate, j, gene_off)
+        train_p, train_h, test_p, test_h, weighted_sum_result = (sm_deep_learning(layer, nodes, learning_rate, j, gene_off))
         train_p = pd.DataFrame(train_p, index = train_GSM )
         train_h = pd.DataFrame(train_h , index = train_GSM)
         test_p = pd.DataFrame(test_p , index = test_GSM)
