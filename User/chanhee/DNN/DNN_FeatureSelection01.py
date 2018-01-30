@@ -55,7 +55,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-    cost_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(nodes)+"_cost",cost)
+    #cost_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(nodes)+"_cost",cost)
 
 
 
@@ -65,13 +65,13 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
-    accuracy_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(nodes)+"_accuracy",accuracy)
+    #accuracy_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(nodes)+"_accuracy",accuracy)
 
     saver = tf.train.Saver()
     with tf.Session() as sess:
-        merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/with_rare_cancer/gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
-        writer.add_graph(sess.graph)
+        #merged_summary = tf.summary.merge_all()
+        #writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/with_rare_cancer/gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
+        #writer.add_graph(sess.graph)
 
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
@@ -88,8 +88,8 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
                 batch_x = train_x[i*batch_size:(i+1)*batch_size]
                 batch_y = train_y[i*batch_size:(i+1)*batch_size]
                 sess.run(train , feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
-                summary,_=sess.run([merged_summary,train], feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
-                writer.add_summary(summary, global_step =step)
+                #summary,_=sess.run([merged_summary,train], feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
+                #writer.add_summary(summary, global_step =step)
 
             train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :1})
             cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
@@ -145,7 +145,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     #    weighted_sum_result = [gene_off,train_a,cal_a,test_a,max_step,max_Accuracy]
 
     # Doubled train_X -> Feature Selection method 01
-        double_train_x = pd.DataFrame( index = train_GSM,data=copy.deepcopy(train_x))
+        double_train_x = pd.DataFrame(index = train_GSM,data=copy.deepcopy(train_x))
 
         gene_double_probability_change_list=[]
         for i in range(int(double_train_x.shape[1])):
@@ -174,7 +174,7 @@ for i in range(len(conf)):
 
 ####sm
     datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result.csv"
-    datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result.csv"
+    datafilename = "/home/tjahn/Data/FinalData90off_GSM_gene_index_result.csv"
     data = pd.read_csv(datafilename)
 ####sm
     Gene_Elimination = []
