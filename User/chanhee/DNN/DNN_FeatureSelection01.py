@@ -174,7 +174,7 @@ for i in range(len(conf)):
 
 ####sm
     datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result.csv"
-    datafilename = "/home/tjahn/Data/FinalData90off_GSM_gene_index_result.csv"
+    datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result_without_rare_cancer.csv"
     data = pd.read_csv(datafilename)
 ####sm
     Gene_Elimination = []
