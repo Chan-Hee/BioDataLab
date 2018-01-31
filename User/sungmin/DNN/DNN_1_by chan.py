@@ -67,7 +67,6 @@ def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
     accuracy_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(layer)+"_"+str(nodes)+"_accuracy",accuracy)
     
-    print(train_y)
     saver = tf.train.Saver()
     with tf.Session() as sess:
         merged_summary = tf.summary.merge_all()
@@ -88,7 +87,6 @@ def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
             for i in range(total_num):
                 batch_x = train_x[i*batch_size:(i+1)*batch_size]
                 batch_y = train_y[i*batch_size:(i+1)*batch_size]
-
                 sess.run(train , feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
                 summary,_=sess.run([merged_summary,train], feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
                 writer.add_summary(summary, global_step =step)
