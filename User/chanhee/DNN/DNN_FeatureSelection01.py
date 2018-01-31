@@ -55,7 +55,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     # cost/loss function
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=Y))
     train = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
-    cost_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(nodes)+"_cost",cost)
+    #cost_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(nodes)+"_cost",cost)
 
 
 
@@ -65,13 +65,13 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     predicted = tf.argmax(hypothesis,1)
     correct_prediction = tf.equal(predicted,tf.argmax(Y,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, dtype=tf.float32))
-    accuracy_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(nodes)+"_accuracy",accuracy)
+    #accuracy_summ = tf.summary.scalar(str(int(gene_off))+"_"+str(nodes)+"_accuracy",accuracy)
 
     saver = tf.train.Saver()
     with tf.Session() as sess:
-        merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/with_rare_cancer/gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
-        writer.add_graph(sess.graph)
+        #merged_summary = tf.summary.merge_all()
+        #writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/with_rare_cancer/gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
+        #writer.add_graph(sess.graph)
 
         # Initialize TensorFlow variables
         sess.run(tf.global_variables_initializer())
@@ -88,8 +88,8 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
                 batch_x = train_x[i*batch_size:(i+1)*batch_size]
                 batch_y = train_y[i*batch_size:(i+1)*batch_size]
                 sess.run(train , feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
-                summary,_=sess.run([merged_summary,train], feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
-                writer.add_summary(summary, global_step =step)
+                #summary,_=sess.run([merged_summary,train], feed_dict={X: batch_x, Y: batch_y , keep_prob : 1})
+                #writer.add_summary(summary, global_step =step)
 
             train_h,c, train_p,train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: train_x, Y: train_y, keep_prob :1})
             cal_h,c, cal_p,cal_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: cal_x, Y: cal_y, keep_prob :1})
@@ -145,16 +145,16 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     #    weighted_sum_result = [gene_off,train_a,cal_a,test_a,max_step,max_Accuracy]
 
     # Doubled train_X -> Feature Selection method 01
-        double_train_x = pd.DataFrame( index = train_GSM,data=copy.deepcopy(train_x))
+        double_train_x = pd.DataFrame(index = train_GSM,data=copy.deepcopy(train_x))
 
         gene_double_probability_change_list=[]
-        for i in range(int(double_train_x.shape[0])):
-            double_train_x.iloc[i,:] = 2*double_train_x.iloc[i,:]
+        for i in range(int(double_train_x.shape[1])):
+            double_train_x.iloc[:,i] = 2*double_train_x.iloc[:,i]
             double_train_h,d_c, d_train_p,d_train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: double_train_x, Y: train_y, keep_prob :1})
             probability_change = sum(abs(double_train_h[:,0]-train_h[:,0]))
             gene_double_probability_change_list.append(probability_change)
-        gene_double_probability_change_dic = {"probability_change":gene_double_probability_change_list,"index":range(len(train_GSM))}
-        gene_double_probability_change_df = pd.DataFrame(index = train_GSM,data = gene_double_probability_change_dic)
+        gene_double_probability_change_dic = {"gene_names":list(data)[1:-3],"probability_change":gene_double_probability_change_list,"gene_index":range(double_train_x.shape[1])}
+        gene_double_probability_change_df = pd.DataFrame(data = gene_double_probability_change_dic)
     return train_p ,train_h, test_p,test_h,weighted_sum_result,gene_double_probability_change_df
 
 ##################READ DATA############################
@@ -174,6 +174,7 @@ for i in range(len(conf)):
 
 ####sm
     datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result.csv"
+    datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result_without_rare_cancer.csv"
     data = pd.read_csv(datafilename)
 ####sm
     Gene_Elimination = []
@@ -192,25 +193,25 @@ for i in range(len(conf)):
         cal_GSM = cal_data.iloc[:,0].tolist()
 
     #####Train Data Set#####
-        train_x = train_data.iloc[:,1:-2]
+        train_x = train_data.iloc[:,1:-3]
         train_x = train_x.as_matrix()
-        train_y = train_data.iloc[:,-1].as_matrix()
+        train_y = train_data.iloc[:,-3].as_matrix()
         train_y = train_y.flatten()
         train_y = pd.get_dummies(train_y)
         cnt_train = len(train_x[1, :])
         nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
 
     #####Test Data Set#####
-        test_x = test_data.iloc[:,1:-2]
+        test_x = test_data.iloc[:,1:-3]
         test_x = test_x.as_matrix()
-        test_y = test_data.iloc[:,-1].as_matrix()
+        test_y = test_data.iloc[:,-3].as_matrix()
         test_y = test_y.flatten()
         test_y = pd.get_dummies(test_y)
 
     ####Cal Data Set#####
-        cal_x = cal_data.iloc[:,1:-2]
+        cal_x = cal_data.iloc[:,1:-3]
         cal_x = cal_x.as_matrix()
-        cal_y = cal_data.iloc[:,-1].as_matrix()
+        cal_y = cal_data.iloc[:,-3].as_matrix()
         cal_y = cal_y.flatten()
         cal_y = pd.get_dummies(cal_y)
 
@@ -233,7 +234,7 @@ for i in range(len(conf)):
         test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
         gene_double_probability_change_df_filename = "result_doubled_gene_prob_change"+ str(j) +".csv"
-        gene_double_probability_change_df.to_csv(output_directory+result_train_filename , sep= ',')
+        gene_double_probability_change_df.to_csv(output_directory+gene_double_probability_change_df_filename , sep= ',')
 
     #    Gene_Elimination.append(weighted_sum_result[0])
     #    Training_Accuracy.append(weighted_sum_result[1])
