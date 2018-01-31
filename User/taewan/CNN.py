@@ -98,6 +98,12 @@ def CNN():
                                 X: test_x, Y: test_y, keep_prob: 1}))
 
     # Get one and predict
+<<<<<<< HEAD
+    print("Label: ", sess.run(tf.argmax(test_y[10], 1)))
+    print("Prediction: ", sess.run(
+                                   tf.argmax(logits, 1), feed_dict={X:test_x[10], keep_prob: 1}))
+=======
+>>>>>>> 94a003b523d0a4fb0d08923bed2ad5391384879d
     
 
 #
