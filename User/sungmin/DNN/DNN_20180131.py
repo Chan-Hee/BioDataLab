@@ -1,11 +1,4 @@
-
-# coding: utf-8
-
 # ##################Import Modules#######################
-
-# In[49]:
-
-
 import random
 import numpy as np
 import math
@@ -16,29 +9,15 @@ from scipy import stats
 
 tf.set_random_seed(777)
 
-
 # ##################Define Functions#####################
-
-# In[50]:
-
-
 def five_fold_name(data,i):
     test_names = data[data['index']==i+1]
-
-
-# In[51]:
-
 
 def five_fold(data, i):
     test_data = data[data['index']==i+1]
     train_data = data[(data['index']<i+1) | (data['index']>i+1)]
     print(len(test_data), len(train_data))
-
     return train_data , test_data
-
-
-# In[52]:
-
 
 def mkdir(directory):
     try:
@@ -47,18 +26,7 @@ def mkdir(directory):
     except OSError:
         print ('Error: Creating directory. ' +  directory)
 
-
-# In[ ]:
-
-
-
-
-
-# In[63]:
-
-
 def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
-    
 ####message for stsrt
     print("Gene_off: ",gene_off,"\nLayer: ",layer,"\nNodes: ",nodes,"\n Five fold count: ",five_fold_count+1)
     batch_size = 1000
@@ -177,27 +145,27 @@ learning_rate = 0.002
 
 concept_directory = "pre/"
 
-local_directory = "C:/Users/sungmin/Desktop/DNN/"
-output_directory = local_directory+concept_directory
-conf_directory = local_directory+"input/"
-data_directory = local_directory
-tensorboard_directory = local_directory+"tensorboard/"+concept_directory
-save_path_directory = local_directory+"save_path/"+concept_directory
+
+##local
+#local_directory = "C:/Users/sungmin/Desktop/DNN/"
+#output_directory = local_directory+concept_directory
+#conf_directory = local_directory+"input/"
+#data_directory = local_directory
+#tensorboard_directory = local_directory+"tensorboard/"+concept_directory
+#save_path_directory = local_directory+"save_path/"+concept_directory
+
+##server
+output_directory = "/home/tjahn/tf_save_data/sungmin/result/"+concept_directory
+conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
+data_directory = "/home/tjahn/Data/"
+tensorboard_directory = "/home/tjahn/tf_save_data/sungmin/tensorboard/"+concept_directory
+save_path_directory = "/home/tjahn/tf_save_data/sungmin/save_path/"+concept_directory
 
 mkdir(save_path_directory)
 mkdir(output_directory)
-
-#output_directory = "/home/tjahn/tf_save_data/sungmin/result/"+concept_directory
-#conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
-#data_directory = "/home/tjahn/Data/"
-#tensorboard_directory = "/home/tjahn/tf_save_data/sungmin/tensorboard/"+concept_directory
-#save_path_directory = "/home/tjahn/tf_save_data/sungmin/save_path/"+concept_directory
 ####input = layer node gene_selection 
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
-
-
-# In[68]:
 
 
 ###
@@ -206,7 +174,6 @@ for i in range(len(conf)):
     gene_off = conf.iloc[i]
     layer, node, gene_off = conf.iloc[i]
     nodes = list(map(int, node.split(" ")))
-   
 
 ####sm
     datafilename = "FinalData_Random6000_Random_"+str(gene_off)+"off_GSM_gene_index_result.csv"
