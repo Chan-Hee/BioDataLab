@@ -111,14 +111,14 @@ def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
                 #print("P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
 
 #save path
-                if(max(AccuracyList)> max_Accuracy):
+                if(max(AccuracyList)> max_Accuracy ) :
                     max_step = step
                     max_Accuracy = max(AccuracyList)
                     save_path = saver.save(sess, save_path_directory+"saved")
                     print("Save path: ",save_path,"\nMax_step: ",max_step,"\nMax_Accuracy: ",max_Accuracy )
-                 
-#Early stopping
-                if max(AccuracyList)-min(AccuracyList)< 0.01 and min(AccuracyList)>0.94 and max(beforeAccuracy) >= max(afterAccuracy) :
+
+                #Early stopping
+                if max(AccuracyList)-min(AccuracyList)< 0.01 and min(AccuracyList)>0.94 and max(beforeAccuracy) >= max(afterAccuracy):
                     stop_switch = False
                     print("Learning Finished!! \n",beforeAccuracy,"\n",afterAccuracy)
             else:
