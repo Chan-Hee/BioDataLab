@@ -14,7 +14,6 @@ def five_fold_name(data,i):
     test_names = data[data['index']==i+1]
 
 def five_fold(data, i):
-    print(data["index"])
     test_data = data[data['index']==i+1]
     train_data = data[(data['index']<i+1) | (data['index']>i+1)]
     print(len(test_data), len(train_data))
@@ -35,7 +34,7 @@ def gene_selection(data, gene_off,gene_index):
     
 
     data = data.loc[:,data_names_df["names"]]
-
+   
     return data
 
 
@@ -197,7 +196,8 @@ for i in range(len(conf)):
 
     data = pd.read_csv(data_directory + datafilename)
 
-    data = gene_selection(data, gene_off, gene_index)
+    
+#   data = gene_selection(data, gene_off, gene_index)
 
 
 
@@ -211,7 +211,6 @@ for i in range(len(conf)):
     Test_Accuracy=[]
     for j in range(5):
     #####Five fold#####
-        #train_data, test_data = five_fold(data, j)
         train_data, test_data = five_fold(data, j)
         test_data = test_data.sample(frac = 1)
         cal_data = test_data[:int(len(test_data)/2)]
