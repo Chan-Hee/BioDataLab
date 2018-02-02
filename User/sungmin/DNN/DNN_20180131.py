@@ -31,11 +31,10 @@ def gene_selection(data, gene_off,gene_index):
     data_names_df = gene_abs_weight_sum["names"]
     data_names_df = pd.DataFrame(data_names_df)
     data_names_df = data_names_df[-int(len(data_names_df)/gene_off):]
-    
-
-    data = data.loc[:,data_names_df["names"]]
+ 
+    result = data.loc[:,data_names_df["names"]]
    
-    return data
+    return reuslt
 
 
 def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
@@ -197,7 +196,7 @@ for i in range(len(conf)):
     data = pd.read_csv(data_directory + datafilename)
 
     
-#   data = gene_selection(data, gene_off, gene_index)
+    data = gene_selection(data, gene_off, gene_index)
 
 
 
@@ -222,9 +221,6 @@ for i in range(len(conf)):
     #####Train Data Set#####
         train_x = train_data.iloc[:,1:-3]
         train_x = train_x.as_matrix()
-
-        train_x = gene_selection(train_x,gene_off,gene_index)
-
         train_y = train_data.iloc[:,-3].as_matrix()
         train_y = train_y.flatten()
         train_y = pd.get_dummies(train_y)
@@ -233,7 +229,6 @@ for i in range(len(conf)):
 
     #####Test Data Set#####
         test_x = test_data.iloc[:,1:-3]
-        test_x = gene_selection(test_x, gene_off, gene_index)
         test_x = test_x.as_matrix()
         test_y = test_data.iloc[:,-3].as_matrix()
         test_y = test_y.flatten()
@@ -241,7 +236,6 @@ for i in range(len(conf)):
 
     ####Cal Data Set#####
         cal_x = cal_data.iloc[:,1:-3]
-        cal_x = gene_selection(cal_x, gene_off, gene_index)
         cal_x = cal_x.as_matrix()
         cal_y = cal_data.iloc[:,-3].as_matrix()
         cal_y = cal_y.flatten()
