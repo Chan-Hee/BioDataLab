@@ -17,7 +17,7 @@ def five_fold(data, i):
     test_data = data[data['index']==i+1]
     train_data = data[(data['index']<i+1) | (data['index']>i+1)]
     print(len(test_data), len(train_data))
-    return train_data , test_data
+    return train_data, test_data
 
 def mkdir(directory):
     try:
@@ -25,6 +25,17 @@ def mkdir(directory):
             os.makedirs(directory)
     except OSError:
         print ('Error: Creating directory. ' +  directory)
+
+def gene_selection(data, gene_off,gene_index):
+    gene_abs_weight_sum = pd.read_csv(gene_index)
+    data_names_df = gene_abs_weight_sum["names"]
+    data_names_df = pd.DataFrain(data_names_df)
+    data_names_df = data_names_df[-int(len(data_names_df)/gene_off):]
+
+    data = data.loc[:,data_names_df]
+
+    return data
+
 
 def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
 ####message for stsrt
@@ -160,9 +171,16 @@ conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
 data_directory = "/home/tjahn/Data/"
 tensorboard_directory = "/home/tjahn/tf_save_data/sungmin/tensorboard/"+concept_directory
 save_path_directory = "/home/tjahn/tf_save_data/sungmin/save_path/"+concept_directory
+gene_index = "/home/tjahn/Data/abs_weight_sum/abs_weight_sum.csv"
+
+datafilename = "FinalData_GSM_gene_index_result_without_rare_cancer.csv"
+data = pd.read_csv(data_directory + datafilename)
+
+#gene_abs_weight_sum = pd.read_csv(gene_index)
 
 mkdir(save_path_directory)
 mkdir(output_directory)
+
 ####input = layer node gene_selection 
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
@@ -171,13 +189,17 @@ conf = pd.read_csv(conf_directory + conf_filename)
 ###
 for i in range(len(conf)):
    # repeat, layer, node, learning_rate, gene_off = conf.iloc[i]
-    gene_off = conf.iloc[i]
+   # gene_off = conf.iloc[i]
     layer, node, gene_off = conf.iloc[i]
     nodes = list(map(int, node.split(" ")))
 
+    gene_selection_data = gene_selection(data, gene_off, gene_index)
+
+
+
 ####sm
-    datafilename = "FinalData_Random6000_Random_"+str(gene_off)+"off_GSM_gene_index_result.csv"
-    data = pd.read_csv(data_directory + datafilename)
+    #datafilename = "FinalData_Random6000_Random_"+str(gene_off)+"off_GSM_gene_index_result.csv"
+    #data = pd.read_csv(data_directory + datafilename)
 ####sm
     Gene_Elimination = []
     Training_Accuracy=[]
@@ -185,7 +207,8 @@ for i in range(len(conf)):
     Test_Accuracy=[]
     for j in range(5):
     #####Five fold#####
-        train_data, test_data = five_fold(data, j)
+        #train_data, test_data = five_fold(data, j)
+        train_data, test_data = five_fold(gene_selection_data, j)
         test_data = test_data.sample(frac = 1)
         cal_data = test_data[:int(len(test_data)/2)]
         test_data = test_data[int(len(test_data)/2):]
@@ -194,25 +217,25 @@ for i in range(len(conf)):
         cal_GSM = cal_data.iloc[:,0].tolist()
 
     #####Train Data Set#####
-        train_x = train_data.iloc[:,1:-2]
+        train_x = train_data.iloc[:,1:-3]
         train_x = train_x.as_matrix()
-        train_y = train_data.iloc[:,-1].as_matrix()
+        train_y = train_data.iloc[:,-3].as_matrix()
         train_y = train_y.flatten()
         train_y = pd.get_dummies(train_y)
         cnt_train = len(train_x[1, :])
-        #nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
+        nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
 
     #####Test Data Set#####
-        test_x = test_data.iloc[:,1:-2]
+        test_x = test_data.iloc[:,1:-3]
         test_x = test_x.as_matrix()
-        test_y = test_data.iloc[:,-1].as_matrix()
+        test_y = test_data.iloc[:,-3].as_matrix()
         test_y = test_y.flatten()
         test_y = pd.get_dummies(test_y)
 
     ####Cal Data Set#####
-        cal_x = cal_data.iloc[:,1:-2]
+        cal_x = cal_data.iloc[:,1:-3]
         cal_x = cal_x.as_matrix()
-        cal_y = cal_data.iloc[:,-1].as_matrix()
+        cal_y = cal_data.iloc[:,-3].as_matrix()
         cal_y = cal_y.flatten()
         cal_y = pd.get_dummies(cal_y)
 
