@@ -111,7 +111,7 @@ def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
                 #print("P-Value: ",tTestResult.pvalue,"\n",beforeAccuracy,"\n",afterAccuracy)
 
 #save path
-                if(max(AccuracyList)> max_Accuracy ) :
+                if(max(AccuracyList) > max_Accuracy ) :
                     max_step = step
                     max_Accuracy = max(AccuracyList)
                     save_path = saver.save(sess, save_path_directory+"saved")
