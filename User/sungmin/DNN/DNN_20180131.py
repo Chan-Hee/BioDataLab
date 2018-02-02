@@ -14,6 +14,7 @@ def five_fold_name(data,i):
     test_names = data[data['index']==i+1]
 
 def five_fold(data, i):
+    print(data["index"])
     test_data = data[data['index']==i+1]
     train_data = data[(data['index']<i+1) | (data['index']>i+1)]
     print(len(test_data), len(train_data))
@@ -29,10 +30,11 @@ def mkdir(directory):
 def gene_selection(data, gene_off,gene_index):
     gene_abs_weight_sum = pd.read_csv(gene_index)
     data_names_df = gene_abs_weight_sum["names"]
-    data_names_df = pd.DataFrain(data_names_df)
+    data_names_df = pd.DataFrame(data_names_df)
     data_names_df = data_names_df[-int(len(data_names_df)/gene_off):]
+    
 
-    data = data.loc[:,data_names_df]
+    data = data.loc[:,data_names_df["names"]]
 
     return data
 
@@ -223,7 +225,7 @@ for i in range(len(conf)):
         train_y = train_y.flatten()
         train_y = pd.get_dummies(train_y)
         cnt_train = len(train_x[1, :])
-        nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
+        #nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
 
     #####Test Data Set#####
         test_x = test_data.iloc[:,1:-3]
