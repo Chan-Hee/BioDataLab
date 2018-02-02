@@ -145,11 +145,10 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     #    weighted_sum_result = [gene_off,train_a,cal_a,test_a,max_step,max_Accuracy]
 
     # Doubled train_X -> Feature Selection method 01
-
+        double_train_x = pd.DataFrame(index = train_GSM,data=copy.deepcopy(train_x))
 
         gene_double_probability_change_list=[]
-        for i in range(int(train_x.shape[1])):
-            double_train_x = pd.DataFrame(index = train_GSM,data=copy.deepcopy(train_x))
+        for i in range(int(double_train_x.shape[1])):
             double_train_x.iloc[:,i] = 2*double_train_x.iloc[:,i]
             double_train_h,d_c, d_train_p,d_train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: double_train_x, Y: train_y, keep_prob :1})
             probability_change = sum(abs(double_train_h[:,0]-train_h[:,0]))
@@ -161,7 +160,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
 ##################READ DATA############################
 repeat, layer, learning_rate = 1000, 3, 0.002
 
-output_directory = "/home/tjahn/Git2/User/chanhee/DNN/"
+output_directory = "/home/tjahn/pre/"
 conf_directory = "/home/tjahn/Git2/User/chanhee/DNN/input/"
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
@@ -175,7 +174,8 @@ for i in range(len(conf)):
 
 ####sm
     datafilename = "/home/tjahn/Data/FinalData"+str(int(gene_off))+"off_GSM_gene_index_result.csv"
-    datafilename = "/home/tjahn/Data/FinalData_GSM_gene_index_result_without_rare_cancer.csv"
+    datafilename = "/home/tjahn/Data/FinalData95off_GSM_gene_index_result_result_without_rare_cancer.csv"
+
     data = pd.read_csv(datafilename)
 ####sm
     Gene_Elimination = []
