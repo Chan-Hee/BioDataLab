@@ -176,7 +176,7 @@ save_path_directory = "/home/tjahn/tf_save_data/sungmin/save_path/"+concept_dire
 gene_index = "/home/tjahn/Data/abs_weight_sum/abs_weight_sum.csv"
 
 datafilename = "FinalData_GSM_gene_index_result_without_rare_cancer.csv"
-data = pd.read_csv(data_directory + datafilename)
+#data = pd.read_csv(data_directory + datafilename)
 
 #gene_abs_weight_sum = pd.read_csv(gene_index)
 
@@ -195,7 +195,9 @@ for i in range(len(conf)):
     layer, node, gene_off = conf.iloc[i]
     nodes = list(map(int, node.split(" ")))
 
-    gene_selection_data = gene_selection(data, gene_off, gene_index)
+    data = pd.read_csv(data_directory + datafilename)
+
+    data = gene_selection(data, gene_off, gene_index)
 
 
 
@@ -210,7 +212,7 @@ for i in range(len(conf)):
     for j in range(5):
     #####Five fold#####
         #train_data, test_data = five_fold(data, j)
-        train_data, test_data = five_fold(gene_selection_data, j)
+        train_data, test_data = five_fold(data, j)
         test_data = test_data.sample(frac = 1)
         cal_data = test_data[:int(len(test_data)/2)]
         test_data = test_data[int(len(test_data)/2):]
