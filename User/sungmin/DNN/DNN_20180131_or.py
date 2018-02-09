@@ -196,7 +196,8 @@ for i in range(len(conf)):
     layer, node, gene_off = conf.iloc[i]
     nodes = list(map(int, node.split(" ")))
 
-    data = pd.read_csv(data_directory + datafilename)    
+    data = pd.read_csv(data_directory + datafilename)
+    data = data.iloc[:,5000:data.shape[1]]
    # data = gene_selection(data, gene_off, gene_index)
 
     print(data)
