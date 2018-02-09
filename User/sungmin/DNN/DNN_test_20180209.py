@@ -36,7 +36,7 @@ def gene_selection(data, gene_off,gene_index):
     result = data.iloc[:, gene_abs_weight_sum]
  
     #result.to_csv("/home/tjahn/bye_2.csv",sep=",")
-    print(type(result[100,100]))
+    print(type(result.iloc[100,100]))
     return result
 
 
