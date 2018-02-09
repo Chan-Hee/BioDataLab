@@ -35,8 +35,8 @@ def gene_selection(data, gene_off,gene_index):
     gene_abs_weight_sum = r+list(range(5000,data.shape[1]))
     result = data.iloc[:, gene_abs_weight_sum]
  
-    result.to_csv("/home/tjahn/bye_2.csv",sep=",")
-   
+    #result.to_csv("/home/tjahn/bye_2.csv",sep=",")
+    print(type(result[100,100]))
     return result
 
 
