@@ -27,7 +27,7 @@ def mkdir(directory):
         print ('Error: Creating directory. ' +  directory)
 
 def gene_selection(data, gene_off,gene_index):
-    #gene_abs_weight_sum = pd.read_csv(gene_index)
+    gene_abs_weight_sum = pd.read_csv(gene_index)
     #gene_abs_weight_sum = list(gene_abs_weight_sum["names"])
     #gene_abs_weight_sum = gene_abs_weight_sum[int(len(gene_abs_weight_sum)*gene_off/100):]
     #gene_abs_weight_sum.append("result"); gene_abs_weight_sum.append("index")
