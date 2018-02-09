@@ -33,7 +33,7 @@ def gene_selection(data, gene_off,gene_index):
     r=list(range(4000, 4500))
     random.shuffle(r)
     gene_abs_weight_sum = r+list(range(5000,data.shape[1]))
-    result = data.loc[:, gene_abs_weight_sum]
+    result = data.iloc[:, gene_abs_weight_sum]
  
     result.to_csv("/home/tjahn/bye_2.csv",sep=",")
    
