@@ -4,10 +4,10 @@ import numpy as np
 import math
 import pandas as pd
 import tensorflow as tf
-import os
 from scipy import stats
 
 tf.set_random_seed(777)
+
 
 ##################Define Functions#####################
 def five_fold_name(data,i):
@@ -20,13 +20,6 @@ def five_fold(data, i):
     print(len(test_data), len(train_data))
 
     return train_data , test_data
-
-def mkdir(directory):
-    try:
-        if not os.path.exists(directory):
-            os.makedirs(directory)
-    except OSError:
-        print ('Error: Creating directory. ' +  directory)
 
 def set_train_three_layer(nodes, learning_rate, j, gene_off):
     batch_size = 1000
@@ -75,7 +68,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
     saver = tf.train.Saver()
     with tf.Session() as sess:
         merged_summary = tf.summary.merge_all()
-        writer = tf.summary.FileWriter(tensorboard_directory+"gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
+        writer = tf.summary.FileWriter("/home/tjahn/tf_save_data/sungmin/tensorboard/with_rare_cancer/gene_off_"+str(int(gene_off)) +"/" + str(nodes) +"_" + str(j+1))
         writer.add_graph(sess.graph)
 
         # Initialize TensorFlow variables
@@ -112,7 +105,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
                 if(max(AccuracyList)> max_Accuracy):
                     max_step = step
                     max_Accuracy = max(AccuracyList)
-                    save_path = saver.save(sess, save_path_directory+"saved')
+                    save_path = saver.save(sess, '/home/tjahn/tf_save_data/sungmin/save_path_with_cancer/saved')
                     print("Save path: ",save_path,"\nMax_step: ",max_step,"\nMax_Accuracy: ",max_Accuracy )
                  
                    # print("W1, W2, W3, W4: ", W1.eval(),W2.eval(),W3.eval(), W4.eval())
@@ -154,24 +147,12 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
 ##################READ DATA############################
 repeat, layer, learning_rate = 1000, 3, 0.002
 
-#output_directory = "/home/tjahn/tf_save_data/sungmin/result/with_rare_cancer/"
-#conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
-#conf_filename = "input.csv"
-#conf = pd.read_csv(conf_directory + conf_filename)
-###
-#추가추가축차 20180209
-concept_directory = "chanhee_BBung/"
-output_directory = "/home/tjahn/tf_save_data/sungmin/result/"+concept_directory
+output_directory = "/home/tjahn/tf_save_data/sungmin/result/with_rare_cancer/"
 conf_directory = "/home/tjahn/Git2/User/sungmin/DNN/input/"
-data_directory = "/home/tjahn/Data/"
-tensorboard_directory = "/home/tjahn/tf_save_data/sungmin/tensorboard/"+concept_directory
-save_path_directory = "/home/tjahn/tf_save_data/sungmin/save_path/"+concept_directory
-
 conf_filename = "input.csv"
 conf = pd.read_csv(conf_directory + conf_filename)
 
-mkdir(save_path_directory)
-mkdir(output_directory)
+
 ###
 for i in range(len(conf)):
    # repeat, layer, node, learning_rate, gene_off = conf.iloc[i]
