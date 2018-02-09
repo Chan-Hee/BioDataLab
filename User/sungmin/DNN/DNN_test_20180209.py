@@ -27,10 +27,11 @@ def mkdir(directory):
         print ('Error: Creating directory. ' +  directory)
 
 def gene_selection(data, gene_off,gene_index):
-    gene_abs_weight_sum_df = pd.read_csv(gene_index)
-    gene_abs_weight_sum=["X"]+list(gene_abs_weight_sum_df["names"])+["result","cancer_code","index"]
+    #gene_abs_weight_sum_df = pd.read_csv(gene_index)
+    #gene_abs_weight_sum=["X"]+list(gene_abs_weight_sum_df["names"])+["result","cancer_code","index"]
     #gene_abs_weight_sum = gene_abs_weight_sum[int(len(gene_abs_weight_sum)*gene_off/100):]
-    result = data.loc[:, gene_abs_weight_sum]
+    gene_abs_weight_sum = [0]+list(range(5000:data.shape[1]))
+    result = data.iloc[:, gene_abs_weight_sum]
  
 
    
