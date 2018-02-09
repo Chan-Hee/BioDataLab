@@ -231,7 +231,7 @@ for i in range(len(conf)):
         cal_GSM = cal_data.iloc[:,0].tolist()
 
     #####Train Data Set#####
-        train_x = train_data.iloc[:,1:-2]
+        train_x = train_data.iloc[:,0:-2]
         train_x = train_x.as_matrix()
         train_y = train_data.iloc[:,-2].as_matrix()
         train_y = train_y.flatten()
@@ -240,14 +240,14 @@ for i in range(len(conf)):
        # nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
 
     #####Test Data Set#####
-        test_x = test_data.iloc[:,1:-2]
+        test_x = test_data.iloc[:,0:-2]
         test_x = test_x.as_matrix()
         test_y = test_data.iloc[:,-2].as_matrix()
         test_y = test_y.flatten()
         test_y = pd.get_dummies(test_y)
 
     ####Cal Data Set#####
-        cal_x = cal_data.iloc[:,1:-2]
+        cal_x = cal_data.iloc[:,0:-2]
         cal_x = cal_x.as_matrix()
         cal_y = cal_data.iloc[:,-2].as_matrix()
         cal_y = cal_y.flatten()
