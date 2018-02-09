@@ -30,9 +30,9 @@ def gene_selection(data, gene_off,gene_index):
     #gene_abs_weight_sum_df = pd.read_csv(gene_index)
     #gene_abs_weight_sum=["X"]+list(gene_abs_weight_sum_df["names"])+["result","cancer_code","index"]
     #gene_abs_weight_sum = gene_abs_weight_sum[int(len(gene_abs_weight_sum)*gene_off/100):]
-    r=list(range(4000, 4500))
-    random.shuffle(r)
-    gene_abs_weight_sum = [0]+r+list(range(5000,data.shape[1]))
+    r=pd.read_csv(gene_index)
+    r=r["X"]
+    gene_abs_weight_sum = [0]+r+list(range(data.shape[1]-3,data.shape[1]))
     result = data.iloc[:, gene_abs_weight_sum]
  
 
