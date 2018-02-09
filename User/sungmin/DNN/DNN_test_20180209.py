@@ -30,12 +30,12 @@ def gene_selection(data, gene_off,gene_index):
     #gene_abs_weight_sum_df = pd.read_csv(gene_index)
     #gene_abs_weight_sum=["X"]+list(gene_abs_weight_sum_df["names"])+["result","cancer_code","index"]
     #gene_abs_weight_sum = gene_abs_weight_sum[int(len(gene_abs_weight_sum)*gene_off/100):]
-    r=pd.read_csv(gene_index)
-    r=r["X"]
-    gene_abs_weight_sum = [0]+r+list(range(data.shape[1]-3,data.shape[1]))
+    r=list(range(4000, 4500))
+    random.shuffle(r)
+    gene_abs_weight_sum = [0]+r+list(range(5000,data.shape[1]))
     result = data.iloc[:, gene_abs_weight_sum]
  
-
+    result.to_csv("/home/tjahn/good.csv",sep=",")
    
     return result
 
@@ -43,7 +43,6 @@ def gene_selection(data, gene_off,gene_index):
 def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
 ####message for stsrt
     print("Gene_off: ",gene_off,"\nLayer: ",layer,"\nNodes: ",nodes,"\n Five fold count: ",five_fold_count+1)
-    print(train_x)
     batch_size = 1000
     tf.reset_default_graph()
     keep_prob = tf.placeholder(tf.float32)

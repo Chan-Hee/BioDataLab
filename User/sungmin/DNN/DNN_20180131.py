@@ -34,6 +34,8 @@ def gene_selection(data, gene_off,gene_index):
 
     result = data.loc[:,gene_abs_weight_sum]
 
+    result.to_csv("/home/tjahn/bye.csv", sep=",")
+
 
     #data_result_index = data.loc[:,["result","index"]]
     #data_names_df = gene_abs_weight_sum["names"]
@@ -206,6 +208,7 @@ for i in range(len(conf)):
 
     data = pd.read_csv(data_directory + datafilename)    
     data = gene_selection(data, gene_off, gene_index)
+
 
     print(data)
 
