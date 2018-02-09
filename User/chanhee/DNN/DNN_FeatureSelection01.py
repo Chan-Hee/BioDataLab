@@ -150,7 +150,7 @@ def set_train_three_layer(nodes, learning_rate, j, gene_off):
         gene_double_probability_change_list=[]
         for i in range(int(train_x.shape[1])):
             double_train_x = pd.DataFrame(index = train_GSM,data=copy.deepcopy(train_x))
-            double_train_x.iloc[:,i] = 2*double_train_x.iloc[:,i]
+            double_train_x.iloc[:,i] = 10*double_train_x.iloc[:,i]
             double_train_h,d_c, d_train_p,d_train_a = sess.run([hypothesis, cost ,predicted, accuracy],feed_dict={X: double_train_x, Y: train_y, keep_prob :1})
             probability_change = sum(abs(double_train_h[:,0]-train_h[:,0]))
             gene_double_probability_change_list.append(probability_change)
@@ -234,7 +234,7 @@ for i in range(len(conf)):
         train_result.columns = ['result','prediction','prob0', 'prob1' ]
         test_result.columns = ['result', 'prediction', 'prob0', 'prob1']
 
-        gene_double_probability_change_df_filename = "result_doubled_gene_prob_change"+ str(j) +".csv"
+        gene_double_probability_change_df_filename = "result_10Xgene_prob_change"+ str(j) +".csv"
         gene_double_probability_change_df.to_csv(output_directory+gene_double_probability_change_df_filename , sep= ',')
 
     #    Gene_Elimination.append(weighted_sum_result[0])
