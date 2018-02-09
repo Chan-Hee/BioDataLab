@@ -32,7 +32,7 @@ def gene_selection(data, gene_off,gene_index):
     data_names_df = gene_abs_weight_sum["names"]
     data_names_df = pd.DataFrame(data_names_df)
     data_names_df = data_names_df[-int(len(data_names_df)/gene_off):]
-    result = pd.concat([data.loc[:,data_names_df["names"]],data_result_index],join = 'inner')
+    result = pd.concat([data.loc[:,data_names_df["names"]],data_result_index],axis = 1)
 
    
     return result
@@ -194,9 +194,7 @@ for i in range(len(conf)):
     layer, node, gene_off = conf.iloc[i]
     nodes = list(map(int, node.split(" ")))
 
-    data = pd.read_csv(data_directory + datafilename)
-
-    
+    data = pd.read_csv(data_directory + datafilename)    
     data = gene_selection(data, gene_off, gene_index)
 
 
