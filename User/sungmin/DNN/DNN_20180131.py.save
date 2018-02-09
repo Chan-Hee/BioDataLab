@@ -1,5 +1,5 @@
 # ##################Import Modules#######################
-y_7import random
+import random
 import numpy as np
 import math
 import pandas as pd
@@ -28,14 +28,14 @@ def mkdir(directory):
 
 def gene_selection(data, gene_off,gene_index):
     gene_abs_weight_sum = pd.read_csv(gene_index)
-    data_result_index = data.loc[:,["result","index"]]
     data_names_df = gene_abs_weight_sum["names"]
     data_names_df = pd.DataFrame(data_names_df)
     data_names_df = data_names_df[-int(len(data_names_df)/gene_off):]
-    result = pd.concat([data.loc[:,data_names_df["names"]],data_result_index],join = 'inner')
+    
 
-   
-    return result
+    data = data.loc[:,data_names_df["names"]]
+
+    return data
 
 
 def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
@@ -196,9 +196,9 @@ for i in range(len(conf)):
 
     data = pd.read_csv(data_directory + datafilename)
 
-    
     data = gene_selection(data, gene_off, gene_index)
 
+    print(data[1:2])
 
 
 ####sm
@@ -211,6 +211,7 @@ for i in range(len(conf)):
     Test_Accuracy=[]
     for j in range(5):
     #####Five fold#####
+        #train_data, test_data = five_fold(data, j)
         train_data, test_data = five_fold(data, j)
         test_data = test_data.sample(frac = 1)
         cal_data = test_data[:int(len(test_data)/2)]
@@ -225,8 +226,7 @@ for i in range(len(conf)):
         train_y = train_data.iloc[:,-3].as_matrix()
         train_y = train_y.flatten()
         train_y = pd.get_dummies(train_y)
-        cnt_train = len(train_x[1, :])
-        nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
+        #nodes = [int(cnt_train),int(cnt_train/2),int(cnt_train/4)]
 
     #####Test Data Set#####
         test_x = test_data.iloc[:,1:-3]
