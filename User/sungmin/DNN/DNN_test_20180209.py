@@ -43,6 +43,7 @@ def gene_selection(data, gene_off,gene_index):
 def sm_deep_learning(layer, nodes, learning_rate, five_fold_count, gene_off):
 ####message for stsrt
     print("Gene_off: ",gene_off,"\nLayer: ",layer,"\nNodes: ",nodes,"\n Five fold count: ",five_fold_count+1)
+    print(train_x)
     batch_size = 1000
     tf.reset_default_graph()
     keep_prob = tf.placeholder(tf.float32)
