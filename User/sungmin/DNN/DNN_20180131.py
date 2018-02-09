@@ -1,5 +1,5 @@
 # ##################Import Modules#######################
-y_7import random
+import random
 import numpy as np
 import math
 import pandas as pd
