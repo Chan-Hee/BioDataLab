@@ -28,11 +28,12 @@ def mkdir(directory):
 
 def gene_selection(data, gene_off,gene_index):
     gene_abs_weight_sum = pd.read_csv(gene_index)
+    data_result_index = data.loc[:,["result","index"]]
     data_names_df = gene_abs_weight_sum["names"]
     data_names_df = pd.DataFrame(data_names_df)
     data_names_df = data_names_df[-int(len(data_names_df)/gene_off):]
- 
-    result = data.loc[:,data_names_df["names"]]
+    result = pd.concat([data.loc[:,data_names_df["names"]],data_result_index],join = 'inner')
+
    
     return reuslt
 
