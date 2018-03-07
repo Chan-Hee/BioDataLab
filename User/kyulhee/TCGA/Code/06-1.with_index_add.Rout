@@ -1,0 +1,40 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #setwd("E:\\Lab\\TCGA_data")
+> setwd("/home/tjahn/GDC_Data/GeneExpression/Gene_txt_sum/Final")
+> df<-read.csv("Final_TCGA_gene_expression_htseq_4964_ch_reduced.csv")
+> df_ch <- df[sample(nrow(df)),]
+> 
+> patient <- df_ch$patient
+> result<-df_ch$result
+> gene_expression<-df_ch[,2:4965]
+> names(gene_expression) <- gsub(".", "-", names(gene_expression), fixed = TRUE)
+> 
+> remain <- length(df_ch$result)%%5
+> index<-rep(1:5,length(df_ch$result)/5)
+> index <- c(index, 1:remain)
+> 
+> data<-cbind(patient,gene_expression,index,result)
+> 
+> write.csv(data,"Final_TCGA_gene_expression_htseq_4964_ch_reduced_final.csv", row.names = FALSE)
+> 
+> proc.time()
+   user  system elapsed 
+ 10.048   0.160  10.597 

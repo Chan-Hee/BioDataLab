@@ -1,0 +1,41 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> set.seed(777)
+> #setwd("C:\\test\\sam")
+> setwd("/home/tjahn/GDC_Data/GeneExpression/Gene_txt_sum/Final")
+> df<-read.csv("Final_TCGA_gene_expression_htseq_4964_ch.csv")
+> 
+> #result<-c(0,1,0,1,1,1)
+> #data <- c("a", "b", "c", "d", "e", "f")
+> #df <- data.frame(data, result)
+> 
+> names(df) <- gsub(".", "-", names(df), fixed = TRUE)
+> cancer <- df[df$result==1,]
+> normal <- df[df$result==0,]
+> 
+> sample <- cancer[sample(length(cancer[,1]), length(normal[,1])),]
+> 
+> data <- rbind(normal, sample)
+> 
+> write.csv(data,"Final_TCGA_gene_expression_htseq_4964_ch_reduced.csv", row.names = FALSE)
+> 
+> proc.time()
+   user  system elapsed 
+ 34.836   0.872  35.957 

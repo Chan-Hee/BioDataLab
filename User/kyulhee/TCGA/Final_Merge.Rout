@@ -1,0 +1,157 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #setwd("C:\\test\\sam")
+> setwd("/home/tjahn/GDC_Data/GeneExpression/Gene_txt_sum")
+> file_list = list.files(pattern="*.csv", full.names = TRUE)
+> file_form <- NULL
+> for(f in file_list){
++   file_form <- c(file_form,unlist(strsplit(f, "_"))[3])
++ }
+> file_table <- data.frame(file_list, file_form)
+> forms <- c("FPKM-UQ", "FPKM", "htseq")
+> 
+> for(form in forms){
++   file_list <- as.character(file_table[file_table$file_form==form,1])
++   print(paste0("***************************  format: @ ", form, " @ starts."))
++   
++   for(i in 1:length(file_list)){
++     temp <- read.csv(file_list[i],header = TRUE)
++     if(i==1){
++       dat <- temp
++     }
++     else{
++       dat <- rbind(dat, temp)
++     }
++     print(paste0(i,"/",length(file_list)," file done."))
++   }
++   #file_name <- paste0("C:\\test\\TCGA_gene_expression_", form, ".csv")
++   file_name <- paste0("/home/tjahn/GDC_Data/GeneExpression/Final/Final_TCGA_gene_expression_", form, ".csv")
++   write.csv(dat,file_name,row.names=FALSE)
++ }  
+[1] "***************************  format: @ FPKM-UQ @ starts."
+[1] "1/102 file done."
+[1] "2/102 file done."
+[1] "3/102 file done."
+[1] "4/102 file done."
+[1] "5/102 file done."
+[1] "6/102 file done."
+[1] "7/102 file done."
+[1] "8/102 file done."
+[1] "9/102 file done."
+[1] "10/102 file done."
+[1] "11/102 file done."
+[1] "12/102 file done."
+[1] "13/102 file done."
+[1] "14/102 file done."
+[1] "15/102 file done."
+[1] "16/102 file done."
+[1] "17/102 file done."
+[1] "18/102 file done."
+[1] "19/102 file done."
+[1] "20/102 file done."
+[1] "21/102 file done."
+[1] "22/102 file done."
+[1] "23/102 file done."
+[1] "24/102 file done."
+[1] "25/102 file done."
+[1] "26/102 file done."
+[1] "27/102 file done."
+[1] "28/102 file done."
+[1] "29/102 file done."
+[1] "30/102 file done."
+[1] "31/102 file done."
+[1] "32/102 file done."
+[1] "33/102 file done."
+[1] "34/102 file done."
+[1] "35/102 file done."
+[1] "36/102 file done."
+[1] "37/102 file done."
+[1] "38/102 file done."
+[1] "39/102 file done."
+[1] "40/102 file done."
+[1] "41/102 file done."
+[1] "42/102 file done."
+[1] "43/102 file done."
+[1] "44/102 file done."
+[1] "45/102 file done."
+[1] "46/102 file done."
+[1] "47/102 file done."
+[1] "48/102 file done."
+[1] "49/102 file done."
+[1] "50/102 file done."
+[1] "51/102 file done."
+[1] "52/102 file done."
+[1] "53/102 file done."
+[1] "54/102 file done."
+[1] "55/102 file done."
+[1] "56/102 file done."
+[1] "57/102 file done."
+[1] "58/102 file done."
+[1] "59/102 file done."
+[1] "60/102 file done."
+[1] "61/102 file done."
+[1] "62/102 file done."
+[1] "63/102 file done."
+[1] "64/102 file done."
+[1] "65/102 file done."
+[1] "66/102 file done."
+[1] "67/102 file done."
+[1] "68/102 file done."
+[1] "69/102 file done."
+[1] "70/102 file done."
+[1] "71/102 file done."
+[1] "72/102 file done."
+[1] "73/102 file done."
+[1] "74/102 file done."
+[1] "75/102 file done."
+[1] "76/102 file done."
+[1] "77/102 file done."
+[1] "78/102 file done."
+[1] "79/102 file done."
+[1] "80/102 file done."
+[1] "81/102 file done."
+[1] "82/102 file done."
+[1] "83/102 file done."
+[1] "84/102 file done."
+[1] "85/102 file done."
+[1] "86/102 file done."
+[1] "87/102 file done."
+[1] "88/102 file done."
+[1] "89/102 file done."
+[1] "90/102 file done."
+[1] "91/102 file done."
+[1] "92/102 file done."
+[1] "93/102 file done."
+[1] "94/102 file done."
+[1] "95/102 file done."
+[1] "96/102 file done."
+[1] "97/102 file done."
+[1] "98/102 file done."
+[1] "99/102 file done."
+[1] "100/102 file done."
+[1] "101/102 file done."
+[1] "102/102 file done."
+Error in file(file, ifelse(append, "a", "w")) : 
+  cannot open the connection
+Calls: write.csv -> eval.parent -> eval -> eval -> write.table -> file
+In addition: Warning message:
+In file(file, ifelse(append, "a", "w")) :
+  cannot open file '/home/tjahn/GDC_Data/GeneExpression/Final/Final_TCGA_gene_expression_FPKM-UQ.csv': No such file or directory
+Execution halted

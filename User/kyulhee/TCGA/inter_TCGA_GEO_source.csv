@@ -1,0 +1,24 @@
+Adrenocortical carcinoma,ACC
+Bladder Urothelial Carcinoma,BLCA
+Breast invasive carcinoma,BRCA
+Cervical squamous cell carcinoma and endocervical adenocarcinoma,CESC
+Cholangiocarcinoma,Cholangiocarcinoma
+Colon adenocarcinoma,COAD
+Esophageal carcinoma,ESCA
+Glioblastoma multiforme,GBM
+Head and Neck squamous cell carcinoma,HNSC
+Kidney renal clear cell carcinoma,KIRC
+Liver hepatocellular carcinoma,LIHC
+Lung adenocarcinoma,LUAD
+Lung squamous cell carcinoma,LUSC
+Lymphoid Neoplasm Diffuse Large B-cell Lymphoma,DLBC
+Mesothelioma,MESO
+Ovarian serous cystadenocarcinoma,OV
+Pancreatic adenocarcinoma,PAAD
+Prostate adenocarcinoma,PRAD
+Sarcoma,SARC
+Skin Cutaneous Melanoma,SKCM
+Stomach adenocarcinoma,STAD
+Testicular Germ Cell Tumors,Testicular Germ Cell Tumor
+Thyroid carcinoma,THCA
+Uterine Corpus Endometrial Carcinoma,UCEC

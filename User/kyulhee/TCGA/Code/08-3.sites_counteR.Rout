@@ -1,0 +1,60 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #setwd("C:\\test\\sam")
+> setwd("/home/tjahn/GDC_Data/GeneExpression/Gene_txt_sum/Final")
+> 
+> forms <- c("FPKM-UQ", "FPKM", "htseq")
+> 
+> for(form in forms){
++   
++   print(paste0(form, " @@ type counting starts."))
++   
++   csv_file <- paste0("wt_type_Final_TCGA_gene_expression_", form, ".csv")
++   #csv_file <- "wt_type_Final_TCGA_gene_expression_FPKM-UQ_4964_ch.csv"
++   large_table <- read.csv(csv_file, header = TRUE)
++   print("large table reads.")
++   
++   type_temp <- data.frame(table(large_table$types))
++   names(type_temp)[1] <- "types"
++   names(type_temp)[length(type_temp[1,])] <- form
++   print(paste0(form, " @@ type counting complete."))
++   
++   write.csv(type_temp, paste0("/home/tjahn/Git2/User/kyulhee/TCGA/", form, "_types_counting.csv"), row.names = FALSE)
++   #write.csv(type_temp, "types_counting.csv", row.names = FALSE)
++   print("counting file written.")      
++   
++ }
+[1] "FPKM-UQ @@ type counting starts."
+[1] "large table reads."
+[1] "FPKM-UQ @@ type counting complete."
+[1] "counting file written."
+[1] "FPKM @@ type counting starts."
+[1] "large table reads."
+[1] "FPKM @@ type counting complete."
+[1] "counting file written."
+[1] "htseq @@ type counting starts."
+[1] "large table reads."
+[1] "htseq @@ type counting complete."
+[1] "counting file written."
+> 
+> 
+> proc.time()
+   user  system elapsed 
+973.748  11.920 990.355 

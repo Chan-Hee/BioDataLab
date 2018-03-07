@@ -1,0 +1,171 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #setwd("C:\\test\\sam")
+> setwd("/home/tjahn/GDC_Data/GeneExpression/Gene_txt_sum")
+> file_list = list.files(pattern="*.csv", full.names = TRUE)
+> file_form <- NULL
+> for(f in file_list){
++   file_form <- c(file_form,unlist(strsplit(f, "_"))[3])
++ }
+> file_table <- data.frame(file_list, file_form)
+> #forms <- c("FPKM-UQ", "FPKM", "htseq")
+> forms <- "htseq"
+> 
+> for(form in forms){
++   file_list <- as.character(file_table[file_table$file_form==form,1])
++   print(paste0("***************************  format: @ ", form, " @ starts."))
++   
++   for(i in 1:length(file_list)){
++     temp <- read.csv(file_list[i],header = TRUE)
++     if(i==1){
++       dat <- temp
++     }
++     else{
++       dat <- rbind(dat, temp)
++     }
++     print(paste0(i,"/",length(file_list)," file done."))
++   }
++   print(paste0("***************************  format: @ ", form, " @ file reads."))
++   #file_name <- paste0("C:\\test\\TCGA_gene_expression_", form, ".csv")
++   file_name <- paste0("/home/tjahn/GDC_Data/GeneExpression/Gene_txt_sum/Final/Final_TCGA_gene_expression_", form, "_sample.csv")
++   write.csv(dat,file_name,row.names=FALSE)
++ }  
+[1] "***************************  format: @ htseq @ starts."
+[1] "1/116 file done."
+[1] "2/116 file done."
+[1] "3/116 file done."
+[1] "4/116 file done."
+[1] "5/116 file done."
+[1] "6/116 file done."
+[1] "7/116 file done."
+[1] "8/116 file done."
+[1] "9/116 file done."
+[1] "10/116 file done."
+[1] "11/116 file done."
+[1] "12/116 file done."
+[1] "13/116 file done."
+[1] "14/116 file done."
+[1] "15/116 file done."
+[1] "16/116 file done."
+[1] "17/116 file done."
+[1] "18/116 file done."
+[1] "19/116 file done."
+[1] "20/116 file done."
+[1] "21/116 file done."
+[1] "22/116 file done."
+[1] "23/116 file done."
+[1] "24/116 file done."
+[1] "25/116 file done."
+[1] "26/116 file done."
+[1] "27/116 file done."
+[1] "28/116 file done."
+[1] "29/116 file done."
+[1] "30/116 file done."
+[1] "31/116 file done."
+[1] "32/116 file done."
+[1] "33/116 file done."
+[1] "34/116 file done."
+[1] "35/116 file done."
+[1] "36/116 file done."
+[1] "37/116 file done."
+[1] "38/116 file done."
+[1] "39/116 file done."
+[1] "40/116 file done."
+[1] "41/116 file done."
+[1] "42/116 file done."
+[1] "43/116 file done."
+[1] "44/116 file done."
+[1] "45/116 file done."
+[1] "46/116 file done."
+[1] "47/116 file done."
+[1] "48/116 file done."
+[1] "49/116 file done."
+[1] "50/116 file done."
+[1] "51/116 file done."
+[1] "52/116 file done."
+[1] "53/116 file done."
+[1] "54/116 file done."
+[1] "55/116 file done."
+[1] "56/116 file done."
+[1] "57/116 file done."
+[1] "58/116 file done."
+[1] "59/116 file done."
+[1] "60/116 file done."
+[1] "61/116 file done."
+[1] "62/116 file done."
+[1] "63/116 file done."
+[1] "64/116 file done."
+[1] "65/116 file done."
+[1] "66/116 file done."
+[1] "67/116 file done."
+[1] "68/116 file done."
+[1] "69/116 file done."
+[1] "70/116 file done."
+[1] "71/116 file done."
+[1] "72/116 file done."
+[1] "73/116 file done."
+[1] "74/116 file done."
+[1] "75/116 file done."
+[1] "76/116 file done."
+[1] "77/116 file done."
+[1] "78/116 file done."
+[1] "79/116 file done."
+[1] "80/116 file done."
+[1] "81/116 file done."
+[1] "82/116 file done."
+[1] "83/116 file done."
+[1] "84/116 file done."
+[1] "85/116 file done."
+[1] "86/116 file done."
+[1] "87/116 file done."
+[1] "88/116 file done."
+[1] "89/116 file done."
+[1] "90/116 file done."
+[1] "91/116 file done."
+[1] "92/116 file done."
+[1] "93/116 file done."
+[1] "94/116 file done."
+[1] "95/116 file done."
+[1] "96/116 file done."
+[1] "97/116 file done."
+[1] "98/116 file done."
+[1] "99/116 file done."
+[1] "100/116 file done."
+[1] "101/116 file done."
+[1] "102/116 file done."
+[1] "103/116 file done."
+[1] "104/116 file done."
+[1] "105/116 file done."
+[1] "106/116 file done."
+[1] "107/116 file done."
+[1] "108/116 file done."
+[1] "109/116 file done."
+[1] "110/116 file done."
+[1] "111/116 file done."
+[1] "112/116 file done."
+[1] "113/116 file done."
+[1] "114/116 file done."
+[1] "115/116 file done."
+[1] "116/116 file done."
+[1] "***************************  format: @ htseq @ file reads."
+> 
+> proc.time()
+    user   system  elapsed 
+2563.924   20.736 2588.040 

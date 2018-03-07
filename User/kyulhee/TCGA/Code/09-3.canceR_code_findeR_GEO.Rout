@@ -1,0 +1,51 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> setwd("/home/tjahn/Data")
+> 
+> file_name <- "FinalData_GSM_gene_index_result_without_rare_cancer.csv"
+> large_table <- read.csv(file_name,header = TRUE)
+> #gene_set <- read.csv("C:\\test\\sam\\inter_GEO_TCGA_geneset_final.csv", header = FALSE)
+> print(paste0("***************************  file reads."))
+[1] "***************************  file reads."
+> gene_set <- read.csv("/home/tjahn/Git2/User/kyulhee/TCGA/inter_GEO_TCGA_geneset_final.csv", header = FALSE)
+> gene_set <- as.character(gene_set$V1)
+> 
+> patients <- large_table$X
+> result <- large_table$result
+> index <- large_table$index
+> cancer_code <- large_table$cancer_code
+> 
+> # Modifying large table
+> names(large_table) <- gsub(".", "-", names(large_table), fixed = TRUE)
+> print(paste0("***************************  modified."))
+[1] "***************************  modified."
+> 
+> # Subsampling
+> sub_table <- subset(large_table, select = gene_set)
+>  
+> len <- length(large_table)
+> final_csv <- cbind(patients, sub_table, result, cancer_code, index)
+> write.csv(final_csv,"wt_cancer_code_FinalData_GSM_gene_index_result_without_rare_cancer_4964.csv",row.names = FALSE)
+> print(paste0("***************************  subsampled."))
+[1] "***************************  subsampled."
+> 
+> proc.time()
+   user  system elapsed 
+ 80.416   0.980  81.664 

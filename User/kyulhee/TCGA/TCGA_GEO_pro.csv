@@ -1,0 +1,831 @@
+"TSS.Code","Study.Name","TCGA_cancer_code","intersect"
+"01","Ovarian serous cystadenocarcinoma","OV",1
+"02","Glioblastoma multiforme","GBM",1
+"04","Ovarian serous cystadenocarcinoma","OV",1
+"05","Lung adenocarcinoma","LUAD",1
+"06","Glioblastoma multiforme","GBM",1
+"07","Cell Line Control","Cell line Control",0
+"08","Glioblastoma multiforme","GBM",1
+"09","Ovarian serous cystadenocarcinoma","OV",1
+"10","Ovarian serous cystadenocarcinoma","OV",1
+"11","Lung squamous cell carcinoma","LUSC",1
+"12","Glioblastoma multiforme","GBM",1
+"13","Ovarian serous cystadenocarcinoma","OV",1
+"14","Glioblastoma multiforme","GBM",1
+"15","Glioblastoma multiforme","GBM",1
+"16","Glioblastoma multiforme","GBM",1
+"17","Lung adenocarcinoma","LUAD",1
+"18","Lung squamous cell carcinoma","LUSC",1
+"19","Glioblastoma multiforme","GBM",1
+"1Z","Thymoma","THYM",0
+"20","Ovarian serous cystadenocarcinoma","OV",1
+"21","Lung squamous cell carcinoma","LUSC",1
+"22","Lung squamous cell carcinoma","LUSC",1
+"23","Ovarian serous cystadenocarcinoma","OV",1
+"24","Ovarian serous cystadenocarcinoma","OV",1
+"25","Ovarian serous cystadenocarcinoma","OV",1
+"26","Glioblastoma multiforme","GBM",1
+"27","Glioblastoma multiforme","GBM",1
+"28","Glioblastoma multiforme","GBM",1
+"29","Ovarian serous cystadenocarcinoma","OV",1
+"2A","Prostate adenocarcinoma","PRAD",1
+"2E","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"2F","Bladder Urothelial Carcinoma","BLCA",1
+"2G","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"2H","Esophageal carcinoma","ESCA",1
+"2J","Pancreatic adenocarcinoma","PAAD",1
+"2K","Kidney renal papillary cell carcinoma","KIRP",0
+"2L","Pancreatic adenocarcinoma","PAAD",1
+"2M","Esophageal carcinoma","ESCA",1
+"2N","Stomach adenocarcinoma","STAD",1
+"2P","Pancreatic adenocarcinoma","PAAD",1
+"2V","Liver hepatocellular carcinoma","LIHC",1
+"2W","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"2X","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"2Y","Liver hepatocellular carcinoma","LIHC",1
+"2Z","Kidney renal papillary cell carcinoma","KIRP",0
+"30","Ovarian serous cystadenocarcinoma","OV",1
+"31","Ovarian serous cystadenocarcinoma","OV",1
+"32","Glioblastoma multiforme","GBM",1
+"33","Lung squamous cell carcinoma","LUSC",1
+"34","Lung squamous cell carcinoma","LUSC",1
+"35","Lung adenocarcinoma","LUAD",1
+"36","Ovarian serous cystadenocarcinoma","OV",1
+"37","Lung squamous cell carcinoma","LUSC",1
+"38","Lung adenocarcinoma","LUAD",1
+"39","Lung squamous cell carcinoma","LUSC",1
+"3A","Pancreatic adenocarcinoma","PAAD",1
+"3B","Sarcoma","SARC",1
+"3C","Breast invasive carcinoma","BRCA",1
+"3E","Pancreatic adenocarcinoma","PAAD",1
+"3G","Thymoma","THYM",0
+"3H","Mesothelioma","MESO",1
+"3J","Breast invasive carcinoma","BRCA",1
+"3K","Liver hepatocellular carcinoma","LIHC",1
+"3L","Colon adenocarcinoma","COAD",1
+"3M","Stomach adenocarcinoma","STAD",1
+"3N","Skin Cutaneous Melanoma","SKCM",1
+"3P","Ovarian serous cystadenocarcinoma","OV",1
+"3Q","Thymoma","THYM",0
+"3R","Sarcoma","SARC",1
+"3S","Thymoma","THYM",0
+"3T","Thymoma","THYM",0
+"3U","Mesothelioma","MESO",1
+"3W","Sarcoma","SARC",1
+"3X","Cholangiocarcinoma","Cholangiocarcinoma",1
+"3Z","Kidney renal clear cell carcinoma","KIRC",1
+"41","Glioblastoma multiforme","GBM",1
+"42","Ovarian serous cystadenocarcinoma","OV",1
+"43","Lung squamous cell carcinoma","LUSC",1
+"44","Lung adenocarcinoma","LUAD",1
+"46","Lung squamous cell carcinoma","LUSC",1
+"49","Lung adenocarcinoma","LUAD",1
+"4A","Kidney renal papillary cell carcinoma","KIRP",0
+"4B","Lung adenocarcinoma","LUAD",1
+"4C","Thyroid carcinoma","THCA",1
+"4D","Ovarian serous cystadenocarcinoma","OV",1
+"4E","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"4G","Cholangiocarcinoma","Cholangiocarcinoma",1
+"4H","Breast invasive carcinoma","BRCA",1
+"4J","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"4K","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"4L","Prostate adenocarcinoma","PRAD",1
+"4N","Colon adenocarcinoma","COAD",1
+"4P","Head and Neck squamous cell carcinoma","HNSC",1
+"4Q","Sarcoma","SARC",1
+"4R","Liver hepatocellular carcinoma","LIHC",1
+"4S","Prostate adenocarcinoma","PRAD",1
+"4T","Colon adenocarcinoma","COAD",1
+"4V","Thymoma","THYM",0
+"4W","Glioblastoma multiforme","GBM",1
+"4X","Thymoma","THYM",0
+"4Y","Sarcoma","SARC",1
+"4Z","Bladder Urothelial Carcinoma","BLCA",1
+"50","Lung adenocarcinoma","LUAD",1
+"51","Lung squamous cell carcinoma","LUSC",1
+"52","Lung squamous cell carcinoma","LUSC",1
+"53","Lung adenocarcinoma","LUAD",1
+"55","Lung adenocarcinoma","LUAD",1
+"56","Lung squamous cell carcinoma","LUSC",1
+"57","Ovarian serous cystadenocarcinoma","OV",1
+"58","Lung squamous cell carcinoma","LUSC",1
+"59","Ovarian serous cystadenocarcinoma","OV",1
+"5A","Cholangiocarcinoma","Cholangiocarcinoma",1
+"5B","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"5C","Liver hepatocellular carcinoma","LIHC",1
+"5D","Sarcoma","SARC",1
+"5F","Thyroid carcinoma","THCA",1
+"5G","Thymoma","THYM",0
+"5H","Uveal Melanoma","UVM",0
+"5J","Acute Myeloid Leukemia","AML",0
+"5K","Thymoma","THYM",0
+"5L","Breast invasive carcinoma","BRCA",1
+"5M","Colon adenocarcinoma","COAD",1
+"5N","Bladder Urothelial Carcinoma","BLCA",1
+"5P","Kidney renal papillary cell carcinoma","KIRP",0
+"5Q","Pancreatic adenocarcinoma","PAAD",1
+"5R","Liver hepatocellular carcinoma","LIHC",1
+"5S","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"5T","Breast invasive carcinoma","BRCA",1
+"5U","Thymoma","THYM",0
+"5V","Thymoma","THYM",0
+"5W","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"5X","Ovarian serous cystadenocarcinoma","OV",1
+"60","Lung squamous cell carcinoma","LUSC",1
+"61","Ovarian serous cystadenocarcinoma","OV",1
+"62","Lung adenocarcinoma","LUAD",1
+"63","Lung squamous cell carcinoma","LUSC",1
+"64","Lung adenocarcinoma","LUAD",1
+"65","Glioblastoma multiforme","GBM",1
+"66","Lung squamous cell carcinoma","LUSC",1
+"67","Lung adenocarcinoma","LUAD",1
+"68","Lung squamous cell carcinoma","LUSC",1
+"69","Lung adenocarcinoma","LUAD",1
+"6A","Lung squamous cell carcinoma","LUSC",1
+"6D","Kidney renal clear cell carcinoma","KIRC",1
+"6G","Rectum adenocarcinoma","READ",0
+"6H","Chronic Myelogenous Leukemia","CML",0
+"70","Lung squamous cell carcinoma","LUSC",1
+"71","Lung adenocarcinoma","LUAD",1
+"72","Ovarian serous cystadenocarcinoma","OV",1
+"73","Lung adenocarcinoma","LUAD",1
+"74","Glioblastoma multiforme","GBM",1
+"75","Lung adenocarcinoma","LUAD",1
+"76","Glioblastoma multiforme","GBM",1
+"77","Lung squamous cell carcinoma","LUSC",1
+"78","Lung adenocarcinoma","LUAD",1
+"79","Lung squamous cell carcinoma","LUSC",1
+"80","Lung adenocarcinoma","LUAD",1
+"81","Glioblastoma multiforme","GBM",1
+"82","Lung squamous cell carcinoma","LUSC",1
+"83","Lung adenocarcinoma","LUAD",1
+"85","Lung squamous cell carcinoma","LUSC",1
+"86","Lung adenocarcinoma","LUAD",1
+"87","Glioblastoma multiforme","GBM",1
+"90","Lung squamous cell carcinoma","LUSC",1
+"91","Lung adenocarcinoma","LUAD",1
+"92","Lung squamous cell carcinoma","LUSC",1
+"93","Lung adenocarcinoma","LUAD",1
+"94","Lung squamous cell carcinoma","LUSC",1
+"95","Lung adenocarcinoma","LUAD",1
+"96","Lung squamous cell carcinoma","LUSC",1
+"97","Lung adenocarcinoma","LUAD",1
+"98","Lung squamous cell carcinoma","LUSC",1
+"99","Lung adenocarcinoma","LUAD",1
+"A1","Breast invasive carcinoma","BRCA",1
+"A2","Breast invasive carcinoma","BRCA",1
+"A3","Kidney renal clear cell carcinoma","KIRC",1
+"A4","Kidney renal papillary cell carcinoma","KIRP",0
+"A5","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"A6","Colon adenocarcinoma","COAD",1
+"A7","Breast invasive carcinoma","BRCA",1
+"A8","Breast invasive carcinoma","BRCA",1
+"AA","Colon adenocarcinoma","COAD",1
+"AB","Acute Myeloid Leukemia","AML",0
+"AC","Breast invasive carcinoma","BRCA",1
+"AD","Colon adenocarcinoma","COAD",1
+"AF","Rectum adenocarcinoma","READ",0
+"AG","Rectum adenocarcinoma","READ",0
+"AH","Rectum adenocarcinoma","READ",0
+"AJ","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"AK","Kidney renal clear cell carcinoma","KIRC",1
+"AL","Kidney renal papillary cell carcinoma","KIRP",0
+"AM","Colon adenocarcinoma","COAD",1
+"AN","Breast invasive carcinoma","BRCA",1
+"AO","Breast invasive carcinoma","BRCA",1
+"AP","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"AQ","Breast invasive carcinoma","BRCA",1
+"AR","Breast invasive carcinoma","BRCA",1
+"AS","Kidney renal clear cell carcinoma","KIRC",1
+"AT","Kidney renal papillary cell carcinoma","KIRP",0
+"AU","Colon adenocarcinoma","COAD",1
+"AV","Cell Line Control","Cell line Control",0
+"AW","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"AX","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"AY","Colon adenocarcinoma","COAD",1
+"AZ","Colon adenocarcinoma","COAD",1
+"B0","Kidney renal clear cell carcinoma","KIRC",1
+"B1","Kidney renal papillary cell carcinoma","KIRP",0
+"B2","Kidney renal clear cell carcinoma","KIRC",1
+"B3","Kidney renal papillary cell carcinoma","KIRP",0
+"B4","Kidney renal clear cell carcinoma","KIRC",1
+"B5","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"B6","Breast invasive carcinoma","BRCA",1
+"B7","Stomach adenocarcinoma","STAD",1
+"B8","Kidney renal clear cell carcinoma","KIRC",1
+"B9","Kidney renal papillary cell carcinoma","KIRP",0
+"BA","Head and Neck squamous cell carcinoma","HNSC",1
+"BB","Head and Neck squamous cell carcinoma","HNSC",1
+"BC","Liver hepatocellular carcinoma","LIHC",1
+"BD","Liver hepatocellular carcinoma","LIHC",1
+"BF","Skin Cutaneous Melanoma","SKCM",1
+"BG","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"BH","Breast invasive carcinoma","BRCA",1
+"BI","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"BJ","Thyroid carcinoma","THCA",1
+"BK","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"BL","Bladder Urothelial Carcinoma","BLCA",1
+"BM","Rectum adenocarcinoma","READ",0
+"BP","Kidney renal clear cell carcinoma","KIRC",1
+"BQ","Kidney renal papillary cell carcinoma","KIRP",0
+"BR","Stomach adenocarcinoma","STAD",1
+"BS","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"BT","Bladder Urothelial Carcinoma","BLCA",1
+"BW","Liver hepatocellular carcinoma","LIHC",1
+"C4","Bladder Urothelial Carcinoma","BLCA",1
+"C5","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"C8","Breast invasive carcinoma","BRCA",1
+"C9","Head and Neck squamous cell carcinoma","HNSC",1
+"CA","Colon adenocarcinoma","COAD",1
+"CB","Kidney renal clear cell carcinoma","KIRC",1
+"CC","Liver hepatocellular carcinoma","LIHC",1
+"CD","Stomach adenocarcinoma","STAD",1
+"CE","Thyroid carcinoma","THCA",1
+"CF","Bladder Urothelial Carcinoma","BLCA",1
+"CG","Stomach adenocarcinoma","STAD",1
+"CH","Prostate adenocarcinoma","PRAD",1
+"CI","Rectum adenocarcinoma","READ",0
+"CJ","Kidney renal clear cell carcinoma","KIRC",1
+"CK","Colon adenocarcinoma","COAD",1
+"CL","Rectum adenocarcinoma","READ",0
+"CM","Colon adenocarcinoma","COAD",1
+"CN","Head and Neck squamous cell carcinoma","HNSC",1
+"CQ","Head and Neck squamous cell carcinoma","HNSC",1
+"CR","Head and Neck squamous cell carcinoma","HNSC",1
+"CS","Brain Lower Grade Glioma","LGG",0
+"CU","Bladder Urothelial Carcinoma","BLCA",1
+"CV","Head and Neck squamous cell carcinoma","HNSC",1
+"CW","Kidney renal clear cell carcinoma","KIRC",1
+"CX","Head and Neck squamous cell carcinoma","HNSC",1
+"CZ","Kidney renal clear cell carcinoma","KIRC",1
+"D1","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"D3","Skin Cutaneous Melanoma","SKCM",1
+"D5","Colon adenocarcinoma","COAD",1
+"D6","Head and Neck squamous cell carcinoma","HNSC",1
+"D7","Stomach adenocarcinoma","STAD",1
+"D8","Breast invasive carcinoma","BRCA",1
+"D9","Skin Cutaneous Melanoma","SKCM",1
+"DA","Skin Cutaneous Melanoma","SKCM",1
+"DB","Brain Lower Grade Glioma","LGG",0
+"DC","Rectum adenocarcinoma","READ",0
+"DD","Liver hepatocellular carcinoma","LIHC",1
+"DE","Thyroid carcinoma","THCA",1
+"DF","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"DG","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"DH","Brain Lower Grade Glioma","LGG",0
+"DI","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"DJ","Thyroid carcinoma","THCA",1
+"DK","Bladder Urothelial Carcinoma","BLCA",1
+"DM","Colon adenocarcinoma","COAD",1
+"DO","Thyroid carcinoma","THCA",1
+"DQ","Head and Neck squamous cell carcinoma","HNSC",1
+"DR","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"DS","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"DT","Rectum adenocarcinoma","READ",0
+"DU","Brain Lower Grade Glioma","LGG",0
+"DV","Kidney renal clear cell carcinoma","KIRC",1
+"DW","Kidney renal papillary cell carcinoma","KIRP",0
+"DX","Sarcoma","SARC",1
+"DY","Rectum adenocarcinoma","READ",0
+"DZ","Kidney renal papillary cell carcinoma","KIRP",0
+"E1","Brain Lower Grade Glioma","LGG",0
+"E2","Breast invasive carcinoma","BRCA",1
+"E3","Thyroid carcinoma","THCA",1
+"E5","Bladder Urothelial Carcinoma","BLCA",1
+"E6","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"E7","Bladder Urothelial Carcinoma","BLCA",1
+"E8","Thyroid carcinoma","THCA",1
+"E9","Breast invasive carcinoma","BRCA",1
+"EA","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"EB","Skin Cutaneous Melanoma","SKCM",1
+"EC","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"ED","Liver hepatocellular carcinoma","LIHC",1
+"EE","Skin Cutaneous Melanoma","SKCM",1
+"EF","Rectum adenocarcinoma","READ",0
+"EI","Rectum adenocarcinoma","READ",0
+"EJ","Prostate adenocarcinoma","PRAD",1
+"EK","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"EL","Thyroid carcinoma","THCA",1
+"EM","Thyroid carcinoma","THCA",1
+"EO","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"EP","Liver hepatocellular carcinoma","LIHC",1
+"EQ","Stomach adenocarcinoma","STAD",1
+"ER","Skin Cutaneous Melanoma","SKCM",1
+"ES","Liver hepatocellular carcinoma","LIHC",1
+"ET","Thyroid carcinoma","THCA",1
+"EU","Kidney renal clear cell carcinoma","KIRC",1
+"EV","Kidney renal papillary cell carcinoma","KIRP",0
+"EW","Breast invasive carcinoma","BRCA",1
+"EX","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"EY","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"EZ","Brain Lower Grade Glioma","LGG",0
+"F1","Stomach adenocarcinoma","STAD",1
+"F2","Pancreatic adenocarcinoma","PAAD",1
+"F4","Colon adenocarcinoma","COAD",1
+"F5","Rectum adenocarcinoma","READ",0
+"F6","Brain Lower Grade Glioma","LGG",0
+"F7","Head and Neck squamous cell carcinoma","HNSC",1
+"F9","Kidney renal papillary cell carcinoma","KIRP",0
+"FA","Lymphoid Neoplasm Diffuse Large B-cell Lymphoma","DLBC",1
+"FB","Pancreatic adenocarcinoma","PAAD",1
+"FC","Prostate adenocarcinoma","PRAD",1
+"FD","Bladder Urothelial Carcinoma","BLCA",1
+"FE","Thyroid carcinoma","THCA",1
+"FF","Lymphoid Neoplasm Diffuse Large B-cell Lymphoma","DLBC",1
+"FG","Brain Lower Grade Glioma","LGG",0
+"FH","Thyroid carcinoma","THCA",1
+"FI","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"FJ","Bladder Urothelial Carcinoma","BLCA",1
+"FK","Thyroid carcinoma","THCA",1
+"FL","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"FM","Lymphoid Neoplasm Diffuse Large B-cell Lymphoma","DLBC",1
+"FN","Brain Lower Grade Glioma","LGG",0
+"FP","Stomach adenocarcinoma","STAD",1
+"FQ","Pancreatic adenocarcinoma","PAAD",1
+"FR","Skin Cutaneous Melanoma","SKCM",1
+"FS","Skin Cutaneous Melanoma","SKCM",1
+"FT","Bladder Urothelial Carcinoma","BLCA",1
+"FU","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"FV","Liver hepatocellular carcinoma","LIHC",1
+"FW","Skin Cutaneous Melanoma","SKCM",1
+"FX","Sarcoma","SARC",1
+"FY","Thyroid carcinoma","THCA",1
+"FZ","Pancreatic adenocarcinoma","PAAD",1
+"G2","Bladder Urothelial Carcinoma","BLCA",1
+"G3","Liver hepatocellular carcinoma","LIHC",1
+"G4","Colon adenocarcinoma","COAD",1
+"G5","Rectum adenocarcinoma","READ",0
+"G6","Kidney renal clear cell carcinoma","KIRC",1
+"G7","Kidney renal papillary cell carcinoma","KIRP",0
+"G8","Lymphoid Neoplasm Diffuse Large B-cell Lymphoma","DLBC",1
+"G9","Prostate adenocarcinoma","PRAD",1
+"GC","Bladder Urothelial Carcinoma","BLCA",1
+"GD","Bladder Urothelial Carcinoma","BLCA",1
+"GE","Thyroid carcinoma","THCA",1
+"GF","Skin Cutaneous Melanoma","SKCM",1
+"GG","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"GH","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"GI","Breast invasive carcinoma","BRCA",1
+"GJ","Liver hepatocellular carcinoma","LIHC",1
+"GK","Kidney renal clear cell carcinoma","KIRC",1
+"GL","Kidney renal papillary cell carcinoma","KIRP",0
+"GM","Breast invasive carcinoma","BRCA",1
+"GN","Skin Cutaneous Melanoma","SKCM",1
+"GP","Acute Myeloid Leukemia","AML",0
+"GR","Lymphoid Neoplasm Diffuse Large B-cell Lymphoma","DLBC",1
+"GS","Lymphoid Neoplasm Diffuse Large B-cell Lymphoma","DLBC",1
+"GU","Bladder Urothelial Carcinoma","BLCA",1
+"GV","Bladder Urothelial Carcinoma","BLCA",1
+"GZ","Lymphoid Neoplasm Diffuse Large B-cell Lymphoma","DLBC",1
+"H1","Stomach adenocarcinoma","STAD",1
+"H2","Thyroid carcinoma","THCA",1
+"H3","Lymphoid Neoplasm Diffuse Large B-cell Lymphoma","DLBC",1
+"H4","Bladder Urothelial Carcinoma","BLCA",1
+"H5","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"H6","Pancreatic adenocarcinoma","PAAD",1
+"H7","Head and Neck squamous cell carcinoma","HNSC",1
+"H8","Pancreatic adenocarcinoma","PAAD",1
+"H9","Prostate adenocarcinoma","PRAD",1
+"HA","Stomach adenocarcinoma","STAD",1
+"HB","Sarcoma","SARC",1
+"HC","Prostate adenocarcinoma","PRAD",1
+"HD","Head and Neck squamous cell carcinoma","HNSC",1
+"HE","Kidney renal papillary cell carcinoma","KIRP",0
+"HF","Stomach adenocarcinoma","STAD",1
+"HG","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"HH","Stomach adenocarcinoma","STAD",1
+"HI","Prostate adenocarcinoma","PRAD",1
+"HJ","Stomach adenocarcinoma","STAD",1
+"HK","Brain Lower Grade Glioma","LGG",0
+"HL","Head and Neck squamous cell carcinoma","HNSC",1
+"HM","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"HN","Breast invasive carcinoma","BRCA",1
+"HP","Liver hepatocellular carcinoma","LIHC",1
+"HQ","Bladder Urothelial Carcinoma","BLCA",1
+"HR","Skin Cutaneous Melanoma","SKCM",1
+"HS","Sarcoma","SARC",1
+"HT","Brain Lower Grade Glioma","LGG",0
+"HU","Stomach adenocarcinoma","STAD",1
+"HV","Pancreatic adenocarcinoma","PAAD",1
+"HW","Brain Lower Grade Glioma","LGG",0
+"HZ","Pancreatic adenocarcinoma","PAAD",1
+"IA","Kidney renal papillary cell carcinoma","KIRP",0
+"IB","Pancreatic adenocarcinoma","PAAD",1
+"IC","Esophageal carcinoma","ESCA",1
+"IE","Sarcoma","SARC",1
+"IF","Sarcoma","SARC",1
+"IG","Esophageal carcinoma","ESCA",1
+"IH","Skin Cutaneous Melanoma","SKCM",1
+"IJ","Acute Myeloid Leukemia","AML",0
+"IK","Brain Lower Grade Glioma","LGG",0
+"IM","Thyroid carcinoma","THCA",1
+"IN","Stomach adenocarcinoma","STAD",1
+"IP","Stomach adenocarcinoma","STAD",1
+"IQ","Head and Neck squamous cell carcinoma","HNSC",1
+"IR","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"IS","Sarcoma","SARC",1
+"IW","Sarcoma","SARC",1
+"IZ","Kidney renal papillary cell carcinoma","KIRP",0
+"J1","Lung squamous cell carcinoma","LUSC",1
+"J2","Lung adenocarcinoma","LUAD",1
+"J4","Prostate adenocarcinoma","PRAD",1
+"J7","Kidney renal papillary cell carcinoma","KIRP",0
+"J8","Thyroid carcinoma","THCA",1
+"J9","Prostate adenocarcinoma","PRAD",1
+"JA","Head and Neck squamous cell carcinoma","HNSC",1
+"JL","Breast invasive carcinoma","BRCA",1
+"JU","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"JV","Sarcoma","SARC",1
+"JW","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"JX","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"JY","Esophageal carcinoma","ESCA",1
+"JZ","Esophageal carcinoma","ESCA",1
+"K1","Sarcoma","SARC",1
+"K4","Bladder Urothelial Carcinoma","BLCA",1
+"K6","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"K7","Liver hepatocellular carcinoma","LIHC",1
+"K8","Skin Cutaneous Melanoma","SKCM",1
+"KA","Esophageal carcinoma","ESCA",1
+"KB","Stomach adenocarcinoma","STAD",1
+"KC","Prostate adenocarcinoma","PRAD",1
+"KD","Sarcoma","SARC",1
+"KE","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"KF","Sarcoma","SARC",1
+"KG","Pancreatic adenocarcinoma","PAAD",1
+"KH","Esophageal carcinoma","ESCA",1
+"KJ","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"KK","Prostate adenocarcinoma","PRAD",1
+"KL","Kidney Chromophobe","KICH",0
+"KM","Kidney Chromophobe","KICH",0
+"KN","Kidney Chromophobe","KICH",0
+"KO","Kidney Chromophobe","KICH",0
+"KP","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"KQ","Bladder Urothelial Carcinoma","BLCA",1
+"KR","Liver hepatocellular carcinoma","LIHC",1
+"KS","Thyroid carcinoma","THCA",1
+"KT","Brain Lower Grade Glioma","LGG",0
+"KU","Head and Neck squamous cell carcinoma","HNSC",1
+"KV","Kidney renal papillary cell carcinoma","KIRP",0
+"KZ","Stomach adenocarcinoma","STAD",1
+"L1","Pancreatic adenocarcinoma","PAAD",1
+"L3","Lung squamous cell carcinoma","LUSC",1
+"L4","Lung adenocarcinoma","LUAD",1
+"L5","Esophageal carcinoma","ESCA",1
+"L6","Thyroid carcinoma","THCA",1
+"L7","Esophageal carcinoma","ESCA",1
+"L8","Kidney renal papillary cell carcinoma","KIRP",0
+"L9","Lung adenocarcinoma","LUAD",1
+"LA","Lung squamous cell carcinoma","LUSC",1
+"LB","Pancreatic adenocarcinoma","PAAD",1
+"LC","Bladder Urothelial Carcinoma","BLCA",1
+"LD","Breast invasive carcinoma","BRCA",1
+"LG","Liver hepatocellular carcinoma","LIHC",1
+"LH","Skin Cutaneous Melanoma","SKCM",1
+"LI","Sarcoma","SARC",1
+"LK","Mesothelioma","MESO",1
+"LL","Breast invasive carcinoma","BRCA",1
+"LN","Esophageal carcinoma","ESCA",1
+"LP","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"LQ","Breast invasive carcinoma","BRCA",1
+"LS","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"LT","Bladder Urothelial Carcinoma","BLCA",1
+"M7","Prostate adenocarcinoma","PRAD",1
+"M8","Pancreatic adenocarcinoma","PAAD",1
+"M9","Esophageal carcinoma","ESCA",1
+"MA","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"MB","Sarcoma","SARC",1
+"ME","Lung adenocarcinoma","LUAD",1
+"MF","Lung squamous cell carcinoma","LUSC",1
+"MG","Prostate adenocarcinoma","PRAD",1
+"MH","Kidney renal papillary cell carcinoma","KIRP",0
+"MI","Liver hepatocellular carcinoma","LIHC",1
+"MJ","Sarcoma","SARC",1
+"MK","Thyroid carcinoma","THCA",1
+"ML","Lung squamous cell carcinoma","LUSC",1
+"MM","Kidney renal clear cell carcinoma","KIRC",1
+"MN","Lung adenocarcinoma","LUAD",1
+"MO","Sarcoma","SARC",1
+"MP","Lung adenocarcinoma","LUAD",1
+"MQ","Mesothelioma","MESO",1
+"MR","Liver hepatocellular carcinoma","LIHC",1
+"MS","Breast invasive carcinoma","BRCA",1
+"MT","Head and Neck squamous cell carcinoma","HNSC",1
+"MU","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"MV","Bladder Urothelial Carcinoma","BLCA",1
+"MW","Kidney renal clear cell carcinoma","KIRC",1
+"MX","Stomach adenocarcinoma","STAD",1
+"MY","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"MZ","Head and Neck squamous cell carcinoma","HNSC",1
+"N1","Sarcoma","SARC",1
+"N5","Uterine Carcinosarcoma","UCS",0
+"N6","Uterine Carcinosarcoma","UCS",0
+"N7","Uterine Carcinosarcoma","UCS",0
+"N8","Uterine Carcinosarcoma","UCS",0
+"N9","Uterine Carcinosarcoma","UCS",0
+NA,"Uterine Carcinosarcoma","UCS",0
+"NB","Lung adenocarcinoma","LUAD",1
+"NC","Lung squamous cell carcinoma","LUSC",1
+"ND","Uterine Carcinosarcoma","UCS",0
+"NF","Uterine Carcinosarcoma","UCS",0
+"NG","Uterine Carcinosarcoma","UCS",0
+"NH","Colon adenocarcinoma","COAD",1
+"NI","Liver hepatocellular carcinoma","LIHC",1
+"NJ","Lung adenocarcinoma","LUAD",1
+"NK","Lung squamous cell carcinoma","LUSC",1
+"NM","Head and Neck squamous cell carcinoma","HNSC",1
+"NP","Kidney Chromophobe","KICH",0
+"NQ","Mesothelioma","MESO",1
+"NS","Skin Cutaneous Melanoma","SKCM",1
+"O1","Lung adenocarcinoma","LUAD",1
+"O2","Lung squamous cell carcinoma","LUSC",1
+"O8","Liver hepatocellular carcinoma","LIHC",1
+"O9","Kidney renal papillary cell carcinoma","KIRP",0
+"OC","Lung squamous cell carcinoma","LUSC",1
+"OD","Skin Cutaneous Melanoma","SKCM",1
+"OE","Pancreatic adenocarcinoma","PAAD",1
+"OJ","Thyroid carcinoma","THCA",1
+"OK","Breast invasive carcinoma","BRCA",1
+"OL","Breast invasive carcinoma","BRCA",1
+"OR","Adrenocortical carcinoma","ACC",1
+"OU","Adrenocortical carcinoma","ACC",1
+"OW","Miscellaneous","Miscellaneous",0
+"OX","Glioblastoma multiforme","GBM",1
+"OY","Ovarian serous cystadenocarcinoma","OV",1
+"P3","Head and Neck squamous cell carcinoma","HNSC",1
+"P4","Kidney renal papillary cell carcinoma","KIRP",0
+"P5","Brain Lower Grade Glioma","LGG",0
+"P6","Adrenocortical carcinoma","ACC",1
+"P7","Pheochromocytoma and Paraganglioma","PCPG",0
+"P8","Pheochromocytoma and Paraganglioma","PCPG",0
+"P9","Pancreatic adenocarcinoma","PAAD",1
+"PA","Adrenocortical carcinoma","ACC",1
+"PB","Lymphoid Neoplasm Diffuse Large B-cell Lymphoma","DLBC",1
+"PC","Sarcoma","SARC",1
+"PD","Liver hepatocellular carcinoma","LIHC",1
+"PE","Breast invasive carcinoma","BRCA",1
+"PG","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"PH","Acute Myeloid Leukemia","AML",0
+"PJ","Kidney renal papillary cell carcinoma","KIRP",0
+"PK","Adrenocortical carcinoma","ACC",1
+"PL","Breast invasive carcinoma","BRCA",1
+"PN","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"PQ","Bladder Urothelial Carcinoma","BLCA",1
+"PR","Pheochromocytoma and Paraganglioma","PCPG",0
+"PT","Sarcoma","SARC",1
+"PZ","Pancreatic adenocarcinoma","PAAD",1
+"Q1","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"Q2","Kidney renal papillary cell carcinoma","KIRP",0
+"Q3","Pancreatic adenocarcinoma","PAAD",1
+"Q4","Acute Myeloid Leukemia","AML",0
+"Q9","Esophageal carcinoma","ESCA",1
+"QA","Liver hepatocellular carcinoma","LIHC",1
+"QB","Skin Cutaneous Melanoma","SKCM",1
+"QC","Sarcoma","SARC",1
+"QD","Thyroid carcinoma","THCA",1
+"QF","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"QG","Colon adenocarcinoma","COAD",1
+"QH","Brain Lower Grade Glioma","LGG",0
+"QJ","Ovarian serous cystadenocarcinoma","OV",1
+"QK","Head and Neck squamous cell carcinoma","HNSC",1
+"QL","Colon adenocarcinoma","COAD",1
+"QM","Uterine Carcinosarcoma","UCS",0
+"QN","Uterine Carcinosarcoma","UCS",0
+"QQ","Sarcoma","SARC",1
+"QR","Pheochromocytoma and Paraganglioma","PCPG",0
+"QS","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"QT","Pheochromocytoma and Paraganglioma","PCPG",0
+"QU","Prostate adenocarcinoma","PRAD",1
+"QV","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"QW","Stomach adenocarcinoma","STAD",1
+"R1","Colon adenocarcinoma","COAD",1
+"R2","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"R3","Bladder Urothelial Carcinoma","BLCA",1
+"R5","Stomach adenocarcinoma","STAD",1
+"R6","Esophageal carcinoma","ESCA",1
+"R7","Head and Neck squamous cell carcinoma","HNSC",1
+"R8","Brain Lower Grade Glioma","LGG",0
+"R9","Ovarian serous cystadenocarcinoma","OV",1
+"RA","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"RB","Pancreatic adenocarcinoma","PAAD",1
+"RC","Liver hepatocellular carcinoma","LIHC",1
+"RD","Stomach adenocarcinoma","STAD",1
+"RE","Esophageal carcinoma","ESCA",1
+"RG","Liver hepatocellular carcinoma","LIHC",1
+"RH","Head and Neck squamous cell carcinoma","HNSC",1
+"RL","Pancreatic adenocarcinoma","PAAD",1
+"RM","Pheochromocytoma and Paraganglioma","PCPG",0
+"RN","Sarcoma","SARC",1
+"RP","Skin Cutaneous Melanoma","SKCM",1
+"RQ","Lymphoid Neoplasm Diffuse Large B-cell Lymphoma","DLBC",1
+"RR","Glioblastoma multiforme","GBM",1
+"RS","Head and Neck squamous cell carcinoma","HNSC",1
+"RT","Pheochromocytoma and Paraganglioma","PCPG",0
+"RU","Colon adenocarcinoma","COAD",1
+"RV","Pancreatic adenocarcinoma","PAAD",1
+"RW","Pheochromocytoma and Paraganglioma","PCPG",0
+"RX","Pheochromocytoma and Paraganglioma","PCPG",0
+"RY","Brain Lower Grade Glioma","LGG",0
+"RZ","Uveal Melanoma","UVM",0
+"S2","Lung adenocarcinoma","LUAD",1
+"S3","Breast invasive carcinoma","BRCA",1
+"S4","Pancreatic adenocarcinoma","PAAD",1
+"S5","Bladder Urothelial Carcinoma","BLCA",1
+"S6","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"S7","Pheochromocytoma and Paraganglioma","PCPG",0
+"S8","Esophageal carcinoma","ESCA",1
+"S9","Brain Lower Grade Glioma","LGG",0
+"SA","Pheochromocytoma and Paraganglioma","PCPG",0
+"SB","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"SC","Mesothelioma","MESO",1
+"SD","Pancreatic adenocarcinoma","PAAD",1
+"SE","Pheochromocytoma and Paraganglioma","PCPG",0
+"SG","Sarcoma","SARC",1
+"SH","Mesothelioma","MESO",1
+"SI","Sarcoma","SARC",1
+"SJ","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"SK","Colon adenocarcinoma","COAD",1
+"SL","Uterine Corpus Endometrial Carcinoma","UCEC",1
+"SN","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"SO","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"SP","Pheochromocytoma and Paraganglioma","PCPG",0
+"SQ","Pheochromocytoma and Paraganglioma","PCPG",0
+"SR","Pheochromocytoma and Paraganglioma","PCPG",0
+"SS","Colon adenocarcinoma","COAD",1
+"ST","Head and Neck squamous cell carcinoma","HNSC",1
+"SU","Prostate adenocarcinoma","PRAD",1
+"SW","Stomach adenocarcinoma","STAD",1
+"SX","Kidney renal papillary cell carcinoma","KIRP",0
+"SY","Bladder Urothelial Carcinoma","BLCA",1
+"T1","Liver hepatocellular carcinoma","LIHC",1
+"T2","Head and Neck squamous cell carcinoma","HNSC",1
+"T3","Head and Neck squamous cell carcinoma","HNSC",1
+"T6","Lung adenocarcinoma","LUAD",1
+"T7","Kidney renal clear cell carcinoma","KIRC",1
+"T9","Colon adenocarcinoma","COAD",1
+"TE","Skin Cutaneous Melanoma","SKCM",1
+"TG","Head and Neck squamous cell carcinoma","HNSC",1
+"TK","Prostate adenocarcinoma","PRAD",1
+"TL","Stomach adenocarcinoma","STAD",1
+"TM","Brain Lower Grade Glioma","LGG",0
+"TN","Head and Neck squamous cell carcinoma","HNSC",1
+"TP","Prostate adenocarcinoma","PRAD",1
+"TQ","Brain Lower Grade Glioma","LGG",0
+"TR","Skin Cutaneous Melanoma","SKCM",1
+"TS","Mesothelioma","MESO",1
+"TT","Pheochromocytoma and Paraganglioma","PCPG",0
+"TV","Breast invasive carcinoma","BRCA",1
+"UB","Liver hepatocellular carcinoma","LIHC",1
+"UC","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"UD","Mesothelioma","MESO",1
+"UE","Sarcoma","SARC",1
+"UF","Head and Neck squamous cell carcinoma","HNSC",1
+"UJ","Lung squamous cell carcinoma","LUSC",1
+"UL","Breast invasive carcinoma","BRCA",1
+"UN","Kidney renal papillary cell carcinoma","KIRP",0
+"UP","Head and Neck squamous cell carcinoma","HNSC",1
+"UR","Prostate adenocarcinoma","PRAD",1
+"US","Pancreatic adenocarcinoma","PAAD",1
+"UT","Mesothelioma","MESO",1
+"UU","Breast invasive carcinoma","BRCA",1
+"UV","Liver hepatocellular carcinoma","LIHC",1
+"UW","Kidney Chromophobe","KICH",0
+"UY","Bladder Urothelial Carcinoma","BLCA",1
+"UZ","Kidney renal papillary cell carcinoma","KIRP",0
+"V1","Prostate adenocarcinoma","PRAD",1
+"V2","Prostate adenocarcinoma","PRAD",1
+"V3","Uveal Melanoma","UVM",0
+"V4","Uveal Melanoma","UVM",0
+"V5","Esophageal carcinoma","ESCA",1
+"V6","Stomach adenocarcinoma","STAD",1
+"V7","Breast invasive carcinoma","BRCA",1
+"V8","Kidney renal clear cell carcinoma","KIRC",1
+"V9","Kidney renal papillary cell carcinoma","KIRP",0
+"VA","Stomach adenocarcinoma","STAD",1
+"VB","Lymphoid Neoplasm Diffuse Large B-cell Lymphoma","DLBC",1
+"VD","Uveal Melanoma","UVM",0
+"VF","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"VG","Ovarian serous cystadenocarcinoma","OV",1
+"VK","Colon adenocarcinoma","COAD",1
+"VL","Rectum adenocarcinoma","READ",0
+"VM","Brain Lower Grade Glioma","LGG",0
+"VN","Prostate adenocarcinoma","PRAD",1
+"VP","Prostate adenocarcinoma","PRAD",1
+"VQ","Stomach adenocarcinoma","STAD",1
+"VR","Esophageal carcinoma","ESCA",1
+"VS","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"VT","Sarcoma","SARC",1
+"VV","Brain Lower Grade Glioma","LGG",0
+"VW","Brain Lower Grade Glioma","LGG",0
+"VX","Stomach adenocarcinoma","STAD",1
+"VZ","Pheochromocytoma and Paraganglioma","PCPG",0
+"W2","Pheochromocytoma and Paraganglioma","PCPG",0
+"W3","Skin Cutaneous Melanoma","SKCM",1
+"W4","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"W5","Cholangiocarcinoma","Cholangiocarcinoma",1
+"W6","Cholangiocarcinoma","Cholangiocarcinoma",1
+"W7","Cholangiocarcinoma","Cholangiocarcinoma",1
+"W8","Breast invasive carcinoma","BRCA",1
+"W9","Brain Lower Grade Glioma","LGG",0
+"WA","Head and Neck squamous cell carcinoma","HNSC",1
+"WB","Pheochromocytoma and Paraganglioma","PCPG",0
+"WC","Uveal Melanoma","UVM",0
+"WD","Cholangiocarcinoma","Cholangiocarcinoma",1
+"WE","Skin Cutaneous Melanoma","SKCM",1
+"WF","Pancreatic adenocarcinoma","PAAD",1
+"WG","Lung squamous cell carcinoma","LUSC",1
+"WH","Brain Lower Grade Glioma","LGG",0
+"WJ","Liver hepatocellular carcinoma","LIHC",1
+"WK","Sarcoma","SARC",1
+"WL","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"WM","Kidney renal clear cell carcinoma","KIRC",1
+"WN","Kidney renal papillary cell carcinoma","KIRP",0
+"WP","Sarcoma","SARC",1
+"WQ","Liver hepatocellular carcinoma","LIHC",1
+"WR","Ovarian serous cystadenocarcinoma","OV",1
+"WS","Colon adenocarcinoma","COAD",1
+"WT","Breast invasive carcinoma","BRCA",1
+"WU","Colon adenocarcinoma","COAD",1
+"WW","Prostate adenocarcinoma","PRAD",1
+"WX","Liver hepatocellular carcinoma","LIHC",1
+"WY","Brain Lower Grade Glioma","LGG",0
+"WZ","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"X2","Sarcoma","SARC",1
+"X3","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"X4","Prostate adenocarcinoma","PRAD",1
+"X5","Bladder Urothelial Carcinoma","BLCA",1
+"X6","Sarcoma","SARC",1
+"X7","Thymoma","THYM",0
+"X8","Esophageal carcinoma","ESCA",1
+"X9","Sarcoma","SARC",1
+"XA","Prostate adenocarcinoma","PRAD",1
+"XB","Esophageal carcinoma","ESCA",1
+"XC","Lung squamous cell carcinoma","LUSC",1
+"XD","Pancreatic adenocarcinoma","PAAD",1
+"XE","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"XF","Bladder Urothelial Carcinoma","BLCA",1
+"XG","Pheochromocytoma and Paraganglioma","PCPG",0
+"XH","Thymoma","THYM",0
+"XJ","Prostate adenocarcinoma","PRAD",1
+"XK","Prostate adenocarcinoma","PRAD",1
+"XM","Thymoma","THYM",0
+"XN","Pancreatic adenocarcinoma","PAAD",1
+"XP","Esophageal carcinoma","ESCA",1
+"XQ","Prostate adenocarcinoma","PRAD",1
+"XR","Liver hepatocellular carcinoma","LIHC",1
+"XS","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"XT","Mesothelioma","MESO",1
+"XU","Thymoma","THYM",0
+"XV","Skin Cutaneous Melanoma","SKCM",1
+"XX","Breast invasive carcinoma","BRCA",1
+"XY","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"Y3","Acute Myeloid Leukemia","AML",0
+"Y5","Sarcoma","SARC",1
+"Y6","Prostate adenocarcinoma","PRAD",1
+"Y8","Kidney renal papillary cell carcinoma","KIRP",0
+"YA","Liver hepatocellular carcinoma","LIHC",1
+"YB","Pancreatic adenocarcinoma","PAAD",1
+"YC","Bladder Urothelial Carcinoma","BLCA",1
+"YD","Skin Cutaneous Melanoma","SKCM",1
+"YF","Bladder Urothelial Carcinoma","BLCA",1
+"YG","Skin Cutaneous Melanoma","SKCM",1
+"YH","Pancreatic adenocarcinoma","PAAD",1
+"YJ","Prostate adenocarcinoma","PRAD",1
+"YL","Prostate adenocarcinoma","PRAD",1
+"YN","Skin Cutaneous Melanoma","SKCM",1
+"YR","Cholangiocarcinoma","Cholangiocarcinoma",1
+"YS","Mesothelioma","MESO",1
+"YT","Thymoma","THYM",0
+"YU","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"YV","Uveal Melanoma","UVM",0
+"YW","Sarcoma","SARC",1
+"YX","Stomach adenocarcinoma","STAD",1
+"YY","Pancreatic adenocarcinoma","PAAD",1
+"YZ","Uveal Melanoma","UVM",0
+"Z2","Skin Cutaneous Melanoma","SKCM",1
+"Z3","Sarcoma","SARC",1
+"Z4","Sarcoma","SARC",1
+"Z5","Pancreatic adenocarcinoma","PAAD",1
+"Z6","Esophageal carcinoma","ESCA",1
+"Z7","Breast invasive carcinoma","BRCA",1
+"Z8","Pancreatic adenocarcinoma","PAAD",1
+"ZA","Stomach adenocarcinoma","STAD",1
+"ZB","Thymoma","THYM",0
+"ZC","Thymoma","THYM",0
+"ZD","Cholangiocarcinoma","Cholangiocarcinoma",1
+"ZE","Lung squamous cell carcinoma","LUSC",1
+"ZF","Bladder Urothelial Carcinoma","BLCA",1
+"ZG","Prostate adenocarcinoma","PRAD",1
+"ZH","Cholangiocarcinoma","Cholangiocarcinoma",1
+"ZJ","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1
+"ZK","Cholangiocarcinoma","Cholangiocarcinoma",1
+"ZL","Thymoma","THYM",0
+"ZM","Testicular Germ Cell Tumors","Testicular Germ Cell Tumor",1
+"ZN","Mesothelioma","MESO",1
+"ZP","Liver hepatocellular carcinoma","LIHC",1
+"ZQ","Stomach adenocarcinoma","STAD",1
+"ZR","Esophageal carcinoma","ESCA",1
+"ZS","Liver hepatocellular carcinoma","LIHC",1
+"ZT","Thymoma","THYM",0
+"ZU","Cholangiocarcinoma","Cholangiocarcinoma",1
+"ZW","Pancreatic adenocarcinoma","PAAD",1
+"ZX","Cervical squamous cell carcinoma and endocervical adenocarcinoma","CESC",1

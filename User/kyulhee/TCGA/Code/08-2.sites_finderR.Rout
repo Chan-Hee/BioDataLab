@@ -1,0 +1,64 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #setwd("C:\\test\\sam")
+> setwd("/home/tjahn/GDC_Data/GeneExpression/Gene_txt_sum/Final")
+> sites <- read.csv("/home/tjahn/Git2/User/kyulhee/TCGA/Sites.csv", header = TRUE)
+> #sites <- read.csv("C:\\test\\Sites.csv", header = TRUE)
+> 
+> forms <- c("FPKM-UQ", "FPKM", "htseq")
+> #csv_files <- paste0("Final_TCGA_gene_expression_", forms, "_4964.csv")
+> csv_files <- paste0("Final_TCGA_gene_expression_", forms, ".csv")
+> #csv_files <- paste0("Final_TCGA_gene_expression_", forms, "_4964_ch_reduced_final.csv")
+> print("csv file reads.")
+[1] "csv file reads."
+> 
+> for(i in csv_files){
++   csv_file <- read.csv(i, header = TRUE)
++   csv_file$file_name <- as.character(csv_file$file_name)
++   sites$samples <- as.character(sites$samples)
++   print("type finding starts.")
++   types <- NULL
++   for(j in 1:length(csv_file$file_name)){
++     types <- c(types, as.character(sites[sites[,1] == csv_file[j,1],2]))
++   }
++   print("type finding done.")
++   with_type <- cbind(csv_file, types)
++   print("csv file modified.")
++   file_name <- paste0("wt_type_",i)
++   write.csv(with_type, file_name, row.names = FALSE)
++   print("********************csv file written.")
++ }
+[1] "type finding starts."
+[1] "type finding done."
+[1] "csv file modified."
+[1] "********************csv file written."
+[1] "type finding starts."
+[1] "type finding done."
+[1] "csv file modified."
+[1] "********************csv file written."
+[1] "type finding starts."
+[1] "type finding done."
+[1] "csv file modified."
+[1] "********************csv file written."
+> 
+> 
+> proc.time()
+    user   system  elapsed 
+1417.632   16.224 1439.255 
