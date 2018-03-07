@@ -25,10 +25,19 @@ Type 'q()' to quit R.
 > 
 > #################################################### Main ##################################################
 > #setwd("/home/tjahn/Data/")
-> df<-read.csv("/home/tjahn/Data/inter_wt_cancer_code_Final_TCGA_gene_expression_FPKM_4964.csv")
-Error in file(file, "rt") : cannot open the connection
-Calls: read.csv -> read.table -> file
-In addition: Warning message:
-In file(file, "rt") :
-  cannot open file '/home/tjahn/Data/inter_wt_cancer_code_Final_TCGA_gene_expression_FPKM_4964.csv': No such file or directory
+> df<-read.csv("/home/tjahn/Data/01.4964/inter_wt_cancer_code_Final_TCGA_gene_expression_FPKM_4964.csv")
+> names(df) <- gsub(".", "-", names(df), fixed = TRUE)
+> genes <- df[,2:(ncol(df)-3)]
+> patients <- df$patients
+> result <- df$result
+> cancer_code <- df$cancer_code
+> index <- df$index
+> 
+> VAR <- GetVar(genes)
+> genes <- rbind(genes,VAR)
+> genes <- genes[,rev(order(genes[nrow(genes),]))]
+> genes <- genes[-nrow(genes),1:2500]
+> df_ch <- data.frame(patients, genes, result, cancer_code, index)
+Error in data.frame(patients, genes, result, cancer_code, index) : 
+  arguments imply differing number of rows: 0, 8554
 Execution halted
