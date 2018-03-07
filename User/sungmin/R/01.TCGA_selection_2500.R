@@ -6,7 +6,7 @@ GetVar<-function(genes){
 
 #################################################### Main ##################################################
 #setwd("/home/tjahn/Data/")
-df<-read.csv("/home/tjahn/Data/inter_wt_cancer_code_Final_TCGA_gene_expression_FPKM_4964.csv")
+df<-read.csv("/home/tjahn/Data/01.4964/inter_wt_cancer_code_Final_TCGA_gene_expression_FPKM_4964.csv")
 names(df) <- gsub(".", "-", names(df), fixed = TRUE)
 genes <- df[,2:(ncol(df)-3)]
 patients <- df$patient
@@ -24,7 +24,7 @@ write.csv(df_ch, "/home/tjahn/Data/sungminTCGAtoGEO_2500/inter_wt_cancer_code_Fi
 write.csv(names(genes), "/home/tjahn/Data/sungminTCGAtoGEO_2500/TCGA_FPKM_2500_names.csv", row.names=FALSE)
 
 #################
-df<-read.csv("/home/tjahn/Data/inter_wt_cancer_code_Final_TCGA_gene_expression_FPKM-UQ_4964.csv")
+df<-read.csv("/home/tjahn/Data/01.4964/inter_wt_cancer_code_Final_TCGA_gene_expression_FPKM-UQ_4964.csv")
 names(df) <- gsub(".", "-", names(df), fixed = TRUE)
 genes <- df[,2:(ncol(df)-3)]
 patients <- df$patient
@@ -41,7 +41,7 @@ df_ch <- cbind(patient, genes, result, cancer_code, index)
 write.csv(df_ch, "/home/tjahn/Data/sungminTCGAtoGEO_2500/inter_wt_cancer_code_Final_TCGA_gene_expression_FPKM-UQ_2500.csv", row.names=FALSE)
 write.csv(names(genes), "/home/tjahn/Data/sungminTCGAtoGEO_2500/TCGA_FPKM-UQ_2500_names.csv", row.names=FALSE)
 ###############
-df<-read.csv("/home/tjahn/Data/inter_wt_cancer_code_Final_TCGA_gene_expression_htseq_4964.csv")
+df<-read.csv("/home/tjahn/Data/01.4964/inter_wt_cancer_code_Final_TCGA_gene_expression_htseq_4964.csv")
 names(df) <- gsub(".", "-", names(df), fixed = TRUE)
 genes <- df[,2:(ncol(df)-3)]
 patients <- df$patient

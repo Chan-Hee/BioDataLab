@@ -1,0 +1,34 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #################################################### VarianceTest ##########################################
+> GetVar<-function(genes){
++   VAR<-apply(genes,2,sd)
++   return(VAR)
++ }
+> 
+> #################################################### Main ##################################################
+> #setwd("/home/tjahn/Data/")
+> df<-read.csv("/home/tjahn/Data/inter_wt_cancer_code_Final_TCGA_gene_expression_FPKM_4964.csv")
+Error in file(file, "rt") : cannot open the connection
+Calls: read.csv -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file '/home/tjahn/Data/inter_wt_cancer_code_Final_TCGA_gene_expression_FPKM_4964.csv': No such file or directory
+Execution halted
