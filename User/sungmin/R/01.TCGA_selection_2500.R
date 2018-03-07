@@ -56,5 +56,9 @@ genes <- genes[-nrow(genes),1:2500]
 df_ch <- cbind(patients, genes, result, cancer_code, index)
 
 write.csv(df_ch, "/home/tjahn/Data/sungminTCGAtoGEO_2500/inter_wt_cancer_code_Final_TCGA_gene_expression_htseq_2500.csv", row.names=FALSE)
+<<<<<<< HEAD
 write.csv(names(genes), "/home/tjahn/Data/sungminTCGAtoGEO_2500/TCGA_htseq_2500_names.csv", row.names=FALSE)
+=======
+write.csv(names(genes), "/home/tjahn/Data/sungminTCGAtoGEO_2500/TCGA_htseq_2500_names", row.names=FALSE)
+>>>>>>> cb5a7b1e61f852d03dd59350fb0af83c7a7e6a99
 
