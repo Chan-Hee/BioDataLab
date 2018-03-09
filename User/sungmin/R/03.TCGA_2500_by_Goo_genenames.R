@@ -4,7 +4,7 @@ forms <- c("FPKM-UQ","FPKM","htseq")
 #output<- "/home/tjahn/Data/sungminTCGAtoGEO_2500/"
 for(form in forms){
   
-  df<-read.csv(paste("/home/tjahn/GDC_Data/GeneExpression/Gene_txt_sum/Final/01.merge/Final_TCGA_gene_expression_",form,".csv"), header=TRUE)
+  df<-read.csv(paste0("/home/tjahn/GDC_Data/GeneExpression/Gene_txt_sum/Final/01.merge/Final_TCGA_gene_expression_",form,".csv"), header=TRUE)
   names(df) <- gsub(".", "-", names(df), fixed = TRUE)
   print(paste0("large table : ", form, " reads."))
   
@@ -23,7 +23,7 @@ for(form in forms){
   result <- df$result
   cancer_code <- df$cancer_code
   index <- df$index
-  genes <- subset(genes, select = TCGA_2500)
+  genes <- subset(genes, select = gene_2500)
   df_ch <- cbind(patients, genes, result, cancer_code, index)
   print("df modified.")
   
