@@ -19,7 +19,7 @@ for(form in forms){
   gene_2500 <-  gsub(".", "-", gene_2500, fixed = TRUE)
   
   genes <- df[,2:(ncol(df)-3)]
-  patients <- df$patient
+  patients <- df$file_name
   result <- df$result
   cancer_code <- df$cancer_code
   index <- df$index
