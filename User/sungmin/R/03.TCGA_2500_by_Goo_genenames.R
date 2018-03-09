@@ -4,7 +4,7 @@ forms <- c("FPKM-UQ","FPKM","htseq")
 #output<- "/home/tjahn/Data/sungminTCGAtoGEO_2500/"
 for(form in forms){
   
-  df<-read.csv(paste0("/home/tjahn/GDC_Data/GeneExpression/Gene_txt_sum/Final/01.merge/Final_TCGA_gene_expression_",form,".csv"), header=TRUE)
+  df<-read.csv(paste0("/home/tjahn/GDC_Data/GeneExpression/Gene_txt_sum/Final/Final_TCGA_gene_expression_",form,".csv"), header=TRUE)
   names(df) <- gsub(".", "-", names(df), fixed = TRUE)
   print(paste0("large table : ", form, " reads."))
   
