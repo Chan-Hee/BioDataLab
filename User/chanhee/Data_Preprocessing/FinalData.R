@@ -95,8 +95,8 @@ Toy1000<-cbind(temp1,temp2)
 print("Data Preprocessed; row(genes), col(patients +4)")
 print("remove duplicated genes, no name genes, log2 scale, normalize, round to digit 3")
 print(dim(Toy1000))
-Toy1000<-Toy1000[rev(order(Toy1000$VAR)),]
-Toy1000<-Toy1000[1:6000,]
+#Toy1000<-Toy1000[rev(order(Toy1000$VAR)),]
+#Toy1000<-Toy1000[1:6000,]
 
 
 r_name<-as.character(Toy1000[,2])
@@ -109,6 +109,13 @@ data$index<-sample(1:5,dim(data)[1],replace = TRUE)
 data$result<-CancerResult[,2]
 data<-data[substr(row.names(data),1,3)=="GSM",]
 
+## Add cancer code ##
+CancerCode<-read.csv("/home/tjahn/Git/User/chanhee/GPL570_sampleinfo.txt",sep = "\t")
+#CancerCode<-read.csv("/Users/chanhee/Desktop/BioDataLab/User/chanhee/GPL570_sampleinfo.txt",sep = "\t")
+row.names(CancerCode) = CancerCode$GSM_ID
+GSM<-row.names(data)
+CancerCode<-CancerCode[GSM,]
+data$CancerCode<-CancerCode$CANCER_CODE
 
 
 print("Cancer Result ratio")
@@ -117,5 +124,6 @@ print("Number of Data;after feature selection;row(patients),col(gene+index+resul
 print(dim(data))
 
 
-write.csv(data,"FinalData_GSM_gene_index_result.csv",row.names = TRUE)
+#write.csv(data,"FinalData_GSM_gene_index_result.csv",row.names = TRUE)
+write.csv(data,"/home/tjahn/Data/GEO_with_20000_gene.csv",row.names = TRUE)
 
