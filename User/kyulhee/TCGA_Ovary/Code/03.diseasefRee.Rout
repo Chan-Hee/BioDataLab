@@ -1,0 +1,45 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> setwd("/home/tjahn/GDC_Data/TCGA-High-grade_serous_ovarian_cancer/")
+> df <- read.csv("TCGA_genes_Ovary_FPKM.csv", header=TRUE)
+> ref <- read.csv("TCGA_disease_free.csv", header = TRUE)
+> 
+> d_free = NULL
+> 
+> for(i in df$patient_id){
++   
++   ele = ref[which(ref$track_name==i),]
++   if(is.null(ele)){
++     ele = c(i,"NOT_FINDED")
++   }
++   
++   if(is.null(d_free)){
++     d_free=ele
++     start=1
++   }else{
++     d_free <- rbind(d_free, ele)
++   }
++ }
+> 
+> write.csv(d_free, "patient-d_free.csv", row.names = FALSE)
+> 
+> proc.time()
+   user  system elapsed 
+ 39.632   0.404  40.033 

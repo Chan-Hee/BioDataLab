@@ -1,0 +1,47 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #################################################### VarianceTest ##########################################
+> GetVar<-function(genes){
++   VAR<-apply(genes,2,sd)
++   return(VAR)
++ }
+> 
+> #################################################### Main ##################################################
+> setwd("/home/tjahn/Data/01.4964")
+> df<-read.csv("inter_wt_cancer_code_FinalData_GSM_gene_index_result_without_rare_cancer_4964.csv")
+> names(df) <- gsub(".", "-", names(df), fixed = TRUE)
+> genes <- df[,2:(ncol(df)-3)]
+> patients <- df$patients
+> result <- df$result
+> cancer_code <- df$cancer_code
+> index <- df$index
+> 
+> VAR <- GetVar(genes)
+> genes <- rbind(genes,VAR)
+> genes <- genes[,rev(order(genes[nrow(genes),]))]
+> genes <- genes[-nrow(genes),1:2500]
+> df_ch <- cbind(patients, genes, result, cancer_code, index)
+> 
+> write.csv(df_ch, "inter_wt_cancer_code_FinalData_GSM_gene_index_result_without_rare_cancer_2500.csv", row.names=FALSE)
+> write.csv(names(genes), "GEO_2500_names.csv", row.names=FALSE)
+> 
+> proc.time()
+   user  system elapsed 
+ 20.576   0.476  21.152 
