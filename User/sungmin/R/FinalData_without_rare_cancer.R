@@ -1,4 +1,4 @@
-getwd()
+#getwd()
 
 Before_data <- read.csv("C:/Users/bibs-student/Desktop/¼º¹Î_DNN/FinalData_GSM_gene_index_result.csv",header = T, sep = ",",row.names = 1)
 Before_data <- Before_data[,-which(names(Before_data)%in%"index")]
@@ -15,8 +15,8 @@ freq_cancer <- count_cancer$Var1
 
 
 After_data <- Before_data[which(Before_data$cancer_code %in% freq_cancer),]
-dim(After_data)
-dim(Before_data)
+#dim(After_data)
+#dim(Before_data)
 
 count = nrow(After_data)/5
 count = as.integer(count)
