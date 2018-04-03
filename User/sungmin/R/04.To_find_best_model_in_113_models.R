@@ -1,7 +1,7 @@
 
 for (i in 0:4){
-  paste0(Data_,i) = read.csv(paste0("/home/tjahn/FINALMODEL/BioDataLab_ML/prediction_output/prediction_output",i,"_data.csv"),sep = ",",header = T)
-  df = read.csv(paste0("D:/biodatalab/2018-1/prediction_output_each_GEO_in_each_model/prediction_output",i,"_data.csv"),sep = ",",header = T)
+  
+  df = read.csv(paste0("/home/tjahn/FINALMODEL/BioDataLab_ML/prediction_output/prediction_output",i,"_data.csv"),sep = ",",header = T)
   #df_prediction = round(subset(df,select = -c(1:3)),0)
   df = cbind(df[,2:3],round(subset(df,select = -c(1:3)),0))
   object = nrow(df)
