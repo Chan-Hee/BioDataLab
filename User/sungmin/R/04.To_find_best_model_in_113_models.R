@@ -19,3 +19,4 @@ for (i in 0:4){
   
 }
 
+#df = read.csv(paste0("D:/biodatalab/2018-1/prediction_output_each_GEO_in_each_model/prediction_output",i,"_data.csv"),sep = ",",header = T)
