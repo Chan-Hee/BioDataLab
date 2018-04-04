@@ -10,6 +10,8 @@ for (i in 0:4){
     for(k in 1:nrow(df)){
       if(df[k,j] == df[k,df$result]){
         correct = correct + 1
+      }else{
+        correct = correct + 0
       }
     }
     df[(nrow(df)+1),j] = nrow(df)/correct
@@ -20,3 +22,4 @@ for (i in 0:4){
 }
 
 #df = read.csv(paste0("D:/biodatalab/2018-1/prediction_output_each_GEO_in_each_model/prediction_output",i,"_data.csv"),sep = ",",header = T)
+
