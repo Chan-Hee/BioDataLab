@@ -5,7 +5,7 @@ colnames(Output) <- c("File","BestModel","Accuracy")
 for(i in 0:4){
   df <- read.csv(paste0("/home/tjahn/Data/prediction_find_best_model/prediction_",i,".csv"))
   object <- nrow(df)
-  df <- subset(df, select = -c("result","X","patient"))
+  df <- df[,4:object]
   df <- as.data.frame(t(df))
   max_Accuracy <- max(df[,object])
   max_row_num <- which.max(df[,object])
