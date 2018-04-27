@@ -20,7 +20,7 @@ model_0$ensemble_name <-rep("correlation & mean 0.2",120)
 model_1$ensemble_name <-rep("top 2500 variance ",120)
 model_2$ensemble_name <-rep("top 2500 diff",120)
 model_3$ensemble_name <-rep("Foundation medicine(265)",120)
-model_4$ensemble_name <-rep("Foundation dedicine(2267)",120)
+model_4$ensemble_name <-rep("Foundation medicine(2267)",120)
 
 gene <- data.frame()
 gene <- rbind(gene,model_0)
@@ -30,7 +30,7 @@ gene <- rbind(gene,model_3)
 gene <- rbind(gene,model_4)
 gene<-gene[,2:5]
 data<-gather(gene,key ="Data_Set" ,value="Accuracy",c("train","val","test"))
-data$ensemble_name<-factor(data$ensemble_name,levels = c("correlation & mean 0.2","top 2500 variance ","top 2500 diff","Foundation medicine(265)","Foundation dedicine(2267)"
+data$ensemble_name<-factor(data$ensemble_name,levels = c("correlation & mean 0.2","top 2500 variance ","top 2500 diff","Foundation medicine(265)","Foundation medicine(2267)"
 ))
 data$Data_Set<-factor(data$Data_Set,levels = c("train","val","test"))
 ggplot(data,aes(x=ensemble_name,y=Accuracy))+
@@ -43,5 +43,6 @@ ggplot(data,aes(x=ensemble_name,y=Accuracy))+
         legend.text = element_text(size = 10),
         axis.title.y = element_text(size = 15),
         axis.title.x = element_blank(), 
-        axis.text.x = element_text(angle = 0,hjust=1,size = 7))+
+        axis.text.x = element_text(angle = 0,hjust=0.7,size = 7))+
   scale_y_continuous(limits=c(0.93,1),oob = rescale_none)
+
