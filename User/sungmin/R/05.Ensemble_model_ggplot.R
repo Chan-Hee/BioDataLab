@@ -16,11 +16,11 @@ for(i in c("0","1","2","3","4")){
   assign(paste0("model_",i),read.csv(paste0("D:/biodatalab/2018-1/ensemble_model/",i,"_data_accuracy.csv"),header = T,sep = ","))
   #assign(paste0("model_",i,"$ensemble_name"),rep(i,120))
 }
-model_0$ensemble_name <-rep(0,120)
-model_1$ensemble_name <-rep(1,120)
-model_2$ensemble_name <-rep(2,120)
-model_3$ensemble_name <-rep(3,120)
-model_4$ensemble_name <-rep(4,120)
+model_0$ensemble_name <-rep("correlation & mean 0.2",120)
+model_1$ensemble_name <-rep("top 2500 variance ",120)
+model_2$ensemble_name <-rep("top 2500 diff",120)
+model_3$ensemble_name <-rep("Foundation medicine(265)",120)
+model_4$ensemble_name <-rep("Foundation dedicine(2267)",120)
 
 gene <- data.frame()
 gene <- rbind(gene,model_0)
@@ -30,7 +30,8 @@ gene <- rbind(gene,model_3)
 gene <- rbind(gene,model_4)
 gene<-gene[,2:5]
 data<-gather(gene,key ="Data_Set" ,value="Accuracy",c("train","val","test"))
-data$ensemble_name<-as.factor(data$ensemble_name)
+data$ensemble_name<-factor(data$ensemble_name,levels = c("correlation & mean 0.2","top 2500 variance ","top 2500 diff","Foundation medicine(265)","Foundation dedicine(2267)"
+))
 data$Data_Set<-factor(data$Data_Set,levels = c("train","val","test"))
 ggplot(data,aes(x=ensemble_name,y=Accuracy))+
   geom_boxplot(aes(fill=Data_Set))+
@@ -40,6 +41,7 @@ ggplot(data,aes(x=ensemble_name,y=Accuracy))+
         axis.text = element_text(size=10),
         legend.title = element_blank(),
         legend.text = element_text(size = 10),
-        axis.title = element_text(size = 15),
+        axis.title.y = element_text(size = 15),
+        axis.title.x = element_blank(), 
         axis.text.x = element_text(angle = 0,hjust=1,size = 7))+
   scale_y_continuous(limits=c(0.93,1),oob = rescale_none)
